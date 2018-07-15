@@ -29,7 +29,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#00ffcc,#66ccff);
     }
   </style>
   
@@ -45,7 +45,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #000020">
+<div class="overlay" style="background: #66ccff">
     
 </div>
 <div class="intrude-less">
@@ -64,6 +64,8 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/OI/">OI</a></li>
 	        
 			</ul>
 		</nav>
@@ -104,7 +106,7 @@
       </div>
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #000020"></div>
+  	<div class="overlay js-overlay" style="background: #66ccff"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -120,6 +122,8 @@
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>给题目以数据，而不是给数据以题目。<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
 			
 				
 			
@@ -141,7 +145,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/OI/">OI</a></li>
 		        
 				</ul>
 			</nav>
@@ -216,6 +222,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NOIP2017</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -225,6 +235,109 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/NOIP2017游记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-题解-LGR-049-T2-River Jumping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/题解-LGR-049-T2-River Jumping/">题解 LGR-049 T2 River Jumping</a>
+    </h1>
+  
+
+        
+        <a href="/2018/题解-LGR-049-T2-River Jumping/" class="archive-article-date">
+  	<time datetime="2018-07-15T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当时看了半天觉得十分不可做，然后看到排行榜里面一群人AC了T2，就准备乱写一个。</p>
+<p>写了一半觉得有问题，又没有写了。</p>
+<p>之后发现后面的题目更加不可做，把这个程序补完了，WA了一遍之后莫名其妙就A了。</p>
+<p>下面进入正文：</p>
+<p>题目链接：<a href="https://www.luogu.org/problemnew/show/P4753" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P4753</a></p>
+<p>题目大意：数轴上有$m+2$个点，坐标分别为$0,w_1,w_2,…,w_m,n$，<br>要求把这些点分成2份，使得每一份里面任意两点距离不小于$s$，$0$与$n+1$算2次。</p>
+<p>当时第一反应：一跳到对岸，再一跳会来，不就不重复了吗？</p>
+<p>然后突然发现要求每个点都恰好一次。</p>
+<p>然后瞬间蒙了……</p>
+<p>然后开始乱打一波：</p>
+<p>首先，为了让每个点都恰好经过一次，去时没有跳到的点返回时必须跳。</p>
+<p>由于小D跳跃长度没有限制，所以回来时的石头必须尽可能稀疏。<br>那么去的时候石头需要尽可能密集。</p>
+        
+          <a class="article-more-a" href="/2018/题解-LGR-049-T2-River Jumping/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">洛谷月赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/题解-LGR-049-T2-River Jumping/">展开全文 >></a>
         </p>
       
 
@@ -328,85 +441,9 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bzoj</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于最短路的一些思考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/关于最短路的一些思考/">关于最短路的一些思考</a>
-    </h1>
-  
-
-        
-        <a href="/2018/关于最短路的一些思考/" class="archive-article-date">
-  	<time datetime="2018-06-12T09:41:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近学了一下SPFA，感觉对最短路算法又有了一些感悟。</p>
-<h2 id="深搜与广搜"><a href="#深搜与广搜" class="headerlink" title="深搜与广搜"></a>深搜与广搜</h2><p>深搜与广搜应该是众多OIers初学时解决方格内“最短路”的算法。</p>
-<p>当时我不会广搜（其实现在也不太熟悉），深搜的剪枝倒是做得炉火纯青。</p>
-<p>一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法AC了NOIP2017PJT3。</p>
-<h2 id="迪杰斯特拉"><a href="#迪杰斯特拉" class="headerlink" title="迪杰斯特拉"></a>迪杰斯特拉</h2><p>迪杰斯特拉是我学到的第一个单源最短路算法。感觉没啥好说的。</p>
-<h2 id="贝尔曼福特与SPFA"><a href="#贝尔曼福特与SPFA" class="headerlink" title="贝尔曼福特与SPFA"></a>贝尔曼福特与SPFA</h2><p>前几天用SPFA AC了单源最短路的板，然后又心血来潮搜了一下贝尔曼福特<del>，发现了一些不得了的事情</del>。</p>
-<h2 id="text-方格图中广搜≈SPFA"><a href="#text-方格图中广搜≈SPFA" class="headerlink" title="$\text{方格图中广搜≈SPFA}$"></a><strong>$\text{方格图中广搜≈SPFA}$</strong></h2><h2 id="text-每个格子都记录一个最优距离的深搜≈深搜版SPFA"><a href="#text-每个格子都记录一个最优距离的深搜≈深搜版SPFA" class="headerlink" title="$\text{每个格子都记录一个最优距离的深搜≈深搜版SPFA}$"></a><strong>$\text{每个格子都记录一个最优距离的深搜≈深搜版SPFA}$</strong></h2><p><del>完了</del></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最短路</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		
 		</ul>
@@ -416,7 +453,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/关于最短路的一些思考/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">展开全文 >></a>
         </p>
       
 
@@ -613,6 +650,18 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">玄学算法</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OI</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -664,6 +713,10 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="https://www.luogu.org" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>洛谷</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.luogu.org/space/show?uid=54900" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>U54900 Harryheqg</a>
             </li>
           
         </ul>

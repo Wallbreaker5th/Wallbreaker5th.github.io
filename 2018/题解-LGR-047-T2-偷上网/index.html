@@ -9,7 +9,7 @@
   <title>题解 LGR-047 T2 偷上网 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这道题当时居然因为某些细节没有AC，之后看到错因才发现问题orz。 听说标算是先判断n=1，只有n=1并且四个顶点都被覆盖才可能GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。 下面进入正文： 题目链接： https://www.luogu.org/problemnew/show/T29693 题目大意：在一个l*l的正方形里有n个半径为l/n的圆， 求一个不在任何一个圆里面的点。 看到">
-<meta name="keywords" content="题解,洛谷月赛,玄学算法">
+<meta name="keywords" content="题解,洛谷月赛,玄学算法,OI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题解 LGR-047 T2 偷上网">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2018/题解-LGR-047-T2-偷上网/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="这道题当时居然因为某些细节没有AC，之后看到错因才发现问题orz。 听说标算是先判断n=1，只有n=1并且四个顶点都被覆盖才可能GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。 下面进入正文： 题目链接： https://www.luogu.org/problemnew/show/T29693 题目大意：在一个l*l的正方形里有n个半径为l/n的圆， 求一个不在任何一个圆里面的点。 看到">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0000.PNG">
-<meta property="og:updated_time" content="2018-06-19T11:02:33.734Z">
+<meta property="og:updated_time" content="2018-07-15T05:43:27.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="题解 LGR-047 T2 偷上网">
 <meta name="twitter:description" content="这道题当时居然因为某些细节没有AC，之后看到错因才发现问题orz。 听说标算是先判断n=1，只有n=1并且四个顶点都被覆盖才可能GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。 下面进入正文： 题目链接： https://www.luogu.org/problemnew/show/T29693 题目大意：在一个l*l的正方形里有n个半径为l/n的圆， 求一个不在任何一个圆里面的点。 看到">
@@ -32,7 +32,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#00ffcc,#66ccff);
     }
   </style>
   
@@ -48,7 +48,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #000020">
+<div class="overlay" style="background: #66ccff">
     
 </div>
 <div class="intrude-less">
@@ -67,6 +67,8 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/OI/">OI</a></li>
 	        
 			</ul>
 		</nav>
@@ -107,7 +109,7 @@
       </div>
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #000020"></div>
+  	<div class="overlay js-overlay" style="background: #66ccff"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -123,6 +125,8 @@
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>给题目以数据，而不是给数据以题目。<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
 			
 				
 			
@@ -144,7 +148,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/OI/">OI</a></li>
 		        
 				</ul>
 			</nav>
@@ -223,6 +229,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">玄学算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		
 		</ul>
@@ -500,6 +510,18 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">玄学算法</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OI</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -551,6 +573,10 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="https://www.luogu.org" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>洛谷</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.luogu.org/space/show?uid=54900" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>U54900 Harryheqg</a>
             </li>
           
         </ul>

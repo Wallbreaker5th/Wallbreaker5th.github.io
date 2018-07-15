@@ -9,14 +9,14 @@
   <title>题解-P4035-JSOI2008-球形空间产生器 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="洛谷题号：P4035 bzoj题号：1013  题目：  Description  有一个球形空间产生器能够在n维空间中产生一个坚硬的球体。现在，你被困在了这个n维球体中，你只知道球面上n+1个点的坐标，你需要以最快的速度确定这个n维球体的球心坐标，以便于摧毁这个球形空间产生器。   Input  第一行是一个整数n(1&amp;lt;=N=10)。接下来的n+1行，每行有n个实数，表示球面上一点的n维坐">
-<meta name="keywords" content="题解,高斯消元,省选,洛谷,bzoj">
+<meta name="keywords" content="题解,高斯消元,省选,洛谷,bzoj,OI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题解-P4035-JSOI2008-球形空间产生器">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2018/题解-P4035-JSOI2008-球形空间产生器/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
 <meta property="og:description" content="洛谷题号：P4035 bzoj题号：1013  题目：  Description  有一个球形空间产生器能够在n维空间中产生一个坚硬的球体。现在，你被困在了这个n维球体中，你只知道球面上n+1个点的坐标，你需要以最快的速度确定这个n维球体的球心坐标，以便于摧毁这个球形空间产生器。   Input  第一行是一个整数n(1&amp;lt;=N=10)。接下来的n+1行，每行有n个实数，表示球面上一点的n维坐">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-16T14:46:33.147Z">
+<meta property="og:updated_time" content="2018-07-15T05:43:29.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="题解-P4035-JSOI2008-球形空间产生器">
 <meta name="twitter:description" content="洛谷题号：P4035 bzoj题号：1013  题目：  Description  有一个球形空间产生器能够在n维空间中产生一个坚硬的球体。现在，你被困在了这个n维球体中，你只知道球面上n+1个点的坐标，你需要以最快的速度确定这个n维球体的球心坐标，以便于摧毁这个球形空间产生器。   Input  第一行是一个整数n(1&amp;lt;=N=10)。接下来的n+1行，每行有n个实数，表示球面上一点的n维坐">
@@ -30,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#00ffcc,#66ccff);
     }
   </style>
   
@@ -46,7 +46,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #000020">
+<div class="overlay" style="background: #66ccff">
     
 </div>
 <div class="intrude-less">
@@ -65,6 +65,8 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/OI/">OI</a></li>
 	        
 			</ul>
 		</nav>
@@ -105,7 +107,7 @@
       </div>
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #000020"></div>
+  	<div class="overlay js-overlay" style="background: #66ccff"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -121,6 +123,8 @@
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>给题目以数据，而不是给数据以题目。<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
 			
 				
 			
@@ -142,7 +146,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/OI/">OI</a></li>
 		        
 				</ul>
 			</nav>
@@ -296,6 +302,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bzoj</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -363,6 +373,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/题解-LGR-049-T2-River Jumping/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          题解 LGR-049 T2 River Jumping
+        
+      </div>
+    </a>
   
   
     <a href="/2018/关于最短路的一些思考/" id="article-nav-older" class="article-nav-link-wrap">
@@ -563,6 +582,18 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">玄学算法</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OI</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -614,6 +645,10 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="https://www.luogu.org" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>洛谷</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.luogu.org/space/show?uid=54900" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>U54900 Harryheqg</a>
             </li>
           
         </ul>

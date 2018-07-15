@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
-  <title>Archives: 2018 | 破壁人五号的博客</title>
+  <title>题解 LGR-049 T2 River Jumping | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个博客耳">
-<meta name="keywords" content="OI,信息学竞赛,算法">
-<meta property="og:type" content="website">
-<meta property="og:title" content="破壁人五号的博客">
-<meta property="og:url" content="https://wallbreaker5th.github.io/archives/2018/index.html">
+  <meta name="description" content="当时看了半天觉得十分不可做，然后看到排行榜里面一群人AC了T2，就准备乱写一个。 写了一半觉得有问题，又没有写了。 之后发现后面的题目更加不可做，把这个程序补完了，WA了一遍之后莫名其妙就A了。 下面进入正文： 题目链接：https://www.luogu.org/problemnew/show/P4753 题目大意：数轴上有$m+2$个点，坐标分别为$0,w_1,w_2,…,w_m,n$，要求把">
+<meta name="keywords" content="题解,洛谷月赛,贪心,搜索,OI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="题解 LGR-049 T2 River Jumping">
+<meta property="og:url" content="https://wallbreaker5th.github.io/2018/题解-LGR-049-T2-River Jumping/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="一个博客耳">
+<meta property="og:description" content="当时看了半天觉得十分不可做，然后看到排行榜里面一群人AC了T2，就准备乱写一个。 写了一半觉得有问题，又没有写了。 之后发现后面的题目更加不可做，把这个程序补完了，WA了一遍之后莫名其妙就A了。 下面进入正文： 题目链接：https://www.luogu.org/problemnew/show/P4753 题目大意：数轴上有$m+2$个点，坐标分别为$0,w_1,w_2,…,w_m,n$，要求把">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-15T06:13:14.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="破壁人五号的博客">
-<meta name="twitter:description" content="一个博客耳">
+<meta name="twitter:title" content="题解 LGR-049 T2 River Jumping">
+<meta name="twitter:description" content="当时看了半天觉得十分不可做，然后看到排行榜里面一群人AC了T2，就准备乱写一个。 写了一半觉得有问题，又没有写了。 之后发现后面的题目更加不可做，把这个程序补完了，WA了一遍之后莫名其妙就A了。 下面进入正文： 题目链接：https://www.luogu.org/problemnew/show/P4753 题目大意：数轴上有$m+2$个点，坐标分别为$0,w_1,w_2,…,w_m,n$，要求把">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
@@ -162,36 +163,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-题解-LGR-049-T2-River Jumping" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/题解-LGR-049-T2-River Jumping/" class="archive-article-date">
-  	<time datetime="2018-07-15T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/题解-LGR-049-T2-River Jumping/">题解 LGR-049 T2 River Jumping</a>
+    <h1 class="article-title" itemprop="name">
+      题解 LGR-049 T2 River Jumping
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/题解-LGR-049-T2-River Jumping/" class="archive-article-date">
+  	<time datetime="2018-07-15T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当时看了半天觉得十分不可做，然后看到排行榜里面一群人AC了T2，就准备乱写一个。</p>
+<p>写了一半觉得有问题，又没有写了。</p>
+<p>之后发现后面的题目更加不可做，把这个程序补完了，WA了一遍之后莫名其妙就A了。</p>
+<p>下面进入正文：</p>
+<p>题目链接：<a href="https://www.luogu.org/problemnew/show/P4753" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P4753</a></p>
+<p>题目大意：数轴上有$m+2$个点，坐标分别为$0,w_1,w_2,…,w_m,n$，<br>要求把这些点分成2份，使得每一份里面任意两点距离不小于$s$，$0$与$n+1$算2次。</p>
+<p>当时第一反应：一跳到对岸，再一跳会来，不就不重复了吗？</p>
+<p>然后突然发现要求每个点都恰好一次。</p>
+<p>然后瞬间蒙了……</p>
+<p>然后开始乱打一波：</p>
+<p>首先，为了让每个点都恰好经过一次，去时没有跳到的点返回时必须跳。</p>
+<p>由于小D跳跃长度没有限制，所以回来时的石头必须尽可能稀疏。<br>那么去的时候石头需要尽可能密集。</p>
+<a id="more"></a>
+<p>于是我乱写了一个记搜，记录从0到每个石头<strong>最多</strong>跳多少步（以及每个点的前一个点）。</p>
+<p>去的时候就选最多的，回来的时候 就选剩下的。</p>
+<p><del>不要问我状态转移方程，我也不知道我是怎么AC的。</del></p>
+<p>时间复杂度：$O(\text{能过})$</p>
+<p>算法正确性：不知道。如果有人有hack数据请务必洛谷私信我（U37676）</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">int</span> f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>);</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> w[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> pre[<span class="number">100010</span>],len[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> n,m,s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ss1</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">0</span>)&#123;</span><br><span class="line">		len[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=x<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)&#123;<span class="comment">//先考虑近的</span></span><br><span class="line">		<span class="keyword">if</span>(len[i]&lt;len[x]&amp;&amp;len[i]!=<span class="number">-1</span>)<span class="keyword">break</span>;<span class="comment">//乱剪枝</span></span><br><span class="line">		<span class="keyword">if</span>(w[x]-w[i]&lt;s)<span class="keyword">continue</span>;<span class="comment">//跳不到</span></span><br><span class="line">		<span class="keyword">if</span>(!~len[i])ss1(i);<span class="comment">//如果没有被搜到</span></span><br><span class="line">		<span class="keyword">if</span>(~len[i]&amp;&amp;len[i]+<span class="number">1</span>&gt;len[x])&#123;<span class="comment">//如果不是-1（有可能i号石头离河岸太近，到不了，是-1）并且可以更新</span></span><br><span class="line">			len[x]=len[i]+<span class="number">1</span>;</span><br><span class="line">			pre[x]=i;</span><br><span class="line">            <span class="comment">//更新</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//cout&lt;&lt;x&lt;&lt;" "&lt;&lt;len[x]&lt;&lt;endl;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> all[<span class="number">100010</span>],tot=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	n=getint(),m=getint(),s=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		w[i]=getint();</span><br><span class="line">	&#125;</span><br><span class="line">	w[m+<span class="number">1</span>]=n;</span><br><span class="line">	<span class="built_in">memset</span>(pre,<span class="number">0xff</span>,<span class="keyword">sizeof</span>(pre));</span><br><span class="line">	<span class="built_in">memset</span>(len,<span class="number">0xff</span>,<span class="keyword">sizeof</span>(len));</span><br><span class="line">	<span class="comment">//int ii=0;</span></span><br><span class="line">	<span class="comment">//-&gt;</span></span><br><span class="line">	ss1(m+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">int</span> ii=m+<span class="number">1</span>; </span><br><span class="line">	<span class="keyword">while</span>(ii)&#123;</span><br><span class="line">		vis[ii]=<span class="number">1</span>;</span><br><span class="line">		all[tot++]=ii;</span><br><span class="line">		ii=pre[ii];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> lst=m+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=m+<span class="number">1</span>;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!vis[i])&#123;</span><br><span class="line">			<span class="keyword">if</span>(w[lst]-w[i]&lt;s)&#123;</span><br><span class="line">				<span class="comment">//cout&lt;&lt;"&gt;"&lt;&lt;i&lt;&lt;" "&lt;&lt;lst&lt;&lt;" "&lt;&lt;w[i]&lt;&lt;" "&lt;&lt;w[lst]&lt;&lt;endl;</span></span><br><span class="line">				<span class="built_in">puts</span>(<span class="string">"NO"</span>);</span><br><span class="line">				<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			lst=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">"YES"</span>); </span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=tot<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,all[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=m+<span class="number">1</span>;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!vis[i])<span class="built_in">printf</span>(<span class="string">"%d "</span>,i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -219,313 +237,109 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2018/题解-LGR-049-T2-River Jumping/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-题解">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/题解-P4035-JSOI2008-球形空间产生器/" class="archive-article-date">
-  	<time datetime="2018-06-16T14:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/题解-P4035-JSOI2008-球形空间产生器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">题解-P4035-JSOI2008-球形空间产生器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">题解-P4035-JSOI2008-球形空间产生器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高斯消元</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">省选</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bzoj</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/关于最短路的一些思考/" class="archive-article-date">
-  	<time datetime="2018-06-12T09:41:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/关于最短路的一些思考/">关于最短路的一些思考</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最短路</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/部分OJ列表/" class="archive-article-date">
-  	<time datetime="2018-06-09T04:58:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/部分OJ列表/">&#39;部分OJ列表&#39;</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/题解-LGR-047-T2-偷上网/" class="archive-article-date">
-  	<time datetime="2018-06-02T11:02:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/题解-LGR-047-T2-偷上网/">题解 LGR-047 T2 偷上网</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">洛谷月赛</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">玄学算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/NOIP2017游记/" class="archive-article-date">
-  	<time datetime="2018-06-02T08:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/NOIP2017游记/">NOIP2017游记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">NOIP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NOIP2017</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/测试/" class="archive-article-date">
-  	<time datetime="2018-06-02T05:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/测试/">测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/hello-world/" class="archive-article-date">
-  	<time datetime="2018-06-02T04:47:14.572Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+        
+        
+    </div>
+</aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a>进行许可。
           </div>
         </div>
       </div>
@@ -551,8 +365,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
