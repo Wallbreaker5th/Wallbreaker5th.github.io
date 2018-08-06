@@ -30,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#00ffcc,#66ccff);
+      background: linear-gradient(200deg,#0080ff,#66ccff);
     }
   </style>
   
@@ -101,7 +101,7 @@
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
-      <div style="background-color: #0f0f7f;color: #efefff;
+      <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;">
         <p><strong>Notice:</strong> 欢迎大家来资瓷我在B站的第一个投稿：https://www.bilibili.com/video/av24385648/</p>
       </div>
@@ -302,6 +302,22 @@
 
   
 
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://wallbreaker5th.github.io/2018/测试/",
+  owner: 'wallbreaker5th',
+  repo: 'wallbreaker5th.github.io',
+  oauth: {
+    client_id: 'c40007054253842a2304',
+    client_secret: 'f7f344582d83213a2917a464d9454a6f9aac01da',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
