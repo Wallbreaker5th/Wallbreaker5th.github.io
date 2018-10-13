@@ -89,6 +89,8 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Wallbreaker5th" title="github"><i class="icon-github"></i></a>
 		        
+					<a class="weibo" target="_blank" href="https://weibo.com/u/6667248099" title="weibo"><i class="icon-weibo"></i></a>
+		        
 					<a class="bilibili" target="_blank" href="https://space.bilibili.com/284971214/#/" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:3277946283@qq.com" title="mail"><i class="icon-mail"></i></a>
@@ -134,6 +136,8 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Wallbreaker5th" title="github"><i class="icon-github"></i></a>
 			        
+						<a class="weibo" target="_blank" href="https://weibo.com/u/6667248099" title="weibo"><i class="icon-weibo"></i></a>
+			        
 						<a class="bilibili" target="_blank" href="https://space.bilibili.com/284971214/#/" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:3277946283@qq.com" title="mail"><i class="icon-mail"></i></a>
@@ -163,6 +167,106 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Codeforces Marathon Round 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/Codeforces Marathon Round 2/">Codeforces Marathon Round 2</a>
+    </h1>
+  
+
+        
+        <a href="/2018/Codeforces Marathon Round 2/" class="archive-article-date">
+  	<time datetime="2018-08-02T15:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<p>这场CF马拉松赛是我目前参加的唯一一场马拉松赛（压根就两场……）。</p>
+<p>CF马拉松赛会给你7天时间解决一个目前没有正解的题目，你要针对随机数据得到尽可能高的分数。</p>
+<p>比赛链接：<a href="http://codeforces.com/contest/1014" target="_blank" rel="noopener">http://codeforces.com/contest/1014</a></p>
+<p>题目大意：</p>
+<blockquote>
+<p>一段被分成了$N=100000$块的长条（？），每块染有$C=10$种颜色之一颜色用前10个大写英文字母表示，将其向右无限重复。在上面有$U=10$只变色龙，从0开始编号，初始位置分别在第$1,2,3..10$格。Kurt手中有$H=10$个颜料瓶，背包里有$S=10000$个，Kurt每次可以拿一个颜料瓶扔向一只变色龙，这只变色龙就会不断向右移动，直到遇到一个颜色与颜料瓶颜色相同且没有另一只变色龙在上面的格子，同时Kurt从背包里<strong>按照题目给定的顺序</strong>取出一个颜料瓶拿在手中，直到背包空为止。最后得分为最靠后的变色龙的位置，如果你给的不符要求，得0分。最后会生成约1000个<strong>随机</strong>数据取平均分。</p>
+</blockquote>
+<p>不得不说马拉松赛很考脑洞。这里先说一下我的几个思路：</p>
+<h1 id="随机"><a href="#随机" class="headerlink" title="随机"></a>随机</h1><p>每次随机从背包里面选择一个瓶子，扔到随机的变色龙上。实现不难，<code>multiset</code>即可（我没有写）。</p>
+<p>得分在9900分左右。</p>
+<h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><p>贪心的方式应该有很多很多……我最先想到的方式是每次选择最落后的变色龙，然后扔一个让它跑得尽可能远的瓶子。</p>
+        
+          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">玄学算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-题解-LGR-049-T2-River Jumping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -354,90 +458,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于最短路的一些思考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/关于最短路的一些思考/">关于最短路的一些思考</a>
-    </h1>
-  
-
-        
-        <a href="/2018/关于最短路的一些思考/" class="archive-article-date">
-  	<time datetime="2018-06-12T09:41:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近学了一下SPFA，感觉对最短路算法又有了一些感悟。</p>
-<h2 id="深搜与广搜"><a href="#深搜与广搜" class="headerlink" title="深搜与广搜"></a>深搜与广搜</h2><p>深搜与广搜应该是众多OIers初学时解决方格内“最短路”的算法。</p>
-<p>当时我不会广搜（其实现在也不太熟悉），深搜的剪枝倒是做得炉火纯青。</p>
-<p>一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法AC了NOIP2017PJT3。</p>
-<h2 id="迪杰斯特拉"><a href="#迪杰斯特拉" class="headerlink" title="迪杰斯特拉"></a>迪杰斯特拉</h2><p>迪杰斯特拉是我学到的第一个单源最短路算法。感觉没啥好说的。</p>
-<h2 id="贝尔曼福特与SPFA"><a href="#贝尔曼福特与SPFA" class="headerlink" title="贝尔曼福特与SPFA"></a>贝尔曼福特与SPFA</h2><p>前几天用SPFA AC了单源最短路的板，然后又心血来潮搜了一下贝尔曼福特<del>，发现了一些不得了的事情</del>。</p>
-<h2 id="text-方格图中广搜≈SPFA"><a href="#text-方格图中广搜≈SPFA" class="headerlink" title="$\text{方格图中广搜≈SPFA}$"></a><strong>$\text{方格图中广搜≈SPFA}$</strong></h2><h2 id="text-每个格子都记录一个最优距离的深搜≈深搜版SPFA"><a href="#text-每个格子都记录一个最优距离的深搜≈深搜版SPFA" class="headerlink" title="$\text{每个格子都记录一个最优距离的深搜≈深搜版SPFA}$"></a><strong>$\text{每个格子都记录一个最优距离的深搜≈深搜版SPFA}$</strong></h2><p><del>完了</del></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最短路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/关于最短路的一些思考/">展开全文 >></a>
         </p>
       
 
@@ -710,6 +730,10 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bzoj</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -775,7 +799,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">来自SC的OIer蒟蒻，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”（bilibili）、“int_WTF”（codeforces）出现。欢迎洛谷私信我（uid=36767）以交换友链。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”、“int_WTF”（codeforces）出现。欢迎洛谷私信我（uid=36767）以交换友链。</div>
   	  	
     	</section>
     
