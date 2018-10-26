@@ -395,21 +395,21 @@
       
         <h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h1><p>在OI界，$O(\frac{1}{n})$的算法已经成为了一个梗。</p>
 <blockquote>
-<p>你要是发明了$O(\frac{1}{n})$的算法，我就出$n=0.000000001$来卡你。 <del>——鲁迅</del></p>
+<p>你要是发明了$O(\frac{1}{n})$的算法，我就出$n=0.00000000001$来卡你。 <del>——鲁迅</del></p>
 </blockquote>
 <p>那么这种时间复杂度的算法存在吗？我们首先要了解几种渐进记号分别代表什么。</p>
 <p>（下面默认所有函数都<strong>渐进非负</strong>，即当$n$足够大时，函数值始终非负）</p>
 <p>（下面大部分内容以《算法导论》为根据）</p>
-<h2 id="theta"><a href="#theta" class="headerlink" title="$\theta$"></a>$\theta$</h2><p>$\theta$符号的意义是我们通常用$O$记号表达的，它代表了函数的<strong>渐进紧确界</strong>。</p>
+<h2 id="Theta"><a href="#Theta" class="headerlink" title="$\Theta$"></a>$\Theta$</h2><p>$\Theta$ 符号的意义是我们通常用 $O$ 记号表达的，它代表了函数的<strong>渐进紧确界</strong>。</p>
 <p>其定义为：</p>
 <blockquote>
-<p>对一个给定的函数$g(n)$，用$\theta(g(n))$来表示以下函数的集合：</p>
+<p>对一个给定的函数 $g(n)$，用 $\Theta(g(n))$ 来表示以下函数的集合：</p>
 </blockquote>
 <blockquote>
-<p>$\theta(g(n))={f(n):\text{存在正常量}c_1,c_2,n_0\text{，使得对所有的}n\geq n_0\text{，有}0\leq c_1g(n)\leq f(n)\leq c_2g(n)}$</p>
+<p>$\Theta(g(n))={f(n):\text{存在正常量}c_1,c_2,n_0\text{，使得对所有的}n\geq n_0\text{，有}0\leq c_1g(n)\leq f(n)\leq c_2g(n)}$</p>
 </blockquote>
 <p>冒号指<strong>使得</strong>。</p>
-<p>也就是当$n$够大时，$f(n)$能“夹进”两个$g(n)$的常数倍之间。</p>
+<p>也就是当 $n$ 够大时，$f(n)$ 能“夹进”两个 $g(n)$ 的常数倍之间。</p>
         
           <a class="article-more-a" href="/2018/渐进记号/#more">more >></a>
         
