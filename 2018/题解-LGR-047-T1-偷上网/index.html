@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
-  <title>题解 LGR-047 T2 偷上网 | 破壁人五号的博客</title>
+  <title>题解 LGR-047 T1 偷上网 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这道题当时居然因为某些细节没有AC，之后看到错因才发现问题orz。 听说标算是先判断n=1，只有n=1并且四个顶点都被覆盖才可能GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。 下面进入正文： 题目链接： https://www.luogu.org/problemnew/show/T29693 题目大意：在一个l*l的正方形里有n个半径为l/n的圆， 求一个不在任何一个圆里面的点。 看到">
+  <meta name="description" content="这道题当时居然因为某些细节没有 AC，之后看到错因才发现问题 orz。 听说标算是先判断 $n=1$，只有 $n=1$ 并且四个顶点都被覆盖才可能 GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。 下面进入正文： 题目链接： https://www.luogu.org/problemnew/show/T29693 题目大意：在一个 $l\times l$ 的正方形里有 n 个半径为$l/">
 <meta name="keywords" content="玄学算法,OI,题解,洛谷月赛">
 <meta property="og:type" content="article">
-<meta property="og:title" content="题解 LGR-047 T2 偷上网">
-<meta property="og:url" content="https://wallbreaker5th.github.io/2018/题解-LGR-047-T2-偷上网/index.html">
+<meta property="og:title" content="题解 LGR-047 T1 偷上网">
+<meta property="og:url" content="https://wallbreaker5th.github.io/2018/题解-LGR-047-T1-偷上网/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="这道题当时居然因为某些细节没有AC，之后看到错因才发现问题orz。 听说标算是先判断n=1，只有n=1并且四个顶点都被覆盖才可能GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。 下面进入正文： 题目链接： https://www.luogu.org/problemnew/show/T29693 题目大意：在一个l*l的正方形里有n个半径为l/n的圆， 求一个不在任何一个圆里面的点。 看到">
+<meta property="og:description" content="这道题当时居然因为某些细节没有 AC，之后看到错因才发现问题 orz。 听说标算是先判断 $n=1$，只有 $n=1$ 并且四个顶点都被覆盖才可能 GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。 下面进入正文： 题目链接： https://www.luogu.org/problemnew/show/T29693 题目大意：在一个 $l\times l$ 的正方形里有 n 个半径为$l/">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0000.PNG">
-<meta property="og:updated_time" content="2018-07-15T05:43:27.416Z">
+<meta property="og:updated_time" content="2018-10-27T11:27:23.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="题解 LGR-047 T2 偷上网">
-<meta name="twitter:description" content="这道题当时居然因为某些细节没有AC，之后看到错因才发现问题orz。 听说标算是先判断n=1，只有n=1并且四个顶点都被覆盖才可能GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。 下面进入正文： 题目链接： https://www.luogu.org/problemnew/show/T29693 题目大意：在一个l*l的正方形里有n个半径为l/n的圆， 求一个不在任何一个圆里面的点。 看到">
+<meta name="twitter:title" content="题解 LGR-047 T1 偷上网">
+<meta name="twitter:description" content="这道题当时居然因为某些细节没有 AC，之后看到错因才发现问题 orz。 听说标算是先判断 $n=1$，只有 $n=1$ 并且四个顶点都被覆盖才可能 GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。 下面进入正文： 题目链接： https://www.luogu.org/problemnew/show/T29693 题目大意：在一个 $l\times l$ 的正方形里有 n 个半径为$l/">
 <meta name="twitter:image" content="https://wallbreaker5th.github.io/img/0000.PNG">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
@@ -169,19 +169,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-题解-LGR-047-T2-偷上网" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-题解-LGR-047-T1-偷上网" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      题解 LGR-047 T2 偷上网
+      题解 LGR-047 T1 偷上网
     </h1>
   
 
         
-        <a href="/2018/题解-LGR-047-T2-偷上网/" class="archive-article-date">
+        <a href="/2018/题解-LGR-047-T1-偷上网/" class="archive-article-date">
   	<time datetime="2018-06-02T11:02:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
 </a>
         
@@ -189,24 +189,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这道题当时居然因为某些细节没有AC，之后看到错因才发现问题orz。</p>
-<p>听说标算是先判断n=1，只有n=1并且四个顶点都被覆盖才可能GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。</p>
+        <p>这道题当时居然因为某些细节没有 AC，之后看到错因才发现问题 orz。</p>
+<p>听说标算是先判断 $n=1$，只有 $n=1$ 并且四个顶点都被覆盖才可能 GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。</p>
 <p>下面进入正文：</p>
 <p>题目链接： <a href="https://www.luogu.org/problemnew/show/T29693" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/T29693</a></p>
-<p>题目大意：在一个l*l的正方形里有n个半径为l/n的圆， 求一个不在任何一个圆里面的点。</p>
+<p>题目大意：在一个 $l\times l$ 的正方形里有 n 个半径为$l/n$的圆， 求一个不在任何一个圆里面的点。</p>
 <p>看到这道题，第一反应：毒瘤计算几何，这辈子都别想写出标算。</p>
 <p>然而我灵光一现，想出了一种奇葩解法：</p>
-<p>首先把很多个Bob随机扔进房间，然后想象这些Bob被屏蔽器“挤开”。</p>
-<p>多“挤”几次之后就很可能出现成功躲开的Bob，如果没有就认为GG。</p>
+<p>首先把很多个 Bob 随机扔进房间，然后想象这些 Bob 被屏蔽器“挤开”。</p>
+<p>多“挤”几次之后就很可能出现成功躲开的 Bob，如果没有就认为 GG。</p>
 <p>然后我把这个思路抽象出来：</p>
-<p>首先在正方形里面随机生成N个点，然后做T次以下操作：</p>
+<p>首先在正方形里面随机生成 N 个点，然后做 T 次以下操作：</p>
 <p>遍历每一个点，判断它是不是在某一个圆内部。 如果是，求出该圆圆心到这个点的向量， 乘以一个倍数使得这个点沿着这个向量移动之后刚好脱离屏蔽器的距离。</p>
-<p>把一个点所有向量加起来，让这个点移动。 如果出了房间或者出现NaN，让它重新在正方形里面随机选一个点。</p>
+<p>把一个点所有向量加起来，让这个点移动。 如果出了房间或者出现 NaN，让它重新在正方形里面随机选一个点。</p>
 <a id="more"></a>
-<p>最后输出一个不在圆中的点，如果没有，输出GG。</p>
+<p>最后输出一个不在圆中的点，如果没有，输出 GG。</p>
 <p>举一个例子：</p>
 <p><img src="/img/0000.PNG" alt="一个例子"></p>
-<p>时间复杂度：$O(NTn)$（事实证明N与T调整得足够好的话可以达到0msAC）</p>
+<p>时间复杂度：$O(NTn)$（事实证明 N 与 T 调整得足够好的话可以达到0msAC）</p>
 <p>算法正确性：看脸</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">10</span>,T=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">0.0000015</span>;</span><br><span class="line"><span class="keyword">int</span> n,l;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span>&#123;</span></span><br><span class="line">    <span class="keyword">double</span> x,y; </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">        x=rand()*rand()%(l*<span class="number">10</span>)/<span class="number">10.0</span>;</span><br><span class="line">        y=rand()*rand()%(l*<span class="number">10</span>)/<span class="number">10.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">point pb[<span class="number">20</span>];</span><br><span class="line">point p[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    srand(time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="keyword">double</span> fw;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;l;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)p[i].init();</span><br><span class="line">    fw=l*<span class="number">1.0</span>/n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;pb[i].x&gt;&gt;pb[i].y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;T;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;N;j++)&#123;</span><br><span class="line">            <span class="keyword">double</span> ax=<span class="number">0</span>,ay=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;n;k++)&#123;</span><br><span class="line">                <span class="keyword">double</span> dis=<span class="built_in">sqrt</span>((p[j].x-pb[k].x)*(p[j].x-pb[k].x)+(p[j].y-pb[k].y)*(p[j].y-pb[k].y));</span><br><span class="line">                <span class="keyword">if</span>(dis-fw&lt;eps)&#123;</span><br><span class="line">                    <span class="keyword">double</span> xx=(p[j].x-pb[k].x)/dis*(fw+eps),yy=(p[j].y-pb[k].y)/dis*(fw+eps);</span><br><span class="line">                    ax+=xx-(p[j].x-pb[k].x);</span><br><span class="line">                    ay+=yy-(p[j].y-pb[k].y);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            p[j].x+=ax;</span><br><span class="line">            p[j].y+=ay;</span><br><span class="line">            <span class="keyword">if</span>(p[j].x&lt;<span class="number">0</span>||p[j].x&gt;l||isnan(p[j].x))&#123;</span><br><span class="line">                p[j].init();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(p[j].y&lt;<span class="number">0</span>||p[j].y&gt;l||isnan(p[j].y))&#123;</span><br><span class="line">                p[j].init();</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">bool</span> ok=(p[i].x&gt;=<span class="number">0</span>&amp;&amp;p[i].y&gt;=<span class="number">0</span>&amp;&amp;p[i].x&lt;=l&amp;&amp;p[i].y&lt;=l);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">sqrt</span>((p[i].x-pb[j].x)*(p[i].x-pb[j].x)+(p[i].y-pb[j].y)*(p[i].y-pb[j].y))-fw&lt;eps)ok=<span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ok)&#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;fixed&lt;&lt;setprecision(<span class="number">8</span>)&lt;&lt;p[i].x&lt;&lt;<span class="string">" "</span>&lt;&lt;p[i].y;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"GG"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -292,7 +292,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2018/题解-LGR-047-T2-偷上网/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2018/题解-LGR-047-T1-偷上网/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -306,11 +306,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/部分OJ列表/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/关于最短路的一些思考/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          &#39;部分OJ列表&#39;
+          关于最短路的一些思考
         
       </div>
     </a>
@@ -352,11 +352,11 @@
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://wallbreaker5th.github.io/2018/题解-LGR-047-T2-偷上网/",
+  id: "https://wallbreaker5th.github.io/2018/题解-LGR-047-T1-偷上网/",
   owner: 'wallbreaker5th',
   repo: 'wallbreaker5th.github.io',
   oauth: {

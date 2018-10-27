@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
   <title>关于最短路的一些思考 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近学了一下SPFA，感觉对最短路算法又有了一些感悟。 深搜与广搜深搜与广搜应该是众多OIers初学时解决方格内“最短路”的算法。 当时我不会广搜（其实现在也不太熟悉），深搜的剪枝倒是做得炉火纯青。 一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法AC了NOIP2017PJT3。 迪杰斯特拉迪杰斯特拉是我学到的第一个单源最短路算法。感觉没啥好说的。 贝尔曼福特">
+  <meta name="description" content="最近学了一下 SPFA，感觉对最短路算法又有了一些感悟。 深搜与广搜深搜与广搜应该是众多 OIers 初学时解决方格内“最短路”的算法。 当时我不会广搜（其实现在也不太熟悉），深搜的剪枝倒是做得炉火纯青。 一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法 AC 了 NOIP2017PJT3。 迪杰斯特拉迪杰斯特拉是我学到的第一个单源最短路算法。感觉没啥好说的。">
 <meta name="keywords" content="OI,最短路">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于最短路的一些思考">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2018/关于最短路的一些思考/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="最近学了一下SPFA，感觉对最短路算法又有了一些感悟。 深搜与广搜深搜与广搜应该是众多OIers初学时解决方格内“最短路”的算法。 当时我不会广搜（其实现在也不太熟悉），深搜的剪枝倒是做得炉火纯青。 一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法AC了NOIP2017PJT3。 迪杰斯特拉迪杰斯特拉是我学到的第一个单源最短路算法。感觉没啥好说的。 贝尔曼福特">
+<meta property="og:description" content="最近学了一下 SPFA，感觉对最短路算法又有了一些感悟。 深搜与广搜深搜与广搜应该是众多 OIers 初学时解决方格内“最短路”的算法。 当时我不会广搜（其实现在也不太熟悉），深搜的剪枝倒是做得炉火纯青。 一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法 AC 了 NOIP2017PJT3。 迪杰斯特拉迪杰斯特拉是我学到的第一个单源最短路算法。感觉没啥好说的。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-15T05:42:55.946Z">
+<meta property="og:updated_time" content="2018-10-27T11:04:41.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于最短路的一些思考">
-<meta name="twitter:description" content="最近学了一下SPFA，感觉对最短路算法又有了一些感悟。 深搜与广搜深搜与广搜应该是众多OIers初学时解决方格内“最短路”的算法。 当时我不会广搜（其实现在也不太熟悉），深搜的剪枝倒是做得炉火纯青。 一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法AC了NOIP2017PJT3。 迪杰斯特拉迪杰斯特拉是我学到的第一个单源最短路算法。感觉没啥好说的。 贝尔曼福特">
+<meta name="twitter:description" content="最近学了一下 SPFA，感觉对最短路算法又有了一些感悟。 深搜与广搜深搜与广搜应该是众多 OIers 初学时解决方格内“最短路”的算法。 当时我不会广搜（其实现在也不太熟悉），深搜的剪枝倒是做得炉火纯青。 一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法 AC 了 NOIP2017PJT3。 迪杰斯特拉迪杰斯特拉是我学到的第一个单源最短路算法。感觉没啥好说的。">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
@@ -187,12 +187,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近学了一下SPFA，感觉对最短路算法又有了一些感悟。</p>
-<h2 id="深搜与广搜"><a href="#深搜与广搜" class="headerlink" title="深搜与广搜"></a>深搜与广搜</h2><p>深搜与广搜应该是众多OIers初学时解决方格内“最短路”的算法。</p>
+        <p>最近学了一下 SPFA，感觉对最短路算法又有了一些感悟。</p>
+<h2 id="深搜与广搜"><a href="#深搜与广搜" class="headerlink" title="深搜与广搜"></a>深搜与广搜</h2><p>深搜与广搜应该是众多 OIers 初学时解决方格内“最短路”的算法。</p>
 <p>当时我不会广搜（其实现在也不太熟悉），深搜的剪枝倒是做得炉火纯青。</p>
-<p>一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法AC了NOIP2017PJT3。</p>
+<p>一开始是最基本的最优化剪枝，之后在每个格子都记录一个最优距离，然后深搜。我就靠这种方法 AC 了 NOIP2017PJT3。</p>
 <h2 id="迪杰斯特拉"><a href="#迪杰斯特拉" class="headerlink" title="迪杰斯特拉"></a>迪杰斯特拉</h2><p>迪杰斯特拉是我学到的第一个单源最短路算法。感觉没啥好说的。</p>
-<h2 id="贝尔曼福特与SPFA"><a href="#贝尔曼福特与SPFA" class="headerlink" title="贝尔曼福特与SPFA"></a>贝尔曼福特与SPFA</h2><p>前几天用SPFA AC了单源最短路的板，然后又心血来潮搜了一下贝尔曼福特<del>，发现了一些不得了的事情</del>。</p>
+<h2 id="贝尔曼福特与-SPFA"><a href="#贝尔曼福特与-SPFA" class="headerlink" title="贝尔曼福特与 SPFA"></a>贝尔曼福特与 SPFA</h2><p>前几天用 SPFA AC 了单源最短路的板，然后又心血来潮搜了一下贝尔曼福特<del>，发现了一些不得了的事情</del>。</p>
 <h2 id="text-方格图中广搜≈SPFA"><a href="#text-方格图中广搜≈SPFA" class="headerlink" title="$\text{方格图中广搜≈SPFA}$"></a><strong>$\text{方格图中广搜≈SPFA}$</strong></h2><h2 id="text-每个格子都记录一个最优距离的深搜≈深搜版SPFA"><a href="#text-每个格子都记录一个最优距离的深搜≈深搜版SPFA" class="headerlink" title="$\text{每个格子都记录一个最优距离的深搜≈深搜版SPFA}$"></a><strong>$\text{每个格子都记录一个最优距离的深搜≈深搜版SPFA}$</strong></h2><p><del>完了</del></p>
 
       
@@ -291,8 +291,8 @@
     </a>
   
   
-    <a href="/2018/部分OJ列表/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">&#39;部分OJ列表&#39;</div>
+    <a href="/2018/题解-LGR-047-T1-偷上网/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">题解 LGR-047 T1 偷上网</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,8 +327,8 @@
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
   id: "https://wallbreaker5th.github.io/2018/关于最短路的一些思考/",

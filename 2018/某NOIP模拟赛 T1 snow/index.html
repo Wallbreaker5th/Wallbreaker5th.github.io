@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
   <title>某NOIP模拟赛 T1 snow | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目【问题描述】有一天，TT要去 ABC 家。ABC 的大门外有 $n$个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。  现在给定每个站台必须">
+  <meta name="description" content="题目【问题描述】有一天，TT 要去 ABC 家。ABC 的大门外有 $n$ 个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。  现在给定每个站台">
 <meta name="keywords" content="OI,NOIP模拟,题解,网络流,二分图,最小路径覆盖">
 <meta property="og:type" content="article">
 <meta property="og:title" content="某NOIP模拟赛 T1 snow">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2018/某NOIP模拟赛 T1 snow/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="题目【问题描述】有一天，TT要去 ABC 家。ABC 的大门外有 $n$个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。  现在给定每个站台必须">
+<meta property="og:description" content="题目【问题描述】有一天，TT 要去 ABC 家。ABC 的大门外有 $n$ 个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。  现在给定每个站台">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2018/08/20/5b7a6b1aef14c.bmp">
-<meta property="og:updated_time" content="2018-08-24T14:44:16.738Z">
+<meta property="og:updated_time" content="2018-10-27T11:12:19.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="某NOIP模拟赛 T1 snow">
-<meta name="twitter:description" content="题目【问题描述】有一天，TT要去 ABC 家。ABC 的大门外有 $n$个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。  现在给定每个站台必须">
+<meta name="twitter:description" content="题目【问题描述】有一天，TT 要去 ABC 家。ABC 的大门外有 $n$ 个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。  现在给定每个站台">
 <meta name="twitter:image" content="https://i.loli.net/2018/08/20/5b7a6b1aef14c.bmp">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
@@ -189,29 +189,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="【问题描述】"><a href="#【问题描述】" class="headerlink" title="【问题描述】"></a>【问题描述】</h2><p>有一天，TT要去 ABC 家。ABC 的大门外有 $n$个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。 </p>
-<p>现在给定每个站台必须访问的次数，对于站台$i$， TT 必须恰好访问 $F_i$ 次（不能超过）。  </p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="【问题描述】"><a href="#【问题描述】" class="headerlink" title="【问题描述】"></a>【问题描述】</h2><p>有一天，TT 要去 ABC 家。ABC 的大门外有 $n$ 个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。 </p>
+<p>现在给定每个站台必须访问的次数，对于站台 $i$， TT 必须恰好访问 $F_i$ 次（不能超过）。  </p>
 <p>我们用 $u,v,w$ 三个参数描述一个传送门，表示从站台 $u$ 到站台 $v$ 有一个最多可以使用 $w$ 次的传送门（不一定要使用 $w$ 次）。对于任意一对传送门 $(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$；且 $u_1=u_2$ 和 $v_1=v_2$ 不同时成立。 </p>
-<p>TT 可以从任意的站台开始，从任意的站台结束。出发去开始的站台需要花费 $1$ 单位的钱。现在请帮助 TT求出打开大门最少需要花费多少单位的钱。 </p>
+<p>TT 可以从任意的站台开始，从任意的站台结束。出发去开始的站台需要花费 $1$ 单位的钱。现在请帮助 TT 求出打开大门最少需要花费多少单位的钱。 </p>
 <h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行包含两个正整数 $n,m$，意义见题目描述。 </p>
 <p>第二行包含 $n$ 个正整数，第 $i$ 个数表示 $F_i$。 </p>
 <p>接下来有 $m$ 行，每行有三个正整数 $u,v,w$，表示从 $u$ 到 $v$ 有一个可以使用 $w$ 次的传送门。 </p>
-<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p> 仅一行包含一个整数表示答案。 </p>
+<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>仅一行包含一个整数表示答案。 </p>
 <h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 3 </span><br><span class="line">5 5 5 5 </span><br><span class="line">1 2 1 </span><br><span class="line">3 2 1 </span><br><span class="line">3 4 1</span><br></pre></td></tr></table></figure>
  <a id="more"></a>
-<h2 id="【输出样例】"><a href="#【输出样例】" class="headerlink" title="【输出样例】"></a>【输出样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">17</span><br><span class="line">``` </span><br><span class="line"> </span><br><span class="line">## 【数据范围】 </span><br><span class="line">有 $20\%$的数据满足 $n≤10,m≤50$； </span><br><span class="line"></span><br><span class="line">有 $50\%$的数据满足 $n≤1000，m≤10000$； </span><br><span class="line"></span><br><span class="line">$100\%$的数据满足 $1≤n≤10000，1≤m≤100000$； </span><br><span class="line"></span><br><span class="line">对于所有的 $u,v$，满足 $1≤u,v≤n,u≠v$；</span><br><span class="line"></span><br><span class="line">对于所有的 $w,F_i$，满足 $1≤w,F_i≤50000$。 </span><br><span class="line"></span><br><span class="line">以上的每类数据中都存在 $50\%$的数据满足对于所有的$w,F_i$，有 $w=F_i=1$。</span><br><span class="line"></span><br><span class="line">&gt; 简要题意：一个图有N个点，M条边权为0的有向边，满足$(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$且没有重边，还有~~很多条~~$N*(N-1)/2$ 条无向边将所有点两两连接。TT需从任意位置出发，经过边权和尽可能小的边来跑过第$i$个点恰好$F_i$次。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">考场上：</span><br><span class="line"></span><br><span class="line">这题看着像网络流？</span><br><span class="line"></span><br><span class="line">一看数据范围：跑不动吧？再打开mspaint，建不出图。</span><br><span class="line"></span><br><span class="line">于是乱写了一个把所有数乱加减起来的玩意儿：</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int getint()&#123;</span><br><span class="line">	int ans=0,f=1;</span><br><span class="line">	char c=getchar();</span><br><span class="line">	while(c&gt;&apos;9&apos;||c&lt;&apos;0&apos;)&#123;</span><br><span class="line">		if(c==&apos;-&apos;)f=-1;</span><br><span class="line">		c=getchar();</span><br><span class="line">		cout&lt;&lt;c;</span><br><span class="line">	&#125;</span><br><span class="line">	while(c&gt;=&apos;0&apos;&amp;&amp;c&lt;=&apos;9&apos;)&#123;</span><br><span class="line">		ans=ans*10+c-&apos;0&apos;;</span><br><span class="line">		c=getchar();</span><br><span class="line">		cout&lt;&lt;c;</span><br><span class="line">	&#125;</span><br><span class="line">	return ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int t[10010];</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	freopen(&quot;snow.in&quot;,&quot;r&quot;,stdin);</span><br><span class="line">	freopen(&quot;snow.out&quot;,&quot;w&quot;,stdout);</span><br><span class="line">	int n=getint(),m=getint();</span><br><span class="line">	for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">		t[i]=getint();</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i=0;i&lt;m;i++)&#123;</span><br><span class="line">		int x=getint(),y=getint(),z=getint();x--;y--;</span><br><span class="line">		z=min(z,min(t[x],t[y]));</span><br><span class="line">		t[x]-=z;</span><br><span class="line">		t[y]-=z;</span><br><span class="line">		cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int ans=-1;</span><br><span class="line">	for(int i=0;i&lt;n;i++)ans+=t[i];</span><br><span class="line">	printf(&quot;%d&quot;,ans);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="【输出样例】"><a href="#【输出样例】" class="headerlink" title="【输出样例】"></a>【输出样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">17</span><br></pre></td></tr></table></figure>
+<h2 id="【数据范围】"><a href="#【数据范围】" class="headerlink" title="【数据范围】"></a>【数据范围】</h2><p>有 $20\%$的数据满足 $n≤10,m≤50$； </p>
+<p>有 $50\%$的数据满足 $n≤1000，m≤10000$； </p>
+<p>$100\%$的数据满足 $1≤n≤10000，1≤m≤100000$； </p>
+<p>对于所有的 $u,v$，满足 $1≤u,v≤n,u≠v$；</p>
+<p>对于所有的 $w,F_i$，满足 $1≤w,F_i≤50000$。 </p>
+<p>以上的每类数据中都存在 $50\%$ 的数据满足对于所有的$w,F_i$，有 $w=F_i=1$。</p>
+<blockquote>
+<p>简要题意：一个图有N个点，M条边权为0的有向边，满足$(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$且没有重边，还有<del>很多条</del>$N*(N-1)/2$ 条无向边将所有点两两连接。TT需从任意位置出发，经过边权和尽可能小的边来跑过第$i$个点恰好$F_i$次。</p>
+</blockquote>
+<hr>
+<p>考场上：</p>
+<p>这题看着像网络流？</p>
+<p>一看数据范围：跑不动吧？再打开 mspaint，建不出图。</p>
+<p>于是乱写了一个把所有数乱加减起来的玩意儿：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;c;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;c;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> t[<span class="number">10010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	freopen(<span class="string">"snow.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"snow.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> n=getint(),m=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		t[i]=getint();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> x=getint(),y=getint(),z=getint();x--;y--;</span><br><span class="line">		z=min(z,min(t[x],t[y]));</span><br><span class="line">		t[x]-=z;</span><br><span class="line">		t[y]-=z;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="string">" "</span>&lt;&lt;y&lt;&lt;<span class="string">" "</span>&lt;&lt;z&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)ans+=t[i];</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>期望得分：0</p>
 <p>实际得分：10（？？？）<del>比爆搜不知道快到哪里去了</del></p>
 <hr>
-<h2 id="50-解法"><a href="#50-解法" class="headerlink" title="50%解法"></a>50%解法</h2><p>题目中保证“以上的每类数据中都存在 $50\%$的数据满足对于所有的$w,F_i$，有 $w=F_i=1$。”，并且由条件“对于任意一对传送门 $(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$；且 $u_1=u_2$ 和 $v_1=v_2$ 不同时成立。 ”可以得出所有传送门构成一个<strong>拓扑图</strong>（测试时发现了<del>，但是就是不知道有啥用</del>）</p>
-<p>我们可以把每次乘坐公交看成重新选择一个起点，然后只经过传送门。当$w=F_i=1$时，答案就是传送门得到的最小路径覆盖。然后跑二分图匹配就出来了。<del>（然而我当时不会最小路径覆盖）</del></p>
+<h2 id="50-解法"><a href="#50-解法" class="headerlink" title="50%解法"></a>50%解法</h2><p>题目中保证“以上的每类数据中都存在 $50\%$ 的数据满足对于所有的 $w,F_i$，有 $w=F_i=1$。”，并且由条件“对于任意一对传送门 $(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$；且 $u_1=u_2$ 和 $v_1=v_2$ 不同时成立。 ”可以得出所有传送门构成一个<strong>拓扑图</strong>（测试时发现了<del>，但是就是不知道有啥用</del>）</p>
+<p>我们可以把每次乘坐公交看成重新选择一个起点，然后只经过传送门。当 $w=F_i=1$ 时，答案就是传送门得到的最小路径覆盖。然后跑二分图匹配就出来了。<del>（然而我当时不会最小路径覆盖）</del></p>
 <h2 id="100-O-text-跑得过-解法"><a href="#100-O-text-跑得过-解法" class="headerlink" title="100%$O(\text{跑得过})$解法"></a>100%$O(\text{跑得过})$解法</h2><p>假如跑二分图匹配时用网络流，就可以发现：</p>
-<p>从s（右侧点）到左侧点（t）的边的边权为1，代表一个点只能被覆盖<strong>一次</strong>，将其改为$F_i$即可覆盖多次。</p>
-<p>在左右侧点之间的边边权为1（虽然二分图匹配时边权多少都行），代表一条边只能被经过<strong>一次</strong>，将其改为$w$即可经过多次。</p>
+<p>从 s（右侧点）到左侧点（t）的边的边权为1，代表一个点只能被覆盖<strong>一次</strong>，将其改为$F_i$即可覆盖多次。</p>
+<p>在左右侧点之间的边边权为 1（虽然二分图匹配时边权多少都行），代表一条边只能被经过<strong>一次</strong>，将其改为 $w$ 即可经过多次。</p>
 <p>然后就跑网络流，时间复杂度：$O(\text{跑得过})$</p>
 <p><del>源代码找不着了</del></p>
 <h2 id="100-O-n-解法"><a href="#100-O-n-解法" class="headerlink" title="100%$O(n)$解法"></a>100%$O(n)$解法</h2><p>据说此题还有更快的算法。</p>
-<p>首先，因为“对于任意一对传送门 $(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$；且 $u_1=u_2$ 和 $v_1=v_2$ 不同时成立。 ”，二分图的边不会有交叉，所以它是平面图。因为平面图的对偶图的最短路等于最小割，所以可以用迪杰斯特拉$O((m+n)log_2n)$解决。（不要问我怎么求对偶图，我不知道）</p>
+<p>首先，因为“对于任意一对传送门 $(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$；且 $u_1=u_2$ 和 $v_1=v_2$ 不同时成立。 ”，二分图的边不会有交叉，所以它是平面图。因为平面图的对偶图的最短路等于最小割，所以可以用迪杰斯特拉 $O((m+n)log_2n)$ 解决。（不要问我怎么求对偶图，我不知道）</p>
 <p>时间复杂度：$O((m+n)log_2n)$</p>
 <p>期望得分：<del>0，考场上实现不现实</del> 100</p>
 <p>又可以观察到，这个图是类似于下面这样的：</p>
@@ -333,7 +348,7 @@
   
   
     <a href="/2018/渐进记号/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">O(1/n)算法存在吗？——几种常见渐进记号略解</div>
+      <div class="article-nav-title">O(1/n) 算法存在吗？——几种常见渐进记号略解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -368,8 +383,8 @@
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
   id: "https://wallbreaker5th.github.io/2018/某NOIP模拟赛 T1 snow/",
