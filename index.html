@@ -268,6 +268,127 @@
 
 
   
+    <article id="题解-题解-CF1060H-Sophisticated Device" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/题解-CF1060H-Sophisticated Device/">题解 CF1060H Sophisticated Device</a>
+    </h1>
+  
+
+        
+        <a href="/2018/题解-CF1060H-Sophisticated Device/" class="archive-article-date">
+  	<time datetime="2018-11-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.luogu.org/problemnew/show/CF1060H" target="_blank" rel="noopener">题目链接</a></p>
+<p>这道题实在是毒瘤。<del>以及洛谷上的翻译其实是我翻的，质量跟机翻差不多。</del></p>
+<p>首先我们确定求出 $xy$ 的整体思路——$xy=\frac{(x+y)^2-x^2-y^2}{2}$。</p>
+<p>这个思路不难想到：我们能够比较容易实现的两个操作数的运算只有加、减，于是我们将运算转换为加、减与只有一个操作数的平方、除以 2。关键在于如何实现这些运算。</p>
+<h3 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h3><ul>
+<li><p>快速幂/乘</p>
+</li>
+<li><p>高斯消元</p>
+</li>
+<li><p>exgcd 求乘法逆元</p>
+</li>
+<li><p>少量数学知识</p>
+</li>
+<li><p>大量耐心</p>
+</li>
+</ul>
+<p>我们先考虑几个简单的运算：</p>
+<h2 id="0"><a href="#0" class="headerlink" title="0"></a>0</h2><p>在求解过程中，有一个数字 0 是很方便的，利用 <code>+ zero zero x</code> 就可以清空一格。</p>
+        
+          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高斯消元</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">快速幂</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">快速乘</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">exgcd</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-NOIP2018游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -340,108 +461,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/NOIP2018游记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-树状数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/树状数组/">树状数组略解</a>
-    </h1>
-  
-
-        
-        <a href="/2018/树状数组/" class="archive-article-date">
-  	<time datetime="2018-10-06T11:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>树状数组是一种<del>只有名字与树有关的</del>数据结构，可以用来维护区间。一般来说树状数组能做的线段树都能做，但是线段树常数较大，并且比树状数组麻烦很多，故树状数组很有用。树状数组通常用来维护这两种操作：</p>
-<ul>
-<li><p>单点修改 区间查询</p>
-</li>
-<li><p>区间修改 单点查询</p>
-</li>
-</ul>
-<p>它还可以进行区间修改区间查询。</p>
-<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>首先介绍 $\operatorname{lowbit}$ 函数：$\operatorname{lowbit}$ 会返回一个数在二进制下仅保留最低的非零位的结果，如：</p>
-<p>$\operatorname{lowbit}((1100)_2)=(100)_2$</p>
-<p>$\operatorname{lowbit}((11001)_2)=(1)_2$</p>
-<p>它的实现方式通常是：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在树状数组中，我们通常用 $t_x$ 来维护原数组从第 $x$ 个数开始往左 $\operatorname{lowbit}(x)$ 个数的总和。</p>
-<p><img src="https://cdn.luogu.org/upload/pic/36291.png" alt=""></p>
-        
-          <a class="article-more-a" href="/2018/树状数组/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">树状数组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/树状数组/">展开全文 >></a>
         </p>
       
 
@@ -717,6 +736,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bzoj</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快速幂</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快速乘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">exgcd</a>
               </li>
             
             <div class="clearfix"></div>

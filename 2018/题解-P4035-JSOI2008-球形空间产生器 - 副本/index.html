@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
-  <title>某NOIP模拟赛 T1 字符串（string） | 破壁人五号的博客</title>
+  <title>题解-P4035-JSOI2008-球形空间产生器 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目【描述】给定两个字符串 s,t，其中 s 只包含小写字母以及*，t 只包含小写字母。  你可以进行任意多次操作，每次选择 s 中的一个*，将它修改为任意多个（可以是 0 个）它的前一个字符。问是否能将 s 修改为 t。  有多组数据。  【输入】第一行一个整数 T 表示数据组数。  每组数据两行，第一行一个字符串 s，第二行一个字符串 t。  【输出】每组数据输出一行，如果能将 s 修改为 t">
-<meta name="keywords" content="OI,NOIP模拟,字符串,题解">
+  <meta name="description" content="洛谷题号：P4035 bzoj 题号：1013  题目： Description有一个球形空间产生器能够在 n 维空间中产生一个坚硬的球体。现在，你被困在了这个 n 维球体中，你只知道球面上 n+1 个点的坐标，你需要以最快的速度确定这个 n 维球体的球心坐标，以便于摧毁这个球形空间产生器。 Input第一行是一个整数 $n(1\leq N\leq 10)$。接下来的 n+1 行，每行有 n 个实">
+<meta name="keywords" content="OI,题解,高斯消元,省选,洛谷,bzoj">
 <meta property="og:type" content="article">
-<meta property="og:title" content="某NOIP模拟赛 T1 字符串（string）">
-<meta property="og:url" content="https://wallbreaker5th.github.io/2018/某NOIP模拟赛 T1 字符串（string）/index.html">
+<meta property="og:title" content="题解-P4035-JSOI2008-球形空间产生器">
+<meta property="og:url" content="https://wallbreaker5th.github.io/2018/题解-P4035-JSOI2008-球形空间产生器 - 副本/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="题目【描述】给定两个字符串 s,t，其中 s 只包含小写字母以及*，t 只包含小写字母。  你可以进行任意多次操作，每次选择 s 中的一个*，将它修改为任意多个（可以是 0 个）它的前一个字符。问是否能将 s 修改为 t。  有多组数据。  【输入】第一行一个整数 T 表示数据组数。  每组数据两行，第一行一个字符串 s，第二行一个字符串 t。  【输出】每组数据输出一行，如果能将 s 修改为 t">
+<meta property="og:description" content="洛谷题号：P4035 bzoj 题号：1013  题目： Description有一个球形空间产生器能够在 n 维空间中产生一个坚硬的球体。现在，你被困在了这个 n 维球体中，你只知道球面上 n+1 个点的坐标，你需要以最快的速度确定这个 n 维球体的球心坐标，以便于摧毁这个球形空间产生器。 Input第一行是一个整数 $n(1\leq N\leq 10)$。接下来的 n+1 行，每行有 n 个实">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-27T11:16:47.139Z">
+<meta property="og:updated_time" content="2018-10-27T11:33:23.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="某NOIP模拟赛 T1 字符串（string）">
-<meta name="twitter:description" content="题目【描述】给定两个字符串 s,t，其中 s 只包含小写字母以及*，t 只包含小写字母。  你可以进行任意多次操作，每次选择 s 中的一个*，将它修改为任意多个（可以是 0 个）它的前一个字符。问是否能将 s 修改为 t。  有多组数据。  【输入】第一行一个整数 T 表示数据组数。  每组数据两行，第一行一个字符串 s，第二行一个字符串 t。  【输出】每组数据输出一行，如果能将 s 修改为 t">
+<meta name="twitter:title" content="题解-P4035-JSOI2008-球形空间产生器">
+<meta name="twitter:description" content="洛谷题号：P4035 bzoj 题号：1013  题目： Description有一个球形空间产生器能够在 n 维空间中产生一个坚硬的球体。现在，你被困在了这个 n 维球体中，你只知道球面上 n+1 个点的坐标，你需要以最快的速度确定这个 n 维球体的球心坐标，以便于摧毁这个球形空间产生器。 Input第一行是一个整数 $n(1\leq N\leq 10)$。接下来的 n+1 行，每行有 n 个实">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
@@ -167,69 +167,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-某NOIP模拟赛 T1 字符串（string）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="题解-题解-P4035-JSOI2008-球形空间产生器 - 副本" class="article article-type-题解 " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      某NOIP模拟赛 T1 字符串（string）
+      题解-P4035-JSOI2008-球形空间产生器
     </h1>
   
 
         
-        <a href="/2018/某NOIP模拟赛 T1 字符串（string）/" class="archive-article-date">
-  	<time datetime="2018-08-22T08:25:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
+        <a href="/2018/题解-P4035-JSOI2008-球形空间产生器 - 副本/" class="archive-article-date">
+  	<time datetime="2018-06-16T14:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="【描述】"><a href="#【描述】" class="headerlink" title="【描述】"></a>【描述】</h2><p>给定两个字符串 s,t，其中 s 只包含小写字母以及*，t 只包含小写字母。 </p>
-<p>你可以进行任意多次操作，每次选择 s 中的一个*，将它修改为任意多个（可以是 0 个）它的前一个字符。问是否能将 s 修改为 t。 </p>
-<p>有多组数据。 </p>
-<h2 id="【输入】"><a href="#【输入】" class="headerlink" title="【输入】"></a>【输入】</h2><p>第一行一个整数 T 表示数据组数。 </p>
-<p>每组数据两行，第一行一个字符串 s，第二行一个字符串 t。 </p>
-<h2 id="【输出】"><a href="#【输出】" class="headerlink" title="【输出】"></a>【输出】</h2><p>每组数据输出一行，如果能将 s 修改为 t，输出 <code>Yes</code>，否则输出 <code>No</code>。 </p>
-<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2 </span><br><span class="line">a* </span><br><span class="line">aaaa </span><br><span class="line">a* </span><br><span class="line">ab</span><br></pre></td></tr></table></figure>
-<h2 id="【输出样例】"><a href="#【输出样例】" class="headerlink" title="【输出样例】"></a>【输出样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Yes </span><br><span class="line">No</span><br></pre></td></tr></table></figure>
-<h2 id="【子任务】"><a href="#【子任务】" class="headerlink" title="【子任务】"></a>【子任务】</h2><a id="more"></a>
-<p>对于 20% 的数据，$|s|,|t|&lt;=7$。 </p>
-<p>对于 60% 的数据，$|s|,|t|&lt;=300$。 </p>
-<p>对于 100% 的数据，$T&lt;=100$，$|s|,|t|&lt;=30000$。</p>
-<blockquote>
-<p>简要题意：<del>原题够简要了</del></p>
-</blockquote>
+        <p>洛谷题号：P4035</p>
+<p>bzoj 题号：1013</p>
 <hr>
-<h2 id="20-解"><a href="#20-解" class="headerlink" title="20% 解"></a>20% 解</h2><blockquote>
-<p>首先我们发现多个 * 连在一起与一个 * 是等价的。我们只要枚举每个 * 把上一个字母复<br>制了多少遍就行了。</p>
-</blockquote>
-<blockquote>
-<p>—— <del>鲁迅</del>伪·官方 题解</p>
-</blockquote>
-<p>反正我不会写</p>
-<p><del>而且反正输出 <code>No</code> 也能得 20 分</del></p>
-<h2 id="60-解"><a href="#60-解" class="headerlink" title="60% 解"></a>60% 解</h2><p>以 $f[i][j]$ 表示 $s[1…i]$ 能否与 $t[1..j]$ 匹配，转移方程<br>$f[i][j]=(s[i]==t[j]\ and\ f[i-1][j-1])\ or\ (s[i]==’<em>‘\ and\ f[i][j-1]\ and\ s[i-1]==t[j])\ or\ (s[i]==’</em>‘\ and\ f[i-1][j])$</p>
-<p>当时就想到了，写出来了，然后也苟到了 60 分。当时是类比 LCS 想到的。</p>
-<p>时间复杂度：$O(|s|\ |t|)$</p>
-<p>代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 3010</span></span><br><span class="line"><span class="keyword">bool</span> f[N][N];</span><br><span class="line"><span class="keyword">char</span> s_[N],s[N],t[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	freopen(<span class="string">"string.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"string.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> n=getint();</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		<span class="built_in">memset</span>(f,<span class="number">0</span>,<span class="keyword">sizeof</span>(f));</span><br><span class="line">		<span class="built_in">memset</span>(s,<span class="number">0</span>,<span class="keyword">sizeof</span>(s));</span><br><span class="line">		<span class="comment">//memset(t,0,sizeof(t));</span></span><br><span class="line">		<span class="comment">//memset(s_,0,sizeof(s_));</span></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s%s"</span>,s_,t);</span><br><span class="line">		<span class="comment">//cout&lt;&lt;s_&lt;&lt;endl&lt;&lt;t&lt;&lt;endl&lt;&lt;endl;</span></span><br><span class="line">		f[<span class="number">0</span>][<span class="number">0</span>]=(s_[<span class="number">0</span>]==t[<span class="number">0</span>]);</span><br><span class="line">		<span class="keyword">if</span>(!f[<span class="number">0</span>][<span class="number">0</span>])&#123;</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">"No"</span>);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> s_len=<span class="built_in">strlen</span>(s_);</span><br><span class="line">		<span class="keyword">register</span> <span class="keyword">int</span> slen=<span class="number">1</span>,tlen=<span class="built_in">strlen</span>(t);</span><br><span class="line">		s[<span class="number">0</span>]=s_[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;s_len;i++)<span class="keyword">if</span>(s_[i]!=<span class="string">'*'</span>||s_[i<span class="number">-1</span>]!=<span class="string">'*'</span>)s[slen++]=s_[i];</span><br><span class="line">		<span class="comment">//cout&lt;&lt;s&lt;&lt;endl;</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;slen;++i)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> j=<span class="number">0</span>;j&lt;tlen;++j)&#123;</span><br><span class="line">				<span class="keyword">if</span>(s[i]==<span class="string">'*'</span>)&#123;</span><br><span class="line">					f[i][j]=(f[i<span class="number">-1</span>][j]||(j&gt;<span class="number">0</span>&amp;&amp;f[i][j<span class="number">-1</span>]&amp;&amp;s[i<span class="number">-1</span>]==t[j]));</span><br><span class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(j!=<span class="number">0</span>)&#123;</span><br><span class="line">					f[i][j]=(f[i<span class="number">-1</span>][j<span class="number">-1</span>]&amp;&amp;s[i]==t[j]);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">//cout&lt;&lt;f[i][j];</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(f[slen<span class="number">-1</span>][tlen<span class="number">-1</span>])<span class="built_in">puts</span>(<span class="string">"Yes"</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"No"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="100-解"><a href="#100-解" class="headerlink" title="100%解"></a>100%解</h2><p>把两个串都分成尽可能长的很多段，每一段字母相同（<strong>可以为 * </strong>）。然后看每一段，若这一段：</p>
+<p>题目：</p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>有一个球形空间产生器能够在 n 维空间中产生一个坚硬的球体。现在，你被困在了这个 n 维球体中，你只知道球<br>面上 n+1 个点的坐标，你需要以最快的速度确定这个 n 维球体的球心坐标，以便于摧毁这个球形空间产生器。</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>第一行是一个整数 $n(1\leq N\leq 10)$。接下来的 n+1 行，每行有 n 个实数，表示球面上一点的 n 维坐标。每一个实数精确到小数点<br>后 6 位，且其绝对值都不超过 20000。</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>有且只有一行，依次给出球心的 n 维坐标（ n 个实数），两个实数之间用一个空格隔开。每个实数精确到小数点<br>后 3 位。数据保证有解。你的答案必须和标准输出一模一样才能够得分。</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">0.0 0.0</span><br><span class="line">-1.0 1.0</span><br><span class="line">1.0 0.0</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.500 1.500</span><br></pre></td></tr></table></figure>
+<h2 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h2><p>提示：给出两个定义：</p>
+<ol>
+<li><p>球心：到球面上任意一点距离都相等的点。</p>
+</li>
+<li><p>距离：设两个 n 为空间上的点 A, B 的坐标为 $(a1, a2, …, an), (b1, b2, …, bn)$，<br>则 AB 的距离定义为：$dist = \sqrt{(a1-b1)^2 + (a2-b2)^2 + … + (an-bn)^2}$</p>
+</li>
+</ol>
+<hr>
+<p>这是一道高斯消元比较裸的题目了，除了板题以外这题是我AC的第一道高斯消元题目。</p>
+<p>我们假设这 N+1 个点的坐标分别为：</p>
+<p>$P_1    (a[1][1]  ,a[1][2]  ,…a[1][n])$</p>
+<p>$P_2    (a[2][1]  ,a[2][2]  ,…a[2][n])$</p>
+<p>$…$</p>
+<p>$P_{n+1}(a[n+1][1],a[n+1][2],…a[n+1][n])$</p>
+<p>圆心的坐标为：</p>
+<p>$P_0(a[0][1]  ,a[0][2]  ,…a[0][n])$</p>
+<p>那么$|P_1P_0|=|P_2P_0|=……=|P_{n+1}P_0|$</p>
+<p>单独拿$|P_1P_0|=|P_2P_0|$出来：</p>
 <ul>
-<li><p>s 与 t 的字母不一样</p>
+<li><p>$|P_1P_0|=|P_2P_0|$</p>
 </li>
-<li><p>s 有 * 但是字母数量比t的多</p>
+<li><p>$|P_1P_0|^2=|P_2P_0|^2$</p>
 </li>
-<li><p>s 没有 * 但是字母数量不同于t</p>
-</li>
-<li><p>s(t) 把所有段遍历完了但 t(s) 还没有（段的数量不同）</p>
+<li><p>$(a[0][1]-a[1][1])^2+(a[0][2]-a[1][2])^2+…+(a[0][n]-a[1][n])^2$</p>
 </li>
 </ul>
-<p>那么就不符要求。</p>
+<p>$=(a[0][1]-a[2][1])^2+(a[0][2]-a[2][2])^2+…+(a[0][n]-a[2][n])^2$</p>
+<ul>
+<li>$a[0][1]^2-2a[0][1]a[1][1]+a[1][1]^2+…+a[0][n]^2-2a[0][n]a[1][n]+a[1][n]^2$</li>
+</ul>
+<p>$=a[0][1]^2-2a[0][1]a[2][1]+a[2][1]^2+…+a[0][n]^2-2a[0][n]a[2][n]+a[2][n]^2$</p>
+<ul>
+<li>$2(a[1][1]-a[2][1])a[0][1]+2(a[1][2]-a[2][2])a[0][2]+…+2(a[1][n]-a[2][n])$</li>
+</ul>
+<p>$=a[1][1]^2-a[2][1]^2+a[1][2]^2-a[2][2]^2+…+a[1][n]^2-a[2][n]^2$</p>
+<p>（公式太长只能换行，为清楚用了无序列表）</p>
+<p>也就是关于 $a[0][1],a[0][2],…,a[0][n]$ 的一个线性方程，把 $|P_1P_0|=|P_3P_0|,|P_1P_0|=|P_4P_0|,…,|P_1P_0|=|P_{n+1}P_0|$ 都转化一下，就可以得到一个线性方程组，用高斯消元就可以解出来。</p>
 <p>代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	freopen(<span class="string">"string.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"string.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> t=getint();</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		<span class="built_in">string</span> s,t;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;s&gt;&gt;t;</span><br><span class="line">		<span class="keyword">if</span>(s[<span class="number">0</span>]!=t[<span class="number">0</span>])&#123;</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">"No"</span>);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> snow=<span class="number">0</span>,tnow=<span class="number">0</span>,scnt=<span class="number">0</span>,tcnt=<span class="number">0</span>;<span class="keyword">bool</span> brk=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>(snow&lt;s.size()&amp;&amp;tnow&lt;t.size())&#123;</span><br><span class="line">			scnt=<span class="number">0</span>,tcnt=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">bool</span> star=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">char</span> c=s[snow],ct=t[tnow];</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"&#123;&#125;"&lt;&lt;c&lt;&lt;" "&lt;&lt;ct&lt;&lt;endl;</span></span><br><span class="line">			<span class="keyword">while</span>(snow&lt;s.size()<span class="number">-1</span>&amp;&amp;(s[snow+<span class="number">1</span>]==c||s[snow+<span class="number">1</span>]==<span class="string">'*'</span>))snow++,scnt+=(s[snow]!=<span class="string">'*'</span>),star=(s[snow]==<span class="string">'*'</span>)|star;</span><br><span class="line">			<span class="keyword">while</span>(tnow&lt;t.size()<span class="number">-1</span>&amp;&amp;t[tnow+<span class="number">1</span>]==ct)tnow++,tcnt++;</span><br><span class="line">			<span class="keyword">if</span>(scnt&gt;tcnt||(scnt!=tcnt&amp;&amp;!star))&#123;</span><br><span class="line">				<span class="built_in">puts</span>(<span class="string">"No"</span>);brk=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>((snow==s.size()<span class="number">-1</span>)!=(tnow==t.size()<span class="number">-1</span>))&#123;</span><br><span class="line">				<span class="built_in">puts</span>(<span class="string">"No"</span>);brk=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(c!=ct)&#123;</span><br><span class="line">				<span class="built_in">puts</span>(<span class="string">"No"</span>);brk=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>((snow==s.size()<span class="number">-1</span>)&amp;&amp;(tnow==t.size()<span class="number">-1</span>))&#123;</span><br><span class="line">				<span class="built_in">puts</span>(<span class="string">"Yes"</span>);brk=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			snow++;</span><br><span class="line">			tnow++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!brk)<span class="built_in">puts</span>(<span class="string">"No"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">105</span>;</span><br><span class="line"><span class="keyword">double</span> a[N][N+<span class="number">1</span>];</span><br><span class="line"><span class="keyword">bool</span> u[N];</span><br><span class="line"><span class="keyword">double</span> x[N+<span class="number">1</span>][N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;fixed&lt;&lt;setprecision(<span class="number">3</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;x[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;<span class="comment">//第i+1个点 </span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			a[i][j]=<span class="number">2</span>*(x[<span class="number">0</span>][j]-x[i+<span class="number">1</span>][j]);</span><br><span class="line">			a[i][n]+=x[<span class="number">0</span>][j]*x[<span class="number">0</span>][j]-x[i+<span class="number">1</span>][j]*x[i+<span class="number">1</span>][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">bool</span> ok=<span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[j][i]&amp;&amp;!u[j])&#123;</span><br><span class="line">				ok=<span class="literal">true</span>;</span><br><span class="line">				u[j]=<span class="literal">true</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!ok)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"No Solution"</span>;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[j][i]==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"No Solution"</span>;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">double</span> orz=a[j][i];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;n+<span class="number">1</span>;k++)&#123;</span><br><span class="line">			a[j][k]/=orz;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;n;k++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(k==j)<span class="keyword">continue</span>;</span><br><span class="line">			orz=a[k][i]/a[j][i];</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">0</span>;l&lt;n+<span class="number">1</span>;l++)&#123;</span><br><span class="line">				a[k][l]-=orz*a[j][l];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/*for(int i=0;i&lt;n;i++)&#123;</span></span><br><span class="line"><span class="comment">			for(int j=0;j&lt;n+1;j++)&#123;</span></span><br><span class="line"><span class="comment">				cout&lt;&lt;a[i][j]&lt;&lt;" ";</span></span><br><span class="line"><span class="comment">			&#125;</span></span><br><span class="line"><span class="comment">			cout&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">		cout&lt;&lt;endl;*/</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;a[i][n]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -246,15 +252,23 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NOIP模拟</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高斯消元</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">省选</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bzoj</a>
         		</li>
       		
 		</ul>
@@ -310,7 +324,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2018/某NOIP模拟赛 T1 字符串（string）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2018/题解-P4035-JSOI2008-球形空间产生器 - 副本/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -324,18 +338,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/树状数组/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/题解-LGR-049-T2-River Jumping/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          树状数组略解
+          题解 LGR-049 T2 River Jumping
         
       </div>
     </a>
   
   
-    <a href="/2018/某NOIP模拟赛 T2 dp/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">某NOIP模拟赛 T2 dp</div>
+    <a href="/2018/关于最短路的一些思考/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于最短路的一些思考</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -374,7 +388,7 @@
 <script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "某NOIP模拟赛 T1 字符串（string）",
+  id: "题解-P4035-JSOI2008-球形空间产生器",
   owner: 'wallbreaker5th',
   repo: 'wallbreaker5th.github.io',
   oauth: {
