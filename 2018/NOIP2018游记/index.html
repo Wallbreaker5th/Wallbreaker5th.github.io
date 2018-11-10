@@ -17,7 +17,7 @@
 <meta property="og:description" content="Day -27（初赛）特别冷，还飘雨，暗示了退役的结局。 我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。 两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。 NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。 阅读程序时因为算错成 $6!=120$，结果…… …… 怕是要退役。 大概口胡一下： 阅读程序 T1：模拟。 阅读程序 T2：$n$">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://cdn.luogu.org/upload/pic/37701.png">
-<meta property="og:updated_time" content="2018-11-08T13:07:22.794Z">
+<meta property="og:updated_time" content="2018-11-10T07:06:07.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NOIP2018游记（持续更新）">
 <meta name="twitter:description" content="Day -27（初赛）特别冷，还飘雨，暗示了退役的结局。 我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。 两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。 NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。 阅读程序时因为算错成 $6!=120$，结果…… …… 怕是要退役。 大概口胡一下： 阅读程序 T1：模拟。 阅读程序 T2：$n$">
@@ -227,7 +227,76 @@
 <p>开学时我立的 flag 都是“信息学提高省一争取有；文化课年级前十五不能无。”今年的大考已经只剩这次期中了。我实在不想把这次期中给扔了……</p>
 <p>截止我打字时思想工作还在继续……</p>
 <hr>
-<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>期中考试结束。明天下午将提前和高中同学一起到考场旁边的宾馆。之后几天我尽可能及时地更新，如果不行就只能回来再更了。</p>
+<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>期中考试结束。明天下午将提前和高中同学一起到考场旁边的宾馆。之后几天我尽可能及时地在评论区更新，如果不行就只能回来再更了。</p>
+<hr>
+<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>13:05 到达高中部机房。</p>
+<p>之后的更新将写在评论区。</p>
+<p>但是离开机房之后手机显示不了 gitment，我会使用用 issue 来更新。</p>
+<p>17:30 左右到考场附近的宾馆。</p>
+<p>没有带电脑，开始写作业。</p>
+<hr>
+<h1 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h1><h3 id="7-16"><a href="#7-16" class="headerlink" title="7:16"></a>7:16</h3><p>刚吃完早饭。昨天晚上睡得不是很好。希望不会影响状态。</p>
+<p>（以下是我下午两点左右拿到电脑后根据记忆写的，时间会比较混乱）</p>
+<h3 id="8-20"><a href="#8-20" class="headerlink" title="8:20"></a>8:20</h3><p>先试了一下键盘，敲了下 <code>The qiuck brown fox jumps over a lazy dog.</code> 之类的东西试键盘。不是很习惯 Backspace 与 \ 键的位置。</p>
+<h3 id="8-2x"><a href="#8-2x" class="headerlink" title="8:2x"></a>8:2x</h3><p>题目下来了，密码 <code>Fei2Xue@Lian$Tian!</code> ，显然是怀念金庸先生。</p>
+<p>敲好了读优再看了一下题</p>
+<p>第一印象：</p>
+<ul>
+<li><p>T1 <a href="https://www.luogu.org/problemnew/show/P1969" target="_blank" rel="noopener">原题？</a></p>
+</li>
+<li><p>T2 背包</p>
+</li>
+<li><p>T3 树上 DP</p>
+</li>
+</ul>
+<h3 id="8-37"><a href="#8-37" class="headerlink" title="8:37"></a>8:37</h3><p>反复确认、试样例之后水过 T1。</p>
+<p>之后看 T3，首先 $m=1$ 时答案为直径。</p>
+<h3 id="8-4x"><a href="#8-4x" class="headerlink" title="8:4x"></a>8:4x</h3><p>搞完直径。发现当 $a_i=b_i+1$ 时是链，想了一下想起来<strong>最小值最大</strong>是二分。<code>check()</code> 与<a href="https://www.luogu.org/problemnew/show/P1181" target="_blank" rel="noopener">数列分段Section I</a>一样，于是大胆贪心。</p>
+<h3 id="9-07"><a href="#9-07" class="headerlink" title="9:07"></a>9:07</h3><p>贪心写完。</p>
+<p>再看 T2，认为 n=2 时只有整除、不整除两种情况，很快写完。</p>
+<p>之后猜想：简化后的钱一定是简化前的子集，并且一种钱能够被删掉当且仅当这个钱能被别的钱凑出来。</p>
+<p>9:11 左右大致推出来了</p>
+<h3 id="9-3x"><a href="#9-3x" class="headerlink" title="9:3x"></a>9:3x</h3><p>T2 解决，排序 + 完全背包。</p>
+<p>开始思考 T3</p>
+<h3 id="10-0x"><a href="#10-0x" class="headerlink" title="10:0x"></a>10:0x</h3><p><del>经过思考</del>大致明白正解的思路，先捡最多三个分叉的二叉树写了。</p>
+<h3 id="11-0x"><a href="#11-0x" class="headerlink" title="11:0x"></a>11:0x</h3><p>反复思考想不出来 $O(n\log _2(\text{二分上界})\log _2(n))$ 的解，决定退而求其次写 O(n^2 \log _2(\text{二分上界}))。（对每个节点 $n^2$ 枚举组合哪两条链）</p>
+<p>于是一共写了 二叉树 + 链 + $m=1$ + $n\leq 1000$</p>
+<p>之后主要是检查。（包括在虚拟机下编译、随机生成大数据……以及给 T2 写了个 checker（输出方案，判断对错））</p>
+<h3 id="12-00"><a href="#12-00" class="headerlink" title="12:00"></a>12:00</h3><p>交卷，走人。<del>结果忘拿水了。</del></p>
+<h3 id="12-xx"><a href="#12-xx" class="headerlink" title="12:xx"></a>12:xx</h3><p>交流着突然发现我二叉树没有判断以哪里为根！天知道我得多少分……</p>
+<p>还有就是听说三道题都是原题。</p>
+<p><a href="https://www.luogu.org/problemnew/show/P1969" target="_blank" rel="noopener">T1</a></p>
+<p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2914" target="_blank" rel="noopener">T2</a> 或 <a href="https://szkopul.edu.pl/problemset/problem/_WmXXjf_cmhtCu8zEH5oEVSp/site/?key=statement" target="_blank" rel="noopener">T2</a></p>
+<p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2067" target="_blank" rel="noopener">T3</a> 或 <a href="https://szkopul.edu.pl/problemset/problem/JyanwtKuk_ER10eZ7Yv0q72d/site/?key=statement" target="_blank" rel="noopener">T3</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h3><p><a href="https://www.luogu.org/problemnew/show/P1969" target="_blank" rel="noopener">原题</a>，$O(n)$ 扫一遍。</p>
+<p>代码：</p>
+<pre><code class="cpp"><span class="comment">//待公开</span>
+</code></pre>
+<p>期望得分：100</p>
+<p>实际得分：</p>
+<h3 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h3><p>排序+完全背包，每次遍历到一个先看它能不能被之前的凑出来，行就扔了，不行就装进去。$O(Tna_i)$</p>
+<p>代码：</p>
+<pre><code class="cpp"><span class="comment">//待公开</span>
+</code></pre>
+<p>期望得分：100</p>
+<p>实际得分：</p>
+<h3 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h3><ul>
+<li><p>$m=1$，求直径，$O(n)$</p>
+</li>
+<li><p>$a_i=b_i+1$，是一条链，二分，<code>check()</code> 与<a href="https://www.luogu.org/problemnew/show/P1181" target="_blank" rel="noopener">数列分段Section I</a>一样，$O(\log_2(\text{二分上界})n)$</p>
+</li>
+<li><p>不超过三个分叉，是二叉树，<strong>找到根节点</strong>（我没找），二分，每个节点处理左儿子连成链、右儿子连成链、左右儿子连起来几种情况，贪心，$O(\log _2(\text{二分上界})n)$</p>
+</li>
+<li><p>$n\leq 1000$，二分，每个节点处理儿子单独成链、两个儿子连起来（这里 $O(n^2)$ 枚举，要贪心，取最多，取最小，留最大），$O(n^2 \log _2(\text{二分上界}))$，随机数据优秀，但会被菊花图卡惨。</p>
+</li>
+</ul>
+<p>代码：</p>
+<pre><code class="cpp"><span class="comment">//待公开</span>
+</code></pre>
+<p>期望得分：$50\pm 30$</p>
+<p>实际得分：</p>
+<h3 id="Day-1-总和"><a href="#Day-1-总和" class="headerlink" title="Day 1 总和"></a>Day 1 总和</h3><p>期望得分：$250\pm 30$</p>
+<p>实际得分：</p>
 <h1 id="TBC"><a href="#TBC" class="headerlink" title="TBC"></a>TBC</h1>
       
 
