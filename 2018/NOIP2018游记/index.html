@@ -17,7 +17,7 @@
 <meta property="og:description" content="Day -27（初赛）特别冷，还飘雨，暗示了退役的结局。 我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。 两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。 NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。 阅读程序时因为算错成 $6!=120$，结果…… …… 怕是要退役。 大概口胡一下： 阅读程序 T1：模拟。 阅读程序 T2：$n$">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://cdn.luogu.org/upload/pic/37701.png">
-<meta property="og:updated_time" content="2018-11-17T09:52:17.055Z">
+<meta property="og:updated_time" content="2018-11-22T14:45:14.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NOIP2018游记（持续更新）">
 <meta name="twitter:description" content="Day -27（初赛）特别冷，还飘雨，暗示了退役的结局。 我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。 两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。 NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。 阅读程序时因为算错成 $6!=120$，结果…… …… 怕是要退役。 大概口胡一下： 阅读程序 T1：模拟。 阅读程序 T2：$n$">
@@ -274,14 +274,14 @@
 <p>期望得分：100</p>
 <p>洛谷数据：100</p>
 <p>学军数据：100</p>
-<p>实际得分：</p>
+<p>实际得分：100</p>
 <h3 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h3><p>排序+完全背包，每次遍历到一个先看它能不能被之前的凑出来，行就扔了，不行就装进去。$O(Tnai)$</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&lt;=<span class="string">'9'</span>&amp;&amp;c&gt;=<span class="string">'0'</span>)&#123;</span><br><span class="line">		ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">110</span>,A=<span class="number">25010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> f[A];</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	freopen(<span class="string">"money.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"money.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> t=getint();</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		<span class="keyword">int</span> n=getint();</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">2</span>)&#123;</span><br><span class="line">			<span class="keyword">int</span> x=getint(),y=getint();</span><br><span class="line">			<span class="keyword">if</span>(x&lt;y)swap(x,y);</span><br><span class="line">			<span class="keyword">if</span>(x%y==<span class="number">0</span>)<span class="built_in">puts</span>(<span class="string">"1"</span>);</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"2"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">int</span> ans=n;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)a[i]=getint();</span><br><span class="line">			sort(a,a+n);</span><br><span class="line">			<span class="built_in">memset</span>(f,<span class="number">0</span>,<span class="keyword">sizeof</span>(f));</span><br><span class="line">			f[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(f[a[i]])--ans;</span><br><span class="line">				<span class="keyword">else</span>&#123;</span><br><span class="line">					<span class="keyword">for</span>(<span class="keyword">int</span> j=a[i];j&lt;A;j++)&#123;</span><br><span class="line">						<span class="keyword">if</span>(f[j-a[i]])f[j]=<span class="number">1</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>期望得分：100</p>
 <p>洛谷数据：100</p>
 <p>学军数据：100</p>
-<p>实际得分：</p>
+<p>实际得分：100</p>
 <h3 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h3><ul>
 <li><p>$m=1$，求直径，$O(n)$</p>
 </li>
@@ -301,11 +301,11 @@
 <p>期望得分：$50\pm 30$</p>
 <p>洛谷数据：70</p>
 <p>学军数据：60</p>
-<p>实际得分：</p>
+<p>实际得分：65</p>
 <h3 id="Day-1-总和"><a href="#Day-1-总和" class="headerlink" title="Day 1 总和"></a>Day 1 总和</h3><p>期望得分 ：$250\pm 30$</p>
 <p>洛谷数据：270</p>
 <p>学军数据：260</p>
-<p>实际得分：</p>
+<p>实际得分：265</p>
 <h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><p>（以下是我 Day 8 根据记忆写的，没有具体时间，会比较混乱）</p>
 <p>发下来密码，居然奶中了（笑书神侠）。<del>引起选手恐慌。</del></p>
 <p>第一印象：</p>
@@ -332,7 +332,7 @@
 <p>预估得分：$65\pm 5$</p>
 <p>洛谷数据：76</p>
 <p>学军数据：76</p>
-<p>实际得分：</p>
+<p>实际得分：84</p>
 <h3 id="T2-1"><a href="#T2-1" class="headerlink" title="T2"></a>T2</h3><ul>
 <li><p>$n=1$，答案 $2^m$。</p>
 </li>
@@ -346,6 +346,7 @@
 <p>期望得分：$50\pm 10$（不知道 $n=2$ 错了）$10\pm 10$（知道 $n=2$ 错了）</p>
 <p>洛谷数据：20</p>
 <p>学军数据：15</p>
+<p>实际得分：15</p>
 <h3 id="T3-1"><a href="#T3-1" class="headerlink" title="T3"></a>T3</h3><ul>
 <li><p>$n,m\leq 2000$，每次询问 dp 一遍，强制取 i 就是 $f[i][0]=inf$，不取就是 $f[i][1]=inf$。</p>
 </li>
@@ -359,15 +360,15 @@
 <p>期望得分：44</p>
 <p>洛谷数据：44</p>
 <p>学军数据：44</p>
-<p>实际得分：</p>
+<p>实际得分：44</p>
 <h3 id="Day-2-总和"><a href="#Day-2-总和" class="headerlink" title="Day 2 总和"></a>Day 2 总和</h3><p>期望得分：$154\pm 15$（不知道 T2 出锅）$114\pm 15$（知道 T2 出锅）</p>
 <p>洛谷数据：140</p>
 <p>学军数据：135</p>
-<p>实际得分：</p>
+<p>实际得分：143</p>
 <h2 id="Day-1-Day-2"><a href="#Day-1-Day-2" class="headerlink" title="Day 1 + Day 2"></a>Day 1 + Day 2</h2><p>期望得分：$404\pm 15$（不知道 D2T2 出锅）$364\pm 15$（知道 D2T2 出锅）</p>
 <p>洛谷数据：410</p>
 <p>学军数据：395</p>
-<p>实际得分：</p>
+<p>实际得分：408</p>
 <h1 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h1><p>半期考试成绩出来了，年级第二，算是达成了我年初的 flag：信息学提高组省一争取有，文化课年级前十五不能无。</p>
 <h1 id="Day-6"><a href="#Day-6" class="headerlink" title="Day 6"></a>Day 6</h1><p>民间成绩出来了，390 左右。</p>
 <p>不知道我们班主任哪里知道的，在班上把我吹了一番，还说我得了国一（我：？？？）。</p>
@@ -375,6 +376,13 @@
 <p>把前四道题自己写了出来。</p>
 <h1 id="Day-8"><a href="#Day-8" class="headerlink" title="Day 8"></a>Day 8</h1><p>把博客补好。机房没法写，暂时扔到洛谷博客。<br>（一上午写了一千多行……）</p>
 <p>下午放到了自己博客。</p>
+<h1 id="Day-11"><a href="#Day-11" class="headerlink" title="Day 11"></a>Day 11</h1><p>出成绩，居然比预估得分高。D2T1 的乱搞不知道怎么得了那么多分。</p>
+<p>前面的“实际得分”一栏已更新。</p>
+<h1 id="Day-12"><a href="#Day-12" class="headerlink" title="Day 12"></a>Day 12</h1><p>CCF：</p>
+<blockquote>
+<p>选择电子版证书的选手，请于12月2日前发送NOIP2018电子证书申请表（附1）至邮箱（<a href="mailto:linhe@ccf.org.cn" target="_blank" rel="noopener">linhe@ccf.org.cn</a>）。邮件主题为“提高/普及组+准考证号+电子证书”。本学会在制作、整理后于<strong>2018年1月8日</strong>后陆续发送到申请选手的邮箱。</p>
+</blockquote>
+<p>看来 CCF 不仅换了评测机、买了权限号，还买了时光机。（逃</p>
 <h1 id="TBC"><a href="#TBC" class="headerlink" title="TBC"></a>TBC</h1>
       
 
