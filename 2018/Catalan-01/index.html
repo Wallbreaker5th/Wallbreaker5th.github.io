@@ -19,7 +19,8 @@
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0003.PNG">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0004.PNG">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0005.PNG">
-<meta property="og:updated_time" content="2018-12-02T01:06:07.299Z">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/e/e7/Noncrossing_partitions_5.svg">
+<meta property="og:updated_time" content="2018-12-02T04:19:43.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几种计数问题与 01 序列问题的转化">
 <meta name="twitter:description" content="卡特兰数是计数问题当中常见的一个数列。卡特兰数解决的一个经典的问题就是 01 序列：  有一个只有 $n$ 个 0，$n$ 个 1 的数列，求保证该数列任意前缀的 1 的个数大于等于 0 的个数的方案数。如 $n=2$ 时，方案有 $1100,1010$ 共 2 种。  这个问题的答案就是 $C_{n-1}$。 卡特兰数还能解决其它许多问题，下面将各种问题转换为 01 序列问题： 括号序列 给定n">
@@ -210,40 +211,68 @@
 </blockquote>
 <p>将 向东走 编号为 1，将 向北走 编号为 0，即可建立对应关系。</p>
 <a id="more"></a>
+<h1 id="杨氏矩阵"><a href="#杨氏矩阵" class="headerlink" title="杨氏矩阵"></a>杨氏矩阵</h1><blockquote>
+<p>问有多少种方式把 $[1..2n]$ 分成两个序列 $a,b$，使 $a,b$ 分别有序且 $a_i&lt; b_i$。</p>
+</blockquote>
+<p>挨个扫 $[1..2n]$ 以及 01 序列，遇到 1 将数字放在 $a$ ，遇到 0 将数字放在 $b$。注意到如果 0 比 1 多会导致 $a_i&gt; b_i$，所以是正确的。</p>
+<h1 id="儿子有序的有根树"><a href="#儿子有序的有根树" class="headerlink" title="儿子有序的有根树"></a>儿子有序的有根树</h1><blockquote>
+<p>给定 $n$ 个相同节点，能构成多少种不同的有根树（儿子有序）？</p>
+</blockquote>
+<p>先给一个根节点，将 01 序列对应到栈，在将出栈入栈对应到一一棵树（儿子有序）上。</p>
 <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><blockquote>
 <p>给定 $n$ 个相同节点，能构成多少种不同的二叉树？</p>
 </blockquote>
-<p>将 01 序列对应到栈，在将出栈入栈对应到一片森林（儿子有序）上，利用左儿子右兄弟法即可将其对应到二叉树。</p>
+<p>将 01 序列对应到儿子有序的有根树，利用左儿子右兄弟法即可将其对应到二叉树。</p>
 <p><img src="/img/0003.PNG" alt="示意图"></p>
+<h1 id="每个节点有-0-或-2-个儿子的二叉树（full-binary-tree）"><a href="#每个节点有-0-或-2-个儿子的二叉树（full-binary-tree）" class="headerlink" title="每个节点有 0 或 2 个儿子的二叉树（full binary tree）"></a>每个节点有 0 或 2 个儿子的二叉树（full binary tree）</h1><p>注意：这不是满二叉树！</p>
+<blockquote>
+<p>给定 $2n+1$ 个相同节点，可以构成多少种不同的每个节点有 0 或 2 个儿子的二叉树（full binary tree）？</p>
+</blockquote>
+<p>构造二叉树，先只有一个根，每次遇到 1 给当前节点添加左儿子，并跳到左儿子上面；每次遇到 0 不断往上跳（可能不跳），直到只有左儿子的节点，给那个节点添加右儿子，跳到这个右儿子上。</p>
 <h1 id="乘法添加括号"><a href="#乘法添加括号" class="headerlink" title="乘法添加括号"></a>乘法添加括号</h1><blockquote>
 <p>$P=a_1\times a_2\times a_3\times\dots\times a_n$，依据乘法结合律，不改变其顺序，只用括号表示成对的乘积，试问有几种括号化的方案？</p>
 </blockquote>
 <p>一个带括号的乘积式可以看作一棵以数字为叶节点，以 <code>*</code> 为非叶节点，每个节点有 0 或 2 个儿子的二叉树。</p>
-<p>构造二叉树，先只有一个根，每次遇到 1 给当前节点添加左儿子，并跳到左儿子上面；每次遇到 0 不断往上跳（可能不跳），直到只有左儿子的节点，给那个节点添加右儿子，跳到这个右儿子上。</p>
 <p><img src="/img/0004.PNG" alt="示意图"></p>
 <h1 id="圆内连边"><a href="#圆内连边" class="headerlink" title="圆内连边"></a>圆内连边</h1><blockquote>
 <p>在圆上选择2n个点,将这些点成对连接起来使得所得到的n条线段不相交的方法数？</p>
 </blockquote>
 <p>挨个扫圆上的点以及 01 序列，遇到 1 将点入栈，遇到 0 将点与栈顶相连并 pop。</p>
 <p><img src="/img/0005.PNG" alt="示意图"></p>
+<h1 id="不交叉划分2"><a href="#不交叉划分2" class="headerlink" title="不交叉划分2"></a>不交叉划分2</h1><p>（不交叉划分是什么请见下文“不交叉划分”）</p>
+<blockquote>
+<p>给定 ${1,2,\dots 2n}$，问有多少种不交叉划分，每个划分恰有两个元素？</p>
+</blockquote>
+<p>与“圆内连边”相同，不再赘述。</p>
 <hr>
-<p>以下内容等待更新（翻译：咕咕咕）</p>
+<p>以下内容等待更新（咕咕咕）</p>
 <h1 id="多边形的切割"><a href="#多边形的切割" class="headerlink" title="多边形的切割"></a>多边形的切割</h1><blockquote>
 <p>在一个凸 $n$ 边形中，通过若干条互不相交的对角线，把这个多边形划分成了若干个三角形。求不同的划分方案数。</p>
 </blockquote>
 <p>？？？</p>
 <h1 id="没有-123-的排列"><a href="#没有-123-的排列" class="headerlink" title="没有 123 的排列"></a>没有 123 的排列</h1><blockquote>
-<p>问有多少 1 到 $n$ 的排列，满足排列里没有 $1,2,3$。</p>
+<p>问有多少 1 到 $n$ 的排列，满足排列里没有连续的三个数依次是三个连续自然数。</p>
 </blockquote>
 <p>？？？</p>
 <h1 id="切割阶梯"><a href="#切割阶梯" class="headerlink" title="切割阶梯"></a>切割阶梯</h1><blockquote>
 <p>问有多少种切割方式，能将 $n\times n$ 的阶梯形切割成 $n$ 个长方形？</p>
 </blockquote>
 <p>？？？</p>
-<h1 id="杨氏矩阵"><a href="#杨氏矩阵" class="headerlink" title="杨氏矩阵"></a>杨氏矩阵</h1><blockquote>
-<p>问有多少种方式把 $[1..2n]$ 分成两个序列 $a,b$，使 $a,b$ 分别有序且 $a_i&lt; b_i$。</p>
+<h1 id="Semiorders（半序？）"><a href="#Semiorders（半序？）" class="headerlink" title="Semiorders（半序？）"></a>Semiorders（半序？）</h1><blockquote>
+<p>给定 $n$ 个 unlabeled（未标号？） 元素，有多少种不同的 semiorders（半序？）？</p>
 </blockquote>
+<p>？？？（半序是什么啊 QAQ）</p>
+<h1 id="不交叉划分"><a href="#不交叉划分" class="headerlink" title="不交叉划分"></a>不交叉划分</h1><blockquote>
+<p>给定 ${1,2,\dots n}$，问有多少种不交叉划分？</p>
+</blockquote>
+<blockquote>
+<p>不交叉划分：不出现 $a,b$ 连续，$x,y$ 连续，但是 ${a,c},{b,d}$ 的情况。</p>
+</blockquote>
+<p>（可能描述得不清楚，这里从 wiki 上面甩张图下来）</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Noncrossing_partitions_5.svg" alt="不交叉划分"></p>
 <p>？？？</p>
+<hr>
+<p>大部分性质是从 <a href="https://en.wikipedia.org/wiki/Catalan_number" target="_blank" rel="noopener">wi</a><a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E5%A1%94%E5%85%B0%E6%95%B0" target="_blank" rel="noopener">ki</a> 上扔下来的</p>
 
       
 
