@@ -168,106 +168,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-题解-LGR-047-T1-偷上网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/题解-LGR-047-T1-偷上网/">题解 LGR-047 T1 偷上网</a>
-    </h1>
-  
-
-        
-        <a href="/2018/题解-LGR-047-T1-偷上网/" class="archive-article-date">
-  	<time datetime="2018-06-02T11:02:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这道题当时居然因为某些细节没有 AC，之后看到错因才发现问题 orz。</p>
-<p>听说标算是先判断 $n=1$，只有 $n=1$ 并且四个顶点都被覆盖才可能 GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。</p>
-<p>下面进入正文：</p>
-<p>题目链接： <a href="https://www.luogu.org/problemnew/show/T29693" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/T29693</a></p>
-<p>题目大意：在一个 $l\times l$ 的正方形里有 n 个半径为$l/n$的圆， 求一个不在任何一个圆里面的点。</p>
-<p>看到这道题，第一反应：毒瘤计算几何，这辈子都别想写出标算。</p>
-<p>然而我灵光一现，想出了一种奇葩解法：</p>
-<p>首先把很多个 Bob 随机扔进房间，然后想象这些 Bob 被屏蔽器“挤开”。</p>
-<p>多“挤”几次之后就很可能出现成功躲开的 Bob，如果没有就认为 GG。</p>
-<p>然后我把这个思路抽象出来：</p>
-<p>首先在正方形里面随机生成 N 个点，然后做 T 次以下操作：</p>
-<p>遍历每一个点，判断它是不是在某一个圆内部。 如果是，求出该圆圆心到这个点的向量， 乘以一个倍数使得这个点沿着这个向量移动之后刚好脱离屏蔽器的距离。</p>
-<p>把一个点所有向量加起来，让这个点移动。 如果出了房间或者出现 NaN，让它重新在正方形里面随机选一个点。</p>
-        
-          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">玄学算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">洛谷月赛</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -404,9 +304,85 @@
 
 
   
+    <article id="post-修改记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2000/修改记录/">修改记录</a>
+    </h1>
+  
+
+        
+        <a href="/2000/修改记录/" class="archive-article-date">
+  	<time datetime="1999-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2000-01-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对博客、样式的修改或大量文章的批量修改的记录</p>
+<h2 id="2018-10-27"><a href="#2018-10-27" class="headerlink" title="2018-10-27"></a>2018-10-27</h2><p>对大量博客的格式进行了修改。主要包括：</p>
+<ul>
+<li><p>添加空格</p>
+</li>
+<li><p>调整、添加 $\LaTeX$</p>
+</li>
+<li><p>修改了一些格式的细节</p>
+</li>
+<li><p>修改了一些词语的细节</p>
+</li>
+<li><p>处理格式出锅的文章</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2000/修改记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
     </nav>
   
 
