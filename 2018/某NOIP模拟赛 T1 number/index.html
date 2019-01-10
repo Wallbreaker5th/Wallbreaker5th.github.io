@@ -10,7 +10,7 @@
   <title>某NOIP模拟赛 T1 number | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="【问题描述】如果一个数能够表示成两两不同的 3 的幂次的和，就说这个数是好的。比如 13 是好的，因为 13 = 9 + 3 + 1 。又比如 90 是好的，因为 90 = 81 + 9 。现在我们用 a[i] 表示第 i 小的好数。比如$a[1] = 1, a[2] = 3, a[5] = 10$ 。给定$L,R$，请求出 $a[L]$ 到 $a[R]$ 的和 $\mod 2^{32}$。  【">
-<meta name="keywords" content="OI,NOIP模拟,题解,数学">
+<meta name="keywords" content="OI,NOIP模拟,数学,题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="某NOIP模拟赛 T1 number">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2018/某NOIP模拟赛 T1 number/index.html">
@@ -31,7 +31,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#0080ff,#66ccff);
+      background: linear-gradient(200deg,#ffff00,#ee0000);
     }
   </style>
   
@@ -46,7 +46,7 @@
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
-      <div class="overlay" style="background: #66ccff">
+      <div class="overlay" style="background: #ee0000">
     
 </div>
 <div class="intrude-less">
@@ -102,14 +102,19 @@
 </div>
 
     </div>
-    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
-      <div style="background-color: #0080ff;color: #ffffff;
-      position:fixed;width:100%;z-index: 999;">
-        <p><strong>Notice:</strong> 祝徵羽摩柯生日快乐（早就过了）：https://www.bilibili.com/video/av37725932</p>
+    <script>
+      function header_click(){
+        document.getElementById("myheader").innerHTML="";
+      }
+    </script>
+      <div style="background-color: #ee0000;color: #ffff00;
+      position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
+        <p><strong>Notice:</strong> 给大家拜年了！<br/>无根树，有根树，搜索树，线段树，辞旧岁银花火树；<br/>无向图，有向图，拓扑图，连通图，贺新春大展宏图。</p>
       </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #66ccff"></div>
+  	<div class="overlay js-overlay" style="background: #ee0000"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -244,11 +249,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		
 		</ul>
@@ -389,7 +394,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 破壁人五号
+    		&copy; 2019 破壁人五号
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme 经过一番魔改的 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -525,15 +530,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NOIP2017</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,7 +538,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,7 +546,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,11 +582,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+                <a href="javascript:void(0)" class="js-tag color5">渐进记号</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,14 +602,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渐进记号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
@@ -610,18 +611,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高斯消元</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">省选</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">洛谷</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bzoj</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,7 +626,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡特兰数</a>
+                <a href="javascript:void(0)" class="js-tag color3">省选</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">洛谷</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bzoj</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
               </li>
             
             <div class="clearfix"></div>

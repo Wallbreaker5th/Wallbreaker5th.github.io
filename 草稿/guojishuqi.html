@@ -7,22 +7,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
-  <title>O(1/n) 算法存在吗？——几种常见渐进记号略解 | 破壁人五号的博客</title>
+  <title>破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="未完待续在 OI 界，$O(\frac{1}{n})$ 的算法已经成为了一个梗。  你要是发明了 $O(\frac{1}{n})$ 的算法，我就出 $n=0.00000000001$ 来卡你。 ——鲁迅  那么这种时间复杂度的算法存在吗？我们首先要了解几种渐进记号分别代表什么。 （下面默认所有函数都渐进非负，即当 $n$ 足够大时，函数值始终非负） （下面大部分内容以《算法导论》为根据） $\Th">
-<meta name="keywords" content="OI,时间复杂度,渐进记号">
-<meta property="og:type" content="article">
-<meta property="og:title" content="O(1&#x2F;n) 算法存在吗？——几种常见渐进记号略解">
-<meta property="og:url" content="https://wallbreaker5th.github.io/2018/渐进记号/index.html">
+  <meta name="description" content="这篇文章主要介绍国际数棋的一部分规则以及国际数棋中棋子、棋盘、棋谱的记录方式，以供题目需要。 即使你会国际数棋，也请认真阅读本文。 棋盘国际数棋棋盘形如跳棋棋盘，分红蓝两方。 下图是一个空的国际数棋棋盘：  行棋时，自己站在自己颜色的那一边。 比如你是红棋，就站在红方那一边，你的前方是蓝棋。 后文假设你是红棋。 方向很重要，这与之后对描述一步棋的方式息息相关。 位置记录为了方便，我们将每一格编号。">
+<meta name="keywords" content="OI,信息学竞赛,算法">
+<meta property="og:type" content="website">
+<meta property="og:title" content="破壁人五号的博客">
+<meta property="og:url" content="https://wallbreaker5th.github.io/草稿/guojishuqi.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="未完待续在 OI 界，$O(\frac{1}{n})$ 的算法已经成为了一个梗。  你要是发明了 $O(\frac{1}{n})$ 的算法，我就出 $n=0.00000000001$ 来卡你。 ——鲁迅  那么这种时间复杂度的算法存在吗？我们首先要了解几种渐进记号分别代表什么。 （下面默认所有函数都渐进非负，即当 $n$ 足够大时，函数值始终非负） （下面大部分内容以《算法导论》为根据） $\Th">
+<meta property="og:description" content="这篇文章主要介绍国际数棋的一部分规则以及国际数棋中棋子、棋盘、棋谱的记录方式，以供题目需要。 即使你会国际数棋，也请认真阅读本文。 棋盘国际数棋棋盘形如跳棋棋盘，分红蓝两方。 下图是一个空的国际数棋棋盘：  行棋时，自己站在自己颜色的那一边。 比如你是红棋，就站在红方那一边，你的前方是蓝棋。 后文假设你是红棋。 方向很重要，这与之后对描述一步棋的方式息息相关。 位置记录为了方便，我们将每一格编号。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://wallbreaker5th.github.io/img/0001.PNG">
-<meta property="og:updated_time" content="2018-10-27T11:05:12.886Z">
+<meta property="og:image" content="http://pic15.nipic.com/20110717/5551179_111525570155_2.jpg">
+<meta property="og:image" content="http://img02.taobaocdn.com/imgextra/etao/i2/2640275158/TB2M8wZnFXXXXbrXXXXXXXXXXXX_!!2640275158.jpg_220x220.jpg">
+<meta property="og:image" content="http://www.fishingbar.net/fishingbarimg/img02.www.fishingbar.net/bao/uploaded/i2/14853023620597091/T1j1WRXAJXXXXXXXXX_!!0-item_pic.jpg_310x310.jpg">
+<meta property="og:updated_time" content="2019-01-09T12:56:54.076Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="O(1&#x2F;n) 算法存在吗？——几种常见渐进记号略解">
-<meta name="twitter:description" content="未完待续在 OI 界，$O(\frac{1}{n})$ 的算法已经成为了一个梗。  你要是发明了 $O(\frac{1}{n})$ 的算法，我就出 $n=0.00000000001$ 来卡你。 ——鲁迅  那么这种时间复杂度的算法存在吗？我们首先要了解几种渐进记号分别代表什么。 （下面默认所有函数都渐进非负，即当 $n$ 足够大时，函数值始终非负） （下面大部分内容以《算法导论》为根据） $\Th">
-<meta name="twitter:image" content="https://wallbreaker5th.github.io/img/0001.PNG">
+<meta name="twitter:title" content="破壁人五号的博客">
+<meta name="twitter:description" content="这篇文章主要介绍国际数棋的一部分规则以及国际数棋中棋子、棋盘、棋谱的记录方式，以供题目需要。 即使你会国际数棋，也请认真阅读本文。 棋盘国际数棋棋盘形如跳棋棋盘，分红蓝两方。 下图是一个空的国际数棋棋盘：  行棋时，自己站在自己颜色的那一边。 比如你是红棋，就站在红方那一边，你的前方是蓝棋。 后文假设你是红棋。 方向很重要，这与之后对描述一步棋的方式息息相关。 位置记录为了方便，我们将每一格编号。">
+<meta name="twitter:image" content="http://pic15.nipic.com/20110717/5551179_111525570155_2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
@@ -175,56 +177,77 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-渐进记号" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      O(1/n) 算法存在吗？——几种常见渐进记号略解
-    </h1>
-  
-
-
-<div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-  
-</div>
-
-        
-        <a href="/2018/渐进记号/" class="archive-article-date">
-  	<time datetime="2018-08-17T05:19:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h1><p>在 OI 界，$O(\frac{1}{n})$ 的算法已经成为了一个梗。</p>
-<blockquote>
-<p>你要是发明了 $O(\frac{1}{n})$ 的算法，我就出 $n=0.00000000001$ 来卡你。 <del>——鲁迅</del></p>
-</blockquote>
-<p>那么这种时间复杂度的算法存在吗？我们首先要了解几种渐进记号分别代表什么。</p>
-<p>（下面默认所有函数都<strong>渐进非负</strong>，即当 $n$ 足够大时，函数值始终非负）</p>
-<p>（下面大部分内容以《算法导论》为根据）</p>
-<h2 id="Theta"><a href="#Theta" class="headerlink" title="$\Theta$"></a>$\Theta$</h2><p>$\Theta$ 符号的意义是我们通常用 $O$ 记号表达的，它代表了函数的<strong>渐进紧确界</strong>。</p>
-<p>其定义为：</p>
-<blockquote>
-<p>对一个给定的函数 $g(n)$，用 $\Theta(g(n))$ 来表示以下函数的集合：</p>
-</blockquote>
-<blockquote>
-<p>$\Theta(g(n))={f(n):\text{存在正常量}c_1,c_2,n_0\text{，使得对所有的}n\geq n_0\text{，有}0\leq c_1g(n)\leq f(n)\leq c_2g(n)}$</p>
-</blockquote>
-<p>冒号指<strong>使得</strong>。</p>
-<p>也就是当 $n$ 够大时，$f(n)$ 能“夹进”两个 $g(n)$ 的常数倍之间。</p>
-<a id="more"></a>
-<p><img src="/img/0001.PNG" alt="$n+\sqrt{n}+\log_2(n)=\Theta(n)$"></p>
-<p>如图，$n+\sqrt{n}+\log_2(n)=\Theta(n)$。</p>
-<h2 id="O"><a href="#O" class="headerlink" title="$O$"></a>$O$</h2><p>$O$ 记号代表渐进上界，也就是说 $O$ 里面的东西可以很大。定义与 $\theta$ 类似，但是没有要求 $c_1g(n)\leq f(n)$，比如 $n=O(n^{233})$。</p>
-<p>大概就是把 $O$ 里面的函数拉得足够高之后能够使另一个函数追不上。</p>
-<h2 id="Omega"><a href="#Omega" class="headerlink" title="$\Omega$"></a>$\Omega$</h2><p>与$O$相反，只规定了下界，比如$n^{233}=\Omega(1)$</p>
-<hr>
-<h3 id="upd-2018-10-26"><a href="#upd-2018-10-26" class="headerlink" title="upd 2018-10-26"></a>upd 2018-10-26</h3><p>前天好像有人通过搜索引擎搜到了这个文章，也是通过搜索引擎的第一次访问。我赶紧改了一下里面的几个内容。<br>以及这篇文章几乎咕咕咕了。</p>
+        <p>这篇文章主要介绍国际数棋的一部分规则以及国际数棋中棋子、棋盘、棋谱的记录方式，以供题目需要。</p>
+<p><strong>即使你会国际数棋，也请认真阅读本文。</strong></p>
+<h1 id="棋盘"><a href="#棋盘" class="headerlink" title="棋盘"></a>棋盘</h1><p>国际数棋棋盘形如跳棋棋盘，分红蓝两方。</p>
+<p>下图是一个空的国际数棋棋盘：</p>
+<p><img src="http://pic15.nipic.com/20110717/5551179_111525570155_2.jpg" alt="棋盘"></p>
+<p>行棋时，自己站在自己颜色的那一边。</p>
+<p>比如你是红棋，就站在红方那一边，你的前方是蓝棋。</p>
+<p><strong>后文假设你是红棋。</strong></p>
+<p>方向很重要，这与之后对描述一步棋的方式息息相关。</p>
+<h2 id="位置记录"><a href="#位置记录" class="headerlink" title="位置记录"></a>位置记录</h2><p>为了方便，我们将每一格编号。对于双方阵营（即在棋盘上写有数字）的格子，红色记为 <code>r</code>，蓝色记为 <code>b</code>，后加格子上的数字，如<code>r1</code>、<code>b0</code>。棋盘中间部分从上往下数每一行分别记为 <code>A-G</code>，每一格从左往右从 1 开始编号。如 <code>D3</code>、<code>E9</code>。这样，每一格都有一个编号。</p>
+<h1 id="棋子"><a href="#棋子" class="headerlink" title="棋子"></a>棋子</h1><p>双方每人有 10 枚棋子，颜色分别为红色与蓝色（有时制作为绿色），写有数字 0-9。</p>
+<p>每枚棋子上都有一个数，分别为0~9。为了对双方棋子以示区别，红棋记为 <code>0r-9r</code>，蓝棋记为 <code>0b-9b</code>。</p>
+<p>它们被放置在几条线的交点上的圆圈上面，如下面两图：</p>
+<p><img src="http://img02.taobaocdn.com/imgextra/etao/i2/2640275158/TB2M8wZnFXXXXbrXXXXXXXXXXXX_!!2640275158.jpg_220x220.jpg" alt="棋子"><br><img src="http://www.fishingbar.net/fishingbarimg/img02.www.fishingbar.net/bao/uploaded/i2/14853023620597091/T1j1WRXAJXXXXXXXXX_!!0-item_pic.jpg_310x310.jpg" alt="棋子"></p>
+<h1 id="棋子的移动"><a href="#棋子的移动" class="headerlink" title="棋子的移动"></a>棋子的移动</h1><h2 id="方向"><a href="#方向" class="headerlink" title="方向"></a>方向</h2><p>棋子移动的方向有：左平、右平、左斜进、左斜退、右斜进、右斜退。</p>
+<p>数据中记作：<code>l</code>、<code>r</code>、<code>lf</code>、<code>lb</code>、<code>rf</code>、<code>rb</code>。</p>
+<h2 id="移"><a href="#移" class="headerlink" title="移"></a>移</h2><p>一个棋子可以移向与其相邻的空的一格。</p>
+<p>记作：[棋子]+[方向]+移。</p>
+<p>如：（红）1 左平 移</p>
+<p>数据中记作：1+[棋子]+[方向]。</p>
+<p>如：<code>1 1r l</code></p>
+<p><img src="" alt=""></p>
+<h2 id="邻"><a href="#邻" class="headerlink" title="邻"></a>邻</h2><p>一个棋子可以越过与其相邻的另一个棋子，到达空的一格：</p>
+<p>记作：[棋子]+[方向]+邻+[越过的棋子]。</p>
+<p>如：（红）1 右斜进 邻 （蓝）6</p>
+<p>数据中记作：2+[棋子]+[方向]+[越过的棋子]。</p>
+<p>如：<code>2 1r rf 6b</code></p>
+<p><img src="" alt=""></p>
+<h2 id="单跨"><a href="#单跨" class="headerlink" title="单跨"></a>单跨</h2><p>一个棋子可以跨越<strong>多个</strong>在同一直线上的棋子，并到达某最后一个棋子沿跨越方向的下一个位置（如果它是空的话），前提是被跨越的那些棋子的数值可以通过运算<strong>（关于“运算”有哪些种类，怎么记录，见下文）</strong>得到跨越的那个棋子的数值。</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul>
+<li>至少跨过两个棋子。</li>
+</ul>
+<p>记作：[棋子]+[方向]+跨+[所有越过的棋子（依次记录）]+，+[运算的过程]</p>
+<p>如：（红）3 左斜进 跨 （蓝）1 （红）2，1+2=3</p>
+<p>数据中记作：3+[棋子]+[方向]+[越过的棋子的个数]+[所有越过的棋子（依次记录）]+[运算的过程]</p>
+<p>如：<code>3 3r lf 2 1b 2r 1+2=3</code></p>
+<h2 id="连跨"><a href="#连跨" class="headerlink" title="连跨"></a>连跨</h2><p>这是最复杂也是争议最多的一个规则，下面对其在题目中的要求详细解释：</p>
+<p>一个棋子可以<strong>多次</strong>跨越<strong>一个或多个</strong>分别在同一直线上的棋子，并到达最后一个棋子沿最后跨越方向的下一个位置（如果它是空的话），前提是被跨越的那几组棋子的数值可以通过运算<strong>（关于“运算”有哪些种类，怎么记录，见下文）</strong>分别得到相等的数值。</p>
+<h3 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h3><ul>
+<li><p>不能只跨越一段；</p>
+</li>
+<li><p>不能每次都只跨越一个棋子；</p>
+</li>
+<li><p>不能每次都跨越同几个棋子。</p>
+</li>
+</ul>
+<p>记作：[棋子]+{[方向]+跨+[本次所有越过的棋子（依次记录）]+，}*n+[运算的过程]*n</p>
+<p>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">（红）3 左斜进 跨 （蓝）1 （红）7，</span><br><span class="line">右斜退 跨 （红）7，</span><br><span class="line">左平 跨 （蓝）2 （蓝）5，</span><br><span class="line">1*7=7</span><br><span class="line">7=7</span><br><span class="line">2+5=7</span><br></pre></td></tr></table></figure></p>
+<p>在数据中记作：4+[跨的次数]+[棋子]+{[方向]+[本次越过的棋子的个数]+[本次所有越过的棋子（依次记录）]+，}*n+[运算的过程]*n</p>
+<p>如：<code>4 3 3r lf 2 1b 7r rb 1 7r l 2b 5b 1*7=7 7=7 2+5=7</code></p>
+<h1 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h1><p>每个棋子的<strong>数值</strong>是它上面写的数，如 <code>4r</code> 的数值为 4。</p>
+<p>运算的过程中，所棋子必须全部用上且只用一次。</p>
+<p>可以使用的基本运算：加（+）、减（-）、乘（*）、除（/）。可以使用（嵌套）括号（()）。</p>
+<p>可以用的其它运算（只能用于棋子，不能用于中间结果）：</p>
+<ul>
+<li><p>组大数：把两个或多个数连起来，如：<code>2 3-&gt;23  2 4 6-&gt;624</code></p>
+</li>
+<li><p>组小数：把两个或多个数连起来并在中间打一个小数点，如：<code>2 3-&gt;2.3 2 4 6-&gt;6.24</code></p>
+</li>
+<li><p>在数据里直接写出组数的结果即可。</p>
+</li>
+</ul>
+<p>可以用的其它运算（可以用于中间结果）：</p>
+<ul>
+<li>组乘方：即 $a^b$，但指数只能为 2 或 3。</li>
+</ul>
 
       
 
@@ -233,25 +256,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">时间复杂度</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">渐进记号</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -302,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2018/渐进记号/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/草稿/guojishuqi.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,25 +318,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2018/某NOIP模拟赛 T1 snow/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          某NOIP模拟赛 T1 snow
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/Codeforces Marathon Round 2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Codeforces Marathon Round 2</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -366,7 +351,7 @@
 <script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "O(1/n) 算法存在吗？——几种常见渐进记号略解",
+  id: "",
   owner: 'wallbreaker5th',
   repo: 'wallbreaker5th.github.io',
   oauth: {
@@ -379,7 +364,6 @@ gitment.render('gitment-ctn')
   
 
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a>进行许可。
           </div>
         </div>
       </div>
@@ -406,7 +390,7 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
