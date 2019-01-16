@@ -283,6 +283,112 @@
 
   
     
+<article id="post-3b1b的一道数学题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/3b1b的一道数学题/">3Blue1Brown 的一个计数问题</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/3b1b的一道数学题/" class="archive-article-date">
+  	<time datetime="2019-01-16T14:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="还没证完并且语言十分混乱，先发出来吧……"><a href="#还没证完并且语言十分混乱，先发出来吧……" class="headerlink" title="还没证完并且语言十分混乱，先发出来吧……"></a>还没证完并且语言十分混乱，先发出来吧……</h1><p>最近 3Blue1brown 发布了<a href="https://www.bilibili.com/video/av40873215" target="_blank" rel="noopener">一个视频</a>，介绍了一个玄学的问题。</p>
+<p>问题懒得赘述了，看上面的链接吧。</p>
+<p>已经<a href="https://zhuanlan.zhihu.com/p/54898983" target="_blank" rel="noopener">有人在知乎上给出了一个解法</a>，这里给出另一个<del>写得不严谨</del>，但与视频中轮辐形相关的解法。</p>
+<p>==========语死早警告==========</p>
+<p>首先我们可以看出这道题更普遍的规律：若大方块质量是小方块的 $n^2$ 倍，碰撞次数应为 $\lfloor n\pi\rfloor$ 次。我们便证明这个。</p>
+<p>假设小方块的质量为 $m$，大方块为 $n^2m$。</p>
+<p>在大、小方块运动时，它们与墙的距离不断变化。我们记录这两个距离的关系，保持大方块画在 $y=1/n$ 的直线上，效果大概是这样：</p>
+<p><img src="/img/M000.PNG" alt="示意图"></p>
+<p>（请暂时忽略图中的轮辐状射线）</p>
+<p>然后我们关注大、小方块相撞的时刻，假设相撞前大、小方块速度为 $v_1,v_2$，之后为 $v_1’,v_2’$。然后推公式：</p>
+<p>首先我们知道：</p>
+<p>$n^2mv_1^2+mv_2^2=n^2mv_1’^2+mv_2’^2$ 和 $v_1-v_2=v_2’-v_1’$</p>
+<p>可以推出来：$n^2mv_1^2-n^2mv_1’^2=mv_2’^2-mv_2^2$</p>
+<p>$n^2m(v_1+v_1’)(v_1-v_1’)=m(v_2+v_2’)(v_2-v_2’)$</p>
+<p>$n^2(v_1-v_1’)=(v_2-v_2’)$</p>
+<p>很明显在撞墙的过程中，因为速度没有改变，显然可以看作反射角=入射角。</p>
+<p>接着单独把一次大、小方块相撞的过程提出来：</p>
+<p><img src="/img/M001.PNG" alt="示意图"></p>
+<p>为了方便，假设 $AB=CE=n,AC=DB=1$。</p>
+<p>显然 $EH=v_2’v_1/v_1’$</p>
+<p><del>然后可以推出来$\angle DAF=\angle EAH$</del>（就这个地方卡住了）</p>
+<p>接着每次碰撞都可以看成一次镜面反射。</p>
+<p>这时把它展开成轮辐型，这条平行于横轴的直线就会相交 $\lfloor n\pi\rfloor$ 次。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">玄学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">物理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/3b1b的一道数学题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
 <article id="题解-题解-CF1060H-Sophisticated Device" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -405,113 +511,9 @@
 
 
   
-    
-<article id="post-树状数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/树状数组/">树状数组略解</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/树状数组/" class="archive-article-date">
-  	<time datetime="2018-10-06T11:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>树状数组是一种<del>只有名字与树有关的</del>数据结构，可以用来维护区间。一般来说树状数组能做的线段树都能做，但是线段树常数较大，并且比树状数组麻烦很多，故树状数组很有用。树状数组通常用来维护这两种操作：</p>
-<ul>
-<li><p>单点修改 区间查询</p>
-</li>
-<li><p>区间修改 单点查询</p>
-</li>
-</ul>
-<p>它还可以进行区间修改区间查询。</p>
-<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>首先介绍 $\operatorname{lowbit}$ 函数：$\operatorname{lowbit}$ 会返回一个数在二进制下仅保留最低的非零位的结果，如：</p>
-<p>$\operatorname{lowbit}((1100)_2)=(100)_2$</p>
-<p>$\operatorname{lowbit}((11001)_2)=(1)_2$</p>
-<p>它的实现方式通常是：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在树状数组中，我们通常用 $t_x$ 来维护原数组从第 $x$ 个数开始往左 $\operatorname{lowbit}(x)$ 个数的总和。</p>
-<p><img src="https://cdn.luogu.org/upload/pic/36291.png" alt=""></p>
-        
-          <a class="article-more-a" href="/2018/树状数组/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">树状数组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/树状数组/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -768,6 +770,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">玄学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">物理</a>
               </li>
             
             <div class="clearfix"></div>
