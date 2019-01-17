@@ -7,12 +7,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
-  <title>破壁人五号的博客</title>
+  <title>国际数棋 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这篇文章主要介绍国际数棋的一部分规则以及国际数棋中棋子、棋盘、棋谱的记录方式，以供题目需要。 即使你会国际数棋，也请认真阅读本文。 棋盘国际数棋棋盘形如跳棋棋盘，分红蓝两方。 下图是一个空的国际数棋棋盘：  行棋时，自己站在自己颜色的那一边。 比如你是红棋，就站在红方那一边，你的前方是蓝棋。 后文假设你是红棋。 方向很重要，这与之后对描述一步棋的方式息息相关。 位置记录为了方便，我们将每一格编号。">
 <meta name="keywords" content="OI,信息学竞赛,算法">
 <meta property="og:type" content="website">
-<meta property="og:title" content="破壁人五号的博客">
+<meta property="og:title" content="国际数棋">
 <meta property="og:url" content="https://wallbreaker5th.github.io/草稿/guojishuqi.html">
 <meta property="og:site_name" content="破壁人五号的博客">
 <meta property="og:description" content="这篇文章主要介绍国际数棋的一部分规则以及国际数棋中棋子、棋盘、棋谱的记录方式，以供题目需要。 即使你会国际数棋，也请认真阅读本文。 棋盘国际数棋棋盘形如跳棋棋盘，分红蓝两方。 下图是一个空的国际数棋棋盘：  行棋时，自己站在自己颜色的那一边。 比如你是红棋，就站在红方那一边，你的前方是蓝棋。 后文假设你是红棋。 方向很重要，这与之后对描述一步棋的方式息息相关。 位置记录为了方便，我们将每一格编号。">
@@ -20,9 +20,9 @@
 <meta property="og:image" content="http://pic15.nipic.com/20110717/5551179_111525570155_2.jpg">
 <meta property="og:image" content="http://img02.taobaocdn.com/imgextra/etao/i2/2640275158/TB2M8wZnFXXXXbrXXXXXXXXXXXX_!!2640275158.jpg_220x220.jpg">
 <meta property="og:image" content="http://www.fishingbar.net/fishingbarimg/img02.www.fishingbar.net/bao/uploaded/i2/14853023620597091/T1j1WRXAJXXXXXXXXX_!!0-item_pic.jpg_310x310.jpg">
-<meta property="og:updated_time" content="2019-01-09T12:56:54.076Z">
+<meta property="og:updated_time" content="2019-01-17T02:34:44.748Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="破壁人五号的博客">
+<meta name="twitter:title" content="国际数棋">
 <meta name="twitter:description" content="这篇文章主要介绍国际数棋的一部分规则以及国际数棋中棋子、棋盘、棋谱的记录方式，以供题目需要。 即使你会国际数棋，也请认真阅读本文。 棋盘国际数棋棋盘形如跳棋棋盘，分红蓝两方。 下图是一个空的国际数棋棋盘：  行棋时，自己站在自己颜色的那一边。 比如你是红棋，就站在红方那一边，你的前方是蓝棋。 后文假设你是红棋。 方向很重要，这与之后对描述一步棋的方式息息相关。 位置记录为了方便，我们将每一格编号。">
 <meta name="twitter:image" content="http://pic15.nipic.com/20110717/5551179_111525570155_2.jpg">
   
@@ -180,6 +180,26 @@
 <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      国际数棋
+    </h1>
+  
+
+
+<div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+  
+</div>
+
+        
+        <a href="/草稿/guojishuqi.html" class="archive-article-date">
+  	<time datetime="1999-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2000-01-01</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>这篇文章主要介绍国际数棋的一部分规则以及国际数棋中棋子、棋盘、棋谱的记录方式，以供题目需要。</p>
@@ -239,7 +259,7 @@
 <ul>
 <li><p>组大数：把两个或多个数连起来，如：<code>2 3-&gt;23  2 4 6-&gt;624</code></p>
 </li>
-<li><p>组小数：把两个或多个数连起来并在中间打一个小数点，如：<code>2 3-&gt;2.3 2 4 6-&gt;6.24</code></p>
+<li><p>组小数：把两个或多个数连起来并在中间打一个小数点，如：<code>2 3-&gt;2.3 2 0 6-&gt;0.62</code></p>
 </li>
 <li><p>在数据里直接写出组数的结果即可。</p>
 </li>
@@ -351,7 +371,7 @@
 <script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "",
+  id: "国际数棋",
   owner: 'wallbreaker5th',
   repo: 'wallbreaker5th.github.io',
   oauth: {
