@@ -175,56 +175,54 @@
 
   
     
-<article id="post-3b1b的一道数学题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-NOIP2018游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/3b1b的一道数学题/">3Blue1Brown 的一个计数问题</a>
+      <a class="article-title" href="/2018/NOIP2018游记/">NOIP2018游记</a>
     </h1>
   
 
 
         
-        <a href="/2019/3b1b的一道数学题/" class="archive-article-date">
-  	<time datetime="2019-01-16T14:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-16</time>
+        <a href="/2018/NOIP2018游记/" class="archive-article-date">
+  	<time datetime="2018-10-13T09:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="还没证完并且语言十分混乱，先发出来吧……"><a href="#还没证完并且语言十分混乱，先发出来吧……" class="headerlink" title="还没证完并且语言十分混乱，先发出来吧……"></a>还没证完并且语言十分混乱，先发出来吧……</h1><p>最近 3Blue1brown 发布了<a href="https://www.bilibili.com/video/av40873215" target="_blank" rel="noopener">一个视频</a>，介绍了一个玄学的问题。</p>
-<p>问题懒得赘述了，看上面的链接吧。</p>
-<p>已经<a href="https://zhuanlan.zhihu.com/p/54898983" target="_blank" rel="noopener">有人在知乎上给出了一个解法</a>，这里给出另一个<del>写得不严谨</del>，但与视频中轮辐形相关的解法。</p>
-<p>==========语死早警告==========</p>
-<p>首先我们可以看出这道题更普遍的规律：若大方块质量是小方块的 $n^2$ 倍，碰撞次数应为 $\lfloor n\pi\rfloor$ 次。我们便证明这个。</p>
-<p>假设小方块的质量为 $m$，大方块为 $n^2m$。</p>
-<p>在大、小方块运动时，它们与墙的距离不断变化。我们记录这两个距离的关系，保持大方块画在 $y=1/n$ 的直线上，效果大概是这样：</p>
-<p><img src="/img/M000.PNG" alt="示意图"></p>
-<p>（请暂时忽略图中的轮辐状射线）</p>
-<p>然后我们关注大、小方块相撞的时刻，假设相撞前大、小方块速度为 $v_1,v_2$，之后为 $v_1’,v_2’$。然后推公式：</p>
-<p>首先我们知道：</p>
-<p>$n^2mv_1^2+mv_2^2=n^2mv_1’^2+mv_2’^2$ 和 $v_1-v_2=v_2’-v_1’$</p>
-<p>可以推出来：$n^2mv_1^2-n^2mv_1’^2=mv_2’^2-mv_2^2$</p>
-<p>$n^2m(v_1+v_1’)(v_1-v_1’)=m(v_2+v_2’)(v_2-v_2’)$</p>
-<p>$n^2(v_1-v_1’)=(v_2-v_2’)$</p>
-<p>很明显在撞墙的过程中，因为速度没有改变，显然可以看作反射角=入射角。</p>
-<p>接着单独把一次大、小方块相撞的过程提出来：</p>
-<p><img src="/img/M001.PNG" alt="示意图"></p>
-<p>为了方便，假设 $AB=CE=n,AC=DB=1$。</p>
-<p>显然 $EH=v_2’v_1/v_1’$</p>
-<p><del>然后可以推出来$\angle DAF=\angle EAH$</del>（就这个地方卡住了）</p>
-<p>接着每次碰撞都可以看成一次镜面反射。</p>
-<p>这时把它展开成轮辐型，这条平行于横轴的直线就会相交 $\lfloor n\pi\rfloor$ 次。</p>
-
+        <h1 id="Day-27（初赛）"><a href="#Day-27（初赛）" class="headerlink" title="Day -27（初赛）"></a>Day -27（初赛）</h1><p>特别冷，还飘雨，暗示了退役的结局。</p>
+<p>我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。</p>
+<p>两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。</p>
+<p>NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。</p>
+<p>阅读程序时因为算错成 $6!=120$，结果……</p>
+<p>……</p>
+<p>怕是要退役。</p>
+<p>大概口胡一下：</p>
+<p>阅读程序 T1：模拟。</p>
+<p>阅读程序 T2：$n$ 个点，每个点出度为 1，入度为 1，给出每个点通向哪个点，求有多少个环。</p>
+<p>阅读程序 T3：求没有重复的非空子串数目。<del>mogic</del> magic 函数就是<del>蛤</del>哈希。</p>
+<p>阅读程序 T4：next_permutation。</p>
+<p>完成程序 T1：至今看不懂。</p>
+<p>完成程序 T2：f[i] 记录用 i 元买第一个商店的商品时，买第二个商店的商品的总花费的最小值。</p>
+        
+          <a class="article-more-a" href="/2018/NOIP2018游记/#more">more >></a>
+        
       
 
       
     </div>
     <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
       
       
 	<div class="article-tag tagcloud">
@@ -232,15 +230,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">玄学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">物理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">NOIP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NOIP2018</a>
         		</li>
       		
 		</ul>
@@ -250,7 +252,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/3b1b的一道数学题/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/NOIP2018游记/">展开全文 >></a>
         </p>
       
 
@@ -404,54 +406,50 @@
 
   
     
-<article id="post-NOIP2018游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-树状数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/NOIP2018游记/">NOIP2018游记</a>
+      <a class="article-title" href="/2018/树状数组/">树状数组略解</a>
     </h1>
   
 
 
         
-        <a href="/2018/NOIP2018游记/" class="archive-article-date">
-  	<time datetime="2018-10-13T09:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-13</time>
+        <a href="/2018/树状数组/" class="archive-article-date">
+  	<time datetime="2018-10-06T11:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Day-27（初赛）"><a href="#Day-27（初赛）" class="headerlink" title="Day -27（初赛）"></a>Day -27（初赛）</h1><p>特别冷，还飘雨，暗示了退役的结局。</p>
-<p>我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。</p>
-<p>两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。</p>
-<p>NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。</p>
-<p>阅读程序时因为算错成 $6!=120$，结果……</p>
-<p>……</p>
-<p>怕是要退役。</p>
-<p>大概口胡一下：</p>
-<p>阅读程序 T1：模拟。</p>
-<p>阅读程序 T2：$n$ 个点，每个点出度为 1，入度为 1，给出每个点通向哪个点，求有多少个环。</p>
-<p>阅读程序 T3：求没有重复的非空子串数目。<del>mogic</del> magic 函数就是<del>蛤</del>哈希。</p>
-<p>阅读程序 T4：next_permutation。</p>
-<p>完成程序 T1：至今看不懂。</p>
-<p>完成程序 T2：f[i] 记录用 i 元买第一个商店的商品时，买第二个商店的商品的总花费的最小值。</p>
+        <p>树状数组是一种<del>只有名字与树有关的</del>数据结构，可以用来维护区间。一般来说树状数组能做的线段树都能做，但是线段树常数较大，并且比树状数组麻烦很多，故树状数组很有用。树状数组通常用来维护这两种操作：</p>
+<ul>
+<li><p>单点修改 区间查询</p>
+</li>
+<li><p>区间修改 单点查询</p>
+</li>
+</ul>
+<p>它还可以进行区间修改区间查询。</p>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>首先介绍 $\operatorname{lowbit}$ 函数：$\operatorname{lowbit}$ 会返回一个数在二进制下仅保留最低的非零位的结果，如：</p>
+<p>$\operatorname{lowbit}((1100)_2)=(100)_2$</p>
+<p>$\operatorname{lowbit}((11001)_2)=(1)_2$</p>
+<p>它的实现方式通常是：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在树状数组中，我们通常用 $t_x$ 来维护原数组从第 $x$ 个数开始往左 $\operatorname{lowbit}(x)$ 个数的总和。</p>
+<p><img src="https://cdn.luogu.org/upload/pic/36291.png" alt=""></p>
         
-          <a class="article-more-a" href="/2018/NOIP2018游记/#more">more >></a>
+          <a class="article-more-a" href="/2018/树状数组/#more">more >></a>
         
       
 
       
     </div>
     <div class="article-info article-info-index">
-      
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
       
       
 	<div class="article-tag tagcloud">
@@ -463,15 +461,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">NOIP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">树状数组</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NOIP2018</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -481,7 +479,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/NOIP2018游记/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/树状数组/">展开全文 >></a>
         </p>
       
 
@@ -513,7 +511,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

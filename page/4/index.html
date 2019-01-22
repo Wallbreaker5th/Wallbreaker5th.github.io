@@ -175,108 +175,6 @@
 
   
     
-<article id="post-渐进记号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/渐进记号/">O(1/n) 算法存在吗？——几种常见渐进记号略解</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/渐进记号/" class="archive-article-date">
-  	<time datetime="2018-08-17T05:19:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h1><p>在 OI 界，$O(\frac{1}{n})$ 的算法已经成为了一个梗。</p>
-<blockquote>
-<p>你要是发明了 $O(\frac{1}{n})$ 的算法，我就出 $n=0.00000000001$ 来卡你。 <del>——鲁迅</del></p>
-</blockquote>
-<p>那么这种时间复杂度的算法存在吗？我们首先要了解几种渐进记号分别代表什么。</p>
-<p>（下面默认所有函数都<strong>渐进非负</strong>，即当 $n$ 足够大时，函数值始终非负）</p>
-<p>（下面大部分内容以《算法导论》为根据）</p>
-<h2 id="Theta"><a href="#Theta" class="headerlink" title="$\Theta$"></a>$\Theta$</h2><p>$\Theta$ 符号的意义是我们通常用 $O$ 记号表达的，它代表了函数的<strong>渐进紧确界</strong>。</p>
-<p>其定义为：</p>
-<blockquote>
-<p>对一个给定的函数 $g(n)$，用 $\Theta(g(n))$ 来表示以下函数的集合：</p>
-</blockquote>
-<blockquote>
-<p>$\Theta(g(n))={f(n):\text{存在正常量}c_1,c_2,n_0\text{，使得对所有的}n\geq n_0\text{，有}0\leq c_1g(n)\leq f(n)\leq c_2g(n)}$</p>
-</blockquote>
-<p>冒号指<strong>使得</strong>。</p>
-<p>也就是当 $n$ 够大时，$f(n)$ 能“夹进”两个 $g(n)$ 的常数倍之间。</p>
-        
-          <a class="article-more-a" href="/2018/渐进记号/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">时间复杂度</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">渐进记号</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/渐进记号/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
 <article id="post-Codeforces Marathon Round 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -480,9 +378,114 @@
 
 
   
+    
+<article id="题解-题解-P4035-JSOI2008-球形空间产生器" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">题解-P4035-JSOI2008-球形空间产生器</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/题解-P4035-JSOI2008-球形空间产生器/" class="archive-article-date">
+  	<time datetime="2018-06-16T14:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>洛谷题号：P4035</p>
+<p>bzoj 题号：1013</p>
+<hr>
+<p>题目：</p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>有一个球形空间产生器能够在 n 维空间中产生一个坚硬的球体。现在，你被困在了这个 n 维球体中，你只知道球<br>面上 n+1 个点的坐标，你需要以最快的速度确定这个 n 维球体的球心坐标，以便于摧毁这个球形空间产生器。</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>第一行是一个整数 $n(1\leq N\leq 10)$。接下来的 n+1 行，每行有 n 个实数，表示球面上一点的 n 维坐标。每一个实数精确到小数点<br>后 6 位，且其绝对值都不超过 20000。</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>有且只有一行，依次给出球心的 n 维坐标（ n 个实数），两个实数之间用一个空格隔开。每个实数精确到小数点<br>后 3 位。数据保证有解。你的答案必须和标准输出一模一样才能够得分。</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2>
+        
+          <a class="article-more-a" href="/2018/题解-P4035-JSOI2008-球形空间产生器/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高斯消元</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">省选</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bzoj</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
