@@ -32,7 +32,8 @@
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0020.PNG">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0021.PNG">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0008.PNG">
-<meta property="og:updated_time" content="2019-01-27T14:43:27.951Z">
+<meta property="og:image" content="https://wallbreaker5th.github.io/img/0023.PNG">
+<meta property="og:updated_time" content="2019-04-12T08:23:44.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="舞蹈链算法（DLX）略解">
 <meta name="twitter:description" content="（未完成，待完善） DLX=Dancing Line X 之前学 DLX 时在网上看了好几篇博客，结合着几篇讲代码的、有图片的、说原理的，总算弄懂了。这里 DLX 是用来解决精确覆盖问题的算法，算是 X 算法的优化。 时间复杂度 $O(\text{玄学})$（最坏是指数级） 精确覆盖问题： 给定一个 $N$ 行 $M$ 列的矩阵，矩阵中每个元素要么是 1，要么是 0。 你需要在矩阵中挑选出若干行，">
@@ -41,7 +42,7 @@
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/img/photo_black_hole.PNG">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -68,7 +69,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner"> 
 		<a href="/" class="profilepic">
-			<img src="/img/photo.PNG" class="js-avatar">
+			<img src="/img/photo_black_hole.PNG" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">破壁人五号</a></h1>
@@ -125,7 +126,7 @@
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> NOIP2019RP+=inf（大雾）</p>
+        <p><strong>Notice:</strong> SCOI2019RP+=inf（大雾）</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -137,7 +138,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/photo.PNG" class="js-avatar">
+				<img src="/img/photo_black_hole.PNG" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">破壁人五号</h1>
@@ -292,7 +293,21 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">restore</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="comment">//恢复列 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=dlx[x].u;i!=x;i=dlx[i].u)&#123;    <span class="comment">//先恢复这一列节点所在的 </span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=dlx[i].l;j!=i;j=dlx[j].l)&#123;<span class="comment">//每一行的每个节点 </span></span><br><span class="line">			dlx[dlx[j].u].d=j;</span><br><span class="line">			dlx[dlx[j].d].u=j;</span><br><span class="line">			sz[dlx[j].col]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//再恢复虚拟节点 </span></span><br><span class="line">	dlx[dlx[x].l].r=x;</span><br><span class="line">	dlx[dlx[x].r].l=x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这些基本操作准备好后，就按照 X 算法的流程跑。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> step)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(dlx[head].r==head)<span class="keyword">return</span> top=step<span class="number">-1</span>,<span class="number">1</span>;<span class="comment">//所有列被消完  </span></span><br><span class="line">	<span class="keyword">int</span> c=dlx[head].r;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=c;i!=head;i=dlx[i].r)&#123;</span><br><span class="line">		<span class="keyword">if</span>(sz[i]&lt;sz[c])c=i;<span class="comment">//寻找 size 最小的列 </span></span><br><span class="line">	&#125;</span><br><span class="line">	remove(c);<span class="comment">//如果我们选择了这一列，包含这一列的所有行都不能再选 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=dlx[c].d;i!=c;i=dlx[i].d)&#123;</span><br><span class="line">		<span class="comment">//枚举选择哪一行 </span></span><br><span class="line">		ans[step]=dlx[i].row;</span><br><span class="line">		<span class="comment">//cout&lt;&lt;"s "&lt;&lt;i&lt;&lt;" "&lt;&lt;dlx[i].row&lt;&lt;endl;</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=dlx[i].r;j!=i;j=dlx[j].r)&#123;</span><br><span class="line">			<span class="comment">//这一行选择后有很多列被选择，有这些列的其它行不能再被选 </span></span><br><span class="line">			remove(dlx[j].col); </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(solve(step+<span class="number">1</span>))<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//如果成功，返回 </span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=dlx[i].l;j!=i;j=dlx[j].l)&#123;<span class="comment">//不成功，恢复 </span></span><br><span class="line">			restore(dlx[j].col); </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	restore(c);<span class="comment">//一直没有解，恢复 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="DLX-与-数独"><a href="#DLX-与-数独" class="headerlink" title="DLX 与 数独"></a>DLX 与 数独</h1><p><code>咕咕咕</code></p>
+<h1 id="DLX-与-数独"><a href="#DLX-与-数独" class="headerlink" title="DLX 与 数独"></a>DLX 与 数独</h1><p>DLX 算法用来解决的一个很经典的问题就是数独。我们可以构造一个矩阵，通过求出其一个精确覆盖的解，来得到数独的一个解。</p>
+<p>这个矩阵有至多 $729=9^3$ 行。每一行依次代表在 i 行 j 列填入数字 k。假如这一格是留空的，那就把 $k=1\sim 9$ 都构造对应的行，否则只给指定的 k 构造一行。</p>
+<p>很显然，这个精确覆盖问题的解就可以对应到哪一行哪一列放哪个数。下面我们通过构造矩阵的内容来保证填出来的数独符合要求。</p>
+<h3 id="要求一：每个格子只能填一个数"><a href="#要求一：每个格子只能填一个数" class="headerlink" title="要求一：每个格子只能填一个数"></a>要求一：每个格子只能填一个数</h3><p>我们构造 $81=9^2$ 列，每一列依次对应在 i 行 j 列填入了一个数。</p>
+<p>这样保证选出来的任意两行都不会对应同一个格子。</p>
+<h3 id="要求二：每个行不能重复"><a href="#要求二：每个行不能重复" class="headerlink" title="要求二：每个行不能重复"></a>要求二：每个行不能重复</h3><p>我们构造 $81=9^2$ 列，每一列依次对应在 i 行填入了 k。</p>
+<p>这样保证选出来的任意两行都不会同时对应数独中的同一行、是同一个数。</p>
+<h3 id="要求三：每个列不能重复"><a href="#要求三：每个列不能重复" class="headerlink" title="要求三：每个列不能重复"></a>要求三：每个列不能重复</h3><p>同理，我们构造 $81=9^2$ 列，每一列依次对应在 j 列填入了 k。</p>
+<h3 id="要求四：每个宫不能重复"><a href="#要求四：每个宫不能重复" class="headerlink" title="要求四：每个宫不能重复"></a>要求四：每个宫不能重复</h3><p>同理，我们构造 $81=9^2$ 列，每一列依次对应在 l 宫填入了 k。</p>
+<hr>
+<p>这样我们构造了一个 729 行 324 列的矩阵，对其 DLX 一下就能求解。</p>
+<p>这里拿一个 $4\times 4$ 的数独举了个例子：</p>
+<p><img src="/img/0023.PNG" alt=""></p>
+<p>例题：<a href="http://poj.org/problem?id=2676" target="_blank" rel="noopener">POJ2676 Sudoku</a></p>
+<p>（大概是完结撒花了）</p>
 
       
 
@@ -387,6 +402,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/题解-P2286-HNOI2004-宠物收养所/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          题解 [HNOI2008]神奇的国度（BZOJ1006 洛谷P2286）
+        
+      </div>
+    </a>
   
   
     <a href="/2018/题解-CF1060H-Sophisticated Device/" id="article-nav-older" class="article-nav-link-wrap">
@@ -699,6 +723,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">STL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SCOI</a>
               </li>
             
             <div class="clearfix"></div>
