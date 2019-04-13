@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
   <title>题解 [HNOI2008]神奇的国度（BZOJ1006 洛谷P2286） | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="洛谷题号：P4035 bzoj 题号：1013  题目链接 用平衡树按照题意模拟即可。 但是写一个平衡树很麻烦，我们可以用 set 代替。 set 的 upper_bound 函数可以返回一个不比 x 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。 12345678910111213141516171819202122232425262728293031323334353637">
+  <meta name="description" content="洛谷题号：P4035 bzoj 题号：1013  题目链接 用平衡树按照题意模拟即可。 但是写一个平衡树很麻烦，我们可以用 set 代替。 set 的 upper_bound 函数可以返回一个不比 x 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。">
 <meta name="keywords" content="OI,题解,平衡树,STL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题解 [HNOI2008]神奇的国度（BZOJ1006 洛谷P2286）">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2019/题解-P2286-HNOI2004-宠物收养所/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="洛谷题号：P4035 bzoj 题号：1013  题目链接 用平衡树按照题意模拟即可。 但是写一个平衡树很麻烦，我们可以用 set 代替。 set 的 upper_bound 函数可以返回一个不比 x 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。 12345678910111213141516171819202122232425262728293031323334353637">
+<meta property="og:description" content="洛谷题号：P4035 bzoj 题号：1013  题目链接 用平衡树按照题意模拟即可。 但是写一个平衡树很麻烦，我们可以用 set 代替。 set 的 upper_bound 函数可以返回一个不比 x 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-12T08:28:19.091Z">
+<meta property="og:updated_time" content="2019-04-13T12:38:12.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="题解 [HNOI2008]神奇的国度（BZOJ1006 洛谷P2286）">
-<meta name="twitter:description" content="洛谷题号：P4035 bzoj 题号：1013  题目链接 用平衡树按照题意模拟即可。 但是写一个平衡树很麻烦，我们可以用 set 代替。 set 的 upper_bound 函数可以返回一个不比 x 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。 12345678910111213141516171819202122232425262728293031323334353637">
+<meta name="twitter:description" content="洛谷题号：P4035 bzoj 题号：1013  题目链接 用平衡树按照题意模拟即可。 但是写一个平衡树很麻烦，我们可以用 set 代替。 set 的 upper_bound 函数可以返回一个不比 x 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
@@ -205,6 +205,7 @@
 <p>用平衡树按照题意模拟即可。</p>
 <p>但是写一个平衡树很麻烦，我们可以用 <code>set</code> 代替。</p>
 <p><code>set</code> 的 <code>upper_bound</code> 函数可以返回一个不比 <code>x</code> 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。</p>
+<a id="more"></a>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt;a,b;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint();</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">	a.insert(<span class="number">-0x7ffffffff</span>ll),a.insert(<span class="number">0x7ffffffff</span>ll);</span><br><span class="line">	b.insert(<span class="number">-0x7ffffffff</span>ll),b.insert(<span class="number">0x7ffffffff</span>ll);</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		<span class="keyword">int</span> x=getint(),y=getint();</span><br><span class="line">		<span class="keyword">if</span>(x)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a.size()&gt;<span class="number">2</span>)&#123;</span><br><span class="line">				<span class="keyword">long</span> <span class="keyword">long</span> p=*--a.lower_bound(y),q=*a.lower_bound(y);</span><br><span class="line">				<span class="comment">//cout&lt;&lt;"! "&lt;&lt;y&lt;&lt;" "&lt;&lt;p&lt;&lt;" "&lt;&lt;q&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">if</span>(y-p&lt;=q-y)ans+=y-p,a.erase(p);</span><br><span class="line">				<span class="keyword">else</span> ans+=q-y,a.erase(q),ans%=<span class="number">1000000</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> b.insert(y);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(b.size()&gt;<span class="number">2</span>)&#123;</span><br><span class="line">				<span class="keyword">long</span> <span class="keyword">long</span> p=*--b.lower_bound(y),q=*b.lower_bound(y);</span><br><span class="line">				<span class="comment">//cout&lt;&lt;"? "&lt;&lt;y&lt;&lt;" "&lt;&lt;p&lt;&lt;" "&lt;&lt;q&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">if</span>(y-p&lt;=q-y)ans+=y-p,b.erase(p);</span><br><span class="line">				<span class="keyword">else</span> ans+=q-y,b.erase(q),ans%=<span class="number">1000000</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> a.insert(y);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans%<span class="number">1000000</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
@@ -300,11 +301,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/SCOI2019游记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/题解-P4287-SHOI2011-双倍回文/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          SCOI2019游记
+          题解 [SHOI2011]双倍回文（洛谷 P4287 BZOJ2342）
         
       </div>
     </a>
@@ -632,6 +633,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SCOI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">manacher</a>
               </li>
             
             <div class="clearfix"></div>
