@@ -7,19 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
-  <title>破壁人五号的博客</title>
+  <title>Lucas/exLucas 略解 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个博客耳">
-<meta name="keywords" content="OI,信息学竞赛,算法">
-<meta property="og:type" content="website">
-<meta property="og:title" content="破壁人五号的博客">
-<meta property="og:url" content="https://wallbreaker5th.github.io/page/5/index.html">
+  <meta name="description" content="Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。 利用 exLucas 可以求解 $p$ 不为质数的情况。 Lucas前置知识：  求乘法逆元  暴力求组合数   这种算法是基于 Lucas 定理的： 设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下： $n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{">
+<meta name="keywords" content="OI,笔记,算法,数学,Lucas,数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lucas&#x2F;exLucas 略解">
+<meta property="og:url" content="https://wallbreaker5th.github.io/2019/Lucas/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="一个博客耳">
+<meta property="og:description" content="Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。 利用 exLucas 可以求解 $p$ 不为质数的情况。 Lucas前置知识：  求乘法逆元  暴力求组合数   这种算法是基于 Lucas 定理的： 设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下： $n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-11T14:37:47.867Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="破壁人五号的博客">
-<meta name="twitter:description" content="一个博客耳">
+<meta name="twitter:title" content="Lucas&#x2F;exLucas 略解">
+<meta name="twitter:description" content="Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。 利用 exLucas 可以求解 $p$ 不为质数的情况。 Lucas前置知识：  求乘法逆元  暴力求组合数   这种算法是基于 Lucas 定理的： 设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下： $n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
@@ -172,42 +173,65 @@
           </div>
           <div id="js-content" class="content-ll">
             
-
-  
-    
-<article id="post-某NOIP模拟赛 T1 snow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-Lucas" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/某NOIP模拟赛 T1 snow/">某NOIP模拟赛 T1 snow</a>
+    <h1 class="article-title" itemprop="name">
+      Lucas/exLucas 略解
     </h1>
   
 
 
+<div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+  
+</div>
+
         
-        <a href="/2018/某NOIP模拟赛 T1 snow/" class="archive-article-date">
-  	<time datetime="2018-08-20T07:20:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+        <a href="/2019/Lucas/" class="archive-article-date">
+  	<time datetime="2019-05-11T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="【问题描述】"><a href="#【问题描述】" class="headerlink" title="【问题描述】"></a>【问题描述】</h2><p>有一天，TT 要去 ABC 家。ABC 的大门外有 $n$ 个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。 </p>
-<p>现在给定每个站台必须访问的次数，对于站台 $i$， TT 必须恰好访问 $F_i$ 次（不能超过）。  </p>
-<p>我们用 $u,v,w$ 三个参数描述一个传送门，表示从站台 $u$ 到站台 $v$ 有一个最多可以使用 $w$ 次的传送门（不一定要使用 $w$ 次）。对于任意一对传送门 $(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$；且 $u_1=u_2$ 和 $v_1=v_2$ 不同时成立。 </p>
-<p>TT 可以从任意的站台开始，从任意的站台结束。出发去开始的站台需要花费 $1$ 单位的钱。现在请帮助 TT 求出打开大门最少需要花费多少单位的钱。 </p>
-<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行包含两个正整数 $n,m$，意义见题目描述。 </p>
-<p>第二行包含 $n$ 个正整数，第 $i$ 个数表示 $F_i$。 </p>
-<p>接下来有 $m$ 行，每行有三个正整数 $u,v,w$，表示从 $u$ 到 $v$ 有一个可以使用 $w$ 次的传送门。 </p>
-<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>仅一行包含一个整数表示答案。 </p>
-<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 3 </span><br><span class="line">5 5 5 5 </span><br><span class="line">1 2 1 </span><br><span class="line">3 2 1 </span><br><span class="line">3 4 1</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 snow/#more">more >></a>
-        
+        <p>Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。</p>
+<p>利用 exLucas 可以求解 $p$ 不为质数的情况。</p>
+<h1 id="Lucas"><a href="#Lucas" class="headerlink" title="Lucas"></a>Lucas</h1><p><strong>前置知识：</strong></p>
+<ul>
+<li><p>求乘法逆元</p>
+</li>
+<li><p>暴力求组合数</p>
+</li>
+</ul>
+<p>这种算法是基于 Lucas 定理的：</p>
+<p>设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下：</p>
+<p>$n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{m_0m_1\dots m_k})_p$</p>
+<p>其中允许首位为零，且规定当 $m&gt;n$ 时 $C_n^m=0$，则：</p>
+<p>$C_n^m\equiv C_{n_0}^{m_0}\cdot C_{n_1}^{m_1}\cdot \dots \cdot C_{n_k}^{m_k} (\mod p\ )$</p>
+<p>也可以换个递归的表达方式：</p>
+<p>$C_n^m\equiv C_{n/p}^{m/p}\cdot C_{n%p}^{m%p}(\mod p\ )$</p>
+<p>于是对于 $n,m&lt; p$ 的情况，我们采用暴力求解；否则我们把它拆成较小的问题。</p>
+<p>模板题：<a href="https://www.luogu.org/problemnew/show/P3807" target="_blank" rel="noopener">洛谷 P3807 卢卡斯定理</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function">ll <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> inf=<span class="number">1926081700</span>;</span><br><span class="line">pair&lt;ll,ll&gt;exgcd(ll a,ll b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>)<span class="keyword">return</span> make_pair(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">-1</span>)<span class="keyword">return</span> make_pair(<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> make_pair(-inf,-inf);</span><br><span class="line">    &#125;</span><br><span class="line">    pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ans=exgcd(b,a%b);</span><br><span class="line">    <span class="keyword">return</span> make_pair(ans.second,ans.first-a/b*ans.second);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">inv</span><span class="params">(ll x,ll mod)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (exgcd(x,mod).first%mod+mod)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(y)&#123;</span><br><span class="line">        <span class="keyword">if</span>(y&amp;<span class="number">1</span>)ans=ans*x%p;</span><br><span class="line">        x=x*x%p;</span><br><span class="line">        y&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">c</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;y)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(y&gt;x-y)y=x-y;</span><br><span class="line">    ll a=<span class="number">1</span>,b=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;y;i++)a=a*(x-i)%p,b=b*(y-i)%p;</span><br><span class="line">    <span class="keyword">return</span> a*inv(b,p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">luc</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;y)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(y&gt;x-y)y=x-y;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(x&amp;&amp;y)&#123;</span><br><span class="line">        ans=ans*c(x%p,y%p,p)%p;</span><br><span class="line">        x/=p,y/=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t=getint();</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> x=getint(),y=getint(),z=getint();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,luc(x+y,y,z));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="exLucas"><a href="#exLucas" class="headerlink" title="exLucas"></a>exLucas</h1><p><strong>前置知识：</strong></p>
+<ul>
+<li><p>CRT（中国剩余定理）</p>
+</li>
+<li><p>质因数分解（相信学到 Lucas 的没人不会吧）</p>
+</li>
+<li><p>快速幂</p>
+</li>
+<li><p>求乘法逆元</p>
+</li>
+</ul>
+<p>当 $p$ 不为质数时，我们采用拓展 Lucas（exLucas）</p>
+<p>首先我们把 $p$ 分解为 $p_1^{a_1}p_2^{a_2}\dots$。我们只需要求出 $C_n^m\mod p_i^{a_i}$，用 CRT 就能求出答案。</p>
+<p>这次我们用 $C_n^m=\frac{n!}{m!(n-m)!}$ 计算组合数。也就是说我们只需要解决 $n!\mod q^k$ 即可。</p>
+<h1 id="未完待咕"><a href="#未完待咕" class="headerlink" title="未完待咕"></a>未完待咕</h1>
       
 
       
@@ -224,23 +248,23 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NOIP模拟</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网络流</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二分图</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">最小路径覆盖</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Lucas</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
         		</li>
       		
 		</ul>
@@ -249,16 +273,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 snow/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2019/Lucas/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/SCOI2019游记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SCOI2019游记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -278,215 +361,34 @@
 
 
 
-
   
-    
-<article id="post-渐进记号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/渐进记号/">O(1/n) 算法存在吗？——几种常见渐进记号略解</a>
-    </h1>
   
 
-
-        
-        <a href="/2018/渐进记号/" class="archive-article-date">
-  	<time datetime="2018-08-17T05:19:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h1><p>在 OI 界，$O(\frac{1}{n})$ 的算法已经成为了一个梗。</p>
-<blockquote>
-<p>你要是发明了 $O(\frac{1}{n})$ 的算法，我就出 $n=0.00000000001$ 来卡你。 <del>——鲁迅</del></p>
-</blockquote>
-<p>那么这种时间复杂度的算法存在吗？我们首先要了解几种渐进记号分别代表什么。</p>
-<p>（下面默认所有函数都<strong>渐进非负</strong>，即当 $n$ 足够大时，函数值始终非负）</p>
-<p>（下面大部分内容以《算法导论》为根据）</p>
-<h2 id="Theta"><a href="#Theta" class="headerlink" title="$\Theta$"></a>$\Theta$</h2><p>$\Theta$ 符号的意义是我们通常用 $O$ 记号表达的，它代表了函数的<strong>渐进紧确界</strong>。</p>
-<p>其定义为：</p>
-<blockquote>
-<p>对一个给定的函数 $g(n)$，用 $\Theta(g(n))$ 来表示以下函数的集合：</p>
-</blockquote>
-<blockquote>
-<p>$\Theta(g(n))={f(n):\text{存在正常量}c_1,c_2,n_0\text{，使得对所有的}n\geq n_0\text{，有}0\leq c_1g(n)\leq f(n)\leq c_2g(n)}$</p>
-</blockquote>
-<p>冒号指<strong>使得</strong>。</p>
-<p>也就是当 $n$ 够大时，$f(n)$ 能“夹进”两个 $g(n)$ 的常数倍之间。</p>
-        
-          <a class="article-more-a" href="/2018/渐进记号/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">时间复杂度</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">渐进记号</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/渐进记号/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
-    
-<article id="post-Codeforces Marathon Round 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/Codeforces Marathon Round 2/">Codeforces Marathon Round 2</a>
-    </h1>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "Lucas/exLucas 略解",
+  owner: 'wallbreaker5th',
+  repo: 'wallbreaker5th.github.io',
+  oauth: {
+    client_id: 'c40007054253842a2304',
+    client_secret: 'f7f344582d83213a2917a464d9454a6f9aac01da',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
-        
-        <a href="/2018/Codeforces Marathon Round 2/" class="archive-article-date">
-  	<time datetime="2018-08-02T15:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这场 CF 马拉松赛是我目前参加的唯一一场马拉松赛（压根就两场……）。</p>
-<p>CF 马拉松赛会给你 7 天时间解决一个目前没有正解的题目，你要针对随机数据得到尽可能高的分数。</p>
-<p>比赛链接：<a href="http://codeforces.com/contest/1014" target="_blank" rel="noopener">http://codeforces.com/contest/1014</a></p>
-<p>题目大意：</p>
-<p>一段被分成了 $N=100000$ 块的长条（？），每块染有 $C=10$ 种颜色之一颜色用前 10 个大写英文字母表示，将其向右无限重复。在上面有 $U=10$ 只变色龙，从 0 开始编号，初始位置分别在第 $1,2,3..10$ 格。Kurt 手中有 $H=10$ 个颜料瓶，背包里有 $S=10000$ 个，Kurt 每次可以拿一个颜料瓶扔向一只变色龙，这只变色龙就会不断向右移动，直到遇到一个颜色与颜料瓶颜色相同且没有另一只变色龙在上面的格子，同时 Kurt 从背包里<strong>按照题目给定的顺序</strong>取出一个颜料瓶拿在手中，直到背包空为止。最后得分为最靠后的变色龙的位置，如果你给的不符要求，得 0 分。最后会生成约 1000 个<strong>随机</strong>数据取平均分。</p>
-<p>不得不说马拉松赛很考脑洞。这里先说一下我的几个思路：</p>
-<h1 id="随机"><a href="#随机" class="headerlink" title="随机"></a>随机</h1><p>每次随机从背包里面选择一个瓶子，扔到随机的变色龙上。实现不难，<code>multiset</code>即可（我没有写）。</p>
-<p>得分在 9900 分左右。</p>
-<h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><p>贪心的方式应该有很多很多……我最先想到的方式是每次选择最落后的变色龙，然后扔一个让它跑得尽可能远的瓶子。</p>
-        
-          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">玄学算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
-    </nav>
-  
-
-
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a>进行许可。
           </div>
         </div>
       </div>
@@ -512,8 +414,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -283,6 +283,134 @@
 
   
     
+<article id="post-Lucas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/Lucas/">Lucas/exLucas 略解</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/Lucas/" class="archive-article-date">
+  	<time datetime="2019-05-11T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。</p>
+<p>利用 exLucas 可以求解 $p$ 不为质数的情况。</p>
+<h1 id="Lucas"><a href="#Lucas" class="headerlink" title="Lucas"></a>Lucas</h1><p><strong>前置知识：</strong></p>
+<ul>
+<li><p>求乘法逆元</p>
+</li>
+<li><p>暴力求组合数</p>
+</li>
+</ul>
+<p>这种算法是基于 Lucas 定理的：</p>
+<p>设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下：</p>
+<p>$n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{m_0m_1\dots m_k})_p$</p>
+<p>其中允许首位为零，且规定当 $m&gt;n$ 时 $C_n^m=0$，则：</p>
+<p>$C_n^m\equiv C_{n_0}^{m_0}\cdot C_{n_1}^{m_1}\cdot \dots \cdot C_{n_k}^{m_k} (\mod p\ )$</p>
+<p>也可以换个递归的表达方式：</p>
+<p>$C_n^m\equiv C_{n/p}^{m/p}\cdot C_{n%p}^{m%p}(\mod p\ )$</p>
+<p>于是对于 $n,m&lt; p$ 的情况，我们采用暴力求解；否则我们把它拆成较小的问题。</p>
+<p>模板题：<a href="https://www.luogu.org/problemnew/show/P3807" target="_blank" rel="noopener">洛谷 P3807 卢卡斯定理</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function">ll <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> inf=<span class="number">1926081700</span>;</span><br><span class="line">pair&lt;ll,ll&gt;exgcd(ll a,ll b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>)<span class="keyword">return</span> make_pair(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">-1</span>)<span class="keyword">return</span> make_pair(<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> make_pair(-inf,-inf);</span><br><span class="line">    &#125;</span><br><span class="line">    pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ans=exgcd(b,a%b);</span><br><span class="line">    <span class="keyword">return</span> make_pair(ans.second,ans.first-a/b*ans.second);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">inv</span><span class="params">(ll x,ll mod)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (exgcd(x,mod).first%mod+mod)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(y)&#123;</span><br><span class="line">        <span class="keyword">if</span>(y&amp;<span class="number">1</span>)ans=ans*x%p;</span><br><span class="line">        x=x*x%p;</span><br><span class="line">        y&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">c</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;y)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(y&gt;x-y)y=x-y;</span><br><span class="line">    ll a=<span class="number">1</span>,b=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;y;i++)a=a*(x-i)%p,b=b*(y-i)%p;</span><br><span class="line">    <span class="keyword">return</span> a*inv(b,p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">luc</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;y)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(y&gt;x-y)y=x-y;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(x&amp;&amp;y)&#123;</span><br><span class="line">        ans=ans*c(x%p,y%p,p)%p;</span><br><span class="line">        x/=p,y/=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t=getint();</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> x=getint(),y=getint(),z=getint();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,luc(x+y,y,z));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="exLucas"><a href="#exLucas" class="headerlink" title="exLucas"></a>exLucas</h1><p><strong>前置知识：</strong></p>
+<ul>
+<li><p>CRT（中国剩余定理）</p>
+</li>
+<li><p>质因数分解（相信学到 Lucas 的没人不会吧）</p>
+</li>
+<li><p>快速幂</p>
+</li>
+<li><p>求乘法逆元</p>
+</li>
+</ul>
+<p>当 $p$ 不为质数时，我们采用拓展 Lucas（exLucas）</p>
+<p>首先我们把 $p$ 分解为 $p_1^{a_1}p_2^{a_2}\dots$。我们只需要求出 $C_n^m\mod p_i^{a_i}$，用 CRT 就能求出答案。</p>
+<p>这次我们用 $C_n^m=\frac{n!}{m!(n-m)!}$ 计算组合数。也就是说我们只需要解决 $n!\mod q^k$ 即可。</p>
+<h1 id="未完待咕"><a href="#未完待咕" class="headerlink" title="未完待咕"></a>未完待咕</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Lucas</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/Lucas/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
 <article id="游记-SCOI2019游记" class="article article-type-游记  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -348,99 +476,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/SCOI2019游记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-题解-P4287-SHOI2011-双倍回文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-P4287-SHOI2011-双倍回文/">题解 [SHOI2011]双倍回文（洛谷 P4287 BZOJ2342）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/题解-P4287-SHOI2011-双倍回文/" class="archive-article-date">
-  	<time datetime="2019-04-06T03:52:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.luogu.org/problemnew/show/P2286" target="_blank" rel="noopener">题目链接</a></p>
-<p>用平衡树按照题意模拟即可。</p>
-<p>但是写一个平衡树很麻烦，我们可以用 <code>set</code> 代替。</p>
-<p><code>set</code> 的 <code>upper_bound</code> 函数可以返回一个不比 <code>x</code> 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。</p>
-        
-          <a class="article-more-a" href="/2019/题解-P4287-SHOI2011-双倍回文/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">manacher</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-P4287-SHOI2011-双倍回文/">展开全文 >></a>
         </p>
       
 
@@ -749,6 +784,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">manacher</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
             
             <div class="clearfix"></div>
