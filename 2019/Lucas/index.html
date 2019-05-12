@@ -10,14 +10,14 @@
   <title>Lucas/exLucas 略解 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。 利用 exLucas 可以求解 $p$ 不为质数的情况。 Lucas前置知识：  求乘法逆元  暴力求组合数   这种算法是基于 Lucas 定理的： 设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下： $n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{">
-<meta name="keywords" content="OI,笔记,算法,数学,Lucas,数论">
+<meta name="keywords" content="笔记,Lucas,数学,数论,算法,OI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lucas&#x2F;exLucas 略解">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2019/Lucas/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
 <meta property="og:description" content="Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。 利用 exLucas 可以求解 $p$ 不为质数的情况。 Lucas前置知识：  求乘法逆元  暴力求组合数   这种算法是基于 Lucas 定理的： 设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下： $n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-11T14:37:47.867Z">
+<meta property="og:updated_time" content="2019-05-12T04:25:57.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lucas&#x2F;exLucas 略解">
 <meta name="twitter:description" content="Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。 利用 exLucas 可以求解 $p$ 不为质数的情况。 Lucas前置知识：  求乘法逆元  暴力求组合数   这种算法是基于 Lucas 定理的： 设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下： $n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{">
@@ -25,7 +25,7 @@
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/photo_black_hole.PNG">
+    <link rel="icon" href="/img/photo.PNG">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -52,16 +52,21 @@
 <div class="intrude-less">
 	<header id="header" class="inner"> 
 		<a href="/" class="profilepic">
-			<img src="/img/photo_black_hole.PNG" class="js-avatar">
+			<img src="/img/photo.PNG" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">破壁人五号</a></h1>
 		</hgroup>
+		<!--*-->
 		
-		<p class="header-subtitle">给题目以数据，而不是给数据以题目。</p>
+			
+			<div style="border-style:soild;border-color:#3080ff;border-width:3px;border-radius:3px">
+				<p class="header-subtitle" style="color:#333;font-size:12px">『世界那么大 你又会去哪 你又遇见谁』</p>
+				<p class="header-subtitle" style="color:#666;font-size:10px">——ilem/洛天依 《夜间出租车》</p>
+			</div>
 		
 
-		<nav class="header-menu">
+		<nav class="header-menu" style="min-height:130px">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
@@ -109,7 +114,7 @@
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> SCOI2019RP+=inf（大雾）</p>
+        <p><strong>Notice:</strong> NOIP2019RP+=inf（大雾）</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -121,13 +126,11 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/photo_black_hole.PNG" class="js-avatar">
+				<img src="/img/photo.PNG" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">破壁人五号</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>给题目以数据，而不是给数据以题目。<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -213,7 +216,8 @@
 <p>其中允许首位为零，且规定当 $m&gt;n$ 时 $C_n^m=0$，则：</p>
 <p>$C_n^m\equiv C_{n_0}^{m_0}\cdot C_{n_1}^{m_1}\cdot \dots \cdot C_{n_k}^{m_k} (\mod p\ )$</p>
 <p>也可以换个递归的表达方式：</p>
-<p>$C_n^m\equiv C_{n/p}^{m/p}\cdot C_{n%p}^{m%p}(\mod p\ )$</p>
+<p>$C_n^m\equiv C_{n/p}^{m/p}\cdot C_{n\%p}^{m\%p}(\mod p\ )$</p>
+<a id="more"></a>
 <p>于是对于 $n,m&lt; p$ 的情况，我们采用暴力求解；否则我们把它拆成较小的问题。</p>
 <p>模板题：<a href="https://www.luogu.org/problemnew/show/P3807" target="_blank" rel="noopener">洛谷 P3807 卢卡斯定理</a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function">ll <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> inf=<span class="number">1926081700</span>;</span><br><span class="line">pair&lt;ll,ll&gt;exgcd(ll a,ll b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>)<span class="keyword">return</span> make_pair(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">-1</span>)<span class="keyword">return</span> make_pair(<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> make_pair(-inf,-inf);</span><br><span class="line">    &#125;</span><br><span class="line">    pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ans=exgcd(b,a%b);</span><br><span class="line">    <span class="keyword">return</span> make_pair(ans.second,ans.first-a/b*ans.second);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">inv</span><span class="params">(ll x,ll mod)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (exgcd(x,mod).first%mod+mod)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(y)&#123;</span><br><span class="line">        <span class="keyword">if</span>(y&amp;<span class="number">1</span>)ans=ans*x%p;</span><br><span class="line">        x=x*x%p;</span><br><span class="line">        y&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">c</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;y)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(y&gt;x-y)y=x-y;</span><br><span class="line">    ll a=<span class="number">1</span>,b=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;y;i++)a=a*(x-i)%p,b=b*(y-i)%p;</span><br><span class="line">    <span class="keyword">return</span> a*inv(b,p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">luc</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;y)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(y&gt;x-y)y=x-y;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(x&amp;&amp;y)&#123;</span><br><span class="line">        ans=ans*c(x%p,y%p,p)%p;</span><br><span class="line">        x/=p,y/=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t=getint();</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> x=getint(),y=getint(),z=getint();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,luc(x+y,y,z));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -230,8 +234,17 @@
 </ul>
 <p>当 $p$ 不为质数时，我们采用拓展 Lucas（exLucas）</p>
 <p>首先我们把 $p$ 分解为 $p_1^{a_1}p_2^{a_2}\dots$。我们只需要求出 $C_n^m\mod p_i^{a_i}$，用 CRT 就能求出答案。</p>
-<p>这次我们用 $C_n^m=\frac{n!}{m!(n-m)!}$ 计算组合数。也就是说我们只需要解决 $n!\mod q^k$ 即可。</p>
-<h1 id="未完待咕"><a href="#未完待咕" class="headerlink" title="未完待咕"></a>未完待咕</h1>
+<p>这次我们用 $C_n^m=\frac{n!}{m!(n-m)!}$ 计算组合数。注意到这几个阶乘与 $p$ 可能不互质，于是把所有 $p^k$ 单独提出来。</p>
+<p>$C_n^m=\frac{n!}{m!(n-m)!}=\frac{\frac{n!}{p^{k_1}}}{\frac{m!}{p^{k_2}}\cdot\frac{(n-m)!}{p^{k_3}}}\cdot p^{k_1-k_2-k_3}$</p>
+<p>求 $k$ 很容易，考虑 1 到 p 中有多少数被 $p^1,p^2\dots$ 整除即可。</p>
+<p>也就是说我们只需要解决 $\frac{n!}{p^k}\mod p^a$。</p>
+<p>我们将 1 到 $n$ 的数分成两部分：是 $p$ 的倍数的数与不是 $p$ 的倍数的数。</p>
+<p>$p$ 的倍数的乘积可以递归求解：每个数除以 $p$，所求的变成 $\lfloor\frac{n}{p}\rfloor!$</p>
+<p>剩下的数字 $%p$ 显然是 $p^a$ 个一循环的，我们把每个循环 $%p$ 暴力求出来，然后使用快速幂。当然这些数字在循环之外可能有剩余，暴力算就行了。</p>
+<p>这样求出了 $\frac{n!}{p^k}\mod p^a$，就可以求 $C_n^m\mod p_i^{a_i}$，在拿中国剩余定理算一下，答案就出来了。</p>
+<p>模板题：<a href="https://www.luogu.org/problemnew/show/P4720" target="_blank" rel="noopener">洛谷 P4720 【模板】扩展卢卡斯</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> inf=<span class="number">1926081700</span>;</span><br><span class="line"><span class="keyword">inline</span> pair&lt;ll,ll&gt;exgcd(ll a,ll b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>)<span class="keyword">return</span> make_pair(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">-1</span>)<span class="keyword">return</span> make_pair(<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> make_pair(-inf,-inf);</span><br><span class="line">    &#125;</span><br><span class="line">    pair&lt;ll,ll&gt;ans=exgcd(b,a%b);</span><br><span class="line">    <span class="keyword">return</span> make_pair(ans.second,ans.first-a/b*ans.second);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">inv</span><span class="params">(ll x,ll mod)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (exgcd(x,mod).first%mod+mod)%mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">qmulti</span><span class="params">(ll a,ll b,ll mod)</span></span>&#123;</span><br><span class="line">    a%=mod,b%=mod;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;<span class="number">2e9</span>&amp;&amp;b&lt;<span class="number">2e9</span>)<span class="keyword">return</span> a*b%mod;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)ans+=a,ans%=mod;</span><br><span class="line">        a+=a,a%=mod;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">qpow</span><span class="params">(ll x,ll y,ll p)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(y)&#123;</span><br><span class="line">        <span class="keyword">if</span>(y&amp;<span class="number">1</span>)ans=qmulti(ans,x,p);</span><br><span class="line">        x=qmulti(x,x,p);</span><br><span class="line">        y&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">qfac</span><span class="params">(ll x,ll p,ll pk)</span></span>&#123;</span><br><span class="line">    <span class="comment">//(x!)/(p^t)%(p^k)</span></span><br><span class="line">    <span class="keyword">if</span>(!x)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;pk;i++)<span class="keyword">if</span>(i%p)ans=qmulti(ans,i,pk);</span><br><span class="line">    ans=qpow(ans,x/pk,pk);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=x%pk;i++)<span class="keyword">if</span>(i%p)ans=qmulti(ans,i,pk);</span><br><span class="line">    <span class="keyword">return</span> qmulti(ans,qfac(x/p,p,pk),pk);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">countp</span><span class="params">(ll x,ll p)</span></span>&#123;</span><br><span class="line">    <span class="comment">//(x!)至多有多少个 p</span></span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(x)x/=p,cnt+=x;</span><br><span class="line">    <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">c</span><span class="params">(ll x,ll y,ll p,ll pk)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;y)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> qmulti(qmulti(qmulti(qfac(x,p,pk),inv(qfac(y,p,pk),pk),pk),inv(qfac(x-y,p,pk),pk),pk),</span><br><span class="line">           qpow(p,countp(x,p)-countp(y,p)-countp(x-y,p),pk),pk);</span><br><span class="line">&#125;</span><br><span class="line">ll a[<span class="number">1000</span>],b[<span class="number">1000</span>],p[<span class="number">1000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll N=getint(),M=getint(),mod=getint();</span><br><span class="line">    ll n=<span class="number">0</span>;</span><br><span class="line">    ll mul=mod,ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">2</span>;i*i&lt;=mod;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(mod%i)<span class="keyword">continue</span>;</span><br><span class="line">        b[n]=<span class="number">1</span>;p[n]=i;</span><br><span class="line">        <span class="keyword">while</span>(mod%i==<span class="number">0</span>)mod/=i,b[n]*=i;</span><br><span class="line">        <span class="comment">//cout&lt;&lt;"&gt; "&lt;&lt;i&lt;&lt;' '&lt;&lt;b[n]&lt;&lt;endl;</span></span><br><span class="line">        a[n]=c(N,M,i,b[n]);</span><br><span class="line">        <span class="comment">//cout&lt;&lt;"! "&lt;&lt;a[n]&lt;&lt;endl;</span></span><br><span class="line">        ++n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(mod!=<span class="number">1</span>)&#123;</span><br><span class="line">        b[n]=mod;p[n]=mod;</span><br><span class="line">        a[n]=c(N,M,mod,mod);</span><br><span class="line">        ++n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//cout&lt;&lt;"."&lt;&lt;endl;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)ans+=qmulti(a[i],qmulti(mul/b[i],inv(mul/b[i],b[i]),mul),mul),ans%=mul;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -244,19 +257,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -264,7 +265,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		
 		</ul>
@@ -508,6 +521,30 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记</a>
               </li>
              
@@ -520,10 +557,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">codeforces</a>
               </li>
              
@@ -533,6 +566,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SCOI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,39 +613,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高斯消元</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快速幂</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快速乘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">exgcd</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,22 +641,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">省选</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">洛谷</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bzoj</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
               </li>
              
@@ -656,7 +649,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SCOI</a>
+                <a href="javascript:void(0)" class="js-tag color5">高斯消元</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快速幂</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快速乘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">exgcd</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,11 +669,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+                <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
               </li>
             
             <div class="clearfix"></div>
@@ -720,7 +721,11 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://www.luogu.org" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>洛谷</a>
+              <a href="https://www.luogu.org/space/show?uid=37676" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>洛谷</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://blog.csdn.net/qq_39854734" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CSDN</a>
             </li>
           
             <li class="search-li">
@@ -751,7 +756,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。该博客是平常拿来皮的，比较正经的 OI 内容可到 CDSN 处（不过 OI 的文章两个博客通常都会更新）</div>
   	  	
     	</section>
     
