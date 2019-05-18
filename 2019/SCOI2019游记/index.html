@@ -61,14 +61,58 @@
 		  <h1 class="header-author"><a href="/">破壁人五号</a></h1>
 		</hgroup>
 		<!--*-->
+		<script>
+var sayings=new Array(
+{s:"生命终究会灿烂 就算再过短暂 就让我许下期盼",from:"阿良良木健 苍十三/洛天依 《春风来》"},
+{s:"像孤单的旅行家 这人生一路风沙 却固执看着前方",from:"ilem/心华 《一人行者》 "},
+{s:"这世界 我仍依恋 「请你将我救援」",from:"阿良良木健/洛天依 《绝体绝命》 "},
+{s:"我愿燃烧这灵魂做最后歌唱 我愿承受这罪过和所有的伤",from:"ilem/洛天依 言和 《葬歌》 "},
+{s:"世界那么大 你又会去哪 你又遇见谁",from:"ilem/洛天依 《夜间出租车》 "},
+{s:"一路风光 一路风霜 偶尔不禁回头张望",from:"ilem/洛天依 《离乡》 "},
+{s:"策马跃山巅 言氏战鼓一声天地颤 仗剑走平川 安得豪杰与我试比肩",from:"ilem/言和 《言氏战鼓》"},
+{s:"跟着普通的节奏 身体普通的抖动 这普通的一切都变得不同",from:"ilem/洛天依 言和 《普通DISCO》"},
+{s:"星星和雨的夜 想起了许多事 想起了一些人 几个瞬间",from:"ilem/心华 《星雨之夜》"},
+{s:"花成双 鸟成排 柔肠百结口难开 远远听见了歌声悠悠来 节节木儿塞",from:"ilem/洛天依 言和 《花儿纳吉》"},
+{s:"他们搞 我们笑 要节操 还是钞票 别紧张只是开个小玩笑",from:"ilem/心华 乐正绫 《大时代》"},
+{s:"流年 那是我最美的夏天 永远 多远 只是一个瞬间",from:"ilem/洛天依 《最美的夏天》"},
+{s:"尼罗河穿过撒哈拉 写着永不完结的神话 那些爱恨生死的落差 问这千年的风沙",from:"ilem/洛天依 言舞 《埃及方块》"},
+{s:"生命就是音乐 啤酒 鲜花 明天更加美好 别停下",from:"ilem/洛天依 《上下上下》"},
+{s:"床前明月光 谁低头 思故乡 这星空三千丈 编一编 做翅膀",from:"ilem/洛天依 言和 《深夜诗人》"},
+{s:"请珍惜 你的一程 交给你 我的一生",from:"ilem/洛天依 《车》"},
+{s:"old fashion 返古就是流行 dance right now 昨天就是明天",from:"ilem/洛天依 言和 《欧菲香》"},
+{s:"当我藏起面容 别看别问别碰 自己构建黑洞 躲在孤独虚空",from:"ilem/洛天依 《〇》"},
+{s:"幸福美满看吾双手 中国少年与国同疆",from:"没有龟壳的乌龟 闫光宇/洛天依 《天行健》"},
+{s:"所以我的时间我的道路做出的选择 从来不需要被旁人的评判干涉",from:"OQQ 鸣泣的紫蝶/徵羽摩柯 《你好，世界！》"},
+{s:"普天华夏儿女兴家邦 谱得战歌一曲荡气回肠 屹立东方",from:"没有龟壳的乌龟 St 四界/言和 《逆浪千秋》"},
+{s:"谁杀死了知更鸟 快听前奏已响 谁杀死了知更鸟 满座热烈鼓掌",from:"神华社 踏云社 初繁言/言和 《谁杀死了知更鸟》"},
+{s:"少年意气激扬 山河饱览快意引吭 便策马绚烂好风光",from:"忘川风华录 tide-潮汐/洛天依 《洛阳怀》"},
+{s:"谁在等 离家孩子归还 喝下几杯 无味的酒便回想",from:"乌龟Sui 果汁凉菜/洛天依 《八辈子》"},
+{s:"纵使有 千万种 寂寞和 孤单相伴 既受终 冠帝冕 龙椅上 成败也笑看",from:"乌龟Sui St色太/洛天依 《权御天下》"},
+{s:"一途平九百波 九千错 凌云渡成正果但我 有九九八十一种不舍",from:"乌龟Sui 邪叫教主/乐正绫 《九九八十一》"},
+{s:"你是叛徒我是什么 是叛徒的挚友",from:"JUSF周存/洛天依 《大小姐和大少爷的反派生涯》"},
+{s:"泛黄字句被誊写 在无名故事的扉页 年月日并不确切 鲜少被翻阅",from:"COP/洛天依 《为了你唱下去》"},
+{s:"溯回五千年 任由我自诩万古第一狂",from:"康师傅の海鲜面/星尘 《万神纪》"},
+{s:"飞远的黑蝴蝶终燃起了火焰 如大人在焚烧孩童涂鸦",from:"桐叶_tongye 某洛/徵羽摩柯 《黑蝴蝶之死》"},
+{s:"那一天我与幸福擦肩 那一天我们失去永远",from:"Sya/洛天依 言和 《Kill My World》"},
+{s:"焉可惧刀俎 言淮竹 遮身后家国辱 焉知岁月枯 衍天书 天命乱自有其数",from:"四维空间中的二维生物/洛天依 乐正绫 言和 星尘 徵羽摩柯 乐正龙牙 《百家策》"},
+{s:"堕落的城市 神明无法容身 污秽太光鲜 九天再九夜 与天堂隔得太远",from:"水螅/言和 《恶魔Fictionist》"},
+{s:"是是非 等后来人 添一笔结尾",from:"砖厂浪人 苍苍/洛天依 徵羽摩柯 《一梦贪欢》"},
+{s:"倾听被倾听都是拯救 愿被呼唤时能再聚首",from:"Sya/洛天依 《露西亚的不期而遇》"}
+);
+function init(){
+	var x = Math.floor(Math.random()*sayings.length);
+	document.getElementById("saying-s").innerHTML="『"+sayings[x].s+"』";
+	document.getElementById("saying-from").innerHTML="——"+sayings[x].from;
+}
+		</script>
 		
 			
-			<div style="border-style:soild;border-color:#3080ff;border-width:3px;border-radius:3px">
-				<p class="header-subtitle" style="color:#333;font-size:12px">『世界那么大 你又会去哪 你又遇见谁』</p>
-				<p class="header-subtitle" style="color:#666;font-size:10px">——ilem/洛天依 《夜间出租车》</p>
+			<div id="saying" onclick="init()" style="border-style:soild;border-color:#3080ff;border-width:3px;border-radius:3px">
+				<p id="saying-s" class="header-subtitle" style="color:#333;font-size:12px"></p>
+				<p id="saying-from" class="header-subtitle" style="color:#666;font-size:10px"></p>
 			</div>
 		
-
+<script>init();</script>
 		<nav class="header-menu" style="min-height:130px">
 			<ul>
 			
