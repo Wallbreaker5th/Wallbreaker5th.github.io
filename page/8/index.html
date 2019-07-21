@@ -93,7 +93,17 @@ var sayings=new Array(
 {s:"焉可惧刀俎 言淮竹 遮身后家国辱 焉知岁月枯 衍天书 天命乱自有其数",from:"四维空间中的二维生物/洛天依 乐正绫 言和 星尘 徵羽摩柯 乐正龙牙 《百家策》"},
 {s:"堕落的城市 神明无法容身 污秽太光鲜 九天再九夜 与天堂隔得太远",from:"水螅/言和 《恶魔Fictionist》"},
 {s:"是是非 等后来人 添一笔结尾",from:"砖厂浪人 苍苍/洛天依 徵羽摩柯 《一梦贪欢》"},
-{s:"倾听被倾听都是拯救 愿被呼唤时能再聚首",from:"Sya/洛天依 《露西亚的不期而遇》"}
+{s:"倾听被倾听都是拯救 愿被呼唤时能再聚首",from:"Sya/洛天依 《露西亚的不期而遇》"},
+{s:"一梦庄生睥睨浮生万千 一曲广陵世间听天下妄言",from:"忘川风华录 玄天/初音未来 《竹林间》"},
+{s:"千年后 挥兵破阵不过一刹那 血雨腥风吻过了伤疤",from:"忘川风华录 无比/星尘 《山河令》"},
+{s:"我犯下了重重罪孽 我到底是什么存在 我是最恐怖的危害 能否从此逃开",from:"DELA 雨狸/洛天依 乐正绫 言和 《四重罪孽》"},
+{s:"我藏起了悲喜 装作恣意的鹰 对风雨的侵袭丧失感应",from:"DELA 雨狸/洛天依 乐正绫 《九重现实》"},
+{s:"得到希望的人多幸福 所有责任让别人背负",from:"JUSF周存/徵羽摩柯 乐正龙牙 《恶龙的国度》"},
+{s:"人们说希望总不会消失 于是我戴上了那顶帽子",from:"JUSF周存/徵羽摩柯 《戴帽子的孩子》"},
+{s:"我让死断绝 灵魂也一起奉献 就算牺牲一切温柔与纯洁",from:"阿良良木健/洛天依 《不老不死》"},
+{s:"料得古今千百载征衣黄土同埋 史书留白处可生落寞苍苔",from:"litterzy 乘物游心/言和 《人在千古》"},
+{s:"好吧 万能的宇宙大人啊 告诉我未来会好吗",from:"杉田朗 和田野/洛天依 《异样的风暴中心》"},
+{s:"如果你可以肯定我的一片心意 如果你可以回应我的一个问题",from:"阿良良木健 苍十三/洛天依 《I LOVE U》"}
 );
 function init(){
 	var x = Math.floor(Math.random()*sayings.length);
@@ -103,13 +113,15 @@ function init(){
 		</script>
 		
 			
-			<div id="saying" onclick="init()" style="border-style:soild;border-color:#3080ff;border-width:3px;border-radius:3px">
-				<p id="saying-s" class="header-subtitle" style="color:#333;font-size:12px"></p>
+			<div id="saying" onclick="init()" style="border-style:outset;
+			border-color:#66ccff;border-width:3px;border-radius:6px;
+			background-color:#eef;min-height:100px;">
+				<p id="saying-s" class="header-subtitle" style="color:#333;font-size:12px;"></p>
 				<p id="saying-from" class="header-subtitle" style="color:#666;font-size:10px"></p>
 			</div>
 		
 <script>init();</script>
-		<nav class="header-menu" style="min-height:130px">
+		<nav class="header-menu" style="min-height:100px">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
@@ -222,37 +234,43 @@ function init(){
 
   
     
-<article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-LGR-047-T1-偷上网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/题解-LGR-047-T1-偷上网/">题解 LGR-047 T1 偷上网</a>
     </h1>
   
 
 
         
-        <a href="/2018/hello-world/" class="archive-article-date">
-  	<time datetime="2018-06-02T04:47:14.572Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
+        <a href="/2018/题解-LGR-047-T1-偷上网/" class="archive-article-date">
+  	<time datetime="2018-06-02T11:02:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <p>这道题当时居然因为某些细节没有 AC，之后看到错因才发现问题 orz。</p>
+<p>听说标算是先判断 $n=1$，只有 $n=1$ 并且四个顶点都被覆盖才可能 GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。</p>
+<p>下面进入正文：</p>
+<p>题目链接： <a href="https://www.luogu.org/problemnew/show/T29693" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/T29693</a></p>
+<p>题目大意：在一个 $l\times l$ 的正方形里有 n 个半径为$l/n$的圆， 求一个不在任何一个圆里面的点。</p>
+<p>看到这道题，第一反应：毒瘤计算几何，这辈子都别想写出标算。</p>
+<p>然而我灵光一现，想出了一种奇葩解法：</p>
+<p>首先把很多个 Bob 随机扔进房间，然后想象这些 Bob 被屏蔽器“挤开”。</p>
+<p>多“挤”几次之后就很可能出现成功躲开的 Bob，如果没有就认为 GG。</p>
+<p>然后我把这个思路抽象出来：</p>
+<p>首先在正方形里面随机生成 N 个点，然后做 T 次以下操作：</p>
+<p>遍历每一个点，判断它是不是在某一个圆内部。 如果是，求出该圆圆心到这个点的向量， 乘以一个倍数使得这个点沿着这个向量移动之后刚好脱离屏蔽器的距离。</p>
+<p>把一个点所有向量加起来，让这个点移动。 如果出了房间或者出现 NaN，让它重新在正方形里面随机选一个点。</p>
+        
+          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/#more">more >></a>
+        
       
 
       
@@ -260,11 +278,34 @@ function init(){
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">玄学算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">洛谷月赛</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/">展开全文 >></a>
         </p>
       
 
@@ -295,43 +336,127 @@ function init(){
 
   
     
-<article id="post-修改记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-NOIP2017游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2000/修改记录/">修改记录</a>
+      <a class="article-title" href="/2018/NOIP2017游记/">NOIP2017游记</a>
     </h1>
   
 
 
         
-        <a href="/2000/修改记录/" class="archive-article-date">
-  	<time datetime="1999-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2000-01-01</time>
+        <a href="/2018/NOIP2017游记/" class="archive-article-date">
+  	<time datetime="2018-06-02T08:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对博客、样式的修改或大量文章的批量修改的记录</p>
-<h2 id="2018-10-27"><a href="#2018-10-27" class="headerlink" title="2018-10-27"></a>2018-10-27</h2><p>对大量博客的格式进行了修改。主要包括：</p>
-<ul>
-<li><p>添加空格</p>
-</li>
-<li><p>调整、添加 $\LaTeX$</p>
-</li>
-<li><p>修改了一些格式的细节</p>
-</li>
-<li><p>修改了一些词语的细节</p>
-</li>
-<li><p>处理格式出锅的文章</p>
-</li>
-</ul>
-<h2 id="2018-12-23"><a href="#2018-12-23" class="headerlink" title="2018-12-23"></a>2018-12-23</h2><p>给博客添了 BGM（然而并不能自动播放）。</p>
-<h2 id="2019-1-10"><a href="#2019-1-10" class="headerlink" title="2019-1-10"></a>2019-1-10</h2><p>修改了一下顶栏，点击可以隐藏。</p>
+        <p>这都大半年了才想起来写游记。</p>
+<h1 id="Day-27（初赛）"><a href="#Day-27（初赛）" class="headerlink" title="Day -27（初赛）"></a>Day -27（初赛）</h1><p>提前到考场。</p>
+<p>做题倒是很顺畅，只想吐槽 Pascal 多久停用管我什么事？！</p>
+<h1 id="Day-（初赛出成绩）"><a href="#Day-（初赛出成绩）" class="headerlink" title="Day ? （初赛出成绩）"></a>Day ? （初赛出成绩）</h1><p>86 分（没记错吧……）。反正进决赛就好。</p>
+<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day -2"></a>Day -2</h1><p>AC 人生第一道蓝题。（Hankson 的趣味题）</p>
+<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>下午公开课时班上几个 OIer 到机房，在洛谷上面颓题。我 WA 红一片。</p>
+<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>好像没干什么。在学校颓了一天，晚上在补习班。</p>
+<h1 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h1>
+        
+          <a class="article-more-a" href="/2018/NOIP2017游记/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">NOIP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NOIP2017</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/NOIP2017游记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/测试/">测试</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/测试/" class="archive-article-date">
+  	<time datetime="2018-06-02T05:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>??</strong></p>
+<p>$a^{a^{\frac{233}{233}}}$</p>
 
       
 
@@ -344,7 +469,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2000/修改记录/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/测试/">展开全文 >></a>
         </p>
       
 
@@ -376,7 +501,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 
@@ -649,6 +774,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">THUSC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大模拟</a>
               </li>
             
             <div class="clearfix"></div>

@@ -93,7 +93,17 @@ var sayings=new Array(
 {s:"焉可惧刀俎 言淮竹 遮身后家国辱 焉知岁月枯 衍天书 天命乱自有其数",from:"四维空间中的二维生物/洛天依 乐正绫 言和 星尘 徵羽摩柯 乐正龙牙 《百家策》"},
 {s:"堕落的城市 神明无法容身 污秽太光鲜 九天再九夜 与天堂隔得太远",from:"水螅/言和 《恶魔Fictionist》"},
 {s:"是是非 等后来人 添一笔结尾",from:"砖厂浪人 苍苍/洛天依 徵羽摩柯 《一梦贪欢》"},
-{s:"倾听被倾听都是拯救 愿被呼唤时能再聚首",from:"Sya/洛天依 《露西亚的不期而遇》"}
+{s:"倾听被倾听都是拯救 愿被呼唤时能再聚首",from:"Sya/洛天依 《露西亚的不期而遇》"},
+{s:"一梦庄生睥睨浮生万千 一曲广陵世间听天下妄言",from:"忘川风华录 玄天/初音未来 《竹林间》"},
+{s:"千年后 挥兵破阵不过一刹那 血雨腥风吻过了伤疤",from:"忘川风华录 无比/星尘 《山河令》"},
+{s:"我犯下了重重罪孽 我到底是什么存在 我是最恐怖的危害 能否从此逃开",from:"DELA 雨狸/洛天依 乐正绫 言和 《四重罪孽》"},
+{s:"我藏起了悲喜 装作恣意的鹰 对风雨的侵袭丧失感应",from:"DELA 雨狸/洛天依 乐正绫 《九重现实》"},
+{s:"得到希望的人多幸福 所有责任让别人背负",from:"JUSF周存/徵羽摩柯 乐正龙牙 《恶龙的国度》"},
+{s:"人们说希望总不会消失 于是我戴上了那顶帽子",from:"JUSF周存/徵羽摩柯 《戴帽子的孩子》"},
+{s:"我让死断绝 灵魂也一起奉献 就算牺牲一切温柔与纯洁",from:"阿良良木健/洛天依 《不老不死》"},
+{s:"料得古今千百载征衣黄土同埋 史书留白处可生落寞苍苔",from:"litterzy 乘物游心/言和 《人在千古》"},
+{s:"好吧 万能的宇宙大人啊 告诉我未来会好吗",from:"杉田朗 和田野/洛天依 《异样的风暴中心》"},
+{s:"如果你可以肯定我的一片心意 如果你可以回应我的一个问题",from:"阿良良木健 苍十三/洛天依 《I LOVE U》"}
 );
 function init(){
 	var x = Math.floor(Math.random()*sayings.length);
@@ -103,13 +113,15 @@ function init(){
 		</script>
 		
 			
-			<div id="saying" onclick="init()" style="border-style:soild;border-color:#3080ff;border-width:3px;border-radius:3px">
-				<p id="saying-s" class="header-subtitle" style="color:#333;font-size:12px"></p>
+			<div id="saying" onclick="init()" style="border-style:outset;
+			border-color:#66ccff;border-width:3px;border-radius:6px;
+			background-color:#eef;min-height:100px;">
+				<p id="saying-s" class="header-subtitle" style="color:#333;font-size:12px;"></p>
 				<p id="saying-from" class="header-subtitle" style="color:#666;font-size:10px"></p>
 			</div>
 		
 <script>init();</script>
-		<nav class="header-menu" style="min-height:130px">
+		<nav class="header-menu" style="min-height:100px">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
@@ -330,45 +342,46 @@ function init(){
 
   
     
-<article id="post-Lucas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-loj3161-NOI2019-I 君的探险- 部分分" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/Lucas/">Lucas/exLucas 略解</a>
+      <a class="article-title" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">题解 [NOI2019]I 君的探险（LOJ3161 洛谷P5473）</a>
     </h1>
   
 
 
         
-        <a href="/2019/Lucas/" class="archive-article-date">
-  	<time datetime="2019-05-11T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
+        <a href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/" class="archive-article-date">
+  	<time datetime="2019-07-21T02:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。</p>
-<p>利用 exLucas 可以求解 $p$ 不为质数的情况。</p>
-<h1 id="Lucas"><a href="#Lucas" class="headerlink" title="Lucas"></a>Lucas</h1><p><strong>前置知识：</strong></p>
+        <p><a href="https://loj.ac/problem/3161" target="_blank" rel="noopener">题目链接</a></p>
+<p>（代码在最后）</p>
+<h1 id="测试点-1"><a href="#测试点-1" class="headerlink" title="测试点 1"></a>测试点 1</h1><p>这个点只需要读懂题目就能乱搞过去。</p>
+<p>无数种方法中的一个：</p>
 <ul>
-<li><p>求乘法逆元</p>
-</li>
-<li><p>暴力求组合数</p>
-</li>
+<li>修改 0 号点</li>
+<li>分别查询 1、2 号点，只要被修改了就代表它与 0 有边</li>
+<li>若1、2 点不同时与 0 有边连接，代表 1、2 点之间有边</li>
 </ul>
-<p>这种算法是基于 Lucas 定理的：</p>
-<p>设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下：</p>
-<p>$n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{m_0m_1\dots m_k})_p$</p>
-<p>其中允许首位为零，且规定当 $m&gt;n$ 时 $C_n^m=0$，则：</p>
-<p>$C_n^m\equiv C_{n_0}^{m_0}\cdot C_{n_1}^{m_1}\cdot \dots \cdot C_{n_k}^{m_k} (\mod p\ )$</p>
-<p>也可以换个递归的表达方式：</p>
-<p>$C_n^m\equiv C_{n/p}^{m/p}\cdot C_{n\%p}^{m\%p}(\mod p\ )$</p>
+<ul>
+<li><p>时间复杂度：$O(1)$</p>
+</li>
+<li><p>修改次数：1</p>
+</li>
+<li><p>查询次数：2</p>
+</li>
+<li><p>检查次数：0</p>
         
-          <a class="article-more-a" href="/2019/Lucas/#more">more >></a>
+          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/#more">more >></a>
         
       
 
@@ -382,27 +395,19 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Lucas</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">平衡树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">STL</a>
         		</li>
       		
 		</ul>
@@ -412,7 +417,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/Lucas/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">展开全文 >></a>
         </p>
       
 
@@ -443,21 +448,21 @@ function init(){
 
   
     
-<article id="游记-SCOI2019游记" class="article article-type-游记  article-index" itemscope itemprop="blogPost">
+<article id="游记-THUSC2019游记" class="article article-type-游记  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/SCOI2019游记/">SCOI2019游记</a>
+      <a class="article-title" href="/2019/THUSC2019游记/">THUSC2019游记</a>
     </h1>
   
 
 
         
-        <a href="/2019/SCOI2019游记/" class="archive-article-date">
-  	<time datetime="2019-04-12T08:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-12</time>
+        <a href="/2019/THUSC2019游记/" class="archive-article-date">
+  	<time datetime="2019-05-25T14:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-25</time>
 </a>
         
       </header>
@@ -465,17 +470,18 @@ function init(){
     <div class="article-entry" itemprop="articleBody">
       
         <p><del>↑上面的时间是发布时间，不是最后修改时间，请大家不要恐慌↑</del></p>
-<h1 id="Day0"><a href="#Day0" class="headerlink" title="Day0"></a>Day0</h1><p>周五</p>
-<h3 id="上午"><a href="#上午" class="headerlink" title="上午"></a>上午</h3><p>前去报到</p>
-<h3 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h3><p>笔试，<del>到了考场才领到准考证</del>。</p>
-<p>笔试真是/cy。</p>
-<p><code>B.竞赛一年</code></p>
-<p><code>sb2</code></p>
-<p><code>D.无所谓</code></p>
-<p><code>有时可以</code></p>
-<p><code>A.Lazarus ... D.Lazarus</code></p>
+<p>日期编号以考场电脑的用户名为准。（即：05/25 第一场考试为 Day0）</p>
+<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>早上准备坐高铁去北京，这是我第一次出省</p>
+<p>因为办的是临时身份证，只能在人工窗口排队/kk</p>
+<p>9:55 左右上高铁</p>
+<p>高铁上看了一会书就开始用流量水群/看风景了（<del>道理我都懂，但高铁上怎么能没有 WIFI 呢？</del>）</p>
+<p>在四川盯了半天窗外也没有看到有紫色土壤</p>
+<p>穿过秦岭，一看农田就知道到了北方地区</p>
+<p>黄土高原上似乎种了不少植被了</p>
+<p>午饭吃的是啥扣肉</p>
+<p>下午坐了很久然后到华北平原了。这才感受到真正的”平原“是啥样。</p>
         
-          <a class="article-more-a" href="/2019/SCOI2019游记/#more">more >></a>
+          <a class="article-more-a" href="/2019/THUSC2019游记/#more">more >></a>
         
       
 
@@ -497,7 +503,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SCOI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">THUSC</a>
         		</li>
       		
 		</ul>
@@ -507,7 +513,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/SCOI2019游记/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/THUSC2019游记/">展开全文 >></a>
         </p>
       
 
@@ -539,7 +545,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -812,6 +818,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">THUSC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大模拟</a>
               </li>
             
             <div class="clearfix"></div>

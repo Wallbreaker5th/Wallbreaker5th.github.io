@@ -93,7 +93,17 @@ var sayings=new Array(
 {s:"焉可惧刀俎 言淮竹 遮身后家国辱 焉知岁月枯 衍天书 天命乱自有其数",from:"四维空间中的二维生物/洛天依 乐正绫 言和 星尘 徵羽摩柯 乐正龙牙 《百家策》"},
 {s:"堕落的城市 神明无法容身 污秽太光鲜 九天再九夜 与天堂隔得太远",from:"水螅/言和 《恶魔Fictionist》"},
 {s:"是是非 等后来人 添一笔结尾",from:"砖厂浪人 苍苍/洛天依 徵羽摩柯 《一梦贪欢》"},
-{s:"倾听被倾听都是拯救 愿被呼唤时能再聚首",from:"Sya/洛天依 《露西亚的不期而遇》"}
+{s:"倾听被倾听都是拯救 愿被呼唤时能再聚首",from:"Sya/洛天依 《露西亚的不期而遇》"},
+{s:"一梦庄生睥睨浮生万千 一曲广陵世间听天下妄言",from:"忘川风华录 玄天/初音未来 《竹林间》"},
+{s:"千年后 挥兵破阵不过一刹那 血雨腥风吻过了伤疤",from:"忘川风华录 无比/星尘 《山河令》"},
+{s:"我犯下了重重罪孽 我到底是什么存在 我是最恐怖的危害 能否从此逃开",from:"DELA 雨狸/洛天依 乐正绫 言和 《四重罪孽》"},
+{s:"我藏起了悲喜 装作恣意的鹰 对风雨的侵袭丧失感应",from:"DELA 雨狸/洛天依 乐正绫 《九重现实》"},
+{s:"得到希望的人多幸福 所有责任让别人背负",from:"JUSF周存/徵羽摩柯 乐正龙牙 《恶龙的国度》"},
+{s:"人们说希望总不会消失 于是我戴上了那顶帽子",from:"JUSF周存/徵羽摩柯 《戴帽子的孩子》"},
+{s:"我让死断绝 灵魂也一起奉献 就算牺牲一切温柔与纯洁",from:"阿良良木健/洛天依 《不老不死》"},
+{s:"料得古今千百载征衣黄土同埋 史书留白处可生落寞苍苔",from:"litterzy 乘物游心/言和 《人在千古》"},
+{s:"好吧 万能的宇宙大人啊 告诉我未来会好吗",from:"杉田朗 和田野/洛天依 《异样的风暴中心》"},
+{s:"如果你可以肯定我的一片心意 如果你可以回应我的一个问题",from:"阿良良木健 苍十三/洛天依 《I LOVE U》"}
 );
 function init(){
 	var x = Math.floor(Math.random()*sayings.length);
@@ -103,13 +113,15 @@ function init(){
 		</script>
 		
 			
-			<div id="saying" onclick="init()" style="border-style:soild;border-color:#3080ff;border-width:3px;border-radius:3px">
-				<p id="saying-s" class="header-subtitle" style="color:#333;font-size:12px"></p>
+			<div id="saying" onclick="init()" style="border-style:outset;
+			border-color:#66ccff;border-width:3px;border-radius:6px;
+			background-color:#eef;min-height:100px;">
+				<p id="saying-s" class="header-subtitle" style="color:#333;font-size:12px;"></p>
 				<p id="saying-from" class="header-subtitle" style="color:#666;font-size:10px"></p>
 			</div>
 		
 <script>init();</script>
-		<nav class="header-menu" style="min-height:130px">
+		<nav class="header-menu" style="min-height:100px">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
@@ -222,38 +234,41 @@ function init(){
 
   
     
-<article id="post-某NOIP模拟赛 T1 snow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某NOIP模拟赛 T2 dp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/某NOIP模拟赛 T1 snow/">某NOIP模拟赛 T1 snow</a>
+      <a class="article-title" href="/2018/某NOIP模拟赛 T2 dp/">某NOIP模拟赛 T2 dp</a>
     </h1>
   
 
 
         
-        <a href="/2018/某NOIP模拟赛 T1 snow/" class="archive-article-date">
-  	<time datetime="2018-08-20T07:20:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+        <a href="/2018/某NOIP模拟赛 T2 dp/" class="archive-article-date">
+  	<time datetime="2018-08-20T08:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="【问题描述】"><a href="#【问题描述】" class="headerlink" title="【问题描述】"></a>【问题描述】</h2><p>有一天，TT 要去 ABC 家。ABC 的大门外有 $n$ 个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。 </p>
-<p>现在给定每个站台必须访问的次数，对于站台 $i$， TT 必须恰好访问 $F_i$ 次（不能超过）。  </p>
-<p>我们用 $u,v,w$ 三个参数描述一个传送门，表示从站台 $u$ 到站台 $v$ 有一个最多可以使用 $w$ 次的传送门（不一定要使用 $w$ 次）。对于任意一对传送门 $(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$；且 $u_1=u_2$ 和 $v_1=v_2$ 不同时成立。 </p>
-<p>TT 可以从任意的站台开始，从任意的站台结束。出发去开始的站台需要花费 $1$ 单位的钱。现在请帮助 TT 求出打开大门最少需要花费多少单位的钱。 </p>
-<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行包含两个正整数 $n,m$，意义见题目描述。 </p>
-<p>第二行包含 $n$ 个正整数，第 $i$ 个数表示 $F_i$。 </p>
-<p>接下来有 $m$ 行，每行有三个正整数 $u,v,w$，表示从 $u$ 到 $v$ 有一个可以使用 $w$ 次的传送门。 </p>
-<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>仅一行包含一个整数表示答案。 </p>
-<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 3 </span><br><span class="line">5 5 5 5 </span><br><span class="line">1 2 1 </span><br><span class="line">3 2 1 </span><br><span class="line">3 4 1</span><br></pre></td></tr></table></figure>
+        <p>##【问题描述】<br>一块土地有 $n$ 个连续的部分，用 $H[1],H[2],…,H[n]$ 表示每个部分的最初高度。有 $n$ 种泥土可用，他们都能覆盖连续的 $k$ 个部分，第 $i$ 种泥土的价格为 $C[i]$，可以使 $i, i+1,…,i+k-1$ 部分的高度增加 $E[i]$(如果 $i+k&gt;n$，那就覆盖 $i,…,n$)，我们必须满足以下条件： </p>
+<ol>
+<li><p>每种泥土只能使用一次。 </p>
+</li>
+<li><p>成本必须小于等于 m。 </p>
+</li>
+</ol>
+<p>要求在上述条件下，使得最低的部分的高度尽量高，请求出这个高度。 </p>
+<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行三个整数 $n,m,k$，表示土地有几个部分，最大预算成本以及每种泥土能覆盖的部分数。  </p>
+<p>接下来 $n$ 行，每行三个整数 $H[i],E[i],C[i]$。 </p>
+<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>输出一个整数，表示在满足条件的情况下，最低部分的高度的最大值。 </p>
+<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 20 1</span><br><span class="line">1 3 5</span><br><span class="line">1 7 3</span><br><span class="line">4 6 9</span><br><span class="line">3 5 13</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 snow/#more">more >></a>
+          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 dp/#more">more >></a>
         
       
 
@@ -275,15 +290,104 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网络流</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二分图</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">状压DP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">最小路径覆盖</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">二分答案</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 dp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-某NOIP模拟赛 T1 number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/某NOIP模拟赛 T1 number/">某NOIP模拟赛 T1 number</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/某NOIP模拟赛 T1 number/" class="archive-article-date">
+  	<time datetime="2018-08-20T07:43:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>【问题描述】<br>如果一个数能够表示成两两不同的 3 的幂次的和，就说这个数是好的。<br>比如 13 是好的，因为 13 = 9 + 3 + 1 。<br>又比如 90 是好的，因为 90 = 81 + 9 。<br>现在我们用 a[i] 表示第 i 小的好数。<br>比如$a[1] = 1, a[2] = 3, a[5] = 10$ 。<br>给定$L,R$，请求出 $a[L]$ 到 $a[R]$ 的和 $\mod 2^{32}$。 </p>
+<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行一个整数 T，表示数据组数。<br>接下来 T 行，每行两个整数 L,R 表示一组询问。 </p>
+<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>输出T 行，每行为一个整数，表示相应询问的答案。 </p>
+<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 </span><br><span class="line">1 3 </span><br><span class="line">3 3 </span><br><span class="line">4 5 </span><br><span class="line">6 7 </span><br><span class="line">2 5</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 number/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NOIP模拟</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -297,7 +401,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 snow/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 number/">展开全文 >></a>
         </p>
       
 
@@ -328,46 +432,36 @@ function init(){
 
   
     
-<article id="post-渐进记号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某NOIP模拟赛 T2 位运算（or）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/渐进记号/">O(1/n) 算法存在吗？——几种常见渐进记号略解</a>
+      <a class="article-title" href="/2018/某NOIP模拟赛 T2 位运算（or）/">某NOIP模拟赛 T2 位运算（or）</a>
     </h1>
   
 
 
         
-        <a href="/2018/渐进记号/" class="archive-article-date">
-  	<time datetime="2018-08-17T05:19:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
+        <a href="/2018/某NOIP模拟赛 T2 位运算（or）/" class="archive-article-date">
+  	<time datetime="2018-08-20T07:38:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h1><p>在 OI 界，$O(\frac{1}{n})$ 的算法已经成为了一个梗。</p>
-<blockquote>
-<p>你要是发明了 $O(\frac{1}{n})$ 的算法，我就出 $n=0.00000000001$ 来卡你。 <del>——鲁迅</del></p>
-</blockquote>
-<p>那么这种时间复杂度的算法存在吗？我们首先要了解几种渐进记号分别代表什么。</p>
-<p>（下面默认所有函数都<strong>渐进非负</strong>，即当 $n$ 足够大时，函数值始终非负）</p>
-<p>（下面大部分内容以《算法导论》为根据）</p>
-<h2 id="Theta"><a href="#Theta" class="headerlink" title="$\Theta$"></a>$\Theta$</h2><p>$\Theta$ 符号的意义是我们通常用 $O$ 记号表达的，它代表了函数的<strong>渐进紧确界</strong>。</p>
-<p>其定义为：</p>
-<blockquote>
-<p>对一个给定的函数 $g(n)$，用 $\Theta(g(n))$ 来表示以下函数的集合：</p>
-</blockquote>
-<blockquote>
-<p>$\Theta(g(n))={f(n):\text{存在正常量}c_1,c_2,n_0\text{，使得对所有的}n\geq n_0\text{，有}0\leq c_1g(n)\leq f(n)\leq c_2g(n)}$</p>
-</blockquote>
-<p>冒号指<strong>使得</strong>。</p>
-<p>也就是当 $n$ 够大时，$f(n)$ 能“夹进”两个 $g(n)$ 的常数倍之间。</p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>（此题有 SPJ）</p>
+<h2 id="【描述】"><a href="#【描述】" class="headerlink" title="【描述】"></a>【描述】</h2><p>  构造一个长度为 $n$ 的非负整数序列 $x$，满足 $m$ 个条件，第 $i$ 个条件为 </p>
+<p>$x[l_i] | x[l_i+1] | … | x[r_i]=p_i$。 </p>
+<h2 id="【输入】"><a href="#【输入】" class="headerlink" title="【输入】"></a>【输入】</h2><p>第一行两个整数 $n,m$。接下来 m 行每行三个整数 $li,ri,pi$。 </p>
+<h2 id="【输出】"><a href="#【输出】" class="headerlink" title="【输出】"></a>【输出】</h2><p>如果存在这样的序列 $x$，第一行输出 Yes，第二行输出 $n $ 个不超过 $2^{30}-1$ 的非负整数表示 $x[1]…x[n]$，否则输出一行 No </p>
+<h2 id="【输入样例1】"><a href="#【输入样例1】" class="headerlink" title="【输入样例1】"></a>【输入样例1】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 1 </span><br><span class="line">1 2 1</span><br></pre></td></tr></table></figure>
+<h2 id="【输出样例1】"><a href="#【输出样例1】" class="headerlink" title="【输出样例1】"></a>【输出样例1】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2018/渐进记号/#more">more >></a>
+          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 位运算（or）/#more">more >></a>
         
       
 
@@ -385,11 +479,19 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">时间复杂度</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NOIP模拟</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">渐进记号</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">位运算</a>
         		</li>
       		
 		</ul>
@@ -399,105 +501,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/渐进记号/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-Codeforces Marathon Round 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/Codeforces Marathon Round 2/">Codeforces Marathon Round 2</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/Codeforces Marathon Round 2/" class="archive-article-date">
-  	<time datetime="2018-08-02T15:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这场 CF 马拉松赛是我目前参加的唯一一场马拉松赛（压根就两场……）。</p>
-<p>CF 马拉松赛会给你 7 天时间解决一个目前没有正解的题目，你要针对随机数据得到尽可能高的分数。</p>
-<p>比赛链接：<a href="http://codeforces.com/contest/1014" target="_blank" rel="noopener">http://codeforces.com/contest/1014</a></p>
-<p>题目大意：</p>
-<p>一段被分成了 $N=100000$ 块的长条（？），每块染有 $C=10$ 种颜色之一颜色用前 10 个大写英文字母表示，将其向右无限重复。在上面有 $U=10$ 只变色龙，从 0 开始编号，初始位置分别在第 $1,2,3..10$ 格。Kurt 手中有 $H=10$ 个颜料瓶，背包里有 $S=10000$ 个，Kurt 每次可以拿一个颜料瓶扔向一只变色龙，这只变色龙就会不断向右移动，直到遇到一个颜色与颜料瓶颜色相同且没有另一只变色龙在上面的格子，同时 Kurt 从背包里<strong>按照题目给定的顺序</strong>取出一个颜料瓶拿在手中，直到背包空为止。最后得分为最靠后的变色龙的位置，如果你给的不符要求，得 0 分。最后会生成约 1000 个<strong>随机</strong>数据取平均分。</p>
-<p>不得不说马拉松赛很考脑洞。这里先说一下我的几个思路：</p>
-<h1 id="随机"><a href="#随机" class="headerlink" title="随机"></a>随机</h1><p>每次随机从背包里面选择一个瓶子，扔到随机的变色龙上。实现不难，<code>multiset</code>即可（我没有写）。</p>
-<p>得分在 9900 分左右。</p>
-<h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><p>贪心的方式应该有很多很多……我最先想到的方式是每次选择最落后的变色龙，然后扔一个让它跑得尽可能远的瓶子。</p>
-        
-          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">玄学算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 位运算（or）/">展开全文 >></a>
         </p>
       
 
@@ -529,7 +533,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -802,6 +806,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">THUSC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大模拟</a>
               </li>
             
             <div class="clearfix"></div>
