@@ -234,42 +234,38 @@ function init(){
 
   
     
-<article id="post-题解-LGR-047-T1-偷上网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-Codeforces Marathon Round 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/题解-LGR-047-T1-偷上网/">题解 LGR-047 T1 偷上网</a>
+      <a class="article-title" href="/2018/Codeforces Marathon Round 2/">Codeforces Marathon Round 2</a>
     </h1>
   
 
 
         
-        <a href="/2018/题解-LGR-047-T1-偷上网/" class="archive-article-date">
-  	<time datetime="2018-06-02T11:02:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
+        <a href="/2018/Codeforces Marathon Round 2/" class="archive-article-date">
+  	<time datetime="2018-08-02T15:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这道题当时居然因为某些细节没有 AC，之后看到错因才发现问题 orz。</p>
-<p>听说标算是先判断 $n=1$，只有 $n=1$ 并且四个顶点都被覆盖才可能 GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。</p>
-<p>下面进入正文：</p>
-<p>题目链接： <a href="https://www.luogu.org/problemnew/show/T29693" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/T29693</a></p>
-<p>题目大意：在一个 $l\times l$ 的正方形里有 n 个半径为$l/n$的圆， 求一个不在任何一个圆里面的点。</p>
-<p>看到这道题，第一反应：毒瘤计算几何，这辈子都别想写出标算。</p>
-<p>然而我灵光一现，想出了一种奇葩解法：</p>
-<p>首先把很多个 Bob 随机扔进房间，然后想象这些 Bob 被屏蔽器“挤开”。</p>
-<p>多“挤”几次之后就很可能出现成功躲开的 Bob，如果没有就认为 GG。</p>
-<p>然后我把这个思路抽象出来：</p>
-<p>首先在正方形里面随机生成 N 个点，然后做 T 次以下操作：</p>
-<p>遍历每一个点，判断它是不是在某一个圆内部。 如果是，求出该圆圆心到这个点的向量， 乘以一个倍数使得这个点沿着这个向量移动之后刚好脱离屏蔽器的距离。</p>
-<p>把一个点所有向量加起来，让这个点移动。 如果出了房间或者出现 NaN，让它重新在正方形里面随机选一个点。</p>
+        <p>这场 CF 马拉松赛是我目前参加的唯一一场马拉松赛（压根就两场……）。</p>
+<p>CF 马拉松赛会给你 7 天时间解决一个目前没有正解的题目，你要针对随机数据得到尽可能高的分数。</p>
+<p>比赛链接：<a href="http://codeforces.com/contest/1014" target="_blank" rel="noopener">http://codeforces.com/contest/1014</a></p>
+<p>题目大意：</p>
+<p>一段被分成了 $N=100000$ 块的长条（？），每块染有 $C=10$ 种颜色之一颜色用前 10 个大写英文字母表示，将其向右无限重复。在上面有 $U=10$ 只变色龙，从 0 开始编号，初始位置分别在第 $1,2,3..10$ 格。Kurt 手中有 $H=10$ 个颜料瓶，背包里有 $S=10000$ 个，Kurt 每次可以拿一个颜料瓶扔向一只变色龙，这只变色龙就会不断向右移动，直到遇到一个颜色与颜料瓶颜色相同且没有另一只变色龙在上面的格子，同时 Kurt 从背包里<strong>按照题目给定的顺序</strong>取出一个颜料瓶拿在手中，直到背包空为止。最后得分为最靠后的变色龙的位置，如果你给的不符要求，得 0 分。最后会生成约 1000 个<strong>随机</strong>数据取平均分。</p>
+<p>不得不说马拉松赛很考脑洞。这里先说一下我的几个思路：</p>
+<h1 id="随机"><a href="#随机" class="headerlink" title="随机"></a>随机</h1><p>每次随机从背包里面选择一个瓶子，扔到随机的变色龙上。实现不难，<code>multiset</code>即可（我没有写）。</p>
+<p>得分在 9900 分左右。</p>
+<h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><p>贪心的方式应该有很多很多……我最先想到的方式是每次选择最落后的变色龙，然后扔一个让它跑得尽可能远的瓶子。</p>
         
-          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/#more">more >></a>
+          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/#more">more >></a>
         
       
 
@@ -287,11 +283,117 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">玄学算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-题解-LGR-049-T2-River Jumping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/题解-LGR-049-T2-River Jumping/">题解 LGR-049 T2 River Jumping</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/题解-LGR-049-T2-River Jumping/" class="archive-article-date">
+  	<time datetime="2018-07-15T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当时看了半天觉得十分不可做，然后看到排行榜里面一群人 AC 了 T2，就准备乱写一个。</p>
+<p>写了一半觉得有问题，又没有写了。</p>
+<p>之后发现后面的题目更加不可做，把这个程序补完了，WA 了一遍之后莫名其妙就 A 了。</p>
+<p>下面进入正文：</p>
+<p>题目链接：<a href="https://www.luogu.org/problemnew/show/P4753" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P4753</a></p>
+<p>题目大意：数轴上有 $m+2$ 个点，坐标分别为 $0,w_1,w_2,…,w_m,n$，<br>要求把这些点分成 2 份，使得每一份里面任意两点距离不小于$s$，$0$ 与 $n+1$ 算 2 次。</p>
+<p>当时第一反应：一跳到对岸，再一跳会来，不就不重复了吗？</p>
+<p>然后突然发现要求每个点都恰好一次。</p>
+<p>然后瞬间蒙了……</p>
+<p>然后开始乱打一波：</p>
+<p>首先，为了让每个点都恰好经过一次，去时没有跳到的点返回时必须跳。</p>
+<p>由于小 D 跳跃长度没有限制，所以回来时的石头必须尽可能稀疏。</p>
+<p>那么去的时候石头需要尽可能密集。</p>
+        
+          <a class="article-more-a" href="/2018/题解-LGR-049-T2-River Jumping/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -305,7 +407,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/题解-LGR-049-T2-River Jumping/">展开全文 >></a>
         </p>
       
 
@@ -336,37 +438,37 @@ function init(){
 
   
     
-<article id="post-NOIP2017游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-P4035-JSOI2008-球形空间产生器" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/NOIP2017游记/">NOIP2017游记</a>
+      <a class="article-title" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">题解-P4035-JSOI2008-球形空间产生器</a>
     </h1>
   
 
 
         
-        <a href="/2018/NOIP2017游记/" class="archive-article-date">
-  	<time datetime="2018-06-02T08:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
+        <a href="/2018/题解-P4035-JSOI2008-球形空间产生器/" class="archive-article-date">
+  	<time datetime="2018-06-16T14:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这都大半年了才想起来写游记。</p>
-<h1 id="Day-27（初赛）"><a href="#Day-27（初赛）" class="headerlink" title="Day -27（初赛）"></a>Day -27（初赛）</h1><p>提前到考场。</p>
-<p>做题倒是很顺畅，只想吐槽 Pascal 多久停用管我什么事？！</p>
-<h1 id="Day-（初赛出成绩）"><a href="#Day-（初赛出成绩）" class="headerlink" title="Day ? （初赛出成绩）"></a>Day ? （初赛出成绩）</h1><p>86 分（没记错吧……）。反正进决赛就好。</p>
-<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day -2"></a>Day -2</h1><p>AC 人生第一道蓝题。（Hankson 的趣味题）</p>
-<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>下午公开课时班上几个 OIer 到机房，在洛谷上面颓题。我 WA 红一片。</p>
-<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>好像没干什么。在学校颓了一天，晚上在补习班。</p>
-<h1 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h1>
+        <p>洛谷题号：P4035</p>
+<p>bzoj 题号：1013</p>
+<hr>
+<p>题目：</p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>有一个球形空间产生器能够在 n 维空间中产生一个坚硬的球体。现在，你被困在了这个 n 维球体中，你只知道球<br>面上 n+1 个点的坐标，你需要以最快的速度确定这个 n 维球体的球心坐标，以便于摧毁这个球形空间产生器。</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>第一行是一个整数 $n(1\leq N\leq 10)$。接下来的 n+1 行，每行有 n 个实数，表示球面上一点的 n 维坐标。每一个实数精确到小数点<br>后 6 位，且其绝对值都不超过 20000。</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>有且只有一行，依次给出球心的 n 维坐标（ n 个实数），两个实数之间用一个空格隔开。每个实数精确到小数点<br>后 3 位。数据保证有解。你的答案必须和标准输出一模一样才能够得分。</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2>
         
-          <a class="article-more-a" href="/2018/NOIP2017游记/#more">more >></a>
+          <a class="article-more-a" href="/2018/题解-P4035-JSOI2008-球形空间产生器/#more">more >></a>
         
       
 
@@ -384,15 +486,11 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">NOIP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NOIP2017</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高斯消元</a>
         		</li>
       		
 		</ul>
@@ -402,74 +500,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/NOIP2017游记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/测试/">测试</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/测试/" class="archive-article-date">
-  	<time datetime="2018-06-02T05:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p><strong>??</strong></p>
-<p>$a^{a^{\frac{233}{233}}}$</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/测试/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">展开全文 >></a>
         </p>
       
 
@@ -501,7 +532,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 
@@ -625,6 +656,22 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">NOIP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NOIP2017</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -645,19 +692,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">NOIP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NOIP2017</a>
+                <a href="javascript:void(0)" class="js-tag color5">SCOI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,15 +708,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SCOI</a>
+                <a href="javascript:void(0)" class="js-tag color2">NOIP模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">题解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最短路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NOIP模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,10 +729,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">最小路径覆盖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,31 +756,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渐进记号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DLX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">洛谷月赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">STL</a>
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,11 +776,43 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DLX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">洛谷月赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">渐进记号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">STL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">manacher</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,7 +820,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
+                <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
               </li>
              
               <li class="article-tag-list-item">
