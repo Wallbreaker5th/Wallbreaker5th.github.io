@@ -106,7 +106,17 @@ var sayings=new Array(
 {s:"我让死断绝 灵魂也一起奉献 就算牺牲一切温柔与纯洁",from:"阿良良木健/洛天依 《不老不死》"},
 {s:"料得古今千百载征衣黄土同埋 史书留白处可生落寞苍苔",from:"litterzy 乘物游心/言和 《人在千古》"},
 {s:"好吧 万能的宇宙大人啊 告诉我未来会好吗",from:"杉田朗 和田野/洛天依 《异样的风暴中心》"},
-{s:"如果你可以肯定我的一片心意 如果你可以回应我的一个问题",from:"阿良良木健 苍十三/洛天依 《I LOVE U》"}
+{s:"如果你可以肯定我的一片心意 如果你可以回应我的一个问题",from:"阿良良木健 苍十三/洛天依 《I LOVE U》"},
+{s:"何必朝目标凑的太前 可望不可即更烦厌",from:"闹闹 林檎/徵羽摩柯 《Take a Step Back》"},
+{s:"把感情的种子装进透明的罐子 收集堆积于房子一点一点布满充斥",from:"Sya/洛天依 《Kill My Emotion》"},
+{s:"任平生尽逐兵戈场 自可取天地与四方 敢破釜沉舟气势张 将三军胄甲拟兴亡",from:"忘川风华录 骆栖淮/赤羽 《天下局》"},
+{s:"曾经以为不会忘记的许许多多 也许回过神来全都已经不再记得",from:"无名社 L Sr/洛天依 《刹那烟火，落尽清凉》"},
+{s:"若是不放弃挣扎着向上 也想有一天能一览山顶的景致啊",from:"黒白君/洛天依 《做一个默默无闻的普通人是一种怎样的体验》"},
+{s:"然而努力着缓速前行着 总会变成鱼干吧",from:"黒白君/洛天依 《差不多是条咸鱼了》"},
+{s:"就算快长大就算去天涯 家是永远的牵挂",from:"无名社 小桦/洛天依 《兔子先生》"},
+{s:"将两耳一塞　索性不闻窗外 无意间踏出的步伐　也很有节拍",from:"Rain 初繁言/洛天依 言和 《漪涟江湖》"},
+{s:"Kill My Memory　让我将快乐全忘记",from:"Sya/言和 《Kill My Memory》"},
+{s:"叫你多话 反派死于不会补刀",from:"Sya/洛天依 言和 《FLAG大魔王》"}
 );
 function init(){
 	var x = Math.floor(Math.random()*sayings.length);
@@ -114,15 +124,13 @@ function init(){
 	document.getElementById("saying-from").innerHTML="——"+sayings[x].from;
 }
 		</script>
-		
-			
+			<p style="font-size: 8px" title="但是博主已经懒到连链接都不带的程度了">↓就是为了推歌用↓</p>
 			<div id="saying" onclick="init()" style="border-style:outset;
 			border-color:#66ccff;border-width:3px;border-radius:6px;
-			background-color:#eef;min-height:100px;">
-				<p id="saying-s" class="header-subtitle" style="color:#333;font-size:12px;"></p>
-				<p id="saying-from" class="header-subtitle" style="color:#666;font-size:10px"></p>
+			background-color:#eef;min-height:110px;">
+				<p id="saying-s" class="header-subtitle" style="color:#333;font-size:12px;min-height: 50px"></p>
+				<p id="saying-from" class="header-subtitle" style="color:#666;font-size:10px;min-height: 50px" title="P主 (作词)/歌手"></p>
 			</div>
-		
 <script>init();</script>
 		<nav class="header-menu" style="min-height:100px">
 			<ul>
@@ -172,7 +180,7 @@ function init(){
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> NOIP2019RP+=inf（大雾）</p>
+        <p><strong>Notice:</strong> CSP2019RP+=inf（大雾）</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -246,12 +254,9 @@ function init(){
   
 
 
-<div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-  
-</div>
 <div style="buttom: 0px;z-index: 233">
   
-    <a rel="license" href="http://creativecommons.org/licenses/by/2.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/2.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons Attribution-NonCommercial 2.0 Generic License</a>.
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/2.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons Attribution-NonCommercial 2.0 Generic License</a>.
   
 </div>
 
@@ -259,9 +264,16 @@ function init(){
         <a href="/2018/渐进记号/" class="archive-article-date">
   	<time datetime="2018-08-17T05:19:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
 </a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
         
       </header>
     
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h1><p>在 OI 界，$O(\frac{1}{n})$ 的算法已经成为了一个梗。</p>
