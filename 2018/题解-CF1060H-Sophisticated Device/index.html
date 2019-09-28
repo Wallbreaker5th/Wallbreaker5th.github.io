@@ -10,14 +10,14 @@
   <title>题解 CF1060H Sophisticated Device | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="题目链接 这道题实在是毒瘤。以及洛谷上的翻译其实是我翻的，质量跟机翻差不多。 首先我们确定求出 $xy$ 的整体思路——$xy=\frac{(x+y)^2-x^2-y^2}{2}$。 这个思路不难想到：我们能够比较容易实现的两个操作数的运算只有加、减，于是我们将运算转换为加、减与只有一个操作数的平方、除以 2。关键在于如何实现这些运算。 前置技能 快速幂/乘  高斯消元  exgcd 求乘法逆元">
-<meta name="keywords" content="codeforces,OI,数学,题解,高斯消元,快速幂,快速乘,exgcd">
+<meta name="keywords" content="OI,题解,来源-codeforces,算法-数学,算法-数学-高斯消元,算法-数学-快速幂,算法-数学-快速乘,算法-数学-数论-exgcd,特殊题目-造计算机题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题解 CF1060H Sophisticated Device">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2018/题解-CF1060H-Sophisticated Device/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
 <meta property="og:description" content="题目链接 这道题实在是毒瘤。以及洛谷上的翻译其实是我翻的，质量跟机翻差不多。 首先我们确定求出 $xy$ 的整体思路——$xy=\frac{(x+y)^2-x^2-y^2}{2}$。 这个思路不难想到：我们能够比较容易实现的两个操作数的运算只有加、减，于是我们将运算转换为加、减与只有一个操作数的平方、除以 2。关键在于如何实现这些运算。 前置技能 快速幂/乘  高斯消元  exgcd 求乘法逆元">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T09:37:36.143Z">
+<meta property="og:updated_time" content="2019-09-28T02:55:06.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="题解 CF1060H Sophisticated Device">
 <meta name="twitter:description" content="题目链接 这道题实在是毒瘤。以及洛谷上的翻译其实是我翻的，质量跟机翻差不多。 首先我们确定求出 $xy$ 的整体思路——$xy=\frac{(x+y)^2-x^2-y^2}{2}$。 这个思路不难想到：我们能够比较容易实现的两个操作数的运算只有加、减，于是我们将运算转换为加、减与只有一个操作数的平方、除以 2。关键在于如何实现这些运算。 前置技能 快速幂/乘  高斯消元  exgcd 求乘法逆元">
@@ -31,7 +31,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#0080ff,#66ccff);
+      background: linear-gradient(200deg,#FFDE00,#DE2910);
     }
   </style>
   
@@ -46,13 +46,13 @@
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
-      <div class="overlay" style="background: #66ccff">
+      <div class="overlay" style="background: #DE2910">
     
 </div>
 <div class="intrude-less">
 	<header id="header" class="inner"> 
 		<a href="/" class="profilepic">
-			<img src="/img/photo.PNG" class="js-avatar">
+			<img src="/img/photo-70.PNG" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">破壁人五号</a></h1>
@@ -176,21 +176,21 @@ function init(){
         document.getElementById("myheader").innerHTML="";
       }
     </script>
-      <div style="background-color: #0080ff;color: #ffffff;
+      <div style="background-color: #DE2910;color: #FFDE00;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> CSP2019RP+=inf（大雾）</p>
+        <p><strong>Notice:</strong> 祝祖国母亲生日快乐！</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #66ccff"></div>
+  	<div class="overlay js-overlay" style="background: #DE2910"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/photo.PNG" class="js-avatar">
+				<img src="/img/photo-70.PNG" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">破壁人五号</h1>
@@ -254,7 +254,7 @@ function init(){
 
 <div style="buttom: 0px;z-index: 233">
   
-    <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/2.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons Attribution-NonCommercial 2.0 Generic License</a>.
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/2.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons Attribution-ShareAlike 2.0 Generic License</a>.
   
 </div>
 
@@ -327,15 +327,7 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -343,19 +335,31 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高斯消元</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">快速幂</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">快速乘</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-高斯消元</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">exgcd</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速幂</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速乘</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-数论-exgcd</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">特殊题目-造计算机题</a>
         		</li>
       		
 		</ul>
@@ -425,11 +429,11 @@ function init(){
   
 <nav id="article-nav">
   
-    <a href="/2019/舞蹈链算法（DLX）略解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/Catalan-01/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          舞蹈链算法（DLX）略解
+          几种计数问题方案与 01 序列问题的转化
         
       </div>
     </a>
@@ -790,6 +794,186 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大模拟</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-数论-Lucas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游记-NOIP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游记-SCOI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最短路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">来源-NOIP模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-二分图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-最小路径覆盖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-图论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-带花树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP-状压DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-二分答案</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-高斯消元</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-快速幂</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-快速乘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-数论-exgcd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">特殊题目-造计算机题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">来源-各省省选</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-manacher</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-平衡树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-STL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-NOI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-交互题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-二进制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-时间复杂度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-渐进记号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学-卡特兰数</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -875,7 +1059,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。该博客是平常拿来皮的，比较正经的 OI 内容可到 CDSN 处（不过 OI 的文章两个博客通常都会更新）</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，ilem 教徒，阿良良木健粉丝，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。该博客是平常拿来皮的，比较正经的 OI 内容可到 CDSN 处（不过 OI 的文章两个博客通常都会更新）</div>
   	  	
     	</section>
     
