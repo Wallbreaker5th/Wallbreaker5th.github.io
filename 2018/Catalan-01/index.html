@@ -10,7 +10,7 @@
   <title>几种计数问题方案与 01 序列问题的转化 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="以下大部分性质总结自 wiki（英文）（中文）  卡特兰数是计数问题当中常见的一个数列。卡特兰数解决的一个经典的问题就是 01 序列：  有一个只有 $n$ 个 0，$n$ 个 1 的数列，求保证该数列任意前缀的 1 的个数大于等于 0 的个数的方案数。如 $n=2$ 时，方案有 $1100,1010$ 共 2 种。  这个问题的答案就是 $C_{n-1}$。 卡特兰数还能解决其它许多问题，下面将">
-<meta name="keywords" content="笔记,数学,数学-卡特兰数">
+<meta name="keywords" content="笔记,数学-卡特兰数,数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="几种计数问题方案与 01 序列问题的转化">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2018/Catalan-01/index.html">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0006.PNG">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0007.PNG">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/e/e7/Noncrossing_partitions_5.svg">
-<meta property="og:updated_time" content="2019-10-04T13:22:22.667Z">
+<meta property="og:updated_time" content="2019-11-08T15:16:08.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几种计数问题方案与 01 序列问题的转化">
 <meta name="twitter:description" content="以下大部分性质总结自 wiki（英文）（中文）  卡特兰数是计数问题当中常见的一个数列。卡特兰数解决的一个经典的问题就是 01 序列：  有一个只有 $n$ 个 0，$n$ 个 1 的数列，求保证该数列任意前缀的 1 的个数大于等于 0 的个数的方案数。如 $n=2$ 时，方案有 $1100,1010$ 共 2 种。  这个问题的答案就是 $C_{n-1}$。 卡特兰数还能解决其它许多问题，下面将">
@@ -121,7 +121,14 @@ var sayings=new Array(
 {s:"就算快长大就算去天涯 家是永远的牵挂",from:"无名社 小桦/洛天依 《兔子先生》"},
 {s:"将两耳一塞　索性不闻窗外 无意间踏出的步伐　也很有节拍",from:"Rain 初繁言/洛天依 言和 《漪涟江湖》"},
 {s:"Kill My Memory　让我将快乐全忘记",from:"Sya/言和 《Kill My Memory》"},
-{s:"叫你多话 反派死于不会补刀",from:"Sya/洛天依 言和 《FLAG大魔王》"}
+{s:"叫你多话 反派死于不会补刀",from:"Sya/洛天依 言和 《FLAG大魔王》"},
+{s:"有伏龙于东方腾翔 青云上 逶迤过 五千年苍莽",from:"很多作词/洛天依 言和 乐正绫 乐正龙牙 徵羽摩柯 墨清弦 《地势坤》"},
+{s:"我愿前行 永不会再踌躇 继续我的旅途",from:"JUSF周存/洛天依 《蒲公英之路》"},
+{s:"长大后 在听着雨的夜失眠 没完的事情一件一件",from:"探险家Cloud/诗岸 《那时的故事》"},
+{s:"我听见所有沉进脑海的心愿 若旅途再遥远也能唱成诗篇",from:"半木生工作室/洛天依 《某年某月某日见》"},
+{s:"所以是谁离不开谁呢 是人质亦是无价之宝 你为何慌张",from:"Sya/洛天依 《人质综合症》"},
+{s:"青苔侧靠在石板路等着车 就连行人都配合",from:"彼间夕雨/洛天依 《回南》"},
+{s:"眼神交汇一瞬间 心被红线所连接 我是如此的平凡和胆怯",from:"JUSF周存 Sya/洛天依 言和 《双向思念》"}
 );
 function init(){
 	var x = Math.floor(Math.random()*sayings.length);
@@ -143,6 +150,8 @@ function init(){
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/tags/OI/">OI</a></li>
+	        
+				<li><a href="/1000/tags/">标签索引</a></li>
 	        
 			</ul>
 		</nav>
@@ -209,6 +218,8 @@ function init(){
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -226,12 +237,14 @@ function init(){
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/OI/">OI</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/OI/">OI</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/1000/tags/">标签索引</a></li>
 		        
 				</ul>
 			</nav>
@@ -348,10 +361,11 @@ function init(){
 </blockquote>
 <p>懒得解释了，扔一张图下来大家自行理解：</p>
 <p><img src="/img/0007.PNG" alt="示意图"></p>
+<p>upd 2019-11-08: 另外还有一种更直观的，转化到二叉树的对应方式，暂时先咕着吧，以后填坑。</p>
 <hr>
 <p>以下内容等待更新（咕咕咕）</p>
 <h1 id="没有-123-的排列"><a href="#没有-123-的排列" class="headerlink" title="没有 123 的排列"></a>没有 123 的排列</h1><blockquote>
-<p>问有多少 1 到 $n$ 的排列，满足排列里没有连续的三个数依次是三个连续自然数。</p>
+<p>问有多少 1 到 $n$ 的排列，满足排列的最长上升子序列长度小于 3。</p>
 </blockquote>
 <p>？？？</p>
 <h1 id="Semiorders（半序？）"><a href="#Semiorders（半序？）" class="headerlink" title="Semiorders（半序？）"></a>Semiorders（半序？）</h1><blockquote>
@@ -384,11 +398,11 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学-卡特兰数</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学-卡特兰数</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		
 		</ul>
@@ -541,7 +555,7 @@ gitment.render('gitment-ctn')
 </footer>
       <div style="bottom: -200px;align: center;text-align: center;position:absolute;width:100%;height:300px;">
         <h2 style="font-size:64px;font-family:楷体;">放映室</h2>
-        <iframe src="//player.bilibili.com/player.html?aid=44594486&amp;cid=78090436&amp;page=1" scrolling="yes" border="0" frameborder="yes" framespacing="0" allowfullscreen="true" style="width:100%;height:200%"> </iframe>
+        <iframe src="" scrolling="yes" border="0" frameborder="yes" framespacing="0" allowfullscreen="true" style="width:100%;height:200%"> </iframe>
       </div>
     </div>
     <script>
@@ -553,7 +567,7 @@ gitment.render('gitment-ctn')
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		toc_hide_index: true,
+		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
 		showTags: false
@@ -641,199 +655,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">codeforces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">玄学算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">NOIP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NOIP2017</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">带花树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">匹配</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Lucas</a>
+                <a href="javascript:void(0)" class="js-tag color3">数学-卡特兰数</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SCOI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NOIP模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">状压DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">二分答案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二分图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">最小路径覆盖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高斯消元</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快速幂</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快速乘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">exgcd</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渐进记号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">洛谷月赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DLX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">STL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">manacher</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">THUSC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NOIP2018</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,6 +679,30 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-NOIP</a>
               </li>
              
@@ -857,27 +711,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最短路</a>
+                <a href="javascript:void(0)" class="js-tag color3">题解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">来源-NOIP模拟</a>
+                <a href="javascript:void(0)" class="js-tag color2">来源-模拟赛</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-逆元</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-二分图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-图论-最小路径覆盖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-字符串</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -893,19 +739,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP-计数DP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
+                <a href="javascript:void(0)" class="js-tag color5">来源-NOIP模拟</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -914,6 +760,34 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法-二分答案</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-二分图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-最小路径覆盖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-时间复杂度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-渐进记号</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -937,6 +811,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
               </li>
              
@@ -945,11 +823,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-平衡树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-模拟</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-STL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -957,15 +835,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-字符串-manacher</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-平衡树</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-STL</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,27 +867,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-时间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-渐进记号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学-卡特兰数</a>
               </li>
             
             <div class="clearfix"></div>
