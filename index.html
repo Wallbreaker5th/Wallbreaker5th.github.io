@@ -256,6 +256,221 @@ function init(){
 
   
     
+<article id="post-CSP2019游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/CSP2019游记/">CSP2019 游记</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/CSP2019游记/" class="archive-article-date">
+  	<time datetime="2019-11-14T12:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>未完结，gugugu……</p>
+<p>（这一行是为了右边的 BGM 留的）</p>
+<p>下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）</p>
+        
+          <a class="article-more-a" href="/2019/CSP2019游记/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">游记-CSP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/CSP2019游记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-某CSPS模拟赛-20191112" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/某CSPS模拟赛-20191112/">某 CSPS 模拟赛 - 20191112</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/某CSPS模拟赛-20191112/" class="archive-article-date">
+  	<time datetime="2019-11-14T08:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="T1-命令方块（block）"><a href="#T1-命令方块（block）" class="headerlink" title="T1 命令方块（block）"></a>T1 命令方块（block）</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有 $N$ 个字符串 $s_i$，按给定顺序排开，你每次可以交换一对字符串，最后使得：</p>
+<ul>
+<li>对于任意任意 $i&lt;j&lt;k$，有：$\operatorname{lcp}(s_i,s_j)\geq \operatorname{lcp}(s_i,s_k)$ 且 $\operatorname{lcp}(s_j,s_k)\geq \operatorname{lcp}(s_i,s_k)$</li>
+</ul>
+<p>输出任意一种交换方案，要求交换次数 $\leq 10^6$。$N\leq 10^6, \sum |s_i|\leq 10^7$。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>（刚看到题目名称还有 SPJ 还以为第一道题就是造计算机题……）</p>
+<p>首先把要求翻译成人话——对于任意一个字符串，向同一个方向看，离得越近的最长公共前缀越长。</p>
+<p>最长公共前缀越长就相当于字典序更接近，所以按字典序 <code>sort</code> 一遍就行。</p>
+<p>（实际上按字典树的任意 DFS 序排序都是可行的）</p>
+<p>得到了排序后的序列，只需要对于每个没有归位的字符串 <code>swap</code> 一遍，就能得到方案。</p>
+        
+          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-字符串-字典序</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-主席树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
 <article id="post-某CSPS模拟赛 T3 子树问题（subtree）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -263,7 +478,7 @@ function init(){
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">某CSPS模拟赛 T2 背包问题（bag）</a>
+      <a class="article-title" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">某CSPS模拟赛 T3 子树问题（tree）</a>
     </h1>
   
 
@@ -356,201 +571,9 @@ function init(){
 
 
   
-    
-<article id="post-某CSPS模拟赛 T2 背包问题（bag）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/某CSPS模拟赛 T2 背包问题（bag）/">某 CSPS 模拟赛 T2 背包问题（bag）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/某CSPS模拟赛 T2 背包问题（bag）/" class="archive-article-date">
-  	<time datetime="2019-11-03T12:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$T$ 组数据。每组数据给定 $n$ 个二维点与 $m$ 个数 $t_i$。要求从找到最长的二维偏序不下降序列，能给序列中的每个点分配一个 $t_i$ 不小于其横坐标。$n,m\leq 10^5$</p>
-<h2 id="0-题解（误）"><a href="#0-题解（误）" class="headerlink" title="0% 题解（误）"></a>0% 题解（误）</h2><p>把标程的二分写挂就是 0 分了。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先有个很显然的性质——选出的 $t_i$ 都是最大的几个 $t_i$ 的话，答案一定不会劣。<br>所以对于每个点，我们可以知道以它结尾的不下降序列不可能超过其横坐标在 $t$ 中的排名，否则我们无法找到足够多的 $t_i$ 使它们都大于之前那些点的横坐标。<br>知道这个性质就可以乱搞了。<br>仿效传统的 LIS 做法，只需要在利用这个点更新时判断以它结尾的长度是不是超出了这个限制，假如超出就强行把它与那个限制取 $\min$。</p>
-<p>代码咕了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-其它-LIS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/某CSPS模拟赛 T2 背包问题（bag）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-某CSPS模拟赛 T1 极好的问题（awesome）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/某CSPS模拟赛 T1 极好的问题（awesome）/">某 CSPS 模拟赛 T1 极好的问题（awesome）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/某CSPS模拟赛 T1 极好的问题（awesome）/" class="archive-article-date">
-  	<time datetime="2019-11-03T12:13:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给一可重集 $S$ 及质数 $p$，问能从集合中选出多少种本质不同的三元组 $(x,y,z)\ (x\leq y\leq z)$ 使得 $xyz\equiv 1\pmod p$？$|S|\leq 2333,p\leq 2^{30}$</p>
-<h2 id="70-解"><a href="#70-解" class="headerlink" title="70% 解"></a>70% 解</h2><p>保证 $x&lt;p|x\in S$。首先排序所有数并预处理出其逆元。接着枚举 $x,y(x\leq y)$，算出 $z=x^{-1}y^{-1}$，检查是否 $y\leq z$ 以及是否 $z\in S$（二分）。注意处理有数字相等的情况。</p>
-<h2 id="100-解"><a href="#100-解" class="headerlink" title="100% 解"></a>100% 解</h2><p>排序时优先根据 $\mod p$ 结果排序，并将所有数字去重后的结果另外存储一份。仍然枚举 $x,y(x\leq y)$，算出 $z$，统计与 $z$ 在同一剩余系下的数字个数。同样注意处理有数字相等的情况。</p>
-<p>代码咕了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-逆元</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/某CSPS模拟赛 T1 极好的问题（awesome）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -891,6 +914,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
               </li>
             
             <div class="clearfix"></div>
