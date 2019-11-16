@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="破壁人五号的博客">
 <meta property="og:description" content="未完结，gugugu…… （这一行是为了右边的 BGM 留的） 下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-15T13:36:37.161Z">
+<meta property="og:updated_time" content="2019-11-16T07:53:12.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSP2019 游记">
 <meta name="twitter:description" content="未完结，gugugu…… （这一行是为了右边的 BGM 留的） 下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）">
@@ -304,6 +304,45 @@ function init(){
 <p>请提醒破壁人五号考前不要听太 exciting 的音乐（然而突然脑内循环我也停不下来）</p>
 <h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h2><p>颓颓颓</p>
 <p>酒店电梯有 0 层好评（雾）（那我是不是应该考虑一下要不要加上 Day0？）</p>
+<p>晚饭的锅巴虾仁好吃。</p>
+<h2 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>吃完早饭就走，到考场排队等着。矿泉水和小 main 包都没了。</p>
+<p>进去敲了敲键盘，还是不习惯 <kbd>Backspace</kbd> 等键的位置。</p>
+<p>扫雷。</p>
+<p>发题，密码是认真思考。</p>
+<p>看题，第一反应：</p>
+<ul>
+<li>T1 一位一位模拟就行了；</li>
+<li>T2 数数题，DP 或者栈；</li>
+<li>T3 玄学最优化，大概要贪心。</li>
+</ul>
+<p>10 min 敲完 T1，<code>unsigned long long</code> 才能过差评。</p>
+<p>颓颓颓 T2，想到了一个维护两个栈的做法，但是出栈写不出来，先写链。</p>
+<p>第三个大样例好臭啊。</p>
+<p>感觉链剖可以处理树，顺着重链一路向下，遇到轻边备份一份状态，待会再看吧。</p>
+<p>然后看 T3 的链（极其错误的决定），写了半天把节点编号、数字还有它在链上面的位置弄成一团，调完之后顺手把自己 Hack 了，感觉很慌.jpg</p>
+<p>回头写 T2，感觉时间复杂度很玄学，但还是硬着头皮写完了……（写游记时突然发现一条链上每一个点再挂一个儿子好像就能卡）。</p>
+<p>看看时间感觉很慌，飞速敲完 T3 $O(n!)$ 暴力之后用虚拟机编译一下，除了 T3 效率之外都感觉还行，然后就是扫雷。</p>
+<p>考试结束就溜了。</p>
+<h3 id="总计"><a href="#总计" class="headerlink" title="总计"></a>总计</h3><h4 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h4><p>按位模拟，判断每一位该是 0 还是 1，注意 <code>ull</code>。</p>
+<ul>
+<li>期望得分：100</li>
+<li>实际得分：？</li>
+</ul>
+<h4 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h4><p>链上可以维护两个栈，分别是没能配对的 <code>(</code> 的位置和每个极长的合法子串的位置和其包含的极大括号对的数量。时间复杂度 $O(n)$</p>
+<p>树上就剖分一波，分叉处复制一份当前的栈，时间复杂度 $O(n^2)$。</p>
+<ul>
+<li>期望得分：$80\pm 15$</li>
+<li>实际得分：？</li>
+</ul>
+<h4 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h4><p>$O(n!n)$ 预计跑不过去自闭了。</p>
+<ul>
+<li>期望得分：$5\pm 5$</li>
+<li>实际得分：？</li>
+</ul>
+<h4 id="DAY1-总计"><a href="#DAY1-总计" class="headerlink" title="DAY1 总计"></a>DAY1 总计</h4><ul>
+<li>期望得分：$185\pm 20$</li>
+<li>实际得分：？</li>
+</ul>
 
       
 
