@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="破壁人五号的博客">
 <meta property="og:description" content="未完结，gugugu…… （这一行是为了右边的 BGM 留的） 下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-16T07:53:12.406Z">
+<meta property="og:updated_time" content="2019-11-17T14:03:26.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSP2019 游记">
 <meta name="twitter:description" content="未完结，gugugu…… （这一行是为了右边的 BGM 留的） 下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）">
@@ -304,7 +304,7 @@ function init(){
 <p>请提醒破壁人五号考前不要听太 exciting 的音乐（然而突然脑内循环我也停不下来）</p>
 <h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h2><p>颓颓颓</p>
 <p>酒店电梯有 0 层好评（雾）（那我是不是应该考虑一下要不要加上 Day0？）</p>
-<p>晚饭的锅巴虾仁好吃。</p>
+<p>晚饭的锅巴虾仁好吃（没吃到虾仁，但锅巴真的好吃）。</p>
 <h2 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>吃完早饭就走，到考场排队等着。矿泉水和小 main 包都没了。</p>
 <p>进去敲了敲键盘，还是不习惯 <kbd>Backspace</kbd> 等键的位置。</p>
 <p>扫雷。</p>
@@ -343,6 +343,40 @@ function init(){
 <li>期望得分：$185\pm 20$</li>
 <li>实际得分：？</li>
 </ul>
+<p>吃饭时突然反应过来 T2 每次对栈的修改是 $O(1)$ 的，这样重新出栈就可做了……(╯‵□′)╯︵┻━┻</p>
+<h2 id="Day-2-1"><a href="#Day-2-1" class="headerlink" title="Day 2"></a>Day 2</h2><p>考室门口领了一瓶水。敲读优，玩扫雷。</p>
+<p>抓紧时间</p>
+<p>开题：</p>
+<ul>
+<li>T1 <del>NOIP</del> CSP 也开始考数数题了？</li>
+<li>T2 这**什么神仙数据范围和空间限制啊？感觉不是贪心，是不是 DP 优化啊？</li>
+<li>T3 树形 DP？</li>
+</ul>
+<p>推 T1 式子，显然可以先忽略  Yazid  的要求（不超过一半那个），再减去不符合要求的，这样做的好处在于超过一半的原料至多只会有一个。推推推推推半天推不出来，决定写个计数 DP 拿了 84 分走人。</p>
+<p>写完 1h 过去了。看了一下 T3 $O(n^2)$ 挺好写的，赶紧写一个，然后决定肝 T2。</p>
+<p>T2 推了半天，得出了几个没啥用的结论：</p>
+<ul>
+<li>段数确定时，题目可以转化为方差最小；</li>
+<li>从前往后取尽可能小的贪心是错的（<code>10 10 1 11</code>）</li>
+<li><del>这题我不会做</del></li>
+<li><del>CSP-S2 2019 D2T2 造成了 CSP-S2 2048 题目泄露的假象，引起选手恐慌</del></li>
+<li><del>CSP-S2 2048 D1T1 是一道奇怪的神仙题，小明是个奇怪的神仙选手</del></li>
+</ul>
+<p>写了 24 分的 $O(n\sum a_i)$ 跑回去看 T3。</p>
+<p>T3 的链似乎挺好写，写写写出来了。顺着这个思路把满二叉树也写出来了。</p>
+<p>准备全身心投入 T2，发现只剩半小时了，感觉没啥思路，决定开虚拟机跑一下。</p>
+<p>扫雷。</p>
+<h3 id="总计-1"><a href="#总计-1" class="headerlink" title="总计"></a>总计</h3><h4 id="T1-1"><a href="#T1-1" class="headerlink" title="T1"></a>T1</h4><p>枚举 $k$，$f[i][j][l]$ 表示前 $i$ 种烹饪方法，用了 $j$ 种，其中 $l$ 种用了食材 $k$ 的方案数。从忽略 Yazid 的要求的方案数（每行之和加一相乘再减一）种减去 $l\geq \lfloor \frac{j}{2}\rfloor$ 的所有 $f[i][j][l]$（显然不会重复计数）。</p>
+<p>期望得分：84</p>
+<p>实际得分：？</p>
+<h4 id="T2-1"><a href="#T2-1" class="headerlink" title="T2"></a>T2</h4><p>$f[i][j]$ 表示前 $i$ 个数，最后一段是 $j$ 的最小花费。然后乱 DP 一波。</p>
+<p>期望得分：24</p>
+<p>实际得分：？</p>
+<h4 id="T3-1"><a href="#T3-1" class="headerlink" title="T3"></a>T3</h4><p>$O(n)$ 枚举断边，每次 $O(n)$ 找重心，总复杂度 $O(n^2)$。</p>
+<p>对于链，考虑每个节点 $i$ 的贡献，分别检查 $2i-2,2i-1,2i;2n-i-1,2n-i,2n-i+1$ 是否在 $[1,n)$ 或 $(1,n]$ 中，是就多一个 $i$。</p>
+<p>对于满二叉树（注意到 $262143=2^{15}-1$，所以这是满二叉树，实际上所有样例也都是），考虑每个节点 $i$ 的贡献，每次删去一个边（假设它在左边），左半边的重心一定是这条边的靠深处的端点，右半边的重心一定有一个是根的右儿子，如果这条边连接着叶子，那么根也是重心。所以根节点及其两个儿子有 $\lfloor \frac{n+1}{2}\rfloor$ 次贡献，其余节点有 1 次贡献。</p>
+<p>期望得分：75</p>
+<p>实际得分：？</p>
 
       
 
