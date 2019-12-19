@@ -187,7 +187,7 @@ function init(){
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> CSP2019RP++</p>
+        <p><strong>Notice:</strong> PKUWC2019RP++</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -256,21 +256,21 @@ function init(){
 
   
     
-<article id="post-题解-P4169-天使玩偶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-CF1271E-Common-Number" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-P4169-天使玩偶/">题解 洛谷 P4169 [Violet]天使玩偶</a>
+      <a class="article-title" href="/2019/题解-CF1271E-Common-Number/">题解 CF1271E Common Number</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-P4169-天使玩偶/" class="archive-article-date">
-  	<time datetime="2019-11-30T07:32:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+        <a href="/2019/题解-CF1271E-Common-Number/" class="archive-article-date">
+  	<time datetime="2019-12-16T11:36:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-16</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -284,14 +284,18 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.luogu.com.cn/problem/P4169" target="_blank" rel="noopener">题目链接</a></p>
-<p>题意：平面上原有一些点，支持动态加点，动态查询与某个点曼哈顿距离最小的点的距离。</p>
-<p>这题据说是有 KD-Tree 和 CDQ 分治两种做法，又据说 KDT 会被卡，于是我采用 CDQ <del>（其实是不会 KDT）</del></p>
-<p>考虑给每个加点/查询操作给一个 $t$ 值，作为它的第三个坐标。每次查询先只考虑 $x&lt;x_i,y&lt;y_j,t&lt;t_i$ 的所有点 $(x,y,t)$。对于 $x$ 或 $y$ 的相对大小关系有变的情况，每次沿 $x$ 轴/$y$ 轴翻转，一共做 4 次 CDQ。</p>
-<p>$|x_1-x_2|+|y_1-y_2|=(x_1+y_1)-(x_2+y_2)\ (x_1\geq x_2,y_1\geq y_2)$，即对于点 $(x_1,y_1,t_1)$，要找到小于这个点的 $x_2+y_2$ 的最大值。</p>
-<p>所有点已经按 $t$ 排好序了。CDQ 合并前后两段区间时按照 $x$ 归并，同时建树状数组以维护 $y&lt;i$ 的点中，$x+y$ 的最大值。</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
+<li>定义 $f(x)$：</li>
+</ul>
+<p>$$f(x)=\begin{cases}<br>\dfrac{x}{2}&amp; x\equiv 0\pmod 2\\<br>x-1&amp; \text{otherwise}<br>\end{cases}$$</p>
+<ul>
+<li><p>显然对于正整数 $v$，反复对其求 $f$ 值最后会到达 $1$，把中途得到的所有 $f(v)$ 连同 $v$ 按顺序记为 $path(v)$，如 $path(15)=[15,14,7,6,3,2,1]$</p>
+</li>
+<li><p>问：在 $path(i)\ (1\leq i\leq n)$ 中出现至少 $k$ 次的数中最大的一个。</p>
+</li>
+</ul>
         
-          <a class="article-more-a" href="/2019/题解-P4169-天使玩偶/#more">more >></a>
+          <a class="article-more-a" href="/2019/题解-CF1271E-Common-Number/#more">more >></a>
         
       
 
@@ -309,11 +313,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-分治-CDQ分治</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
         		</li>
       		
 		</ul>
@@ -323,7 +331,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-P4169-天使玩偶/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-CF1271E-Common-Number/">展开全文 >></a>
         </p>
       
 
@@ -354,21 +362,21 @@ function init(){
 
   
     
-<article id="post-题解-bzoj1176-Balkan2007-Mokia" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-CF1271C-Shawarma-Tent" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-bzoj1176-Balkan2007-Mokia/">题解 bzoj 1176 [Balkan2007]Mokia</a>
+      <a class="article-title" href="/2019/题解-CF1271C-Shawarma-Tent/">题解 CF1271C Shawarma Tent</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-bzoj1176-Balkan2007-Mokia/" class="archive-article-date">
-  	<time datetime="2019-11-30T06:18:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+        <a href="/2019/题解-CF1271C-Shawarma-Tent/" class="archive-article-date">
+  	<time datetime="2019-12-16T11:15:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-16</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -382,12 +390,15 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1176" target="_blank" rel="noopener">题目链接</a></p>
-<p>题意：二维平面，单点修改，区间查询，不强制在线。</p>
-<p>CDQ 分治。把每个区间询问拆成四个前缀询问，并给所有修改与统计按顺序添加 $t$ 作为第三个坐标。每个前缀询问就是在查询 $x,y,t$ 坐标都小于它的修改点的权值之和。</p>
-<p>$S$ 其实全等于 0，据说修改数量比题目描述略大。</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
+<li>一座城市为 $10^9\times 10^9$ 的网格；</li>
+<li>学校在 $(s_x,s_y)$，$n$ 个学生的家分别在 $(x_i,y_i)$（坐标均为整数）；</li>
+<li>学生每天放学会沿网格走最短路线之一回家；</li>
+<li>现在要在某个整点修一个小卖部（不能修在学校里，但可以与学生的家重合），假如学生某条回家路线能经过小卖部，这名学生一定会经过它；</li>
+<li>小卖部最多同时在多少名学生的回家路线上？并求出小卖部此时的坐标。</li>
+</ul>
         
-          <a class="article-more-a" href="/2019/题解-bzoj1176-Balkan2007-Mokia/#more">more >></a>
+          <a class="article-more-a" href="/2019/题解-CF1271C-Shawarma-Tent/#more">more >></a>
         
       
 
@@ -405,11 +416,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-分治-CDQ分治</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		
 		</ul>
@@ -419,7 +434,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-bzoj1176-Balkan2007-Mokia/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-CF1271C-Shawarma-Tent/">展开全文 >></a>
         </p>
       
 
@@ -450,21 +465,21 @@ function init(){
 
   
     
-<article id="post-CSP2019游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-CF1271B-Blocks" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/CSP2019游记/">CSP2019 游记</a>
+      <a class="article-title" href="/2019/题解-CF1271B-Blocks/">题解 CF1271B Blocks</a>
     </h1>
   
 
 
         
-        <a href="/2019/CSP2019游记/" class="archive-article-date">
-  	<time datetime="2019-11-14T12:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
+        <a href="/2019/题解-CF1271B-Blocks/" class="archive-article-date">
+  	<time datetime="2019-12-16T10:59:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-16</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -475,16 +490,16 @@ function init(){
     
     <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
       
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
-      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>似乎完结……</p>
-<p>（这一行是为了右边的 BGM 留的）</p>
-<p>下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
+<li>有一行 $n$ 个方块，每个方块是黑色或者白色；</li>
+<li>你可以进行多次操作（也可以不操作），每次操作制定相邻两个方块，使其颜色各自取反；</li>
+<li>现在要求在 $3n$ 次操作以内把所有方块变为同一颜色，判断是否可行并输出方案（不要求操作最少）。</li>
+</ul>
         
-          <a class="article-more-a" href="/2019/CSP2019游记/#more">more >></a>
+          <a class="article-more-a" href="/2019/题解-CF1271B-Blocks/#more">more >></a>
         
       
 
@@ -502,11 +517,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">游记-CSP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-构造</a>
         		</li>
       		
 		</ul>
@@ -516,7 +535,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/CSP2019游记/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-CF1271B-Blocks/">展开全文 >></a>
         </p>
       
 
@@ -548,7 +567,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -910,6 +929,18 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数-容斥原理</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -995,7 +1026,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，ilem 教徒，阿良良木健粉丝，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。该博客是平常拿来皮的，比较正经的 OI 内容可到 CDSN 处（不过 OI 的文章两个博客通常都会更新）</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，ilem 教徒，阿良良木健粉丝，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。该博客是平常拿来皮的，只想要比较正经的 OI 内容的话可到 CDSN 处（不过 OI 的文章两个博客通常都会更新）</div>
   	  	
     	</section>
     

@@ -187,7 +187,7 @@ function init(){
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> CSP2019RP++</p>
+        <p><strong>Notice:</strong> PKUWC2019RP++</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -256,21 +256,21 @@ function init(){
 
   
     
-<article id="post-某NOIP模拟赛 T1 字符串（string）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-Catalan-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/某NOIP模拟赛 T1 字符串（string）/">某NOIP模拟赛 T1 字符串（string）</a>
+      <a class="article-title" href="/2018/Catalan-01/">几种计数问题方案与 01 序列问题的转化</a>
     </h1>
   
 
 
         
-        <a href="/2018/某NOIP模拟赛 T1 字符串（string）/" class="archive-article-date">
-  	<time datetime="2018-08-22T08:25:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
+        <a href="/2018/Catalan-01/" class="archive-article-date">
+  	<time datetime="2018-12-01T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -284,17 +284,28 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="【描述】"><a href="#【描述】" class="headerlink" title="【描述】"></a>【描述】</h2><p>给定两个字符串 s,t，其中 s 只包含小写字母以及*，t 只包含小写字母。 </p>
-<p>你可以进行任意多次操作，每次选择 s 中的一个*，将它修改为任意多个（可以是 0 个）它的前一个字符。问是否能将 s 修改为 t。 </p>
-<p>有多组数据。 </p>
-<h2 id="【输入】"><a href="#【输入】" class="headerlink" title="【输入】"></a>【输入】</h2><p>第一行一个整数 T 表示数据组数。 </p>
-<p>每组数据两行，第一行一个字符串 s，第二行一个字符串 t。 </p>
-<h2 id="【输出】"><a href="#【输出】" class="headerlink" title="【输出】"></a>【输出】</h2><p>每组数据输出一行，如果能将 s 修改为 t，输出 <code>Yes</code>，否则输出 <code>No</code>。 </p>
-<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2 </span><br><span class="line">a* </span><br><span class="line">aaaa </span><br><span class="line">a* </span><br><span class="line">ab</span><br></pre></td></tr></table></figure>
-<h2 id="【输出样例】"><a href="#【输出样例】" class="headerlink" title="【输出样例】"></a>【输出样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Yes </span><br><span class="line">No</span><br></pre></td></tr></table></figure>
-<h2 id="【子任务】"><a href="#【子任务】" class="headerlink" title="【子任务】"></a>【子任务】</h2>
+        <p>以下大部分性质总结自 wiki<a href="https://en.wikipedia.org/wiki/Catalan_number" target="_blank" rel="noopener">（英文）</a><a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E5%A1%94%E5%85%B0%E6%95%B0" target="_blank" rel="noopener">（中文）</a></p>
+<hr>
+<p>卡特兰数是计数问题当中常见的一个数列。卡特兰数解决的一个经典的问题就是 01 序列：</p>
+<blockquote>
+<p>有一个只有 $n$ 个 0，$n$ 个 1 的数列，求保证该数列任意前缀的 1 的个数大于等于 0 的个数的方案数。如 $n=2$ 时，方案有 $1100,1010$ 共 2 种。</p>
+</blockquote>
+<p>这个问题的答案就是 $C_{n-1}$。</p>
+<p>卡特兰数还能解决其它许多问题，下面将各种问题的方案转换为 01 序列：</p>
+<h1 id="括号序列"><a href="#括号序列" class="headerlink" title="括号序列"></a>括号序列</h1><blockquote>
+<p>给定n对括号，求括号正确配对的字符串数。</p>
+</blockquote>
+<p>将 <code>(</code> 编号为 1，将 <code>)</code> 编号为 0，即可建立对应关系。</p>
+<h1 id="出栈序列"><a href="#出栈序列" class="headerlink" title="出栈序列"></a>出栈序列</h1><blockquote>
+<p>一个栈（无穷大）的进栈序列为 $1,2,3,\dots ,n$，有多少个不同的出栈序列？</p>
+</blockquote>
+<p>将 入栈 编号为 1，将 出栈 编号为 0，即可建立对应关系。</p>
+<h1 id="不穿过对角线的路径条数"><a href="#不穿过对角线的路径条数" class="headerlink" title="不穿过对角线的路径条数"></a>不穿过对角线的路径条数</h1><blockquote>
+<p>一位大城市的律师在她住所以北 $n$ 个街区和以东 $n$ 个街区处工作。每天她走 $2n$ 个街区去上班。如果她从不穿越（但可以碰到）从家到办公室的对角线（即始终保证 $x\geq y$），那么有多少条可能的道路？</p>
+</blockquote>
+<p>将 向东走 编号为 1，将 向北走 编号为 0，即可建立对应关系。</p>
         
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 字符串（string）/#more">more >></a>
+          <a class="article-more-a" href="/2018/Catalan-01/#more">more >></a>
         
       
 
@@ -308,19 +319,15 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学-卡特兰数</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">来源-NOIP模拟</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-字符串</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		
 		</ul>
@@ -330,7 +337,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 字符串（string）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/Catalan-01/">展开全文 >></a>
         </p>
       
 
@@ -361,21 +368,21 @@ function init(){
 
   
     
-<article id="post-某NOIP模拟赛 T2 dp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-CF1060H-Sophisticated Device" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/某NOIP模拟赛 T2 dp/">某NOIP模拟赛 T2 dp</a>
+      <a class="article-title" href="/2018/题解-CF1060H-Sophisticated Device/">题解 CF1060H Sophisticated Device</a>
     </h1>
   
 
 
         
-        <a href="/2018/某NOIP模拟赛 T2 dp/" class="archive-article-date">
-  	<time datetime="2018-08-20T08:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+        <a href="/2018/题解-CF1060H-Sophisticated Device/" class="archive-article-date">
+  	<time datetime="2018-11-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-06</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -389,124 +396,26 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##【问题描述】<br>一块土地有 $n$ 个连续的部分，用 $H[1],H[2],…,H[n]$ 表示每个部分的最初高度。有 $n$ 种泥土可用，他们都能覆盖连续的 $k$ 个部分，第 $i$ 种泥土的价格为 $C[i]$，可以使 $i, i+1,…,i+k-1$ 部分的高度增加 $E[i]$(如果 $i+k&gt;n$，那就覆盖 $i,…,n$)，我们必须满足以下条件： </p>
-<ol>
-<li><p>每种泥土只能使用一次。 </p>
+        <p><a href="https://www.luogu.org/problemnew/show/CF1060H" target="_blank" rel="noopener">题目链接</a></p>
+<p>这道题实在是毒瘤。<del>以及洛谷上的翻译其实是我翻的，质量跟机翻差不多。</del></p>
+<p>首先我们确定求出 $xy$ 的整体思路——$xy=\frac{(x+y)^2-x^2-y^2}{2}$。</p>
+<p>这个思路不难想到：我们能够比较容易实现的两个操作数的运算只有加、减，于是我们将运算转换为加、减与只有一个操作数的平方、除以 2。关键在于如何实现这些运算。</p>
+<h3 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h3><ul>
+<li><p>快速幂/乘</p>
 </li>
-<li><p>成本必须小于等于 m。 </p>
+<li><p>高斯消元</p>
 </li>
-</ol>
-<p>要求在上述条件下，使得最低的部分的高度尽量高，请求出这个高度。 </p>
-<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行三个整数 $n,m,k$，表示土地有几个部分，最大预算成本以及每种泥土能覆盖的部分数。  </p>
-<p>接下来 $n$ 行，每行三个整数 $H[i],E[i],C[i]$。 </p>
-<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>输出一个整数，表示在满足条件的情况下，最低部分的高度的最大值。 </p>
-<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 20 1</span><br><span class="line">1 3 5</span><br><span class="line">1 7 3</span><br><span class="line">4 6 9</span><br><span class="line">3 5 13</span><br></pre></td></tr></table></figure>
+<li><p>exgcd 求乘法逆元</p>
+</li>
+<li><p>少量数学知识</p>
+</li>
+<li><p>大量耐心</p>
+</li>
+</ul>
+<p>我们先考虑几个简单的运算：</p>
+<h2 id="0"><a href="#0" class="headerlink" title="0"></a>0</h2><p>在求解过程中，有一个数字 0 是很方便的，利用 <code>+ zero zero x</code> 就可以清空一格。</p>
         
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 dp/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">来源-NOIP模拟</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-状压DP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 dp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-某NOIP模拟赛 T1 number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/某NOIP模拟赛 T1 number/">某NOIP模拟赛 T1 number</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/某NOIP模拟赛 T1 number/" class="archive-article-date">
-  	<time datetime="2018-08-20T07:43:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>【问题描述】<br>如果一个数能够表示成两两不同的 3 的幂次的和，就说这个数是好的。<br>比如 13 是好的，因为 13 = 9 + 3 + 1 。<br>又比如 90 是好的，因为 90 = 81 + 9 。<br>现在我们用 a[i] 表示第 i 小的好数。<br>比如$a[1] = 1, a[2] = 3, a[5] = 10$ 。<br>给定$L,R$，请求出 $a[L]$ 到 $a[R]$ 的和 $\mod 2^{32}$。 </p>
-<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行一个整数 T，表示数据组数。<br>接下来 T 行，每行两个整数 L,R 表示一组询问。 </p>
-<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>输出T 行，每行为一个整数，表示相应询问的答案。 </p>
-<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 </span><br><span class="line">1 3 </span><br><span class="line">3 3 </span><br><span class="line">4 5 </span><br><span class="line">6 7 </span><br><span class="line">2 5</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 number/#more">more >></a>
+          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/#more">more >></a>
         
       
 
@@ -528,11 +437,31 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">来源-NOIP模拟</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-高斯消元</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速幂</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速乘</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-数论-exgcd</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">特殊题目-造计算机题</a>
         		</li>
       		
 		</ul>
@@ -542,7 +471,115 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 number/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-NOIP2018游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/NOIP2018游记/">NOIP2018游记</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/NOIP2018游记/" class="archive-article-date">
+  	<time datetime="2018-10-13T09:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-13</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Day-27（初赛）"><a href="#Day-27（初赛）" class="headerlink" title="Day -27（初赛）"></a>Day -27（初赛）</h1><p>特别冷，还飘雨，暗示了退役的结局。</p>
+<p>我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。</p>
+<p>两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。</p>
+<p>NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。</p>
+<p>阅读程序时因为算错成 $6!=120$，结果……</p>
+<p>……</p>
+<p>怕是要退役。</p>
+<p>大概口胡一下：</p>
+<p>阅读程序 T1：模拟。</p>
+<p>阅读程序 T2：$n$ 个点，每个点出度为 1，入度为 1，给出每个点通向哪个点，求有多少个环。</p>
+<p>阅读程序 T3：求没有重复的非空子串数目。<del>mogic</del> magic 函数就是<del>蛤</del>哈希。</p>
+<p>阅读程序 T4：next_permutation。</p>
+<p>完成程序 T1：至今看不懂。</p>
+<p>完成程序 T2：f[i] 记录用 i 元买第一个商店的商品时，买第二个商店的商品的总花费的最小值。</p>
+        
+          <a class="article-more-a" href="/2018/NOIP2018游记/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记-NOIP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/NOIP2018游记/">展开全文 >></a>
         </p>
       
 
@@ -574,7 +611,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 
@@ -936,6 +973,18 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数-容斥原理</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -1021,7 +1070,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，ilem 教徒，阿良良木健粉丝，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。该博客是平常拿来皮的，比较正经的 OI 内容可到 CDSN 处（不过 OI 的文章两个博客通常都会更新）</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，ilem 教徒，阿良良木健粉丝，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。该博客是平常拿来皮的，只想要比较正经的 OI 内容的话可到 CDSN 处（不过 OI 的文章两个博客通常都会更新）</div>
   	  	
     	</section>
     

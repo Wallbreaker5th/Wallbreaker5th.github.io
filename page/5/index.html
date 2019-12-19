@@ -187,7 +187,7 @@ function init(){
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> CSP2019RP++</p>
+        <p><strong>Notice:</strong> PKUWC2019RP++</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -256,21 +256,21 @@ function init(){
 
   
     
-<article id="题解-题解-loj3161-NOI2019-I 君的探险- 部分分" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-CF1200B-Block-Adventure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">部分分题解 [NOI2019]I 君的探险（LOJ3161 洛谷P5473）</a>
+      <a class="article-title" href="/2019/题解-CF1200B-Block-Adventure/">题解-CF1200B-Block Adventure</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/" class="archive-article-date">
-  	<time datetime="2019-07-21T02:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+        <a href="/2019/题解-CF1200B-Block-Adventure/" class="archive-article-date">
+  	<time datetime="2019-08-22T04:01:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -284,26 +284,13 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://loj.ac/problem/3161" target="_blank" rel="noopener">题目链接</a></p>
-<p>（代码在最后）</p>
-<h1 id="测试点-1"><a href="#测试点-1" class="headerlink" title="测试点 1"></a>测试点 1</h1><p>这个点只需要读懂题目就能乱搞过去。</p>
-<p>无数种方法中的一个：</p>
-<ul>
-<li>修改 0 号点</li>
-<li>分别查询 1、2 号点，只要被修改了就代表它与 0 有边</li>
-<li>若1、2 点不同时与 0 有边连接，代表 1、2 点之间有边</li>
-</ul>
-<ul>
-<li><p>时间复杂度：$O(1)$</p>
-</li>
-<li><p>修改次数：1</p>
-</li>
-<li><p>查询次数：2</p>
-</li>
-<li><p>检查次数：0</p>
-        
-          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/#more">more >></a>
-        
+        <p><a href="https://www.luogu.org/problem/CF1200B" target="_blank" rel="noopener">题目链接</a></p>
+<p>采用贪心策略</p>
+<p>假如该列不够高，我们只能往上摞</p>
+<p>否则我们将尽可能多的方块挖掉，扔进背包</p>
+<p>注意：挖掉的方块数量不能超过该列高度（因为这个 WA 了两次）</p>
+<p>中途一旦方块不够用就 GG 了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> h[<span class="number">1010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t=getint();</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> n=getint(),m=getint(),k=getint();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">			h[i]=getint();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">bool</span> ok=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(h[i]&lt;h[i+<span class="number">1</span>]-k)m-=h[i+<span class="number">1</span>]-h[i]-k;</span><br><span class="line">			<span class="keyword">else</span> m+=min((<span class="keyword">long</span> <span class="keyword">long</span>)h[i],h[i]-h[i+<span class="number">1</span>]+k);</span><br><span class="line">			<span class="keyword">if</span>(m&lt;<span class="number">0</span>)ok=<span class="number">0</span>;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"? " &lt;&lt;m&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">puts</span>(ok?<span class="string">"YES"</span>:<span class="string">"NO"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -316,7 +303,11 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -324,15 +315,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-NOI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">特殊题目-交互题</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-二进制</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-模拟</a>
         		</li>
       		
 		</ul>
@@ -342,7 +325,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-CF1200B-Block-Adventure/">展开全文 >></a>
         </p>
       
 
@@ -373,21 +356,21 @@ function init(){
 
   
     
-<article id="游记-THUSC2019游记" class="article article-type-游记  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-CF1200D-White-Lines" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/THUSC2019游记/">THUSC2019游记</a>
+      <a class="article-title" href="/2019/题解-CF1200D-White-Lines/">题解-CF1200D-White Lines</a>
     </h1>
   
 
 
         
-        <a href="/2019/THUSC2019游记/" class="archive-article-date">
-  	<time datetime="2019-05-25T14:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-25</time>
+        <a href="/2019/题解-CF1200D-White-Lines/" class="archive-article-date">
+  	<time datetime="2019-08-22T03:59:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -401,20 +384,19 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><del>↑上面的时间是发布时间，不是最后修改时间，请大家不要恐慌↑</del></p>
-<p>日期编号以考场电脑的用户名为准。（即：05/25 第一场考试为 Day0）</p>
-<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>早上准备坐高铁去北京，这是我第一次出省</p>
-<p>因为办的是临时身份证，只能在人工窗口排队/kk</p>
-<p>9:55 左右上高铁</p>
-<p>高铁上看了一会书就开始用流量水群/看风景了（<del>道理我都懂，但高铁上怎么能没有 WIFI 呢？</del>）</p>
-<p>在四川盯了半天窗外也没有看到有紫色土壤</p>
-<p>穿过秦岭，一看农田就知道到了北方地区</p>
-<p>黄土高原上似乎种了不少植被了</p>
-<p>午饭吃的是啥扣肉</p>
-<p>下午坐了很久然后到华北平原了。这才感受到真正的”平原“是啥样。</p>
-        
-          <a class="article-more-a" href="/2019/THUSC2019游记/#more">more >></a>
-        
+        <p><a href="http://codeforces.com/problemset/problem/1200/D" target="_blank" rel="noopener">题目链接</a></p>
+<p>这里介绍一种 $O(\text{玄学})$（应该是 $O(n(n-k)\log k)$？）的做法</p>
+<blockquote>
+<p>当时想到此做法时：计算器算一下 $n^2\log n$ 好像过不了？写一下试一下<br>写完之后：试一下极端数据，跑了 2s+怕是过不了，交一发试一下（一不小心忘取消 <code>freopen</code>，还好挂在样例不扣分，再交一次）<br>过了 Pretest 之后：这都能 PP？坐等 FST。<br>第二天一看：Accepted</p>
+</blockquote>
+<p>考虑枚举橡皮擦的位置，并分别求出橡皮擦在每个位置时，行和列分别会增加多少个 WL(White Line(s)，下同)</p>
+<p>这里以计算行上增加的 WL 为例：</p>
+<p>先预处理出每一（有黑色的）行的黑色段的左端与右端</p>
+<p>枚举橡皮擦在哪几行，将这几行的黑色段的左端与右端排序。然后从左往右枚举橡皮擦的位置，并维护指针 $pl,pr$，集合 $s$。</p>
+<p>当橡皮擦移动到一个新位置时，右移 $pl$ 扫过所有已经退出橡皮擦范围的（行的黑色段的）左端，并从集合 $s$ 中删除这一行（如果 $s$ 中没有这一行就打上标记，代表这一行不可能变成 WL）；然后右移 $pr$ 扫过所有已经进入橡皮擦范围的（行的黑色段的）右端，假如这一行没有标记，便将这一行插入集合 $s$。</p>
+<p>最后枚举每一格取 $\max$ 即可</p>
+<p>下面代码有些乱，<code>set&lt;pair&lt;int,pair&lt;int,bool&gt; &gt; &gt;e</code> 可以直接排序维护，<code>set&lt;int&gt; s</code> 可以直接用一个数组记录 tag：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">bool</span> a[<span class="number">2010</span>][<span class="number">2010</span>];</span><br><span class="line"><span class="keyword">int</span> rl[<span class="number">2010</span>],rr[<span class="number">2010</span>],cl[<span class="number">2010</span>],cr[<span class="number">2010</span>];<span class="comment">//行（列）的黑色段的左（优、上、下端）</span></span><br><span class="line"><span class="keyword">int</span> rcnt[<span class="number">2010</span>][<span class="number">2010</span>],ccnt[<span class="number">2010</span>][<span class="number">2010</span>];<span class="comment">//橡皮擦在此处时，行、列增加的 WL 数量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint(),k=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="keyword">char</span> c=getchar();</span><br><span class="line">			<span class="keyword">while</span>(c&gt;<span class="string">'Z'</span>||c&lt;<span class="string">'A'</span>)c=getchar();</span><br><span class="line">			a[i][j]=(c==<span class="string">'B'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">memset</span>(rl,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(rl));</span><br><span class="line">	<span class="built_in">memset</span>(cl,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(cl)); </span><br><span class="line">	<span class="keyword">int</span> qaq=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i][j])&#123;</span><br><span class="line">				cl[j]=min(cl[j],i);</span><br><span class="line">				cr[j]=max(cr[j],i);</span><br><span class="line">				rl[i]=min(rl[i],j);</span><br><span class="line">				rr[i]=max(rr[i],j);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		qaq+=(cl[i]&gt;cr[i]);<span class="comment">//本身就是 WL</span></span><br><span class="line">		qaq+=(rl[i]&gt;rr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-k+<span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">set</span>&lt;pair&lt;<span class="keyword">int</span>,pair&lt;<span class="keyword">int</span>,<span class="keyword">bool</span>&gt; &gt; &gt;e;<span class="comment">//所有行的黑色段的左（右）端点</span></span><br><span class="line">		<span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt;s,gg;<span class="comment">//gg:被标记的集合</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;i+k;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(rl[j]&gt;rr[j])<span class="keyword">continue</span>;<span class="comment">//本身就是 WL 的行已经单独计算</span></span><br><span class="line">			e.insert(make_pair(rl[j],make_pair(j,<span class="number">0</span>)));</span><br><span class="line">			e.insert(make_pair(rr[j],make_pair(j,<span class="number">1</span>)));</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"r "&lt;&lt;rl[j]&lt;&lt;" "&lt;&lt;rr[j]&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">auto</span> itl=e.begin(),itr=e.begin();<span class="comment">//即题解中的 pl,pr</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-k+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"?? "&lt;&lt;itr-&gt;first&lt;&lt;" "&lt;&lt;itl-&gt;first&lt;&lt;endl;</span></span><br><span class="line">			<span class="keyword">while</span>(itr!=e.end()&amp;&amp;(itr-&gt;second.second==<span class="number">0</span>||itr-&gt;first&lt;=j+k<span class="number">-1</span>))&#123;</span><br><span class="line">				<span class="comment">//if(itr-&gt;second.second)cout&lt;&lt;"&gt;. "&lt;&lt;itr-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">if</span>(itr-&gt;second.second&amp;&amp;!gg.count(itr-&gt;second.first))</span><br><span class="line">					s.insert(itr-&gt;second.first);</span><br><span class="line">				++itr;<span class="comment">//右移 pr</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">while</span>(itl!=e.end()&amp;&amp;(itl-&gt;second.second==<span class="number">1</span>||itl-&gt;first&lt;j))&#123;</span><br><span class="line">				<span class="comment">//if(!itl-&gt;second.second)cout&lt;&lt;"&lt;. "&lt;&lt;itl-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">auto</span> it=s.find(itl-&gt;second.first);</span><br><span class="line">				<span class="keyword">if</span>(itl-&gt;second.second==<span class="number">0</span>&amp;&amp;it!=s.end())</span><br><span class="line">					s.erase(it);</span><br><span class="line">				<span class="keyword">else</span> gg.insert(itl-&gt;second.first);</span><br><span class="line">				++itl;<span class="comment">//右移 pl</span></span><br><span class="line">			&#125; </span><br><span class="line">        <span class="comment">//上面两个指针的处理顺序可以交换</span></span><br><span class="line">			rcnt[i][j]=s.size();</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"rcnt "&lt;&lt;i&lt;&lt;" "&lt;&lt;j&lt;&lt;" "&lt;&lt;rcnt[i][j]&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-k+<span class="number">1</span>;i++)&#123;<span class="comment">//列同理</span></span><br><span class="line">		<span class="built_in">set</span>&lt;pair&lt;<span class="keyword">int</span>,pair&lt;<span class="keyword">int</span>,<span class="keyword">bool</span>&gt; &gt; &gt;e;</span><br><span class="line">		<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;s,gg;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;i+k;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(cl[j]&gt;cr[j])<span class="keyword">continue</span>; </span><br><span class="line">			e.insert(make_pair(cl[j],make_pair(j,<span class="number">0</span>)));</span><br><span class="line">			e.insert(make_pair(cr[j],make_pair(j,<span class="number">1</span>)));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">auto</span> itl=e.begin(),itr=e.begin();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-k+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"?? "&lt;&lt;itr-&gt;first&lt;&lt;" "&lt;&lt;itl-&gt;first&lt;&lt;endl;</span></span><br><span class="line">			<span class="keyword">while</span>(itr!=e.end()&amp;&amp;(itr-&gt;second.second==<span class="number">0</span>||itr-&gt;first&lt;=j+k<span class="number">-1</span>))&#123;</span><br><span class="line">				<span class="comment">//if(itr-&gt;second.second)cout&lt;&lt;"&gt;. "&lt;&lt;itr-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">if</span>(itr-&gt;second.second&amp;&amp;!gg.count(itr-&gt;second.first))</span><br><span class="line">					s.insert(itr-&gt;second.first);</span><br><span class="line">				++itr;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">while</span>(itl!=e.end()&amp;&amp;(itl-&gt;second.second==<span class="number">1</span>||itl-&gt;first&lt;j))&#123;</span><br><span class="line">				<span class="comment">//if(!itl-&gt;second.second)cout&lt;&lt;"&lt;. "&lt;&lt;itl-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">auto</span> it=s.find(itl-&gt;second.first);</span><br><span class="line">				<span class="keyword">if</span>(itl-&gt;second.second==<span class="number">0</span>&amp;&amp;it!=s.end())</span><br><span class="line">					s.erase(it);</span><br><span class="line">				<span class="keyword">else</span> gg.insert(itl-&gt;second.first);</span><br><span class="line">				++itl;</span><br><span class="line">			&#125; </span><br><span class="line">			ccnt[j][i]=s.size();</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"ccnt "&lt;&lt;j&lt;&lt;" "&lt;&lt;i&lt;&lt;" "&lt;&lt;ccnt[j][i]&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-k+<span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-k+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;i&lt;&lt;" "&lt;&lt;j&lt;&lt;" "&lt;&lt;ccnt[i][j]&lt;&lt;" "&lt;&lt;rcnt[i][j]&lt;&lt;endl;</span></span><br><span class="line">			ans=max(ans,ccnt[i][j]+rcnt[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans+qaq;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -427,15 +409,15 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">游记-THUSC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-枚举</a>
         		</li>
       		
 		</ul>
@@ -445,7 +427,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/THUSC2019游记/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-CF1200D-White-Lines/">展开全文 >></a>
         </p>
       
 
@@ -476,21 +458,21 @@ function init(){
 
   
     
-<article id="post-Lucas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-CF1200C-Round-Corridor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/Lucas/">Lucas/exLucas 略解</a>
+      <a class="article-title" href="/2019/题解-CF1200C-Round-Corridor/">题解 CF1200C Round Corridor</a>
     </h1>
   
 
 
         
-        <a href="/2019/Lucas/" class="archive-article-date">
-  	<time datetime="2019-05-11T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
+        <a href="/2019/题解-CF1200C-Round-Corridor/" class="archive-article-date">
+  	<time datetime="2019-08-21T09:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -504,25 +486,16 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。</p>
-<p>利用 exLucas 可以求解 $p$ 不为质数的情况。</p>
-<h1 id="Lucas"><a href="#Lucas" class="headerlink" title="Lucas"></a>Lucas</h1><p><strong>前置知识：</strong></p>
-<ul>
-<li><p>求乘法逆元</p>
-</li>
-<li><p>暴力求组合数</p>
-</li>
-</ul>
-<p>这种算法是基于 Lucas 定理的：</p>
-<p>设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下：</p>
-<p>$n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{m_0m_1\dots m_k})_p$</p>
-<p>其中允许首位为零，且规定当 $m&gt;n$ 时 $C_n^m=0$，则：</p>
-<p>$C_n^m\equiv C_{n_0}^{m_0}\cdot C_{n_1}^{m_1}\cdot \dots \cdot C_{n_k}^{m_k} (\mod p\ )$</p>
-<p>也可以换个递归的表达方式：</p>
-<p>$C_n^m\equiv C_{n/p}^{m/p}\cdot C_{n\%p}^{m\%p}(\mod p\ )$</p>
-        
-          <a class="article-more-a" href="/2019/Lucas/#more">more >></a>
-        
+        <p><a href="http://codeforces.com/problemset/problem/1200/C" target="_blank" rel="noopener">题目链接</a></p>
+<p><del>从样例可以猜到</del>所有房间被分成了 $\gcd(m,n)$ 个互不连通的块。</p>
+<p>胡乱证明：</p>
+<p>假如两部分被完全隔开，一定是因为内外两面墙在同一处，即：</p>
+<p>$\frac{a}{m}=\frac{b}{n}(0\leq a&lt;m,0\leq b&lt;n)$</p>
+<p>假设其约分后是 $\frac{x}{y}(gcd(x,y)=1,0\leq x&lt;y)$，显然 $y|m,y|n$，即 $y|\gcd(m,n)$，这样的分数个数为：$\sum \limits_{d|\gcd(m,n)}\phi(d)=\gcd(m,n)$</p>
+<p>所以内圈每 $n/\gcd(m,n)$ 一个块，外圈每 $m/\gcd(m,n)$ 一个块。</p>
+<p>每次询问简单计算出两个询问的房间在哪个块，相同即可以连通。</p>
+<p>记得开 <code>long long</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function">ll <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a,ll b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b?gcd(b,a%b):a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll n=getint(),m=getint(),q=getint();</span><br><span class="line">	ll g=gcd(m,n),gn=n/g,gm=m/g;</span><br><span class="line">	<span class="keyword">while</span>(q--)&#123;</span><br><span class="line">		ll sx=getint(),sy=getint()<span class="number">-1</span>,ex=getint(),ey=getint()<span class="number">-1</span>;</span><br><span class="line">		sy=(sx==<span class="number">1</span>?sy/gn:sy/gm);</span><br><span class="line">		ey=(ex==<span class="number">1</span>?ey/gn:ey/gm);</span><br><span class="line">		<span class="built_in">puts</span>(sy==ey?<span class="string">"YES"</span>:<span class="string">"NO"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -534,28 +507,16 @@ function init(){
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-数论-Lucas</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		
 		</ul>
@@ -565,7 +526,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/Lucas/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-CF1200C-Round-Corridor/">展开全文 >></a>
         </p>
       
 
@@ -597,7 +558,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -959,6 +920,18 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数-容斥原理</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -1044,7 +1017,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，ilem 教徒，阿良良木健粉丝，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。该博客是平常拿来皮的，比较正经的 OI 内容可到 CDSN 处（不过 OI 的文章两个博客通常都会更新）</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">来自 SC 的 OIer 蒟蒻，ilem 教徒，阿良良木健粉丝，锦依卫兼柯学家，高举双蓝大旗，常以“破壁人五号”、“Wallbreaker5th”、“破壁人5th”出现。欢迎洛谷私信我（uid=36767）以交换友链。该博客是平常拿来皮的，只想要比较正经的 OI 内容的话可到 CDSN 处（不过 OI 的文章两个博客通常都会更新）</div>
   	  	
     	</section>
     
