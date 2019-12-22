@@ -7,20 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
-  <title>题解 CF1271C Shawarma Tent | 破壁人五号的博客</title>
+  <title>PKUWC2019-2 游记 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意 一座城市为 $10^9\times 10^9$ 的网格； 学校在 $(s_x,s_y)$，$n$ 个学生的家分别在 $(x_i,y_i)$（坐标均为整数）； 学生每天放学会沿网格走最短路线之一回家； 现在要在某个整点修一个小卖部（不能修在学校里，但可以与学生的家重合），假如学生某条回家路线能经过小卖部，这名学生一定会经过它； 小卖部最多同时在多少名学生的回家路线上？并求出小卖部此时的坐标。">
-<meta name="keywords" content="OI,来源-codeforces,算法-贪心,题解">
+  <meta name="description" content="据说之前就有一次 PKUWC2019 了 这次暂且叫 PKUWC2019-2 吧（ Day0飞机上无聊……颓颓颓…… 一出飞机就感受到北京扑面而来的寒冷 看到草坪里有些没化的雪顿时暴露出孤陋寡闻的南方人的本质 中午吃了些馄饨（好吃！） 下午报到，赶地铁，北京地铁的安检是真的水 教室门口排了半天队，几名学长在那儿斗地主（OIer 传统艺能） 居然给了两张临时饭卡，不过这个打孔的工艺有种十多年前的感觉">
+<meta name="keywords" content="OI,游记,游记-PKUWC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="题解 CF1271C Shawarma Tent">
-<meta property="og:url" content="https://wallbreaker5th.github.io/2019/题解-CF1271C-Shawarma-Tent/index.html">
+<meta property="og:title" content="PKUWC2019-2 游记">
+<meta property="og:url" content="https://wallbreaker5th.github.io/2019/PKUWC2019游记/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="题意 一座城市为 $10^9\times 10^9$ 的网格； 学校在 $(s_x,s_y)$，$n$ 个学生的家分别在 $(x_i,y_i)$（坐标均为整数）； 学生每天放学会沿网格走最短路线之一回家； 现在要在某个整点修一个小卖部（不能修在学校里，但可以与学生的家重合），假如学生某条回家路线能经过小卖部，这名学生一定会经过它； 小卖部最多同时在多少名学生的回家路线上？并求出小卖部此时的坐标。">
+<meta property="og:description" content="据说之前就有一次 PKUWC2019 了 这次暂且叫 PKUWC2019-2 吧（ Day0飞机上无聊……颓颓颓…… 一出飞机就感受到北京扑面而来的寒冷 看到草坪里有些没化的雪顿时暴露出孤陋寡闻的南方人的本质 中午吃了些馄饨（好吃！） 下午报到，赶地铁，北京地铁的安检是真的水 教室门口排了半天队，几名学长在那儿斗地主（OIer 传统艺能） 居然给了两张临时饭卡，不过这个打孔的工艺有种十多年前的感觉">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-19T11:27:20.888Z">
+<meta property="og:updated_time" content="2019-12-22T12:31:02.476Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="题解 CF1271C Shawarma Tent">
-<meta name="twitter:description" content="题意 一座城市为 $10^9\times 10^9$ 的网格； 学校在 $(s_x,s_y)$，$n$ 个学生的家分别在 $(x_i,y_i)$（坐标均为整数）； 学生每天放学会沿网格走最短路线之一回家； 现在要在某个整点修一个小卖部（不能修在学校里，但可以与学生的家重合），假如学生某条回家路线能经过小卖部，这名学生一定会经过它； 小卖部最多同时在多少名学生的回家路线上？并求出小卖部此时的坐标。">
+<meta name="twitter:title" content="PKUWC2019-2 游记">
+<meta name="twitter:description" content="据说之前就有一次 PKUWC2019 了 这次暂且叫 PKUWC2019-2 吧（ Day0飞机上无聊……颓颓颓…… 一出飞机就感受到北京扑面而来的寒冷 看到草坪里有些没化的雪顿时暴露出孤陋寡闻的南方人的本质 中午吃了些馄饨（好吃！） 下午报到，赶地铁，北京地铁的安检是真的水 教室门口排了半天队，几名学长在那儿斗地主（OIer 传统艺能） 居然给了两张临时饭卡，不过这个打孔的工艺有种十多年前的感觉">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
@@ -254,14 +254,14 @@ function init(){
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="题解-题解-CF1271C-Shawarma-Tent" class="article article-type-题解 " itemscope itemprop="blogPost">
+<article id="post-PKUWC2019游记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      题解 CF1271C Shawarma Tent
+      PKUWC2019-2 游记
     </h1>
   
 
@@ -273,8 +273,8 @@ function init(){
 </div>
 
         
-        <a href="/2019/题解-CF1271C-Shawarma-Tent/" class="archive-article-date">
-  	<time datetime="2019-12-16T11:15:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-16</time>
+        <a href="/2019/PKUWC2019游记/" class="archive-article-date">
+  	<time datetime="2019-12-21T12:34:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-21</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -288,19 +288,75 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
-<li>一座城市为 $10^9\times 10^9$ 的网格；</li>
-<li>学校在 $(s_x,s_y)$，$n$ 个学生的家分别在 $(x_i,y_i)$（坐标均为整数）；</li>
-<li>学生每天放学会沿网格走最短路线之一回家；</li>
-<li>现在要在某个整点修一个小卖部（不能修在学校里，但可以与学生的家重合），假如学生某条回家路线能经过小卖部，这名学生一定会经过它；</li>
-<li>小卖部最多同时在多少名学生的回家路线上？并求出小卖部此时的坐标。</li>
+        <p>据说之前就有一次 PKUWC2019 了</p>
+<p>这次暂且叫 PKUWC2019-2 吧（</p>
+<h2 id="Day0"><a href="#Day0" class="headerlink" title="Day0"></a>Day0</h2><p>飞机上无聊……颓颓颓……</p>
+<p>一出飞机就感受到北京扑面而来的寒冷</p>
+<p>看到草坪里有些没化的雪顿时暴露出孤陋寡闻的南方人的本质</p>
+<p>中午吃了些馄饨（好吃！）</p>
+<p>下午报到，赶地铁，北京地铁的安检是真的水</p>
+<p>教室门口排了半天队，几名学长在那儿斗地主（OIer 传统艺能）</p>
+<p>居然给了两张临时饭卡，不过这个打孔的工艺有种十多年前的感觉（说不定是几十年前的操作？不过我记得我小时候是遇到过打孔卡的）。</p>
+<p>晚上还是在那家餐馆吃，味道是真的好（也有可能是我吃食堂吃多了）</p>
+<p>晚上颓颓颓</p>
+<h2 id="Day1"><a href="#Day1" class="headerlink" title="Day1"></a>Day1</h2><p>冷冷冷</p>
+<p>早上去参加开营仪式，因为楼上在考研（？）所以不让鼓掌，特别不习惯</p>
+<p>不过开营仪式十分简短（比预定时间提前一个多小时好评）</p>
+<p>之后去找考场，结果绕了半天发现整个是一栋楼中间一块空地，又绕了半天发现这其实是日字形的楼（？！！）</p>
+<p>跟着 PKU 学长在 PKU 闲逛，听学长<del>导游</del> <del>吹牛</del> 讲注意事项。</p>
+<p>未名湖已经结冰，还在冰上走了几步（南方人第一次在冰面上走）</p>
+<p>在未名湖附近绕了一圈然后去燕园吃饭</p>
+<p>PKU 的菜品分量很足啊……<del>不过辣椒是假的石锤了</del></p>
+<p><del>PKU 食堂居然有 $15\%$ 的税，这意味着 $150$ 元的饭卡其实只有 $27.5$ 元</del></p>
+<h3 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h3><p>机房电脑各种软件都有<del>我选择 VSC</del></p>
+<p>先敲了个读优，登录到系统发现用的 openjudge，大概是只有传统题了</p>
+<p>13:00 开始</p>
+<p><strong>大致题意：</strong></p>
+<ul>
+<li><strong>T1</strong>：给一个 $[1\dots n]$ 的排列 $P$，将字典序不大于 $P$ 的所有 $[1\dots n]$ 的排列收尾依次相接，问得到的序列的本质不同的子序列有多少种（含本身/空串）？答案 $\bmod 998244353$。$n\leq 50$</li>
+<li><strong>T2</strong>：有 $n$ 个集合 ${a_1},{a_2},\dots,{a_n}$，记 $f(k)$ 为每次合并随机两个集合直到剩 $k$ 个集合后，$\sum\limits_{i=1}^k (\max S_i-\min S_i)^2$ 的期望。求 $\sum\limits_{i=l}^r f(i)^{97376}\bmod 998244353$。$n\leq 2\times10^5$</li>
+<li><strong>T3</strong>：一个 $n\times m$ 的表格。先做 $q_1$ 次操作：给定 $s,l,r,x$，把所有 $\gcd(a,s)=1,\ l\leq b\leq r$ 的位置 $(a,b)$ 加上 $x$。再做 $q_2$ 次询问：给定 $s,l,r$，求所有 $\gcd(a,s)=1,\ l\leq b\leq r$ 的位置 $(a,b)$ 之和 $\bmod 2^{32}$。$n,m,q_2\leq 5\times 10^4,q_1\leq 10^5$，$s$ 在 $1$ 到 $n$ 间随机生成。</li>
 </ul>
-<a id="more"></a>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>一方面，每名学生的家可以给家与学校围成的长方形中的每一个整点的贡献 +1，贡献最大的点显然最适合修小卖部，这个点的贡献就是答案。</p>
-<p>另一方面，把小卖部往学校靠近肯定不会变劣，因为之前包含它的长方形现在依然包含它。小卖部既然不能修在学校里，那我们修在学校东南西北相邻的四个点显然是较优的。</p>
-<p>于是统计这四个点的贡献，得出答案。</p>
-<p>代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=getint(),x=getint(),y=getint();</span><br><span class="line">    <span class="keyword">int</span> u=<span class="number">0</span>,d=<span class="number">0</span>,l=<span class="number">0</span>,r=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> xx=getint(),yy=getint();</span><br><span class="line">        <span class="keyword">if</span>(xx&lt;x)d++;</span><br><span class="line">        <span class="keyword">if</span>(xx&gt;x)u++;</span><br><span class="line">        <span class="keyword">if</span>(yy&lt;y)l++;</span><br><span class="line">        <span class="keyword">if</span>(yy&gt;y)r++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans=max(&#123;u,d,l,r&#125;);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">if</span>(ans==d)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;x<span class="number">-1</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;y&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ans==u)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;x+<span class="number">1</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;y&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ans==l)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="string">" "</span>&lt;&lt;y<span class="number">-1</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="string">" "</span>&lt;&lt;y+<span class="number">1</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看到题目的反应：</p>
+<ul>
+<li>T1 数数；</li>
+<li>T2 还是数数？是不是要 $\min-\max$ 容斥之类的？</li>
+<li>T3 还……好吧不是数数了，应该是莫反（或者说容斥——容斥系数为 $\mu$）+数据结构？</li>
+</ul>
+<p>看了看部分分感觉都不太好写，先把 T2 的 $l=r=1$ 的 $1$ 分写了，一阵冷静分析+前缀和优化之类的操作把 $l=r=n-1$ 的 $8$ 分写了，然后枚举集合划分把 $n\leq 7$ 的 $9$ 分写了（假算法）。交上去——$1$ 分。</p>
+<p>弄了几次都是 $1$ 分，决定先写 T3 $n,m,q_1,q_2\leq 100$ 的暴力修改。两点半左右敲完。</p>
+<p>草稿纸上推了一下觉得这个的确可以莫反，于是花半个多小时写了一个 $O(\text{能过而且跑得挺快})$ 的算法把 $m=1$ 的 $24$ 分写了。</p>
+<p>回过头看 T1，想到了个 $O(n!n)$ 的算法——$f_i=2f_{i-1}-f_{a_i\text{ 上次出现的位置}-1}$，就花了半小时写了 $n\leq 8$ 的 $21$ 分</p>
+<p>看了看 T2，发现 task3 是一个地方忘用 <code>long long</code> 了，调了一下又弄了 $8$ 分过来，接着突然发现集合划分概率不等，放弃治疗。</p>
+<p>然后冷静分析，想不到什么好的数据结构，就先强行差分数组写了一个 $O(nm\log n)$ 的做法把 $n,m,q_1,q_2\leq 1000$ 的 $13$ 分写了。调好已经是四点钟了。</p>
+<p>接着感觉差分数组应该填不满，于是开始用 <code>map&lt;int,int&gt;[30000]</code> 写数据范围 $30000$ 的部分分，结果 MLE 又 TLE，优化了几次也没卡过去，荒废了半个多小时。然后又想不到什么数据结构支持区间加，快速把两个序列加在一起，最后查询区间和。</p>
+<p>又去修 T2，拿 $n^nn^2$ 的 DP 把每种划分的概率算出来，调调调半天，还有 $10$ 分钟时终于把那 $9$ 分捞到了。</p>
+<p><strong>总计</strong>：$21+18+43=82$</p>
+<p>晚上又去燕园吃饭，吃完饭拍面试安排，然后走迷路了走到了未名湖。</p>
+<p>回宾馆写游记……</p>
+<h2 id="Day2"><a href="#Day2" class="headerlink" title="Day2"></a>Day2</h2><p>早上去面试，没有 <a href="/2019/SCOI2019游记/">SCOI</a> 那么坑……</p>
+<p>（第二个教室之前的同学似乎吹牛吹得有点久，时间不准）</p>
+<blockquote>
+<p>你们“石室联合中学”的“联合”是什么意思?</p>
+</blockquote>
+<blockquote>
+<p>刚刚有个石室中学的同学……你们石室联合中学与石室中学是什么关系？<del>答：没有关系</del></p>
+</blockquote>
+<p>中午吃完饭就去考场了。</p>
+<h3 id="考试-1"><a href="#考试-1" class="headerlink" title="考试"></a>考试</h3><p><strong>大致题意</strong>：</p>
+<ul>
+<li><strong>T1</strong>：你有 $n$ 只鱼（剧毒鱼和小鱼）（有顺序，已给定），对方有圣盾鱼与大鱼，大鱼被剧毒鱼攻击后消失，圣盾鱼被任何鱼攻击后变为大鱼；$Q$ 次询问 $(x,k)$：你进行 $k$ 次攻击，第 $i$ 次用自己的第 $i$ 条鱼攻击对方的任意一条鱼，求最大的 $y$ 使得对方有 $x$ 只大鱼，$y$ 只圣盾鱼时你能消灭对方所有鱼，不存在 $y$ 的话输出 $-1$。$n,q\leq 4\times 10^5$。</li>
+<li><strong>T2</strong>：定义 $f(a[0\dots n],p[1\dots n])$ 为将 $a$ 自上而下写出来，中间依次画上长为 $p$ 的分数线后得到的分数值（如 $f([2,3,4],[1,2])=\dfrac{\ \dfrac{2}{3}\ }{4}=\dfrac{1}{6}$）。给出长为 $n+1$ 的序列与 $[1\dots n]$ 的排列 $a,p$，$Q$ 次询问 $f(a[l-1\dots r],p[l\dots r])\bmod 998244353$。$n,Q\leq 5\times 10^5$。</li>
+<li><strong>T3</strong>：给出带权无向图 $G$，在其基础上添加 $(i,i\bmod n+1,10^9)$ $n$ 条边（一圈）；求两两节点之间最小割大小之和 $\bmod 998244353$。$n\leq 7000,m\leq 10^5$。</li>
+</ul>
+<p>第一感觉比起昨天要可做得多，于是先把 T1 的二分+暴力判断的暴力写了 $20$ 分；</p>
+<p>接着颓 T2，建了个二叉树，然后就水过 $O(n^2)$ 的点和随机数据的点了。</p>
+<p>细节处理半天处理不好，自闭了/kk</p>
+<p>然后玄学 ST 表+二分套二分+前缀和把 T1 写了，写完才 15:12</p>
+<p>分析一波 T2 分析不动，写 T3 网络流暴力，写半天有跑不快/写不对，又去看 T2……就这样循环了剩下大半个考试，最后 $165$ 滚粗/kk</p>
+<p>一大堆提前 AK 离场的，wzbl/kk</p>
+<p>吃完饭回宾馆写游记/kk</p>
+
       
 
       
@@ -317,15 +373,11 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">游记-PKUWC</a>
         		</li>
       		
 		</ul>
@@ -381,7 +433,7 @@ function init(){
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2019/题解-CF1271C-Shawarma-Tent/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2019/PKUWC2019游记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -395,18 +447,9 @@ function init(){
   
 <nav id="article-nav">
   
-    <a href="/2019/题解-CF1271E-Common-Number/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          题解 CF1271E Common Number
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/题解-CF1271B-Blocks/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">题解 CF1271B Blocks</div>
+    <a href="/2019/题解-CF1271E-Common-Number/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">题解 CF1271E Common Number</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -445,7 +488,7 @@ function init(){
 <script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "题解 CF1271C Shawarma Tent",
+  id: "PKUWC2019-2 游记",
   owner: 'wallbreaker5th',
   repo: 'wallbreaker5th.github.io',
   oauth: {

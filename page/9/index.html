@@ -256,6 +256,116 @@ function init(){
 
   
     
+<article id="post-舞蹈链算法（DLX）略解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/舞蹈链算法（DLX）略解/">舞蹈链算法（DLX）略解</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/舞蹈链算法（DLX）略解/" class="archive-article-date">
+  	<time datetime="2019-01-27T12:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-27</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>（未完成，待完善）</p>
+<p><del>DLX=Dancing Line X</del></p>
+<p>之前学 DLX 时在网上看了好几篇博客，结合着几篇讲代码的、有图片的、说原理的，总算弄懂了。这里</p>
+<p>DLX 是用来解决精确覆盖问题的算法，算是 X 算法的优化。</p>
+<p>时间复杂度 $O(\text{玄学})$（最坏是指数级）</p>
+<p><a href="https://www.luogu.org/problemnew/show/P4929" target="_blank" rel="noopener">精确覆盖问题</a>：</p>
+<p>给定一个 $N$ 行 $M$ 列的矩阵，矩阵中每个元素要么是 1，要么是 0。</p>
+<p>你需要在矩阵中挑选出若干行，使得对于矩阵的每一列 $j$，在你挑选的这些行中，有且仅有一行的第 $j$ 个元素为 1。</p>
+<p><img src="/img/0008.PNG" alt=""></p>
+<p>如上表，选择第 1、4、5 行即符合要求。</p>
+<h1 id="X-算法"><a href="#X-算法" class="headerlink" title="X 算法"></a>X 算法</h1><p>这个算法的过程如下：</p>
+<p>矩阵为空代表得到了解。</p>
+<p>否则首先我们找到 1 的个数最少的一列（个数最少可以使搜索次数变少），考虑为了使这一列有 1 选择哪一行。</p>
+<p>不管我们选哪一行，这一行都不能再选；对于这一列是 1 的其它行，这一行也不能再选（否则这一列将有不止一个 1），所以我们先把这些行从原矩阵中删掉（但是数据要保留好）。同时这一列将要成功解决，为了避免重复考虑，删掉这一列。</p>
+        
+          <a class="article-more-a" href="/2019/舞蹈链算法（DLX）略解/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-搜索</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-搜索-DLX</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/舞蹈链算法（DLX）略解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
 <article id="post-Catalan-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -501,114 +611,6 @@ function init(){
 
 
   
-    
-<article id="post-NOIP2018游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/NOIP2018游记/">NOIP2018游记</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/NOIP2018游记/" class="archive-article-date">
-  	<time datetime="2018-10-13T09:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-13</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Day-27（初赛）"><a href="#Day-27（初赛）" class="headerlink" title="Day -27（初赛）"></a>Day -27（初赛）</h1><p>特别冷，还飘雨，暗示了退役的结局。</p>
-<p>我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。</p>
-<p>两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。</p>
-<p>NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。</p>
-<p>阅读程序时因为算错成 $6!=120$，结果……</p>
-<p>……</p>
-<p>怕是要退役。</p>
-<p>大概口胡一下：</p>
-<p>阅读程序 T1：模拟。</p>
-<p>阅读程序 T2：$n$ 个点，每个点出度为 1，入度为 1，给出每个点通向哪个点，求有多少个环。</p>
-<p>阅读程序 T3：求没有重复的非空子串数目。<del>mogic</del> magic 函数就是<del>蛤</del>哈希。</p>
-<p>阅读程序 T4：next_permutation。</p>
-<p>完成程序 T1：至今看不懂。</p>
-<p>完成程序 T2：f[i] 记录用 i 元买第一个商店的商品时，买第二个商店的商品的总花费的最小值。</p>
-        
-          <a class="article-more-a" href="/2018/NOIP2018游记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记-NOIP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/NOIP2018游记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
@@ -633,10 +635,7 @@ function init(){
   </div>
   
 </footer>
-      <div style="bottom: -200px;align: center;text-align: center;position:absolute;width:100%;height:300px;">
-        <h2 style="font-size:64px;font-family:楷体;">放映室</h2>
-        <iframe src="" scrolling="yes" border="0" frameborder="yes" framespacing="0" allowfullscreen="true" style="width:100%;height:200%"> </iframe>
-      </div>
+      
     </div>
     <script>
 	var yiliaConfig = {
@@ -984,6 +983,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
               </li>
             
             <div class="clearfix"></div>
