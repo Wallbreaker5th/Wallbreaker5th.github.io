@@ -256,6 +256,107 @@ function init(){
 
   
     
+<article id="post-Codeforces Marathon Round 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/Codeforces Marathon Round 2/">Codeforces Marathon Round 2 游记</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/Codeforces Marathon Round 2/" class="archive-article-date">
+  	<time datetime="2018-08-02T15:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这场 CF 马拉松赛是我目前参加的唯一一场马拉松赛（压根就两场……）。</p>
+<p>CF 马拉松赛会给你 7 天时间解决一个目前没有正解的题目，你要针对随机数据得到尽可能高的分数。</p>
+<p>比赛链接：<a href="http://codeforces.com/contest/1014" target="_blank" rel="noopener">http://codeforces.com/contest/1014</a></p>
+<p>题目大意：</p>
+<p>一段被分成了 $N=100000$ 块的长条（？），每块染有 $C=10$ 种颜色之一颜色用前 10 个大写英文字母表示，将其向右无限重复。在上面有 $U=10$ 只变色龙，从 0 开始编号，初始位置分别在第 $1,2,3..10$ 格。Kurt 手中有 $H=10$ 个颜料瓶，背包里有 $S=10000$ 个，Kurt 每次可以拿一个颜料瓶扔向一只变色龙，这只变色龙就会不断向右移动，直到遇到一个颜色与颜料瓶颜色相同且没有另一只变色龙在上面的格子，同时 Kurt 从背包里<strong>按照题目给定的顺序</strong>取出一个颜料瓶拿在手中，直到背包空为止。最后得分为最靠后的变色龙的位置，如果你给的不符要求，得 0 分。最后会生成约 1000 个<strong>随机</strong>数据取平均分。</p>
+<p>不得不说马拉松赛很考脑洞。这里先说一下我的几个思路：</p>
+<h1 id="随机"><a href="#随机" class="headerlink" title="随机"></a>随机</h1><p>每次随机从背包里面选择一个瓶子，扔到随机的变色龙上。实现不难，<code>multiset</code>即可（我没有写）。</p>
+<p>得分在 9900 分左右。</p>
+<h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><p>贪心的方式应该有很多很多……我最先想到的方式是每次选择最落后的变色龙，然后扔一个让它跑得尽可能远的瓶子。</p>
+        
+          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-玄学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
 <article id="post-题解-LGR-049-T2-River Jumping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -472,115 +573,6 @@ function init(){
 
 
   
-    
-<article id="post-题解-LGR-047-T1-偷上网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/题解-LGR-047-T1-偷上网/">题解 LGR-047 T1 偷上网</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/题解-LGR-047-T1-偷上网/" class="archive-article-date">
-  	<time datetime="2018-06-02T11:02:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这道题当时居然因为某些细节没有 AC，之后看到错因才发现问题 orz。</p>
-<p>听说标算是先判断 $n=1$，只有 $n=1$ 并且四个顶点都被覆盖才可能 GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。</p>
-<p>下面进入正文：</p>
-<p>题目链接： <a href="https://www.luogu.org/problemnew/show/T29693" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/T29693</a></p>
-<p>题目大意：在一个 $l\times l$ 的正方形里有 n 个半径为$l/n$的圆， 求一个不在任何一个圆里面的点。</p>
-<p>看到这道题，第一反应：毒瘤计算几何，这辈子都别想写出标算。</p>
-<p>然而我灵光一现，想出了一种奇葩解法：</p>
-<p>首先把很多个 Bob 随机扔进房间，然后想象这些 Bob 被屏蔽器“挤开”。</p>
-<p>多“挤”几次之后就很可能出现成功躲开的 Bob，如果没有就认为 GG。</p>
-<p>然后我把这个思路抽象出来：</p>
-<p>首先在正方形里面随机生成 N 个点，然后做 T 次以下操作：</p>
-<p>遍历每一个点，判断它是不是在某一个圆内部。 如果是，求出该圆圆心到这个点的向量， 乘以一个倍数使得这个点沿着这个向量移动之后刚好脱离屏蔽器的距离。</p>
-<p>把一个点所有向量加起来，让这个点移动。 如果出了房间或者出现 NaN，让它重新在正方形里面随机选一个点。</p>
-        
-          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-玄学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-洛谷月赛</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
@@ -595,7 +587,7 @@ function init(){
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 破壁人五号
+    		&copy; 2020 破壁人五号
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme 经过一番魔改的 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -957,6 +949,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-图论-差分约束</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP-树形DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-数学-拉格朗日插值</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-图论-矩阵树定理</a>
               </li>
             
             <div class="clearfix"></div>
