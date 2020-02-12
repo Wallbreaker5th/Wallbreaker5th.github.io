@@ -19,7 +19,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0035.PNG">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0036.PNG">
-<meta property="og:updated_time" content="2020-01-29T13:23:39.874Z">
+<meta property="og:updated_time" content="2020-02-10T10:30:10.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="某模拟赛 - 20200120">
 <meta name="twitter:description" content="T1题意有 $N$ 个学生，每个学生至多有一名室友，至多有一名同桌。求排列 $P$ 的数量，使原来第 $i$ 个都学生换到 $P_i$ 号学生原本所在的寝室/桌子后原本的室友以及同桌关系依旧不变，答案模 $10^9+7$。$N\leq 2\times10^5$ 题解显然，把两种关系都看成图上的边，每个节点的度数都不大于 $2$，也就只有链与环。将所有连通块分为五种情况：   单独的一个点（$1$）">
@@ -302,6 +302,7 @@ function init(){
 <li>大小为 $x$ 的环（$x$ - 可以两个两个地旋转，可以翻转）。</li>
 </ol>
 <p>以上每种情况（再根据链/环的大小区分后）对应的连通块个数数的阶乘相乘，每个连通块再乘以括号后的数字即为答案。</p>
+<a id="more"></a>
 <p>代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2e5</span>+<span class="number">10</span>,mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> room[N],desk[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="keyword">int</span> r[N];<span class="comment">//chains that begin with room (consider room first)</span></span><br><span class="line"><span class="keyword">int</span> d[N];<span class="comment">//chains that begin with desk</span></span><br><span class="line"><span class="keyword">int</span> single=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> c[N];<span class="comment">//circles</span></span><br><span class="line"><span class="keyword">int</span> frac[N],p2[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(y)&#123;</span><br><span class="line">		<span class="keyword">if</span>(y&amp;<span class="number">1</span>)ans=ans*<span class="number">1l</span>l*x%mod;</span><br><span class="line">		x=x*<span class="number">1l</span>l*x%mod;</span><br><span class="line">		y&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint(),m1=getint(),m2=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m1;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> x=getint(),y=getint();</span><br><span class="line">		room[x]=y;</span><br><span class="line">		room[y]=x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m2;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> x=getint(),y=getint();</span><br><span class="line">		desk[x]=y;</span><br><span class="line">		desk[y]=x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="comment">//chains that begin with room</span></span><br><span class="line">		<span class="comment">//-=-=-=- -=-=-=</span></span><br><span class="line">		<span class="keyword">if</span>(!room[i]&amp;&amp;!desk[i])&#123;</span><br><span class="line">			vis[i]=<span class="number">1</span>;</span><br><span class="line">			single++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!vis[i]&amp;&amp;room[i]&amp;&amp;!desk[i])&#123;</span><br><span class="line">			<span class="keyword">int</span> now=i,len=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">bool</span> t=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(now)&#123;</span><br><span class="line">				vis[now]=<span class="number">1</span>;</span><br><span class="line">				++len;</span><br><span class="line">				now=(t?room[now]:desk[now]);</span><br><span class="line">				t=!t;</span><br><span class="line">			&#125;</span><br><span class="line">			r[len]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="comment">//chains that begin with desk</span></span><br><span class="line">		<span class="comment">//=-=-=-=</span></span><br><span class="line">		<span class="keyword">if</span>(!vis[i]&amp;&amp;desk[i]&amp;&amp;!room[i])&#123;</span><br><span class="line">			<span class="keyword">int</span> now=i,len=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">bool</span> t=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span>(now)&#123;</span><br><span class="line">				vis[now]=<span class="number">1</span>;</span><br><span class="line">				++len;</span><br><span class="line">				now=(t?room[now]:desk[now]);</span><br><span class="line">				t=!t;</span><br><span class="line">			&#125;</span><br><span class="line">			d[len]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="comment">//circles</span></span><br><span class="line">		<span class="keyword">if</span>(!vis[i])&#123;</span><br><span class="line">			<span class="keyword">int</span> now=i,len=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">bool</span> t=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(!vis[now])&#123;</span><br><span class="line">				vis[now]=<span class="number">1</span>;</span><br><span class="line">				++len;</span><br><span class="line">				now=(t?room[now]:desk[now]);</span><br><span class="line">				t=!t;</span><br><span class="line">			&#125;</span><br><span class="line">			c[len]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	frac[<span class="number">0</span>]=<span class="number">1</span>;p2[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)frac[i]=frac[i<span class="number">-1</span>]*<span class="number">1l</span>l*i%mod,p2[i]=(p2[i<span class="number">-1</span>]&lt;&lt;<span class="number">1</span>)%mod;</span><br><span class="line">	<span class="keyword">int</span> ans=frac[single];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		ans=ans*<span class="number">1l</span>l*frac[r[i]]%mod;</span><br><span class="line">		ans=ans*<span class="number">1l</span>l*frac[d[i]]%mod;</span><br><span class="line">		ans=ans*<span class="number">1l</span>l*frac[c[i]]%mod;</span><br><span class="line">		<span class="keyword">if</span>((i&amp;<span class="number">1</span>)^<span class="number">1</span>)&#123;</span><br><span class="line">			ans=ans*<span class="number">1l</span>l*qpow(i,c[i])%mod;</span><br><span class="line">			ans=ans*<span class="number">1l</span>l*p2[r[i]]%mod;</span><br><span class="line">			ans=ans*<span class="number">1l</span>l*p2[d[i]]%mod;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>一棵有 $n$ 个点的带权无根树，每个点有值 $l_i,r_i$。现在希望给每个点赋权值 $a_i$，使得 $a_i\in [l_i,r_i]$ 且 $|a_i-a_j|\leq dis(i,j)$。$T$ 次询问：</p>
 <ul>
@@ -310,12 +311,12 @@ function init(){
 </ul>
 <p>$n\leq 10^6$，$T\leq 3$，$0\leq w,|l|,|r|\leq 10^9$</p>
 <h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>首先：</p>
-<p>$$\begin{aligned}&amp;\text{若 }|a_i-a_j|\leq dis(i,j),|a_j-a_k|\leq dis(j,k)\text{ 且 $j$ 在 $i$ 到 $k$ 的链上}\end{aligned}\<br>\begin{aligned}\text{则 }|a_i-a_k|&amp;\leq |a_i-a_j|+|a_j-a_k|\<br>&amp;\leq dis(i,j)+dis(j,k)\<br>&amp;\leq dis(i,k)\end{aligned}$$</p>
+<p>$$\begin{aligned}&amp;\text{若 }|a_i-a_j|\leq dis(i,j),|a_j-a_k|\leq dis(j,k)\text{ 且 $j$ 在 $i$ 到 $k$ 的链上}\end{aligned}\\<br>\begin{aligned}\text{则 }|a_i-a_k|&amp;\leq |a_i-a_j|+|a_j-a_k|\\<br>&amp;\leq dis(i,j)+dis(j,k)\\<br>&amp;\leq dis(i,k)\end{aligned}$$</p>
 <p>于是我们只需要关心相邻节点 $i,j$ 的 $|a_i-a_j|\leq dis(i,j)$ 的限制。</p>
 <p>考虑只有两个节点 $i,j$ 时的所有限制（容易拓展到一棵树上）：</p>
-<p>$\begin{cases}<br>l_i\leq a_i\leq r_i\<br>l_j\leq a_j\leq r_j\<br>|a_i-a_j|\leq w=dis(i,j)<br>\end{cases}$</p>
+<p>$\begin{cases}<br>l_i\leq a_i\leq r_i\\<br>l_j\leq a_j\leq r_j\\<br>|a_i-a_j|\leq w=dis(i,j)<br>\end{cases}$</p>
 <p>变形一下得：</p>
-<p>$\begin{cases}<br>0&amp;\leq &amp;a_i&amp;-l_i\<br>a_i&amp;\leq &amp;0&amp;+r_i\<br>0&amp;\leq &amp;a_j&amp;-l_j\<br>a_j&amp;\leq &amp;0&amp;+r_j\<br>a_i&amp;\leq &amp;a_j&amp;+w\<br>a_j&amp;\leq &amp;a_i&amp;+w<br>\end{cases}$</p>
+<p>$\begin{cases}<br>0&amp;\leq &amp;a_i&amp;-l_i\\<br>a_i&amp;\leq &amp;0&amp;+r_i\\<br>0&amp;\leq &amp;a_j&amp;-l_j\\<br>a_j&amp;\leq &amp;0&amp;+r_j\\<br>a_i&amp;\leq &amp;a_j&amp;+w\\<br>a_j&amp;\leq &amp;a_i&amp;+w<br>\end{cases}$</p>
 <p>显然这可以用差分约束来做，建出来的图像是这样的：</p>
 <p><img src="/img/0036.PNG" alt="差分约束 图"></p>
 <p>从 $0$ 开始跑最短路。假如没有负环，那么就有赋值方式。否则 $x$ 会被加到每一个红边与蓝边上，最小简单负环又会恰好从 $0$ 出发经过蓝边、树边、红边回到 $0$，故找到最小简单负环，其权值除以二向上取整即为答案。</p>
@@ -454,6 +455,15 @@ function init(){
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/题解-P5283-十二省联考2019-异或粽子/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          题解 洛谷 P5283 十二省联考2019 异或粽子
+        
+      </div>
+    </a>
   
   
     <a href="/2019/PKUWC2019游记/" id="article-nav-older" class="article-nav-link-wrap">
@@ -638,6 +648,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法-数学-数论-Lucas</a>
               </li>
              
@@ -658,23 +680,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-NOIP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,10 +712,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-图论</a>
               </li>
              
@@ -711,10 +725,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-DP-计数DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,14 +744,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
               </li>
              
@@ -754,11 +756,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">算法-时间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法-渐进记号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,11 +800,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -806,23 +840,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-字符串-manacher</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-01Trie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,35 +860,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -878,7 +872,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
+                <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -895,6 +889,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-图论-矩阵树定理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
               </li>
             
             <div class="clearfix"></div>

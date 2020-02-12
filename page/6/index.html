@@ -256,6 +256,234 @@ function init(){
 
   
     
+<article id="post-带花树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/带花树/">带花树略解</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/带花树/" class="archive-article-date">
+  	<time datetime="2019-09-07T14:43:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>带花树是一种用于解决一般图最大匹配的算法，利用了匈牙利算法的思想。</p>
+<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ul>
+<li>匈牙利算法</li>
+<li>BFS 树</li>
+<li>并查集</li>
+</ul>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
+<li>奇环/偶环：长度为奇数/偶数的环。</li>
+<li>花（blossom）：在 BFS 过程中，遍历到的边与 BFS 树边构成的奇环；</li>
+<li>柄（stem）：从 BFS 树根到奇环中深度最浅的点的路径；</li>
+<li>蒂（tip）：奇环中在柄上的那个点。</li>
+</ul>
+<p><img src="/img/0025.PNG" alt=""></p>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>首先我们考虑匈牙利算法在 BFS 时如何工作：</p>
+<p>当我们搜索到点 $u$，对于边 $(u,v)$：</p>
+<ul>
+<li>如果 $v$ 没有被匹配，证明我们得到了一条增广路径；<ul>
+<li>此时我们将增广路径上的每条边翻转，并结束 BFS；</li>
+</ul>
+</li>
+<li>如果 $v$ 不在树中，继续 BFS；</li>
+<li>如果 $v$ 在树中，并且 $(u,v)$ 使图中出现偶环，忽略它；</li>
+<li>“$v$ 在树中，并且 $(u,v)$ 使图中出现奇环”（即图中出现了花）是不可能的，因为这是二分图。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/带花树/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-图论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-图论-带花树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-图论-匹配</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/带花树/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-题解-CF1200B-Block-Adventure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/题解-CF1200B-Block-Adventure/">题解-CF1200B-Block Adventure</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/题解-CF1200B-Block-Adventure/" class="archive-article-date">
+  	<time datetime="2019-08-22T04:01:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.luogu.org/problem/CF1200B" target="_blank" rel="noopener">题目链接</a></p>
+<p>采用贪心策略</p>
+<p>假如该列不够高，我们只能往上摞</p>
+<p>否则我们将尽可能多的方块挖掉，扔进背包</p>
+<p>注意：挖掉的方块数量不能超过该列高度（因为这个 WA 了两次）</p>
+<p>中途一旦方块不够用就 GG 了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> h[<span class="number">1010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t=getint();</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> n=getint(),m=getint(),k=getint();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">			h[i]=getint();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">bool</span> ok=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(h[i]&lt;h[i+<span class="number">1</span>]-k)m-=h[i+<span class="number">1</span>]-h[i]-k;</span><br><span class="line">			<span class="keyword">else</span> m+=min((<span class="keyword">long</span> <span class="keyword">long</span>)h[i],h[i]-h[i+<span class="number">1</span>]+k);</span><br><span class="line">			<span class="keyword">if</span>(m&lt;<span class="number">0</span>)ok=<span class="number">0</span>;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"? " &lt;&lt;m&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">puts</span>(ok?<span class="string">"YES"</span>:<span class="string">"NO"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-模拟</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/题解-CF1200B-Block-Adventure/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
 <article id="post-题解-CF1200D-White-Lines" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -357,207 +585,9 @@ function init(){
 
 
   
-    
-<article id="post-题解-CF1200C-Round-Corridor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-CF1200C-Round-Corridor/">题解 CF1200C Round Corridor</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/题解-CF1200C-Round-Corridor/" class="archive-article-date">
-  	<time datetime="2019-08-21T09:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://codeforces.com/problemset/problem/1200/C" target="_blank" rel="noopener">题目链接</a></p>
-<p><del>从样例可以猜到</del>所有房间被分成了 $\gcd(m,n)$ 个互不连通的块。</p>
-<p>胡乱证明：</p>
-<p>假如两部分被完全隔开，一定是因为内外两面墙在同一处，即：</p>
-<p>$\frac{a}{m}=\frac{b}{n}(0\leq a&lt;m,0\leq b&lt;n)$</p>
-<p>假设其约分后是 $\frac{x}{y}(gcd(x,y)=1,0\leq x&lt;y)$，显然 $y|m,y|n$，即 $y|\gcd(m,n)$，这样的分数个数为：$\sum \limits_{d|\gcd(m,n)}\phi(d)=\gcd(m,n)$</p>
-<p>所以内圈每 $n/\gcd(m,n)$ 一个块，外圈每 $m/\gcd(m,n)$ 一个块。</p>
-<p>每次询问简单计算出两个询问的房间在哪个块，相同即可以连通。</p>
-<p>记得开 <code>long long</code></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function">ll <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a,ll b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b?gcd(b,a%b):a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll n=getint(),m=getint(),q=getint();</span><br><span class="line">	ll g=gcd(m,n),gn=n/g,gm=m/g;</span><br><span class="line">	<span class="keyword">while</span>(q--)&#123;</span><br><span class="line">		ll sx=getint(),sy=getint()<span class="number">-1</span>,ex=getint(),ey=getint()<span class="number">-1</span>;</span><br><span class="line">		sy=(sx==<span class="number">1</span>?sy/gn:sy/gm);</span><br><span class="line">		ey=(ex==<span class="number">1</span>?ey/gn:ey/gm);</span><br><span class="line">		<span class="built_in">puts</span>(sy==ey?<span class="string">"YES"</span>:<span class="string">"NO"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-CF1200C-Round-Corridor/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-题解-CF337D-Developing-Game" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-CF337D-Developing-Game/">题解 CF337D Developing Game</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/题解-CF337D-Developing-Game/" class="archive-article-date">
-  	<time datetime="2019-08-21T09:35:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://codeforces.com/problemset/problem/377/D" target="_blank" rel="noopener">题目链接</a></p>
-<h1 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h1><p>有 $n$ 个人，每人有属性 $l_i,v_i,r_i(l_i\leq v_i\leq r_i)$，要求选出最大的人的集合 $S$ 使得 $\forall x,y\in S$ 有 $l_y\leq v_x\leq r_y$</p>
-<h1 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h1><p>简单分析一下这些不等式可以发现题目的要求可以转化为：$\max\limits_{i\in S} l_i\leq \min\limits_{i\in S} v_i\leq \max\limits_{i\in S} v_i\leq\min\limits_{i\in S} r_i$</p>
-<p>进一步地，我们将要求转化为找到 $L,R$，使得 $\max\limits_{i\in S} l_i\leq L\leq \min\limits_{i\in S} v_i,\max\limits_{i\in S} v_i\leq R\leq\min\limits_{i\in S} r_i$</p>
-<p>我们将 $(L,R)$ 看作二维平面上的一个点，一个人就对应着一个矩形。集合中选出多个人，对 $(L,R)$ 的限制就是这些矩形的交。选出最多的人，就是要找到一个点被尽可能多的矩形覆盖。</p>
-<p>以样例为例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">2 8 9</span><br><span class="line">1 4 7</span><br><span class="line">3 6 8</span><br><span class="line">5 8 10</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20190813211642944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5ODU0NzM0,size_16,color_FFFFFF,t_70" alt=""></p>
-<p>找到这个点可以用扫描线+线段树。记录最优的点的位置，输出方案时挨个判断矩形是否包含该点。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">200100</span>,M=<span class="number">600300</span>;</span><br><span class="line"><span class="keyword">int</span> a[M&lt;&lt;<span class="number">2</span>],tag[M&lt;&lt;<span class="number">2</span>],pos[M&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a[x&lt;&lt;<span class="number">1</span>]&gt;a[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>])&#123;</span><br><span class="line">		pos[x]=pos[x&lt;&lt;<span class="number">1</span>];</span><br><span class="line">		a[x]=a[x&lt;&lt;<span class="number">1</span>];</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		pos[x]=pos[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">		a[x]=a[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	tag[x&lt;&lt;<span class="number">1</span>]+=tag[x];</span><br><span class="line">	a[x&lt;&lt;<span class="number">1</span>]+=tag[x];</span><br><span class="line">	tag[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]+=tag[x];</span><br><span class="line">	a[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]+=tag[x];</span><br><span class="line">	tag[x]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> val,<span class="keyword">int</span> x,<span class="keyword">int</span> nl,<span class="keyword">int</span> nr)</span></span>&#123;</span><br><span class="line">	pushdown(x);</span><br><span class="line">	<span class="keyword">if</span>(l&lt;=nl&amp;&amp;nr&lt;=r)&#123;</span><br><span class="line">		a[x]+=val;</span><br><span class="line">		tag[x]+=val;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid=nl+nr&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(nl&lt;=r&amp;&amp;mid&gt;=l)modify(l,r,val,x&lt;&lt;<span class="number">1</span>,nl,mid);</span><br><span class="line">	<span class="keyword">if</span>(mid+<span class="number">1</span>&lt;=r&amp;&amp;nr&gt;=l)modify(l,r,val,x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,mid+<span class="number">1</span>,nr);</span><br><span class="line">	pushup(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">		pos[x]=l;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	build(x&lt;&lt;<span class="number">1</span>,l,mid);</span><br><span class="line">	build(x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,mid+<span class="number">1</span>,r);</span><br><span class="line">	pos[x]=pos[x&lt;&lt;<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> l[N],r[N],v[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">seg</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,u,d;</span><br><span class="line">	<span class="keyword">bool</span> b;</span><br><span class="line">&#125;;</span><br><span class="line">seg s[N];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(seg a,seg b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.x!=b.x)<span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> a.b&lt;b.b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		l[i]=getint();</span><br><span class="line">		v[i]=getint();</span><br><span class="line">		r[i]=getint();</span><br><span class="line">		s[i*<span class="number">2</span>].x=l[i];   s[i*<span class="number">2</span>].u=r[i];   s[i*<span class="number">2</span>].d=v[i];   s[i*<span class="number">2</span>].b=<span class="number">0</span>;</span><br><span class="line">		s[i*<span class="number">2</span>+<span class="number">1</span>].x=v[i]; s[i*<span class="number">2</span>+<span class="number">1</span>].u=r[i]; s[i*<span class="number">2</span>+<span class="number">1</span>].d=v[i]; s[i*<span class="number">2</span>+<span class="number">1</span>].b=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	build(<span class="number">1</span>,<span class="number">1</span>,<span class="number">3e5</span>+<span class="number">1</span>);</span><br><span class="line">	sort(s,s+n*<span class="number">2</span>,cmp);</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,ansp=<span class="number">0</span>,ansx=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n*<span class="number">2</span>;i++)&#123;</span><br><span class="line">		modify(s[i].d,s[i].u,s[i].b?<span class="number">-1</span>:<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">3e5</span>+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(query()&gt;ans)&#123;</span><br><span class="line">			ans=query();</span><br><span class="line">			ansp=pos[<span class="number">1</span>];</span><br><span class="line">			ansx=s[i].x;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(l[i]&lt;=ansx&amp;&amp;ansx&lt;=v[i]&amp;&amp;v[i]&lt;=ansp&amp;&amp;ansp&lt;=r[i])<span class="built_in">cout</span>&lt;&lt;i+<span class="number">1</span>&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-计算几何-扫描线</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-CF337D-Developing-Game/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -690,6 +720,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法-数学-数论-Lucas</a>
               </li>
              
@@ -710,23 +752,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-NOIP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,10 +784,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-图论</a>
               </li>
              
@@ -763,10 +797,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-DP-计数DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,14 +816,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
               </li>
              
@@ -806,11 +828,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">算法-时间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法-渐进记号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,11 +872,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -858,23 +912,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-字符串-manacher</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-01Trie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -890,35 +932,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -930,7 +944,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
+                <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -947,6 +961,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-图论-矩阵树定理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
               </li>
             
             <div class="clearfix"></div>

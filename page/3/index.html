@@ -256,6 +256,219 @@ function init(){
 
   
     
+<article id="题解-题解-CF1271B-Blocks" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/题解-CF1271B-Blocks/">题解 CF1271B Blocks</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/题解-CF1271B-Blocks/" class="archive-article-date">
+  	<time datetime="2019-12-16T10:59:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-16</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
+<li>有一行 $n$ 个方块，每个方块是黑色或者白色；</li>
+<li>你可以进行多次操作（也可以不操作），每次操作制定相邻两个方块，使其颜色各自取反；</li>
+<li>现在要求在 $3n$ 次操作以内把所有方块变为同一颜色，判断是否可行并输出方案（不要求操作最少）。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/题解-CF1271B-Blocks/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-构造</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/题解-CF1271B-Blocks/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="题解-题解-P3271-JLOI2016-方" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/题解-P3271-JLOI2016-方/">题解 洛谷 P3271 JLOI2016 方</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/题解-P3271-JLOI2016-方/" class="archive-article-date">
+  	<time datetime="2019-12-13T14:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.luogu.com.cn/problem/P3271" target="_blank" rel="noopener">题目链接</a></p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
+<li>一个 $N\times M$ 的网格，由小正方形铺成；<ul>
+<li>显然它有 $(N+1)\times (M+1)$ 个格点；</li>
+</ul>
+</li>
+<li>其中 $K$ 个格点不允许成为正方形顶点（之后将这 $K$ 个格点称为“坏点”）；</li>
+<li>问有多少个格点正方形。</li>
+</ul>
+<blockquote>
+<p>既然点变少了，问题也就变简单了。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2019/题解-P3271-JLOI2016-方/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-计数</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-计数-容斥原理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/题解-P3271-JLOI2016-方/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
 <article id="post-题解-P4169-天使玩偶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -353,202 +566,9 @@ function init(){
 
 
   
-    
-<article id="post-题解-bzoj1176-Balkan2007-Mokia" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-bzoj1176-Balkan2007-Mokia/">题解 bzoj 1176 [Balkan2007]Mokia</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/题解-bzoj1176-Balkan2007-Mokia/" class="archive-article-date">
-  	<time datetime="2019-11-30T06:18:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1176" target="_blank" rel="noopener">题目链接</a></p>
-<p>题意：二维平面，单点修改，区间查询，不强制在线。</p>
-<p>CDQ 分治。把每个区间询问拆成四个前缀询问，并给所有修改与统计按顺序添加 $t$ 作为第三个坐标。每个前缀询问就是在查询 $x,y,t$ 坐标都小于它的修改点的权值之和。</p>
-<p>$S$ 其实全等于 0，据说修改数量比题目描述略大。</p>
-        
-          <a class="article-more-a" href="/2019/题解-bzoj1176-Balkan2007-Mokia/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-分治-CDQ分治</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-bzoj1176-Balkan2007-Mokia/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-CSP2019游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/CSP2019游记/">CSP2019 游记</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/CSP2019游记/" class="archive-article-date">
-  	<time datetime="2019-11-14T12:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>似乎完结……</p>
-<p>（这一行是为了右边的 BGM 留的）</p>
-<p>下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）</p>
-        
-          <a class="article-more-a" href="/2019/CSP2019游记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">游记-CSP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/CSP2019游记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -681,6 +701,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法-数学-数论-Lucas</a>
               </li>
              
@@ -701,23 +733,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-NOIP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,10 +765,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-图论</a>
               </li>
              
@@ -754,10 +778,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-DP-计数DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -777,14 +797,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
               </li>
              
@@ -797,11 +809,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">算法-时间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法-渐进记号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -829,11 +853,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,23 +893,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-字符串-manacher</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-01Trie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -881,35 +913,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -921,7 +925,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
+                <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -938,6 +942,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-图论-矩阵树定理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
               </li>
             
             <div class="clearfix"></div>

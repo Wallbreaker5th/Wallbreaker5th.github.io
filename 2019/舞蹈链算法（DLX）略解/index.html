@@ -10,7 +10,7 @@
   <title>舞蹈链算法（DLX）略解 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="（未完成，待完善） DLX=Dancing Line X 之前学 DLX 时在网上看了好几篇博客，结合着几篇讲代码的、有图片的、说原理的，总算弄懂了。这里 DLX 是用来解决精确覆盖问题的算法，算是 X 算法的优化。 时间复杂度 $O(\text{玄学})$（最坏是指数级） 精确覆盖问题： 给定一个 $N$ 行 $M$ 列的矩阵，矩阵中每个元素要么是 1，要么是 0。 你需要在矩阵中挑选出若干行，">
-<meta name="keywords" content="算法,OI,算法-搜索,算法-搜索-DLX">
+<meta name="keywords" content="算法,OI,算法-搜索-DLX,算法-搜索">
 <meta property="og:type" content="article">
 <meta property="og:title" content="舞蹈链算法（DLX）略解">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2019/舞蹈链算法（DLX）略解/index.html">
@@ -419,11 +419,11 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-搜索</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-搜索-DLX</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-搜索-DLX</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-搜索</a>
         		</li>
       		
 		</ul>
@@ -685,6 +685,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法-数学-数论-Lucas</a>
               </li>
              
@@ -705,23 +717,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-玄学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-贪心</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-NOIP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,10 +749,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-图论</a>
               </li>
              
@@ -758,10 +762,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-DP-计数DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最短路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,14 +781,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
               </li>
              
@@ -801,11 +793,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">算法-时间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法-渐进记号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -833,11 +837,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-数据结构-树状数组</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -853,23 +877,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-字符串-manacher</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-搜索-DLX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-计算几何-扫描线</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-01Trie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -885,35 +897,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -925,7 +909,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游记-PKUWC</a>
+                <a href="javascript:void(0)" class="js-tag color4">游记-THUSC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -942,6 +926,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-图论-矩阵树定理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
               </li>
             
             <div class="clearfix"></div>
