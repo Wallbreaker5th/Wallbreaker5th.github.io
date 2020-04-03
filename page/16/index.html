@@ -39,7 +39,15 @@
 
 </head>
 
-<body>
+<script>
+function greyize(){
+    var d = new Date();
+    if(d.getFullYear()==2020 && d.getMonth()==3 && d.getDate()==4){
+        document.getElementById("body").style.cssText = "-webkit-filter: grayscale(100%); filter: grayscale(100%);";
+    }
+}
+</script>
+<body id="body" onload="greyize();">
   <header>
   </header>
   <div id="container" q-class="show:isCtnShow">
@@ -187,7 +195,7 @@ function init(){
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> PKUWC2019RP++</p>
+        <p><strong>Notice:</strong> 共克时艰</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -457,6 +465,7 @@ function init(){
 <li><a href="/tags/算法-数据结构-树状数组/">算法-数据结构-树状数组</a></li>
 <li><a href="/tags/算法-数据结构-线段树/">算法-数据结构-线段树</a></li>
 <li><a href="/tags/算法-数据结构-主席树/">算法-数据结构-主席树</a>（注：个人习惯把可持久化 01-Trie 等类似实现也归入该标签）</li>
+<li><a href="/tags/算法-数据结构-01Trie/">算法-数据结构-01Trie</a></li>
 </ul>
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p><a href="/tags/算法-字符串/">算法-字符串</a></p>
 <ul>

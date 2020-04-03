@@ -42,7 +42,15 @@
 
 </head>
 
-<body>
+<script>
+function greyize(){
+    var d = new Date();
+    if(d.getFullYear()==2020 && d.getMonth()==3 && d.getDate()==4){
+        document.getElementById("body").style.cssText = "-webkit-filter: grayscale(100%); filter: grayscale(100%);";
+    }
+}
+</script>
+<body id="body" onload="greyize();">
   <header>
   </header>
   <div id="container" q-class="show:isCtnShow">
@@ -190,7 +198,7 @@ function init(){
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> PKUWC2019RP++</p>
+        <p><strong>Notice:</strong> 共克时艰</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
