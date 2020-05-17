@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="post-带花树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-CSP2019游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/带花树/">带花树略解</a>
+      <a class="article-title" href="/2019/CSP2019游记/">CSP2019 游记</a>
     </h1>
   
 
 
         
-        <a href="/2019/带花树/" class="archive-article-date">
-  	<time datetime="2019-09-07T14:43:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
+        <a href="/2019/CSP2019游记/" class="archive-article-date">
+  	<time datetime="2019-11-14T12:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -289,35 +289,16 @@ function init(){
     
     <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
       
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>带花树是一种用于解决一般图最大匹配的算法，利用了匈牙利算法的思想。</p>
-<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ul>
-<li>匈牙利算法</li>
-<li>BFS 树</li>
-<li>并查集</li>
-</ul>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
-<li>奇环/偶环：长度为奇数/偶数的环。</li>
-<li>花（blossom）：在 BFS 过程中，遍历到的边与 BFS 树边构成的奇环；</li>
-<li>柄（stem）：从 BFS 树根到奇环中深度最浅的点的路径；</li>
-<li>蒂（tip）：奇环中在柄上的那个点。</li>
-</ul>
-<p><img src="/img/0025.PNG" alt=""></p>
-<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>首先我们考虑匈牙利算法在 BFS 时如何工作：</p>
-<p>当我们搜索到点 $u$，对于边 $(u,v)$：</p>
-<ul>
-<li>如果 $v$ 没有被匹配，证明我们得到了一条增广路径；<ul>
-<li>此时我们将增广路径上的每条边翻转，并结束 BFS；</li>
-</ul>
-</li>
-<li>如果 $v$ 不在树中，继续 BFS；</li>
-<li>如果 $v$ 在树中，并且 $(u,v)$ 使图中出现偶环，忽略它；</li>
-<li>“$v$ 在树中，并且 $(u,v)$ 使图中出现奇环”（即图中出现了花）是不可能的，因为这是二分图。</li>
-</ul>
+        <p>似乎完结……</p>
+<p>（这一行是为了右边的 BGM 留的）</p>
+<p>下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）</p>
         
-          <a class="article-more-a" href="/2019/带花树/#more">more >></a>
+          <a class="article-more-a" href="/2019/CSP2019游记/#more">more >></a>
         
       
 
@@ -330,28 +311,16 @@ function init(){
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-图论</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-图论-带花树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-图论-匹配</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">游记-CSP</a>
         		</li>
       		
 		</ul>
@@ -361,7 +330,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/带花树/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/CSP2019游记/">展开全文 >></a>
         </p>
       
 
@@ -392,21 +361,21 @@ function init(){
 
   
     
-<article id="post-题解-CF1200B-Block-Adventure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某CSPS模拟赛-20191112" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-CF1200B-Block-Adventure/">题解-CF1200B-Block Adventure</a>
+      <a class="article-title" href="/2019/某CSPS模拟赛-20191112/">某 CSPS 模拟赛 - 20191112</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-CF1200B-Block-Adventure/" class="archive-article-date">
-  	<time datetime="2019-08-22T04:01:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
+        <a href="/2019/某CSPS模拟赛-20191112/" class="archive-article-date">
+  	<time datetime="2019-11-14T08:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -420,13 +389,19 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.luogu.org/problem/CF1200B" target="_blank" rel="noopener">题目链接</a></p>
-<p>采用贪心策略</p>
-<p>假如该列不够高，我们只能往上摞</p>
-<p>否则我们将尽可能多的方块挖掉，扔进背包</p>
-<p>注意：挖掉的方块数量不能超过该列高度（因为这个 WA 了两次）</p>
-<p>中途一旦方块不够用就 GG 了</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> h[<span class="number">1010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t=getint();</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> n=getint(),m=getint(),k=getint();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">			h[i]=getint();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">bool</span> ok=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(h[i]&lt;h[i+<span class="number">1</span>]-k)m-=h[i+<span class="number">1</span>]-h[i]-k;</span><br><span class="line">			<span class="keyword">else</span> m+=min((<span class="keyword">long</span> <span class="keyword">long</span>)h[i],h[i]-h[i+<span class="number">1</span>]+k);</span><br><span class="line">			<span class="keyword">if</span>(m&lt;<span class="number">0</span>)ok=<span class="number">0</span>;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"? " &lt;&lt;m&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">puts</span>(ok?<span class="string">"YES"</span>:<span class="string">"NO"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="T1-命令方块（block）"><a href="#T1-命令方块（block）" class="headerlink" title="T1 命令方块（block）"></a>T1 命令方块（block）</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有 $N$ 个字符串 $s_i$，按给定顺序排开，你每次可以交换一对字符串，最后使得：</p>
+<ul>
+<li>对于任意任意 $i&lt;j&lt;k$，有：$\operatorname{lcp}(s_i,s_j)\geq \operatorname{lcp}(s_i,s_k)$ 且 $\operatorname{lcp}(s_j,s_k)\geq \operatorname{lcp}(s_i,s_k)$</li>
+</ul>
+<p>输出任意一种交换方案，要求交换次数 $\leq 10^6$。$N\leq 10^6, \sum |s_i|\leq 10^7$。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>（刚看到题目名称还有 SPJ 还以为第一道题就是造计算机题……）</p>
+<p>首先把要求翻译成人话——对于任意一个字符串，向同一个方向看，离得越近的最长公共前缀越长。</p>
+<p>最长公共前缀越长就相当于字典序更接近，所以按字典序 <code>sort</code> 一遍就行。</p>
+<p>（实际上按字典树的任意 DFS 序排序都是可行的）</p>
+<p>得到了排序后的序列，只需要对于每个没有归位的字符串 <code>swap</code> 一遍，就能得到方案。</p>
+        
+          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/#more">more >></a>
+        
       
 
       
@@ -439,11 +414,7 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -451,7 +422,23 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-模拟</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-字符串-字典序</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-主席树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学</a>
         		</li>
       		
 		</ul>
@@ -461,7 +448,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-CF1200B-Block-Adventure/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/">展开全文 >></a>
         </p>
       
 
@@ -492,21 +479,21 @@ function init(){
 
   
     
-<article id="post-题解-CF1200D-White-Lines" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某CSPS模拟赛 T3 子树问题（subtree）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-CF1200D-White-Lines/">题解-CF1200D-White Lines</a>
+      <a class="article-title" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">某CSPS模拟赛 T3 子树问题（tree）</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-CF1200D-White-Lines/" class="archive-article-date">
-  	<time datetime="2019-08-22T03:59:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
+        <a href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/" class="archive-article-date">
+  	<time datetime="2019-11-03T12:20:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -520,19 +507,18 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://codeforces.com/problemset/problem/1200/D" target="_blank" rel="noopener">题目链接</a></p>
-<p>这里介绍一种 $O(\text{玄学})$（应该是 $O(n(n-k)\log k)$？）的做法</p>
-<blockquote>
-<p>当时想到此做法时：计算器算一下 $n^2\log n$ 好像过不了？写一下试一下<br>写完之后：试一下极端数据，跑了 2s+怕是过不了，交一发试一下（一不小心忘取消 <code>freopen</code>，还好挂在样例不扣分，再交一次）<br>过了 Pretest 之后：这都能 PP？坐等 FST。<br>第二天一看：Accepted</p>
-</blockquote>
-<p>考虑枚举橡皮擦的位置，并分别求出橡皮擦在每个位置时，行和列分别会增加多少个 WL(White Line(s)，下同)</p>
-<p>这里以计算行上增加的 WL 为例：</p>
-<p>先预处理出每一（有黑色的）行的黑色段的左端与右端</p>
-<p>枚举橡皮擦在哪几行，将这几行的黑色段的左端与右端排序。然后从左往右枚举橡皮擦的位置，并维护指针 $pl,pr$，集合 $s$。</p>
-<p>当橡皮擦移动到一个新位置时，右移 $pl$ 扫过所有已经退出橡皮擦范围的（行的黑色段的）左端，并从集合 $s$ 中删除这一行（如果 $s$ 中没有这一行就打上标记，代表这一行不可能变成 WL）；然后右移 $pr$ 扫过所有已经进入橡皮擦范围的（行的黑色段的）右端，假如这一行没有标记，便将这一行插入集合 $s$。</p>
-<p>最后枚举每一格取 $\max$ 即可</p>
-<p>下面代码有些乱，<code>set&lt;pair&lt;int,pair&lt;int,bool&gt; &gt; &gt;e</code> 可以直接排序维护，<code>set&lt;int&gt; s</code> 可以直接用一个数组记录 tag：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">bool</span> a[<span class="number">2010</span>][<span class="number">2010</span>];</span><br><span class="line"><span class="keyword">int</span> rl[<span class="number">2010</span>],rr[<span class="number">2010</span>],cl[<span class="number">2010</span>],cr[<span class="number">2010</span>];<span class="comment">//行（列）的黑色段的左（优、上、下端）</span></span><br><span class="line"><span class="keyword">int</span> rcnt[<span class="number">2010</span>][<span class="number">2010</span>],ccnt[<span class="number">2010</span>][<span class="number">2010</span>];<span class="comment">//橡皮擦在此处时，行、列增加的 WL 数量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint(),k=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="keyword">char</span> c=getchar();</span><br><span class="line">			<span class="keyword">while</span>(c&gt;<span class="string">'Z'</span>||c&lt;<span class="string">'A'</span>)c=getchar();</span><br><span class="line">			a[i][j]=(c==<span class="string">'B'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">memset</span>(rl,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(rl));</span><br><span class="line">	<span class="built_in">memset</span>(cl,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(cl)); </span><br><span class="line">	<span class="keyword">int</span> qaq=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i][j])&#123;</span><br><span class="line">				cl[j]=min(cl[j],i);</span><br><span class="line">				cr[j]=max(cr[j],i);</span><br><span class="line">				rl[i]=min(rl[i],j);</span><br><span class="line">				rr[i]=max(rr[i],j);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		qaq+=(cl[i]&gt;cr[i]);<span class="comment">//本身就是 WL</span></span><br><span class="line">		qaq+=(rl[i]&gt;rr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-k+<span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">set</span>&lt;pair&lt;<span class="keyword">int</span>,pair&lt;<span class="keyword">int</span>,<span class="keyword">bool</span>&gt; &gt; &gt;e;<span class="comment">//所有行的黑色段的左（右）端点</span></span><br><span class="line">		<span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt;s,gg;<span class="comment">//gg:被标记的集合</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;i+k;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(rl[j]&gt;rr[j])<span class="keyword">continue</span>;<span class="comment">//本身就是 WL 的行已经单独计算</span></span><br><span class="line">			e.insert(make_pair(rl[j],make_pair(j,<span class="number">0</span>)));</span><br><span class="line">			e.insert(make_pair(rr[j],make_pair(j,<span class="number">1</span>)));</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"r "&lt;&lt;rl[j]&lt;&lt;" "&lt;&lt;rr[j]&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">auto</span> itl=e.begin(),itr=e.begin();<span class="comment">//即题解中的 pl,pr</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-k+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"?? "&lt;&lt;itr-&gt;first&lt;&lt;" "&lt;&lt;itl-&gt;first&lt;&lt;endl;</span></span><br><span class="line">			<span class="keyword">while</span>(itr!=e.end()&amp;&amp;(itr-&gt;second.second==<span class="number">0</span>||itr-&gt;first&lt;=j+k<span class="number">-1</span>))&#123;</span><br><span class="line">				<span class="comment">//if(itr-&gt;second.second)cout&lt;&lt;"&gt;. "&lt;&lt;itr-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">if</span>(itr-&gt;second.second&amp;&amp;!gg.count(itr-&gt;second.first))</span><br><span class="line">					s.insert(itr-&gt;second.first);</span><br><span class="line">				++itr;<span class="comment">//右移 pr</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">while</span>(itl!=e.end()&amp;&amp;(itl-&gt;second.second==<span class="number">1</span>||itl-&gt;first&lt;j))&#123;</span><br><span class="line">				<span class="comment">//if(!itl-&gt;second.second)cout&lt;&lt;"&lt;. "&lt;&lt;itl-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">auto</span> it=s.find(itl-&gt;second.first);</span><br><span class="line">				<span class="keyword">if</span>(itl-&gt;second.second==<span class="number">0</span>&amp;&amp;it!=s.end())</span><br><span class="line">					s.erase(it);</span><br><span class="line">				<span class="keyword">else</span> gg.insert(itl-&gt;second.first);</span><br><span class="line">				++itl;<span class="comment">//右移 pl</span></span><br><span class="line">			&#125; </span><br><span class="line">        <span class="comment">//上面两个指针的处理顺序可以交换</span></span><br><span class="line">			rcnt[i][j]=s.size();</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"rcnt "&lt;&lt;i&lt;&lt;" "&lt;&lt;j&lt;&lt;" "&lt;&lt;rcnt[i][j]&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-k+<span class="number">1</span>;i++)&#123;<span class="comment">//列同理</span></span><br><span class="line">		<span class="built_in">set</span>&lt;pair&lt;<span class="keyword">int</span>,pair&lt;<span class="keyword">int</span>,<span class="keyword">bool</span>&gt; &gt; &gt;e;</span><br><span class="line">		<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;s,gg;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;i+k;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(cl[j]&gt;cr[j])<span class="keyword">continue</span>; </span><br><span class="line">			e.insert(make_pair(cl[j],make_pair(j,<span class="number">0</span>)));</span><br><span class="line">			e.insert(make_pair(cr[j],make_pair(j,<span class="number">1</span>)));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">auto</span> itl=e.begin(),itr=e.begin();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-k+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"?? "&lt;&lt;itr-&gt;first&lt;&lt;" "&lt;&lt;itl-&gt;first&lt;&lt;endl;</span></span><br><span class="line">			<span class="keyword">while</span>(itr!=e.end()&amp;&amp;(itr-&gt;second.second==<span class="number">0</span>||itr-&gt;first&lt;=j+k<span class="number">-1</span>))&#123;</span><br><span class="line">				<span class="comment">//if(itr-&gt;second.second)cout&lt;&lt;"&gt;. "&lt;&lt;itr-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">if</span>(itr-&gt;second.second&amp;&amp;!gg.count(itr-&gt;second.first))</span><br><span class="line">					s.insert(itr-&gt;second.first);</span><br><span class="line">				++itr;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">while</span>(itl!=e.end()&amp;&amp;(itl-&gt;second.second==<span class="number">1</span>||itl-&gt;first&lt;j))&#123;</span><br><span class="line">				<span class="comment">//if(!itl-&gt;second.second)cout&lt;&lt;"&lt;. "&lt;&lt;itl-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">auto</span> it=s.find(itl-&gt;second.first);</span><br><span class="line">				<span class="keyword">if</span>(itl-&gt;second.second==<span class="number">0</span>&amp;&amp;it!=s.end())</span><br><span class="line">					s.erase(it);</span><br><span class="line">				<span class="keyword">else</span> gg.insert(itl-&gt;second.first);</span><br><span class="line">				++itl;</span><br><span class="line">			&#125; </span><br><span class="line">			ccnt[j][i]=s.size();</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"ccnt "&lt;&lt;j&lt;&lt;" "&lt;&lt;i&lt;&lt;" "&lt;&lt;ccnt[j][i]&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-k+<span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-k+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;i&lt;&lt;" "&lt;&lt;j&lt;&lt;" "&lt;&lt;ccnt[i][j]&lt;&lt;" "&lt;&lt;rcnt[i][j]&lt;&lt;endl;</span></span><br><span class="line">			ans=max(ans,ccnt[i][j]+rcnt[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans+qaq;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定 $L,R,n,a_1,\dots,a_x$，对于每个整数 $L\leq i\leq R$，询问有多少符合以下条件的有根树树（有标号，儿子无序）;</p>
+<ul>
+<li>高度为 $i$；</li>
+<li>节点数为 $n$；</li>
+<li>没有任何一个子树的大小为 $a_j$；</li>
+<li>节点编号构成一个小根堆（父亲编号小于儿子）。</li>
+</ul>
+<p>$1\leq L\leq R\leq n\leq 500,0\leq x&lt;n,2\leq a_i\leq n$，$a_i$ 互不相同。答案模 998244353。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>令 $f[i][j]$ 为有 $i$ 个节点，深度不超过 $j$ 的树的数量，则答案为 $f[n][i]-f[n][i-1]$。<br>假设这每树内部节点编号相对大小顺序已经确定。<br>每次转移考虑将一棵树的一个子树拆下来，强制这个子树的根的编号是第二小的（显然这棵树的根编号是最小的）以避免重复计数。<br>则不考虑 $size\not\in a$ 的话，转移方程为 $f[i][j]=\sum\limits_{k=1}^{i-1}f[i-k][j]\cdot f[k][j-1]\cdot {i-2\choose k-1}$<br>考虑 $size\not\in a$时，只需要在转移时把 $f[k][j-1]$ 这项在 $k\in a$ 时看作 0。<strong>但是不应将 $f[i-k][j]$ 看作 0，也不应在 DP 时跳过 $f[i][j]$。</strong></p>
+        
+          <a class="article-more-a" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/#more">more >></a>
+        
       
 
       
@@ -545,7 +531,7 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -553,7 +539,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-枚举</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-计数DP</a>
         		</li>
       		
 		</ul>
@@ -563,7 +549,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-CF1200D-White-Lines/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">展开全文 >></a>
         </p>
       
 
@@ -595,7 +581,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -985,6 +971,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治-根号分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大胆猜想不用证明</a>
               </li>
             
             <div class="clearfix"></div>
