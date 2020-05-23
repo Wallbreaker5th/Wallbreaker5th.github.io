@@ -7,19 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wallbreaker5th.github.io">
-  <title>Archives: 1000 | 破壁人五号的博客</title>
+  <title>min_25 筛略解 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个博客耳">
-<meta name="keywords" content="OI,信息学竞赛,算法">
-<meta property="og:type" content="website">
-<meta property="og:title" content="破壁人五号的博客">
-<meta property="og:url" content="https://wallbreaker5th.github.io/archives/1000/index.html">
+  <meta name="description" content="min_25 筛因其发明者为 min_25 而得名。该算法的思想来源于埃氏筛。 其可以在低于线性的时间复杂度下对于一类积性函数 $f$ 解决：  $\sum\limits_{i=1}^n[i\text{ 为质数}]f(i)$； $\sum\limits_{i=1}^nf(i)$（即 $f$ 的前缀和）。">
+<meta name="keywords" content="笔记,算法-数学,算法-数学-数论,算法,OI,算法-数学-数论-min_25筛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="min_25 筛略解">
+<meta property="og:url" content="https://wallbreaker5th.github.io/2020/min_25/index.html">
 <meta property="og:site_name" content="破壁人五号的博客">
-<meta property="og:description" content="一个博客耳">
+<meta property="og:description" content="min_25 筛因其发明者为 min_25 而得名。该算法的思想来源于埃氏筛。 其可以在低于线性的时间复杂度下对于一类积性函数 $f$ 解决：  $\sum\limits_{i=1}^n[i\text{ 为质数}]f(i)$； $\sum\limits_{i=1}^nf(i)$（即 $f$ 的前缀和）。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-05-23T14:07:28.016Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="破壁人五号的博客">
-<meta name="twitter:description" content="一个博客耳">
+<meta name="twitter:title" content="min_25 筛略解">
+<meta name="twitter:description" content="min_25 筛因其发明者为 min_25 而得名。该算法的思想来源于埃氏筛。 其可以在低于线性的时间复杂度下对于一类积性函数 $f$ 解决：  $\sum\limits_{i=1}^n[i\text{ 为质数}]f(i)$； $\sum\limits_{i=1}^nf(i)$（即 $f$ 的前缀和）。">
   
     <link rel="alternative" href="/atom.xml" title="破壁人五号的博客" type="application/atom+xml">
   
@@ -261,52 +262,222 @@ function init(){
           </div>
           <div id="js-content" class="content-ll">
             
-
-  
-  
+<article id="post-min_25" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/1000" class="archive-year">1000</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/1000/tags/" class="archive-article-date">
-  	<time datetime="0999-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1000-01-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/1000/tags/">标签索引</a>
+    <h1 class="article-title" itemprop="name">
+      min_25 筛略解
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
+<div style="buttom: 0px;z-index: 233">
+  
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/2.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons Attribution-ShareAlike 2.0 Generic License</a>.
+  
+</div>
 
+        
+        <a href="/2020/min_25/" class="archive-article-date">
+  	<time datetime="2020-05-23T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>min_25 筛因其发明者为 <a href="http://min-25.hatenablog.com/" target="_blank" rel="noopener">min_25</a> 而得名。该算法的思想来源于埃氏筛。</p>
+<p>其可以在低于线性的时间复杂度下对于一类积性函数 $f$ 解决：</p>
+<ul>
+<li>$\sum\limits_{i=1}^n[i\text{ 为质数}]f(i)$；</li>
+<li>$\sum\limits_{i=1}^nf(i)$（即 $f$ 的前缀和）。</li>
+</ul>
+<a id="more"></a>
+<h2 id="记号"><a href="#记号" class="headerlink" title="记号"></a>记号</h2><ul>
+<li>$P$ 为质数集合；</li>
+<li>$p_i$ 为第 $i$ 个质数（特别地，$p_0=1$）；</li>
+<li>$\operatorname{min}(x)$ 为 $x$ 的最小质因子；</li>
+<li>$f(x)$ 为希望求出前缀和的积性函数；</li>
+<li>$f’(x)$ 为 $f’(x)=f(x)(x\in P)$ （即与 $f$ 在质数处值相等）的一个完全积性函数。</li>
+</ul>
+<h2 id="筛质数的-f-的前缀和"><a href="#筛质数的-f-的前缀和" class="headerlink" title="筛质数的 $f$ 的前缀和"></a>筛质数的 $f$ 的前缀和</h2><p>记 $g(n)=\sum\limits_{i=1}^n[i\in P]f(i)=\sum\limits_{i=1}^n[i\in P]f’(i)$。</p>
+<p>先考虑我们是如何用最原始的方法筛出所有质数的：由小到大枚举 $p_i$，将所有满足 $p_i|x(x&gt;p_i)$ 的 $x$ 标记为合数。每一轮新被筛掉的数都满足 $x\not=p_i\ \text{and}\ \min(x)=p_i$。</p>
+<p>故记 $g(n,i)$ 为第 $i$ 轮筛完之后剩下的数的 $f$ 的前缀和，即：$g(n,i)=\sum\limits_{j=1}^n[j\in P\ \text{or}\ \min(j)&gt;p_i]f(i)$。</p>
+<p>记 $k$ 满足 $p_k^2\leq n&lt; p_{k+1}^2$，显然 $k$ 轮筛完后只剩质数，即 $g(n)=g(n,k)$。</p>
+<p>我们如果可以通过 $g(n,i-1)$ 求出 $g(n,i)$，就能通过 $g(n,0)$（$f’$ 的前缀和 $-f’(1)$）求出 $g(n,k)$（即 $g(n)$）。</p>
+<p>从 $g(n,i-1)$ 到 $g(n,i)$ 筛掉了一些数，新被筛掉的数都满足 $x\not=p_i\ \text{and}\ \min(x)=p_i$，即它们有质因数 $p_i$ ，且去掉 $p_i$ 后其质因数仍然不小于 $p_i$。所以： $$\begin{aligned}g(n,i)=&amp;g(n,i-1)-\sum\limits_{j=1}^n[j\not=p_i\ \text{and}\ \min(j)=p_i]f’(j) \quad &amp;\text{去掉被筛的数}            \\=&amp;g(n,i-1)-f’(p_i)\sum\limits_{j=2}^{\lfloor {n\over p_i}\rfloor}[\min(j)&gt;p_{i-1}]f’(j)&amp;\text{把 $p_i$ 提出来}            \\=&amp;g(n,i-1)-f’(p_i)(\sum\limits_{j=2}^{\lfloor {n\over p_i}\rfloor}[j\in P\ \text{or}\ \min(j)&gt;p_{i-1}]f’(j)-\sum\limits_{j=1}^{i-1}f’(p_j))            \\=&amp;g(n,i-1)-f’(p_i)(g(\lfloor {n\over p_i}\rfloor,i-1)-\sum\limits_{j=1}^{i-1}f’(p_j))\end{aligned}$$</p>
+<p>用 <code>f1[x]</code> 记录 $g(x,i)(x\leq \sqrt n)$，<code>f2[x]</code> 记录 $g(\lfloor {n\over x}\rfloor,i)(x&gt;\sqrt n)$，空间复杂度仅有 $O(\sqrt n)$。</p>
+<h2 id="求-f-的前缀和"><a href="#求-f-的前缀和" class="headerlink" title="求 $f$ 的前缀和"></a>求 $f$ 的前缀和</h2><p>记 $S(n)=\sum\limits_{i=1}^nf(i)$。与 $g$ 类似，定义 $S(n,i)=\sum\limits_{j=2}^n[\min(j)\geq p_i]f(i)$（注意定义略有差别）。则答案为 $S(n)=S(n,1)+1$。</p>
+<p>根据质数、合数分类计算。对于合数 $m$，枚举 $m$ 的最小质因数 $j$ 和它的次数 $c$，则：$$\begin{aligned} S(n,i)=&amp;\sum\limits_{j=1}^n[\min(j)\geq p_i]f(i)            \\=&amp;\color{blue}{\sum\limits_{j=i}^{p_j^2\leq n} \sum\limits_{c=1}^{p_j^c\leq n} ([p_j^c\not\in P]f(p_j^c)+\sum\limits_{k=2}^{\lfloor {n\over p_j^c}\rfloor} [\min(k)\geq p_{i+1}]f(k\cdot p_j^c))}+\color{red}{\sum\limits_{i=k}^{p_i\leq n}f(p_i)}            \\&amp;\text{蓝色部分为合数，红色部分为质数}            \\=&amp;\sum\limits_{j=i}^{p_j^2\leq n} \sum\limits_{c=1}^{p_j^c\leq n} f(p_j^c)(\color{orange}{[c&gt;1]}+\color{purple}{S({\lfloor {n\over p_j^c}\rfloor},i+1)})+\color{red}{g(n)-g(p_{k-1})}           \\=&amp;\sum\limits_{j=i}^{p_j^2\leq n} \sum\limits_{c=1}^{p_j^{c+1}\leq n} (\color{orange}{f(p_j^{c+1})}+\color{purple}{f(p_j^c)S({\lfloor {n\over p_j^c}\rfloor},i+1)})+\color{red}{g(n)-g(p_{k-1})}            \\&amp;\text{橙色部分容易理解，}\\&amp;\text{紫色部分成立的原因在于 $p_j^c\leq n&lt;p_j^{c+1}$ 时，}\\&amp;\text{$\lfloor {n\over p_j^c}\rfloor&lt;p_i&lt;p_{i+1}$，故此时 $S({\lfloor {n\over p_j^c}\rfloor},i+1)=0，$}\\&amp;\text{不必枚举 $p_j^c\leq n&lt;p_j^{c+1}$ 的情况。}\end{aligned}$$</p>
+<p>按照式子求就可以了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数学-数论-min_25筛</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wallbreaker5th.github.io/2020/min_25/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/题解-CF1355C-Count-Triangles/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">题解 CF1335C Count Triangles</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "min_25 筛略解",
+  owner: 'wallbreaker5th',
+  repo: 'wallbreaker5th.github.io',
+  oauth: {
+    client_id: 'c40007054253842a2304',
+    client_secret: 'f7f344582d83213a2917a464d9454a6f9aac01da',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a>进行许可。-->
           </div>
         </div>
       </div>
@@ -330,8 +501,8 @@ function init(){
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

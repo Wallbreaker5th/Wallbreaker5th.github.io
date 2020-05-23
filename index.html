@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="题解-题解-CF1355D-Game-With-Array" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="post-min_25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-CF1355D-Game-With-Array/">题解 CF1335D Game With Array</a>
+      <a class="article-title" href="/2020/min_25/">min_25 筛略解</a>
     </h1>
   
 
 
         
-        <a href="/2020/题解-CF1355D-Game-With-Array/" class="archive-article-date">
-  	<time datetime="2020-05-17T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+        <a href="/2020/min_25/" class="archive-article-date">
+  	<time datetime="2020-05-23T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -292,16 +292,14 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
-<li>甲和乙玩游戏；</li>
-<li>已知数字 $N$ 和 $S$（$1\leq N\leq S\leq 10^6$）；</li>
-<li>甲构造一个长为 $N$，和为 $S$ 的正整数序列，指定数字 $K$（$0\leq K\leq S$）；</li>
-<li>乙尝试找到其一个非空子序列，使其和为 $K$ 或 $S-K$；</li>
-<li>乙找到则乙赢，否则甲赢；</li>
-<li>给出 $N$ 和 $S$，判断甲必败或给出甲必胜的一种构造方法。</li>
+        <p>min_25 筛因其发明者为 <a href="http://min-25.hatenablog.com/" target="_blank" rel="noopener">min_25</a> 而得名。该算法的思想来源于埃氏筛。</p>
+<p>其可以在低于线性的时间复杂度下对于一类积性函数 $f$ 解决：</p>
+<ul>
+<li>$\sum\limits_{i=1}^n[i\text{ 为质数}]f(i)$；</li>
+<li>$\sum\limits_{i=1}^nf(i)$（即 $f$ 的前缀和）。</li>
 </ul>
         
-          <a class="article-more-a" href="/2020/题解-CF1355D-Game-With-Array/#more">more >></a>
+          <a class="article-more-a" href="/2020/min_25/#more">more >></a>
         
       
 
@@ -315,7 +313,19 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -323,15 +333,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-构造</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大胆猜想不用证明</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数学-数论-min_25筛</a>
         		</li>
       		
 		</ul>
@@ -341,108 +343,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-CF1355D-Game-With-Array/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="题解-题解-CF1355B-Yong-Explorers" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-CF1355B-Yong-Explorers/">题解 CF1335B Young Explorers</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/题解-CF1355B-Yong-Explorers/" class="archive-article-date">
-  	<time datetime="2020-05-17T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>将 $N$ 个数 $e_i$ 分为尽可能多个组（允许某个数不在任何一个组里），要求 $e_i$ 所在的组的数字数量不少于 $e_i$，输出最大组数。多组数据，$\sum N\leq 3\times 10^5$。</p>
-        
-          <a class="article-more-a" href="/2020/题解-CF1355B-Yong-Explorers/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大胆猜想不用证明</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-CF1355B-Yong-Explorers/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/min_25/">展开全文 >></a>
         </p>
       
 
@@ -544,6 +445,114 @@ function init(){
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/题解-CF1355C-Count-Triangles/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="题解-题解-CF1355D-Game-With-Array" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/题解-CF1355D-Game-With-Array/">题解 CF1335D Game With Array</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/题解-CF1355D-Game-With-Array/" class="archive-article-date">
+  	<time datetime="2020-05-17T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
+<li>甲和乙玩游戏；</li>
+<li>已知数字 $N$ 和 $S$（$1\leq N\leq S\leq 10^6$）；</li>
+<li>甲构造一个长为 $N$，和为 $S$ 的正整数序列，指定数字 $K$（$0\leq K\leq S$）；</li>
+<li>乙尝试找到其一个非空子序列，使其和为 $K$ 或 $S-K$；</li>
+<li>乙找到则乙赢，否则甲赢；</li>
+<li>给出 $N$ 和 $S$，判断甲必败或给出甲必胜的一种构造方法。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/题解-CF1355D-Game-With-Array/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-构造</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大胆猜想不用证明</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/题解-CF1355D-Game-With-Array/">展开全文 >></a>
         </p>
       
 
@@ -973,6 +982,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大胆猜想不用证明</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
               </li>
             
             <div class="clearfix"></div>
