@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="post-某NOIP模拟赛 T2 dp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-P2286-HNOI2004-宠物收养所" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/某NOIP模拟赛 T2 dp/">某NOIP模拟赛 T2 dp</a>
+      <a class="article-title" href="/2019/题解-P2286-HNOI2004-宠物收养所/">题解 [HNOI2008]神奇的国度（BZOJ1006 洛谷P2286）</a>
     </h1>
   
 
 
         
-        <a href="/2018/某NOIP模拟赛 T2 dp/" class="archive-article-date">
-  	<time datetime="2018-08-20T08:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+        <a href="/2019/题解-P2286-HNOI2004-宠物收养所/" class="archive-article-date">
+  	<time datetime="2019-03-22T12:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -292,20 +292,15 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##【问题描述】<br>一块土地有 $n$ 个连续的部分，用 $H[1],H[2],…,H[n]$ 表示每个部分的最初高度。有 $n$ 种泥土可用，他们都能覆盖连续的 $k$ 个部分，第 $i$ 种泥土的价格为 $C[i]$，可以使 $i, i+1,…,i+k-1$ 部分的高度增加 $E[i]$(如果 $i+k&gt;n$，那就覆盖 $i,…,n$)，我们必须满足以下条件： </p>
-<ol>
-<li><p>每种泥土只能使用一次。 </p>
-</li>
-<li><p>成本必须小于等于 m。 </p>
-</li>
-</ol>
-<p>要求在上述条件下，使得最低的部分的高度尽量高，请求出这个高度。 </p>
-<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行三个整数 $n,m,k$，表示土地有几个部分，最大预算成本以及每种泥土能覆盖的部分数。  </p>
-<p>接下来 $n$ 行，每行三个整数 $H[i],E[i],C[i]$。 </p>
-<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>输出一个整数，表示在满足条件的情况下，最低部分的高度的最大值。 </p>
-<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 20 1</span><br><span class="line">1 3 5</span><br><span class="line">1 7 3</span><br><span class="line">4 6 9</span><br><span class="line">3 5 13</span><br></pre></td></tr></table></figure>
+        <p>洛谷题号：P4035</p>
+<p>bzoj 题号：1013</p>
+<hr>
+<p><a href="https://www.luogu.org/problemnew/show/P2286" target="_blank" rel="noopener">题目链接</a></p>
+<p>用平衡树按照题意模拟即可。</p>
+<p>但是写一个平衡树很麻烦，我们可以用 <code>set</code> 代替。</p>
+<p><code>set</code> 的 <code>upper_bound</code> 函数可以返回一个不比 <code>x</code> 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。</p>
         
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 dp/#more">more >></a>
+          <a class="article-more-a" href="/2019/题解-P2286-HNOI2004-宠物收养所/#more">more >></a>
         
       
 
@@ -327,15 +322,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">来源-NOIP模拟</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-平衡树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-状压DP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-STL</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
         		</li>
       		
 		</ul>
@@ -345,7 +340,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 dp/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-P2286-HNOI2004-宠物收养所/">展开全文 >></a>
         </p>
       
 
@@ -376,21 +371,21 @@ function init(){
 
   
     
-<article id="post-某NOIP模拟赛 T1 number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-舞蹈链算法（DLX）略解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/某NOIP模拟赛 T1 number/">某NOIP模拟赛 T1 number</a>
+      <a class="article-title" href="/2019/舞蹈链算法（DLX）略解/">舞蹈链算法（DLX）略解</a>
     </h1>
   
 
 
         
-        <a href="/2018/某NOIP模拟赛 T1 number/" class="archive-article-date">
-  	<time datetime="2018-08-20T07:43:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+        <a href="/2019/舞蹈链算法（DLX）略解/" class="archive-article-date">
+  	<time datetime="2019-01-27T12:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-27</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -404,12 +399,22 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>【问题描述】<br>如果一个数能够表示成两两不同的 3 的幂次的和，就说这个数是好的。<br>比如 13 是好的，因为 13 = 9 + 3 + 1 。<br>又比如 90 是好的，因为 90 = 81 + 9 。<br>现在我们用 a[i] 表示第 i 小的好数。<br>比如$a[1] = 1, a[2] = 3, a[5] = 10$ 。<br>给定$L,R$，请求出 $a[L]$ 到 $a[R]$ 的和 $\mod 2^{32}$。 </p>
-<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行一个整数 T，表示数据组数。<br>接下来 T 行，每行两个整数 L,R 表示一组询问。 </p>
-<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>输出T 行，每行为一个整数，表示相应询问的答案。 </p>
-<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 </span><br><span class="line">1 3 </span><br><span class="line">3 3 </span><br><span class="line">4 5 </span><br><span class="line">6 7 </span><br><span class="line">2 5</span><br></pre></td></tr></table></figure>
+        <p>（未完成，待完善）</p>
+<p><del>DLX=Dancing Line X</del></p>
+<p>之前学 DLX 时在网上看了好几篇博客，结合着几篇讲代码的、有图片的、说原理的，总算弄懂了。这里</p>
+<p>DLX 是用来解决精确覆盖问题的算法，算是 X 算法的优化。</p>
+<p>时间复杂度 $O(\text{玄学})$（最坏是指数级）</p>
+<p><a href="https://www.luogu.org/problemnew/show/P4929" target="_blank" rel="noopener">精确覆盖问题</a>：</p>
+<p>给定一个 $N$ 行 $M$ 列的矩阵，矩阵中每个元素要么是 1，要么是 0。</p>
+<p>你需要在矩阵中挑选出若干行，使得对于矩阵的每一列 $j$，在你挑选的这些行中，有且仅有一行的第 $j$ 个元素为 1。</p>
+<p><img src="/img/0008.PNG" alt=""></p>
+<p>如上表，选择第 1、4、5 行即符合要求。</p>
+<h1 id="X-算法"><a href="#X-算法" class="headerlink" title="X 算法"></a>X 算法</h1><p>这个算法的过程如下：</p>
+<p>矩阵为空代表得到了解。</p>
+<p>否则首先我们找到 1 的个数最少的一列（个数最少可以使搜索次数变少），考虑为了使这一列有 1 选择哪一行。</p>
+<p>不管我们选哪一行，这一行都不能再选；对于这一列是 1 的其它行，这一行也不能再选（否则这一列将有不止一个 1），所以我们先把这些行从原矩阵中删掉（但是数据要保留好）。同时这一列将要成功解决，为了避免重复考虑，删掉这一列。</p>
         
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 number/#more">more >></a>
+          <a class="article-more-a" href="/2019/舞蹈链算法（DLX）略解/#more">more >></a>
         
       
 
@@ -423,7 +428,7 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -431,11 +436,11 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-搜索-DLX</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">来源-NOIP模拟</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-搜索</a>
         		</li>
       		
 		</ul>
@@ -445,7 +450,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 number/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/舞蹈链算法（DLX）略解/">展开全文 >></a>
         </p>
       
 
@@ -476,21 +481,21 @@ function init(){
 
   
     
-<article id="post-某NOIP模拟赛 T2 位运算（or）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-Catalan-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/某NOIP模拟赛 T2 位运算（or）/">某NOIP模拟赛 T2 位运算（or）</a>
+      <a class="article-title" href="/2018/Catalan-01/">几种计数问题方案与 01 序列问题的转化</a>
     </h1>
   
 
 
         
-        <a href="/2018/某NOIP模拟赛 T2 位运算（or）/" class="archive-article-date">
-  	<time datetime="2018-08-20T07:38:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+        <a href="/2018/Catalan-01/" class="archive-article-date">
+  	<time datetime="2018-12-01T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -504,15 +509,28 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>（此题有 SPJ）</p>
-<h2 id="【描述】"><a href="#【描述】" class="headerlink" title="【描述】"></a>【描述】</h2><p>  构造一个长度为 $n$ 的非负整数序列 $x$，满足 $m$ 个条件，第 $i$ 个条件为 </p>
-<p>$x[l_i] | x[l_i+1] | … | x[r_i]=p_i$。 </p>
-<h2 id="【输入】"><a href="#【输入】" class="headerlink" title="【输入】"></a>【输入】</h2><p>第一行两个整数 $n,m$。接下来 m 行每行三个整数 $li,ri,pi$。 </p>
-<h2 id="【输出】"><a href="#【输出】" class="headerlink" title="【输出】"></a>【输出】</h2><p>如果存在这样的序列 $x$，第一行输出 Yes，第二行输出 $n $ 个不超过 $2^{30}-1$ 的非负整数表示 $x[1]…x[n]$，否则输出一行 No </p>
-<h2 id="【输入样例1】"><a href="#【输入样例1】" class="headerlink" title="【输入样例1】"></a>【输入样例1】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 1 </span><br><span class="line">1 2 1</span><br></pre></td></tr></table></figure>
-<h2 id="【输出样例1】"><a href="#【输出样例1】" class="headerlink" title="【输出样例1】"></a>【输出样例1】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
+        <p>以下大部分性质总结自 wiki<a href="https://en.wikipedia.org/wiki/Catalan_number" target="_blank" rel="noopener">（英文）</a><a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E5%A1%94%E5%85%B0%E6%95%B0" target="_blank" rel="noopener">（中文）</a></p>
+<hr>
+<p>卡特兰数是计数问题当中常见的一个数列。卡特兰数解决的一个经典的问题就是 01 序列：</p>
+<blockquote>
+<p>有一个只有 $n$ 个 0，$n$ 个 1 的数列，求保证该数列任意前缀的 1 的个数大于等于 0 的个数的方案数。如 $n=2$ 时，方案有 $1100,1010$ 共 2 种。</p>
+</blockquote>
+<p>这个问题的答案就是 $C_{n-1}$。</p>
+<p>卡特兰数还能解决其它许多问题，下面将各种问题的方案转换为 01 序列：</p>
+<h1 id="括号序列"><a href="#括号序列" class="headerlink" title="括号序列"></a>括号序列</h1><blockquote>
+<p>给定n对括号，求括号正确配对的字符串数。</p>
+</blockquote>
+<p>将 <code>(</code> 编号为 1，将 <code>)</code> 编号为 0，即可建立对应关系。</p>
+<h1 id="出栈序列"><a href="#出栈序列" class="headerlink" title="出栈序列"></a>出栈序列</h1><blockquote>
+<p>一个栈（无穷大）的进栈序列为 $1,2,3,\dots ,n$，有多少个不同的出栈序列？</p>
+</blockquote>
+<p>将 入栈 编号为 1，将 出栈 编号为 0，即可建立对应关系。</p>
+<h1 id="不穿过对角线的路径条数"><a href="#不穿过对角线的路径条数" class="headerlink" title="不穿过对角线的路径条数"></a>不穿过对角线的路径条数</h1><blockquote>
+<p>一位大城市的律师在她住所以北 $n$ 个街区和以东 $n$ 个街区处工作。每天她走 $2n$ 个街区去上班。如果她从不穿越（但可以碰到）从家到办公室的对角线（即始终保证 $x\geq y$），那么有多少条可能的道路？</p>
+</blockquote>
+<p>将 向东走 编号为 1，将 向北走 编号为 0，即可建立对应关系。</p>
         
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 位运算（or）/#more">more >></a>
+          <a class="article-more-a" href="/2018/Catalan-01/#more">more >></a>
         
       
 
@@ -526,23 +544,15 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学-卡特兰数</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">来源-NOIP模拟</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-线段树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-位运算</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		
 		</ul>
@@ -552,7 +562,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T2 位运算（or）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/Catalan-01/">展开全文 >></a>
         </p>
       
 
@@ -584,7 +594,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
     </nav>
   
 
@@ -986,6 +996,46 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-快速gcd变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-min-max容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
               </li>
             
             <div class="clearfix"></div>

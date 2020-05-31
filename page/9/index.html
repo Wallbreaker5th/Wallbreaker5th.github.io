@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="post-题解-CF1200C-Round-Corridor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某CSPS模拟赛-20191112" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-CF1200C-Round-Corridor/">题解 CF1200C Round Corridor</a>
+      <a class="article-title" href="/2019/某CSPS模拟赛-20191112/">某 CSPS 模拟赛 - 20191112</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-CF1200C-Round-Corridor/" class="archive-article-date">
-  	<time datetime="2019-08-21T09:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
+        <a href="/2019/某CSPS模拟赛-20191112/" class="archive-article-date">
+  	<time datetime="2019-11-14T08:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -292,223 +292,18 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://codeforces.com/problemset/problem/1200/C" target="_blank" rel="noopener">题目链接</a></p>
-<p><del>从样例可以猜到</del>所有房间被分成了 $\gcd(m,n)$ 个互不连通的块。</p>
-<p>胡乱证明：</p>
-<p>假如两部分被完全隔开，一定是因为内外两面墙在同一处，即：</p>
-<p>$\frac{a}{m}=\frac{b}{n}(0\leq a&lt;m,0\leq b&lt;n)$</p>
-<p>假设其约分后是 $\frac{x}{y}(gcd(x,y)=1,0\leq x&lt;y)$，显然 $y|m,y|n$，即 $y|\gcd(m,n)$，这样的分数个数为：$\sum \limits_{d|\gcd(m,n)}\phi(d)=\gcd(m,n)$</p>
-<p>所以内圈每 $n/\gcd(m,n)$ 一个块，外圈每 $m/\gcd(m,n)$ 一个块。</p>
-<p>每次询问简单计算出两个询问的房间在哪个块，相同即可以连通。</p>
-<p>记得开 <code>long long</code></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function">ll <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a,ll b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b?gcd(b,a%b):a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll n=getint(),m=getint(),q=getint();</span><br><span class="line">	ll g=gcd(m,n),gn=n/g,gm=m/g;</span><br><span class="line">	<span class="keyword">while</span>(q--)&#123;</span><br><span class="line">		ll sx=getint(),sy=getint()<span class="number">-1</span>,ex=getint(),ey=getint()<span class="number">-1</span>;</span><br><span class="line">		sy=(sx==<span class="number">1</span>?sy/gn:sy/gm);</span><br><span class="line">		ey=(ex==<span class="number">1</span>?ey/gn:ey/gm);</span><br><span class="line">		<span class="built_in">puts</span>(sy==ey?<span class="string">"YES"</span>:<span class="string">"NO"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-CF1200C-Round-Corridor/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-题解-CF337D-Developing-Game" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-CF337D-Developing-Game/">题解 CF337D Developing Game</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/题解-CF337D-Developing-Game/" class="archive-article-date">
-  	<time datetime="2019-08-21T09:35:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://codeforces.com/problemset/problem/377/D" target="_blank" rel="noopener">题目链接</a></p>
-<h1 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h1><p>有 $n$ 个人，每人有属性 $l_i,v_i,r_i(l_i\leq v_i\leq r_i)$，要求选出最大的人的集合 $S$ 使得 $\forall x,y\in S$ 有 $l_y\leq v_x\leq r_y$</p>
-<h1 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h1><p>简单分析一下这些不等式可以发现题目的要求可以转化为：$\max\limits_{i\in S} l_i\leq \min\limits_{i\in S} v_i\leq \max\limits_{i\in S} v_i\leq\min\limits_{i\in S} r_i$</p>
-<p>进一步地，我们将要求转化为找到 $L,R$，使得 $\max\limits_{i\in S} l_i\leq L\leq \min\limits_{i\in S} v_i,\max\limits_{i\in S} v_i\leq R\leq\min\limits_{i\in S} r_i$</p>
-<p>我们将 $(L,R)$ 看作二维平面上的一个点，一个人就对应着一个矩形。集合中选出多个人，对 $(L,R)$ 的限制就是这些矩形的交。选出最多的人，就是要找到一个点被尽可能多的矩形覆盖。</p>
-<p>以样例为例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">2 8 9</span><br><span class="line">1 4 7</span><br><span class="line">3 6 8</span><br><span class="line">5 8 10</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20190813211642944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5ODU0NzM0,size_16,color_FFFFFF,t_70" alt=""></p>
-<p>找到这个点可以用扫描线+线段树。记录最优的点的位置，输出方案时挨个判断矩形是否包含该点。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">200100</span>,M=<span class="number">600300</span>;</span><br><span class="line"><span class="keyword">int</span> a[M&lt;&lt;<span class="number">2</span>],tag[M&lt;&lt;<span class="number">2</span>],pos[M&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a[x&lt;&lt;<span class="number">1</span>]&gt;a[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>])&#123;</span><br><span class="line">		pos[x]=pos[x&lt;&lt;<span class="number">1</span>];</span><br><span class="line">		a[x]=a[x&lt;&lt;<span class="number">1</span>];</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		pos[x]=pos[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">		a[x]=a[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	tag[x&lt;&lt;<span class="number">1</span>]+=tag[x];</span><br><span class="line">	a[x&lt;&lt;<span class="number">1</span>]+=tag[x];</span><br><span class="line">	tag[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]+=tag[x];</span><br><span class="line">	a[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]+=tag[x];</span><br><span class="line">	tag[x]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> val,<span class="keyword">int</span> x,<span class="keyword">int</span> nl,<span class="keyword">int</span> nr)</span></span>&#123;</span><br><span class="line">	pushdown(x);</span><br><span class="line">	<span class="keyword">if</span>(l&lt;=nl&amp;&amp;nr&lt;=r)&#123;</span><br><span class="line">		a[x]+=val;</span><br><span class="line">		tag[x]+=val;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid=nl+nr&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(nl&lt;=r&amp;&amp;mid&gt;=l)modify(l,r,val,x&lt;&lt;<span class="number">1</span>,nl,mid);</span><br><span class="line">	<span class="keyword">if</span>(mid+<span class="number">1</span>&lt;=r&amp;&amp;nr&gt;=l)modify(l,r,val,x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,mid+<span class="number">1</span>,nr);</span><br><span class="line">	pushup(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">		pos[x]=l;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	build(x&lt;&lt;<span class="number">1</span>,l,mid);</span><br><span class="line">	build(x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,mid+<span class="number">1</span>,r);</span><br><span class="line">	pos[x]=pos[x&lt;&lt;<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> l[N],r[N],v[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">seg</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,u,d;</span><br><span class="line">	<span class="keyword">bool</span> b;</span><br><span class="line">&#125;;</span><br><span class="line">seg s[N];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(seg a,seg b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.x!=b.x)<span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> a.b&lt;b.b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		l[i]=getint();</span><br><span class="line">		v[i]=getint();</span><br><span class="line">		r[i]=getint();</span><br><span class="line">		s[i*<span class="number">2</span>].x=l[i];   s[i*<span class="number">2</span>].u=r[i];   s[i*<span class="number">2</span>].d=v[i];   s[i*<span class="number">2</span>].b=<span class="number">0</span>;</span><br><span class="line">		s[i*<span class="number">2</span>+<span class="number">1</span>].x=v[i]; s[i*<span class="number">2</span>+<span class="number">1</span>].u=r[i]; s[i*<span class="number">2</span>+<span class="number">1</span>].d=v[i]; s[i*<span class="number">2</span>+<span class="number">1</span>].b=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	build(<span class="number">1</span>,<span class="number">1</span>,<span class="number">3e5</span>+<span class="number">1</span>);</span><br><span class="line">	sort(s,s+n*<span class="number">2</span>,cmp);</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,ansp=<span class="number">0</span>,ansx=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n*<span class="number">2</span>;i++)&#123;</span><br><span class="line">		modify(s[i].d,s[i].u,s[i].b?<span class="number">-1</span>:<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">3e5</span>+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(query()&gt;ans)&#123;</span><br><span class="line">			ans=query();</span><br><span class="line">			ansp=pos[<span class="number">1</span>];</span><br><span class="line">			ansx=s[i].x;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(l[i]&lt;=ansx&amp;&amp;ansx&lt;=v[i]&amp;&amp;v[i]&lt;=ansp&amp;&amp;ansp&lt;=r[i])<span class="built_in">cout</span>&lt;&lt;i+<span class="number">1</span>&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-计算几何-扫描线</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-CF337D-Developing-Game/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="题解-题解-loj3161-NOI2019-I 君的探险- 部分分" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">部分分题解 [NOI2019]I 君的探险（LOJ3161 洛谷P5473）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/" class="archive-article-date">
-  	<time datetime="2019-07-21T02:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://loj.ac/problem/3161" target="_blank" rel="noopener">题目链接</a></p>
-<p>（代码在最后）</p>
-<h1 id="测试点-1"><a href="#测试点-1" class="headerlink" title="测试点 1"></a>测试点 1</h1><p>这个点只需要读懂题目就能乱搞过去。</p>
-<p>无数种方法中的一个：</p>
+        <h2 id="T1-命令方块（block）"><a href="#T1-命令方块（block）" class="headerlink" title="T1 命令方块（block）"></a>T1 命令方块（block）</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有 $N$ 个字符串 $s_i$，按给定顺序排开，你每次可以交换一对字符串，最后使得：</p>
 <ul>
-<li>修改 0 号点</li>
-<li>分别查询 1、2 号点，只要被修改了就代表它与 0 有边</li>
-<li>若1、2 点不同时与 0 有边连接，代表 1、2 点之间有边</li>
+<li>对于任意任意 $i&lt;j&lt;k$，有：$\operatorname{lcp}(s_i,s_j)\geq \operatorname{lcp}(s_i,s_k)$ 且 $\operatorname{lcp}(s_j,s_k)\geq \operatorname{lcp}(s_i,s_k)$</li>
 </ul>
-<ul>
-<li><p>时间复杂度：$O(1)$</p>
-</li>
-<li><p>修改次数：1</p>
-</li>
-<li><p>查询次数：2</p>
-</li>
-<li><p>检查次数：0</p>
+<p>输出任意一种交换方案，要求交换次数 $\leq 10^6$。$N\leq 10^6, \sum |s_i|\leq 10^7$。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>（刚看到题目名称还有 SPJ 还以为第一道题就是造计算机题……）</p>
+<p>首先把要求翻译成人话——对于任意一个字符串，向同一个方向看，离得越近的最长公共前缀越长。</p>
+<p>最长公共前缀越长就相当于字典序更接近，所以按字典序 <code>sort</code> 一遍就行。</p>
+<p>（实际上按字典树的任意 DFS 序排序都是可行的）</p>
+<p>得到了排序后的序列，只需要对于每个没有归位的字符串 <code>swap</code> 一遍，就能得到方案。</p>
         
-          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/#more">more >></a>
+          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/#more">more >></a>
         
       
 
@@ -530,15 +325,23 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-NOI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">特殊题目-交互题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-二进制</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-字符串-字典序</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-主席树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学</a>
         		</li>
       		
 		</ul>
@@ -548,7 +351,202 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-某CSPS模拟赛 T3 子树问题（subtree）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">某CSPS模拟赛 T3 子树问题（tree）</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/" class="archive-article-date">
+  	<time datetime="2019-11-03T12:20:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定 $L,R,n,a_1,\dots,a_x$，对于每个整数 $L\leq i\leq R$，询问有多少符合以下条件的有根树树（有标号，儿子无序）;</p>
+<ul>
+<li>高度为 $i$；</li>
+<li>节点数为 $n$；</li>
+<li>没有任何一个子树的大小为 $a_j$；</li>
+<li>节点编号构成一个小根堆（父亲编号小于儿子）。</li>
+</ul>
+<p>$1\leq L\leq R\leq n\leq 500,0\leq x&lt;n,2\leq a_i\leq n$，$a_i$ 互不相同。答案模 998244353。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>令 $f[i][j]$ 为有 $i$ 个节点，深度不超过 $j$ 的树的数量，则答案为 $f[n][i]-f[n][i-1]$。<br>假设这每树内部节点编号相对大小顺序已经确定。<br>每次转移考虑将一棵树的一个子树拆下来，强制这个子树的根的编号是第二小的（显然这棵树的根编号是最小的）以避免重复计数。<br>则不考虑 $size\not\in a$ 的话，转移方程为 $f[i][j]=\sum\limits_{k=1}^{i-1}f[i-k][j]\cdot f[k][j-1]\cdot {i-2\choose k-1}$<br>考虑 $size\not\in a$时，只需要在转移时把 $f[k][j-1]$ 这项在 $k\in a$ 时看作 0。<strong>但是不应将 $f[i-k][j]$ 看作 0，也不应在 DP 时跳过 $f[i][j]$。</strong></p>
+        
+          <a class="article-more-a" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-计数DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-某CSPS模拟赛 T2 背包问题（bag）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/某CSPS模拟赛 T2 背包问题（bag）/">某 CSPS 模拟赛 T2 背包问题（bag）</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/某CSPS模拟赛 T2 背包问题（bag）/" class="archive-article-date">
+  	<time datetime="2019-11-03T12:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$T$ 组数据。每组数据给定 $n$ 个二维点与 $m$ 个数 $t_i$。要求从找到最长的二维偏序不下降序列，能给序列中的每个点分配一个 $t_i$ 不小于其横坐标。$n,m\leq 10^5$</p>
+<h2 id="0-题解（误）"><a href="#0-题解（误）" class="headerlink" title="0% 题解（误）"></a>0% 题解（误）</h2><p>把标程的二分写挂就是 0 分了。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先有个很显然的性质——选出的 $t_i$ 都是最大的几个 $t_i$ 的话，答案一定不会劣。<br>所以对于每个点，我们可以知道以它结尾的不下降序列不可能超过其横坐标在 $t$ 中的排名，否则我们无法找到足够多的 $t_i$ 使它们都大于之前那些点的横坐标。<br>知道这个性质就可以乱搞了。<br>仿效传统的 LIS 做法，只需要在利用这个点更新时判断以它结尾的长度是不是超出了这个限制，假如超出就强行把它与那个限制取 $\min$。</p>
+<p>代码咕了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-其它-LIS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/某CSPS模拟赛 T2 背包问题（bag）/">展开全文 >></a>
         </p>
       
 
@@ -580,7 +578,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 
@@ -982,6 +980,46 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-快速gcd变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-min-max容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
               </li>
             
             <div class="clearfix"></div>

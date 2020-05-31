@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="post-舞蹈链算法（DLX）略解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-loj3161-NOI2019-I 君的探险- 部分分" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/舞蹈链算法（DLX）略解/">舞蹈链算法（DLX）略解</a>
+      <a class="article-title" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">部分分题解 [NOI2019]I 君的探险（LOJ3161 洛谷P5473）</a>
     </h1>
   
 
 
         
-        <a href="/2019/舞蹈链算法（DLX）略解/" class="archive-article-date">
-  	<time datetime="2019-01-27T12:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-27</time>
+        <a href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/" class="archive-article-date">
+  	<time datetime="2019-07-21T02:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -292,22 +292,25 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>（未完成，待完善）</p>
-<p><del>DLX=Dancing Line X</del></p>
-<p>之前学 DLX 时在网上看了好几篇博客，结合着几篇讲代码的、有图片的、说原理的，总算弄懂了。这里</p>
-<p>DLX 是用来解决精确覆盖问题的算法，算是 X 算法的优化。</p>
-<p>时间复杂度 $O(\text{玄学})$（最坏是指数级）</p>
-<p><a href="https://www.luogu.org/problemnew/show/P4929" target="_blank" rel="noopener">精确覆盖问题</a>：</p>
-<p>给定一个 $N$ 行 $M$ 列的矩阵，矩阵中每个元素要么是 1，要么是 0。</p>
-<p>你需要在矩阵中挑选出若干行，使得对于矩阵的每一列 $j$，在你挑选的这些行中，有且仅有一行的第 $j$ 个元素为 1。</p>
-<p><img src="/img/0008.PNG" alt=""></p>
-<p>如上表，选择第 1、4、5 行即符合要求。</p>
-<h1 id="X-算法"><a href="#X-算法" class="headerlink" title="X 算法"></a>X 算法</h1><p>这个算法的过程如下：</p>
-<p>矩阵为空代表得到了解。</p>
-<p>否则首先我们找到 1 的个数最少的一列（个数最少可以使搜索次数变少），考虑为了使这一列有 1 选择哪一行。</p>
-<p>不管我们选哪一行，这一行都不能再选；对于这一列是 1 的其它行，这一行也不能再选（否则这一列将有不止一个 1），所以我们先把这些行从原矩阵中删掉（但是数据要保留好）。同时这一列将要成功解决，为了避免重复考虑，删掉这一列。</p>
+        <p><a href="https://loj.ac/problem/3161" target="_blank" rel="noopener">题目链接</a></p>
+<p>（代码在最后）</p>
+<h1 id="测试点-1"><a href="#测试点-1" class="headerlink" title="测试点 1"></a>测试点 1</h1><p>这个点只需要读懂题目就能乱搞过去。</p>
+<p>无数种方法中的一个：</p>
+<ul>
+<li>修改 0 号点</li>
+<li>分别查询 1、2 号点，只要被修改了就代表它与 0 有边</li>
+<li>若1、2 点不同时与 0 有边连接，代表 1、2 点之间有边</li>
+</ul>
+<ul>
+<li><p>时间复杂度：$O(1)$</p>
+</li>
+<li><p>修改次数：1</p>
+</li>
+<li><p>查询次数：2</p>
+</li>
+<li><p>检查次数：0</p>
         
-          <a class="article-more-a" href="/2019/舞蹈链算法（DLX）略解/#more">more >></a>
+          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/#more">more >></a>
         
       
 
@@ -321,19 +324,23 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-搜索-DLX</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-搜索</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-NOI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">特殊题目-交互题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-二进制</a>
         		</li>
       		
 		</ul>
@@ -343,7 +350,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/舞蹈链算法（DLX）略解/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">展开全文 >></a>
         </p>
       
 
@@ -374,21 +381,21 @@ function init(){
 
   
     
-<article id="post-Catalan-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="游记-THUSC2019游记" class="article article-type-游记  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/Catalan-01/">几种计数问题方案与 01 序列问题的转化</a>
+      <a class="article-title" href="/2019/THUSC2019游记/">THUSC2019游记</a>
     </h1>
   
 
 
         
-        <a href="/2018/Catalan-01/" class="archive-article-date">
-  	<time datetime="2018-12-01T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
+        <a href="/2019/THUSC2019游记/" class="archive-article-date">
+  	<time datetime="2019-05-25T14:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-25</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -402,28 +409,127 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以下大部分性质总结自 wiki<a href="https://en.wikipedia.org/wiki/Catalan_number" target="_blank" rel="noopener">（英文）</a><a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E5%A1%94%E5%85%B0%E6%95%B0" target="_blank" rel="noopener">（中文）</a></p>
-<hr>
-<p>卡特兰数是计数问题当中常见的一个数列。卡特兰数解决的一个经典的问题就是 01 序列：</p>
-<blockquote>
-<p>有一个只有 $n$ 个 0，$n$ 个 1 的数列，求保证该数列任意前缀的 1 的个数大于等于 0 的个数的方案数。如 $n=2$ 时，方案有 $1100,1010$ 共 2 种。</p>
-</blockquote>
-<p>这个问题的答案就是 $C_{n-1}$。</p>
-<p>卡特兰数还能解决其它许多问题，下面将各种问题的方案转换为 01 序列：</p>
-<h1 id="括号序列"><a href="#括号序列" class="headerlink" title="括号序列"></a>括号序列</h1><blockquote>
-<p>给定n对括号，求括号正确配对的字符串数。</p>
-</blockquote>
-<p>将 <code>(</code> 编号为 1，将 <code>)</code> 编号为 0，即可建立对应关系。</p>
-<h1 id="出栈序列"><a href="#出栈序列" class="headerlink" title="出栈序列"></a>出栈序列</h1><blockquote>
-<p>一个栈（无穷大）的进栈序列为 $1,2,3,\dots ,n$，有多少个不同的出栈序列？</p>
-</blockquote>
-<p>将 入栈 编号为 1，将 出栈 编号为 0，即可建立对应关系。</p>
-<h1 id="不穿过对角线的路径条数"><a href="#不穿过对角线的路径条数" class="headerlink" title="不穿过对角线的路径条数"></a>不穿过对角线的路径条数</h1><blockquote>
-<p>一位大城市的律师在她住所以北 $n$ 个街区和以东 $n$ 个街区处工作。每天她走 $2n$ 个街区去上班。如果她从不穿越（但可以碰到）从家到办公室的对角线（即始终保证 $x\geq y$），那么有多少条可能的道路？</p>
-</blockquote>
-<p>将 向东走 编号为 1，将 向北走 编号为 0，即可建立对应关系。</p>
+        <p><del>↑上面的时间是发布时间，不是最后修改时间，请大家不要恐慌↑</del></p>
+<p>日期编号以考场电脑的用户名为准。（即：05/25 第一场考试为 Day0）</p>
+<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>早上准备坐高铁去北京，这是我第一次出省</p>
+<p>因为办的是临时身份证，只能在人工窗口排队/kk</p>
+<p>9:55 左右上高铁</p>
+<p>高铁上看了一会书就开始用流量水群/看风景了（<del>道理我都懂，但高铁上怎么能没有 WIFI 呢？</del>）</p>
+<p>在四川盯了半天窗外也没有看到有紫色土壤</p>
+<p>穿过秦岭，一看农田就知道到了北方地区</p>
+<p>黄土高原上似乎种了不少植被了</p>
+<p>午饭吃的是啥扣肉</p>
+<p>下午坐了很久然后到华北平原了。这才感受到真正的”平原“是啥样。</p>
         
-          <a class="article-more-a" href="/2018/Catalan-01/#more">more >></a>
+          <a class="article-more-a" href="/2019/THUSC2019游记/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">游记-THUSC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/THUSC2019游记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-Lucas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/Lucas/">Lucas/exLucas 略解</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/Lucas/" class="archive-article-date">
+  	<time datetime="2019-05-11T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。</p>
+<p>利用 exLucas 可以求解 $p$ 不为质数的情况。</p>
+<h1 id="Lucas"><a href="#Lucas" class="headerlink" title="Lucas"></a>Lucas</h1><p><strong>前置知识：</strong></p>
+<ul>
+<li><p>求乘法逆元</p>
+</li>
+<li><p>暴力求组合数</p>
+</li>
+</ul>
+<p>这种算法是基于 Lucas 定理的：</p>
+<p>设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下：</p>
+<p>$n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{m_0m_1\dots m_k})_p$</p>
+<p>其中允许首位为零，且规定当 $m&gt;n$ 时 $C_n^m=0$，则：</p>
+<p>$C_n^m\equiv C_{n_0}^{m_0}\cdot C_{n_1}^{m_1}\cdot \dots \cdot C_{n_k}^{m_k} (\mod p\ )$</p>
+<p>也可以换个递归的表达方式：</p>
+<p>$C_n^m\equiv C_{n/p}^{m/p}\cdot C_{n\%p}^{m\%p}(\mod p\ )$</p>
+        
+          <a class="article-more-a" href="/2019/Lucas/#more">more >></a>
         
       
 
@@ -441,113 +547,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学-卡特兰数</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/Catalan-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="题解-题解-CF1060H-Sophisticated Device" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/题解-CF1060H-Sophisticated Device/">题解 CF1060H Sophisticated Device</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/题解-CF1060H-Sophisticated Device/" class="archive-article-date">
-  	<time datetime="2018-11-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-06</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.luogu.org/problemnew/show/CF1060H" target="_blank" rel="noopener">题目链接</a></p>
-<p>这道题实在是毒瘤。<del>以及洛谷上的翻译其实是我翻的，质量跟机翻差不多。</del></p>
-<p>首先我们确定求出 $xy$ 的整体思路——$xy=\frac{(x+y)^2-x^2-y^2}{2}$。</p>
-<p>这个思路不难想到：我们能够比较容易实现的两个操作数的运算只有加、减，于是我们将运算转换为加、减与只有一个操作数的平方、除以 2。关键在于如何实现这些运算。</p>
-<h3 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h3><ul>
-<li><p>快速幂/乘</p>
-</li>
-<li><p>高斯消元</p>
-</li>
-<li><p>exgcd 求乘法逆元</p>
-</li>
-<li><p>少量数学知识</p>
-</li>
-<li><p>大量耐心</p>
-</li>
-</ul>
-<p>我们先考虑几个简单的运算：</p>
-<h2 id="0"><a href="#0" class="headerlink" title="0"></a>0</h2><p>在求解过程中，有一个数字 0 是很方便的，利用 <code>+ zero zero x</code> 就可以清空一格。</p>
-        
-          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-数论-Lucas</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -555,31 +555,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-高斯消元</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速幂</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速乘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-数论-exgcd</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">特殊题目-造计算机题</a>
         		</li>
       		
 		</ul>
@@ -589,7 +573,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/Lucas/">展开全文 >></a>
         </p>
       
 
@@ -621,7 +605,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
     </nav>
   
 
@@ -1023,6 +1007,46 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-快速gcd变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-min-max容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
               </li>
             
             <div class="clearfix"></div>

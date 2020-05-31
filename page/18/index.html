@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="post-修改记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-Codeforces Marathon Round 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2000/修改记录/">修改记录</a>
+      <a class="article-title" href="/2018/Codeforces Marathon Round 2/">Codeforces Marathon Round 2 游记</a>
     </h1>
   
 
 
         
-        <a href="/2000/修改记录/" class="archive-article-date">
-  	<time datetime="1999-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2000-01-01</time>
+        <a href="/2018/Codeforces Marathon Round 2/" class="archive-article-date">
+  	<time datetime="2018-08-02T15:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -292,30 +292,18 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对博客、样式的修改或大量文章的批量修改的记录</p>
-<h2 id="2018-10-27"><a href="#2018-10-27" class="headerlink" title="2018-10-27"></a>2018-10-27</h2><p>对大量博客的格式进行了修改。主要包括：</p>
-<ul>
-<li><p>添加空格</p>
-</li>
-<li><p>调整、添加 $\LaTeX$</p>
-</li>
-<li><p>修改了一些格式的细节</p>
-</li>
-<li><p>修改了一些词语的细节</p>
-</li>
-<li><p>处理格式出锅的文章</p>
-</li>
-</ul>
-<h2 id="2018-12-23"><a href="#2018-12-23" class="headerlink" title="2018-12-23"></a>2018-12-23</h2><p>给博客添了 BGM（然而并不能自动播放）。</p>
-<h2 id="2019-1-10"><a href="#2019-1-10" class="headerlink" title="2019-1-10"></a>2019-1-10</h2><p>修改了一下顶栏，点击可以隐藏。</p>
-<h2 id="2019-5-18"><a href="#2019-5-18" class="headerlink" title="2019-5-18"></a>2019-5-18</h2><p>左栏的副标题被魔改成了一个类似于一言的东西。<del>不要问我为什么不用一言</del></p>
-<p>主要是一些中文V家歌曲的歌词。</p>
-<p>格式：『_歌词<em>』——</em>最主要的 staff+作词_/_歌姬_ 《_歌名_》</p>
-<h2 id="2019-9-22"><a href="#2019-9-22" class="headerlink" title="2019-9-22"></a>2019-9-22</h2><p>略微修改了左侧推歌栏</p>
-<p>强行加了一个对时间的说明</p>
-<p>（几天前把 CC-BY-SA 扔上了标题）</p>
-<h2 id="2019-9-28"><a href="#2019-9-28" class="headerlink" title="2019-9-28"></a>2019-9-28</h2><p>大幅修改了标签</p>
-
+        <p>这场 CF 马拉松赛是我目前参加的唯一一场马拉松赛（压根就两场……）。</p>
+<p>CF 马拉松赛会给你 7 天时间解决一个目前没有正解的题目，你要针对随机数据得到尽可能高的分数。</p>
+<p>比赛链接：<a href="http://codeforces.com/contest/1014" target="_blank" rel="noopener">http://codeforces.com/contest/1014</a></p>
+<p>题目大意：</p>
+<p>一段被分成了 $N=100000$ 块的长条（？），每块染有 $C=10$ 种颜色之一颜色用前 10 个大写英文字母表示，将其向右无限重复。在上面有 $U=10$ 只变色龙，从 0 开始编号，初始位置分别在第 $1,2,3..10$ 格。Kurt 手中有 $H=10$ 个颜料瓶，背包里有 $S=10000$ 个，Kurt 每次可以拿一个颜料瓶扔向一只变色龙，这只变色龙就会不断向右移动，直到遇到一个颜色与颜料瓶颜色相同且没有另一只变色龙在上面的格子，同时 Kurt 从背包里<strong>按照题目给定的顺序</strong>取出一个颜料瓶拿在手中，直到背包空为止。最后得分为最靠后的变色龙的位置，如果你给的不符要求，得 0 分。最后会生成约 1000 个<strong>随机</strong>数据取平均分。</p>
+<p>不得不说马拉松赛很考脑洞。这里先说一下我的几个思路：</p>
+<h1 id="随机"><a href="#随机" class="headerlink" title="随机"></a>随机</h1><p>每次随机从背包里面选择一个瓶子，扔到随机的变色龙上。实现不难，<code>multiset</code>即可（我没有写）。</p>
+<p>得分在 9900 分左右。</p>
+<h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><p>贪心的方式应该有很多很多……我最先想到的方式是每次选择最落后的变色龙，然后扔一个让它跑得尽可能远的瓶子。</p>
+        
+          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/#more">more >></a>
+        
       
 
       
@@ -323,11 +311,30 @@ function init(){
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-玄学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2000/修改记录/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/">展开全文 >></a>
         </p>
       
 
@@ -358,21 +365,21 @@ function init(){
 
   
     
-<article id="post-tags" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-LGR-049-T2-River Jumping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/1000/tags/">标签索引</a>
+      <a class="article-title" href="/2018/题解-LGR-049-T2-River Jumping/">题解 LGR-049 T2 River Jumping</a>
     </h1>
   
 
 
         
-        <a href="/1000/tags/" class="archive-article-date">
-  	<time datetime="0999-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1000-01-01</time>
+        <a href="/2018/题解-LGR-049-T2-River Jumping/" class="archive-article-date">
+  	<time datetime="2018-07-15T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -386,125 +393,22 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h1 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h1><ul>
-<li><a href="/tags/数学/">数学</a><ul>
-<li><a href="/tags/数学-卡特兰数/">数学-卡特兰数</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="OI"><a href="#OI" class="headerlink" title="OI"></a>OI</h1><ul>
-<li><a href="/tags/OI/">OI</a><ul>
-<li><a href="/tags/大胆猜想不用证明/">大胆猜想不用证明</a>（虽然也有可能给出了证明）</li>
-</ul>
-</li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><ul>
-<li><a href="/tags/题解/">题解</a></li>
-</ul>
-<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><ul>
-<li><a href="/tags/笔记/">笔记</a></li>
-</ul>
-<h2 id="游记"><a href="#游记" class="headerlink" title="游记"></a>游记</h2><ul>
-<li><a href="/tags/游记/">游记</a><ul>
-<li><a href="/tags/游记-NOIP/">游记-NOIP</a></li>
-<li><a href="/tags/游记-SCOI/">游记-SCOI</a></li>
-<li><a href="/tags/游记-THUSC/">游记-THUSC</a></li>
-<li><a href="/tags/游记-CSP">游记-CSP</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="按来源分类"><a href="#按来源分类" class="headerlink" title="按来源分类"></a>按来源分类</h2><ul>
-<li><a href="/tags/来源-NOI/">来源-NOI</a></li>
-<li><a href="/tags/来源-NOIP模拟/">来源-NOIP模拟</a></li>
-<li><a href="/tags/来源-codeforces/">来源-codeforces</a></li>
-<li><a href="/tags/来源-各省省选/">来源-各省省选</a></li>
-<li><a href="/tags/来源-模拟赛/">来源-模拟赛</a></li>
-<li><a href="/tags/来源-洛谷月赛/">来源-洛谷月赛</a></li>
-</ul>
-<h2 id="特殊题目"><a href="#特殊题目" class="headerlink" title="特殊题目"></a>特殊题目</h2><ul>
-<li><a href="/tags/特殊题目-交互题/">特殊题目-交互题</a></li>
-<li><a href="/tags/特殊题目-造计算机题/">特殊题目-造计算机题</a></li>
-</ul>
-<h2 id="按算法分类"><a href="#按算法分类" class="headerlink" title="按算法分类"></a>按算法分类</h2><p><a href="/tags/算法/">算法</a></p>
-<h3 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h3><p><a href="/tags/算法-图论/">算法-图论</a></p>
-<ul>
-<li><a href="/tags/算法-图论-二分图/">算法-图论-二分图</a></li>
-<li><a href="/tags/算法-图论-匹配/">算法-图论-匹配</a></li>
-<li><a href="/tags/算法-图论-带花树/">算法-图论-带花树</a></li>
-<li><a href="/tags/算法-图论-最小路径覆盖/">算法-图论-最小路径覆盖</a></li>
-<li><a href="/tags/算法-图论-最短路/">算法-图论-最短路</a></li>
-<li><a href="/tags/算法-图论-网络流/">算法-图论-网络流</a></li>
-<li><a href="/tags/算法-图论-差分约束/">算法-图论-差分约束</a></li>
-<li><a href="/tags/算法-图论-矩阵树定理/">算法-图论-矩阵树定理</a></li>
-</ul>
-<h3 id="数学-1"><a href="#数学-1" class="headerlink" title="数学"></a>数学</h3><p><a href="/tags/算法-数学/">算法-数学</a></p>
-<ul>
-<li><a href="/tags/算法-数学-二进制/">算法-数学-二进制</a></li>
-<li><a href="/tags/算法-数学-位运算/">算法-数学-位运算</a></li>
-<li><a href="/tags/算法-数学-快速乘/">算法-数学-快速乘</a></li>
-<li><a href="/tags/算法-数学-快速幂/">算法-数学-快速幂</a></li>
-<li><a href="/tags/算法-数学-逆元/">算法-数学-逆元</a></li>
-<li><a href="/tags/算法-数学-高斯消元/">算法-数学-高斯消元</a></li>
-<li><a href="/tags/算法-数学-组合数学/">算法-数学-组合数学</a></li>
-<li><a href="/tags/算法-数学-拉格朗日插值/">算法-数学-拉格朗日插值</a></li>
-</ul>
-<h4 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h4><p><a href="/tags/算法-数学-数论/">算法-数学-数论</a></p>
-<ul>
-<li><a href="/tags/算法-数学-数论-Lucas/">算法-数学-数论-Lucas</a></li>
-<li><a href="/tags/算法-数学-数论-exgcd/">算法-数学-数论-exgcd</a></li>
-<li><a href="/tags/算法-数学-数论-min_25筛/">算法-数学-数论-min_25筛</a></li>
-</ul>
-<h4 id="计数"><a href="#计数" class="headerlink" title="计数"></a>计数</h4><p><a href="/tags/算法-数学-计数/">算法-数学-计数</a></p>
-<ul>
-<li><a href="tags/算法-数学-计数-容斥原理/">算法-数学-计数-容斥原理</a></li>
-</ul>
-<h3 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h3><ul>
-<li><a href="/tags/算法-DP-状压DP/">算法-DP-状压DP</a></li>
-<li><a href="/tags/算法-DP-计数DP/">算法-DP-计数DP</a></li>
-<li><a href="/tags/算法-DP-树形DP/">算法-DP-树形DP</a></li>
-</ul>
-<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><ul>
-<li><a href="/tags/算法-数据结构-平衡树/">算法-数据结构-平衡树</a></li>
-<li><a href="/tags/算法-数据结构-树状数组/">算法-数据结构-树状数组</a></li>
-<li><a href="/tags/算法-数据结构-线段树/">算法-数据结构-线段树</a></li>
-<li><a href="/tags/算法-数据结构-主席树/">算法-数据结构-主席树</a>（注：个人习惯把可持久化 01-Trie 等类似实现也归入该标签）</li>
-<li><a href="/tags/算法-数据结构-01Trie/">算法-数据结构-01Trie</a></li>
-</ul>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p><a href="/tags/算法-字符串/">算法-字符串</a></p>
-<ul>
-<li><a href="/tags/算法-字符串-manacher/">算法-字符串-manacher</a></li>
-<li><a href="/tags/算法-字符串-字典序/">算法-字符串-字典序</a></li>
-</ul>
-<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p><a href="/tags/算法-搜索/">算法-搜索</a></p>
-<ul>
-<li><a href="/tags/算法-搜索-DLX/">算法-搜索-DLX</a></li>
-</ul>
-<h3 id="计算几何"><a href="#计算几何" class="headerlink" title="计算几何"></a>计算几何</h3><ul>
-<li><a href="/tags/算法-计算几何-扫描线/">算法-计算几何-扫描线</a></li>
-</ul>
-<h3 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h3><p><a href="/tags/算法-模拟/">算法-模拟</a></p>
-<ul>
-<li><a href="/tags/算法-大模拟/">算法-大模拟</a></li>
-</ul>
-<h3 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h3><p><a href="/tags/算法-STL/">算法-STL</a></p>
-<h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><p><a href="/tags/算法-贪心/">算法-贪心</a></p>
-<h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><ul>
-<li><a href="/tags/算法-分治-CDQ分治">算法-分治-CDQ分治</a></li>
-<li><a href="/tags/算法-分治-根号分治">算法-分治-根号分治</a>（虽然这么分有些奇怪）</li>
-</ul>
-<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
-<li><a href="/tags/算法-二分答案/">算法-二分答案</a></li>
-<li><a href="/tags/算法-其它-LIS/">算法-其它-LIS</a></li>
-<li><a href="/tags/算法-枚举/">算法-枚举</a></li>
-<li><a href="/tags/算法-玄学/">算法-玄学</a></li>
-<li><a href="/tags/算法-构造/">算法-构造</a></li>
-</ul>
-<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><ul>
-<li><a href="/tags/算法-渐进记号/">算法-渐进记号</a></li>
-<li><a href="/tags/算法-时间复杂度/">算法-时间复杂度</a></li>
-</ul>
-
+        <p>当时看了半天觉得十分不可做，然后看到排行榜里面一群人 AC 了 T2，就准备乱写一个。</p>
+<p>写了一半觉得有问题，又没有写了。</p>
+<p>之后发现后面的题目更加不可做，把这个程序补完了，WA 了一遍之后莫名其妙就 A 了。</p>
+<p>下面进入正文：</p>
+<p>题目链接：<a href="https://www.luogu.org/problemnew/show/P4753" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P4753</a></p>
+<p>题目大意：数轴上有 $m+2$ 个点，坐标分别为 $0,w_1,w_2,…,w_m,n$，<br>要求把这些点分成 2 份，使得每一份里面任意两点距离不小于$s$，$0$ 与 $n+1$ 算 2 次。</p>
+<p>当时第一反应：一跳到对岸，再一跳会来，不就不重复了吗？</p>
+<p>然后突然发现要求每个点都恰好一次。</p>
+<p>然后瞬间蒙了……</p>
+<p>然后开始乱打一波：</p>
+<p>首先，为了让每个点都恰好经过一次，去时没有跳到的点返回时必须跳。</p>
+<p>由于小 D 跳跃长度没有限制，所以回来时的石头必须尽可能稀疏。</p>
+<p>那么去的时候石头需要尽可能密集。</p>
+        
+          <a class="article-more-a" href="/2018/题解-LGR-049-T2-River Jumping/#more">more >></a>
+        
       
 
       
@@ -512,11 +416,142 @@ function init(){
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-搜索</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-洛谷月赛</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/1000/tags/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/题解-LGR-049-T2-River Jumping/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="题解-题解-P4035-JSOI2008-球形空间产生器" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">题解-P4035-JSOI2008-球形空间产生器</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/题解-P4035-JSOI2008-球形空间产生器/" class="archive-article-date">
+  	<time datetime="2018-06-16T14:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-16</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>洛谷题号：P4035</p>
+<p>bzoj 题号：1013</p>
+<hr>
+<p>题目：</p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>有一个球形空间产生器能够在 n 维空间中产生一个坚硬的球体。现在，你被困在了这个 n 维球体中，你只知道球<br>面上 n+1 个点的坐标，你需要以最快的速度确定这个 n 维球体的球心坐标，以便于摧毁这个球形空间产生器。</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>第一行是一个整数 $n(1\leq N\leq 10)$。接下来的 n+1 行，每行有 n 个实数，表示球面上一点的 n 维坐标。每一个实数精确到小数点<br>后 6 位，且其绝对值都不超过 20000。</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>有且只有一行，依次给出球心的 n 维坐标（ n 个实数），两个实数之间用一个空格隔开。每个实数精确到小数点<br>后 3 位。数据保证有解。你的答案必须和标准输出一模一样才能够得分。</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2>
+        
+          <a class="article-more-a" href="/2018/题解-P4035-JSOI2008-球形空间产生器/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-高斯消元</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/题解-P4035-JSOI2008-球形空间产生器/">展开全文 >></a>
         </p>
       
 
@@ -548,7 +583,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/17/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span>
+      <a class="extend prev" rel="prev" href="/page/17/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/19/">Next &raquo;</a>
     </nav>
   
 
@@ -950,6 +985,46 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-快速gcd变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-min-max容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
               </li>
             
             <div class="clearfix"></div>

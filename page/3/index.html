@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="题解-题解-P5323-BJOI2019-光线" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="post-快速 gcd 变换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-P5323-BJOI2019-光线/">题解 洛谷 P5323 BJOI2019 光线</a>
+      <a class="article-title" href="/2020/快速 gcd 变换/">快速 gcd 变换（FGT）</a>
     </h1>
   
 
 
         
-        <a href="/2020/题解-P5323-BJOI2019-光线/" class="archive-article-date">
-  	<time datetime="2020-02-10T09:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
+        <a href="/2020/快速 gcd 变换/" class="archive-article-date">
+  	<time datetime="2020-05-27T07:49:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -292,128 +292,9 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.luogu.com.cn/problem/P5323" target="_blank" rel="noopener">题目链接</a></p>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
-<li>$n$ 层玻璃自上而下依次叠在一起，每层玻璃有透光率 $a_i$ 与反射率 $b_i$；</li>
-<li>从上方射出一道强度为 $1$ 的光，问透过玻璃的光总强度为多少？</li>
-<li>答案 $\bmod (10^9+7)$</li>
-<li>$n\leq 5\times 10^3$</li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>（以下所用的符号可能与题面不同。）</p>
-<p>多层玻璃实际上可以看成一个整体，它有透光率 $a$，<strong>自下而上</strong>射入光线的反射率 $b$，<strong>自上而下</strong>射入光线的反射率 $x$。</p>
-<p>注意：它的两个方向的反射率不一定相同，一个简单的例子是上面一层透光率与反射率为 $0$ 的玻璃<del>（这还能叫玻璃吗？）</del>，下面是一层透光率为 $0$，反射率为 $1$ 的玻璃<del>（或者叫镜子）</del>。此时自上而下的反射率为 $0$，自下而上的反射率为 $1$。</p>
-<p>不过两个方向的透光率是一定相同的，<del>仿照下面的方法硬推就可以了，首先知道一层玻璃相同，再考虑加一层玻璃</del>。</p>
-<p>因此我们把前 $i-1$ 层玻璃看作一个整体，透光率 $a$，<strong>自下而上</strong>射入光线的反射率 $b$；考虑添加第 $i$ 层透光率为 $c$，反射率为 $d$；新的透光率为 $x$，反射率为 $y$。</p>
-<p><img src="/img/0037.PNG" alt="求出 x"></p>
-<p>$$\begin{aligned}x&amp;=\sum\limits_{k=0}^{\infty}ac\cdot (bd)^k\\&amp;=ac\cdot\frac{1}{1-bd}\end{aligned}$$</p>
-<p><img src="/img/0038.PNG" alt="求出 y"></p>
-<p>$$\begin{aligned}y&amp;=d+\sum\limits_{k=0}^{\infty}bc^2\cdot (bd)^k\\&amp;=d+bc^2\cdot\frac{1}{1-bd}\end{aligned}$$</p>
-<p>之后就按顺序往后推就可以了。</p>
-<p>代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">3e3</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(y)&#123;</span><br><span class="line">        <span class="keyword">if</span>(y&amp;<span class="number">1</span>)ans=ans*<span class="number">1l</span>l*x%mod;</span><br><span class="line">        x=x*<span class="number">1l</span>l*x%mod;</span><br><span class="line">        y&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getinv</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> qpow(x,mod<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=getint();</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> inv100=getinv(<span class="number">100</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> c=getint(),d=getint();</span><br><span class="line">        c=c*<span class="number">1l</span>l*inv100%mod;</span><br><span class="line">        d=d*<span class="number">1l</span>l*inv100%mod;</span><br><span class="line">        <span class="keyword">int</span> t=getinv((<span class="number">1</span>-b*<span class="number">1l</span>l*d%mod+mod)%mod);</span><br><span class="line">        <span class="keyword">int</span> x=a*<span class="number">1l</span>l*c%mod*t%mod;</span><br><span class="line">        <span class="keyword">int</span> y=(b*<span class="number">1l</span>l*c%mod*c%mod*t%mod+d)%mod;</span><br><span class="line">        a=x;b=y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-P5323-BJOI2019-光线/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+        <p>题目：定义 $\gcd$ 卷积如下：$A*B$ 的结果为 $C_i=\sum[\gcd(j,k)=i]A_jB_k$。求 $\prod\limits_{i=1}^{55}A_i^{b_i}$。数列长度 $10^6$。答案 $\bmod 23333$。时限 0.6s。</p>
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="题解-题解-P5283-十二省联考2019-异或粽子" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-P5283-十二省联考2019-异或粽子/">题解 洛谷 P5283 十二省联考2019 异或粽子</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/题解-P5283-十二省联考2019-异或粽子/" class="archive-article-date">
-  	<time datetime="2020-02-10T08:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.luogu.com.cn/problem/P5283" target="_blank" rel="noopener">题目链接</a></p>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
-<li>求一个序列所有区间异或和的前 $k$ 大。</li>
-<li>$n,k\leq 5\times 10^5$</li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先求出前缀和，记为 $p[i]$（$p[0]=0$ 也考虑在内）。此时要求的是一个集合两两异或和的前 $k$ 大。</p>
-<p>为了方便，我们忽视左右端点的差异。将 $k$ 乘以 $2$，每个方案算两遍，最后把答案除以 $2$。</p>
-<p>将 $p[i]$ 全部扔进一棵 01 Trie，可以很容易求出与 $p[i]$ 异或起来第 $q$ 大的值。将每个 $p[i]$ 对应的最大值扔进堆，每次取堆顶，并把堆顶 $p[i]$ 的下一名扔进堆，统计堆顶。重复 $2k$ 次，最后答案除以 $2$。</p>
-        
-          <a class="article-more-a" href="/2020/题解-P5283-十二省联考2019-异或粽子/#more">more >></a>
+          <a class="article-more-a" href="/2020/快速 gcd 变换/#more">more >></a>
         
       
 
@@ -427,122 +308,11 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数据结构-01Trie</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-P5283-十二省联考2019-异或粽子/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="题解-某模拟赛-20200120" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/某模拟赛-20200120/">某模拟赛 - 20200120</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/某模拟赛-20200120/" class="archive-article-date">
-  	<time datetime="2020-01-20T11:56:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-20</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有 $N$ 个学生，每个学生至多有一名室友，至多有一名同桌。求排列 $P$ 的数量，使原来第 $i$ 个都学生换到 $P_i$ 号学生原本所在的寝室/桌子后原本的室友以及同桌关系依旧不变，答案模 $10^9+7$。$N\leq 2\times10^5$</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>显然，把两种关系都看成图上的边，每个节点的度数都不大于 $2$，也就只有链与环。将所有连通块分为五种情况：</p>
-<p><img src="/img/0035.PNG" alt="图"></p>
-<ol>
-<li>单独的一个点（$1$）；</li>
-<li>以室友关系开头，同桌关系结尾的链（$1$）；</li>
-<li>以室友关系开头，室友关系结尾的链（$2$ - 可以翻转）；</li>
-<li>以同桌关系开头，同桌关系结尾的链（$2$ - 可以翻转）；</li>
-<li>大小为 $x$ 的环（$x$ - 可以两个两个地旋转，可以翻转）。</li>
-</ol>
-<p>以上每种情况（再根据链/环的大小区分后）对应的连通块个数数的阶乘相乘，每个连通块再乘以括号后的数字即为答案。</p>
-        
-          <a class="article-more-a" href="/2020/某模拟赛-20200120/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -550,27 +320,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-图论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-计数</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-图论-差分约束</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-树形DP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-数学-拉格朗日插值</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-图论-矩阵树定理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-快速gcd变换</a>
         		</li>
       		
 		</ul>
@@ -580,7 +330,225 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/某模拟赛-20200120/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/快速 gcd 变换/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-min_25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/min_25/">min_25 筛略解</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/min_25/" class="archive-article-date">
+  	<time datetime="2020-05-23T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>min_25 筛因其发明者为 <a href="http://min-25.hatenablog.com/" target="_blank" rel="noopener">min_25</a> 而得名。该算法的思想来源于埃氏筛。</p>
+<p>其可以在低于线性的时间复杂度下对于一类积性函数 $f$ 解决：</p>
+<ul>
+<li>$\sum\limits_{i=1}^n[i\text{ 为质数}]f(i)$；</li>
+<li>$\sum\limits_{i=1}^nf(i)$（即 $f$ 的前缀和）。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/min_25/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数学-数论-min_25筛</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/min_25/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="题解-题解-CF1355D-Game-With-Array" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/题解-CF1355D-Game-With-Array/">题解 CF1335D Game With Array</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/题解-CF1355D-Game-With-Array/" class="archive-article-date">
+  	<time datetime="2020-05-17T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
+<li>甲和乙玩游戏；</li>
+<li>已知数字 $N$ 和 $S$（$1\leq N\leq S\leq 10^6$）；</li>
+<li>甲构造一个长为 $N$，和为 $S$ 的正整数序列，指定数字 $K$（$0\leq K\leq S$）；</li>
+<li>乙尝试找到其一个非空子序列，使其和为 $K$ 或 $S-K$；</li>
+<li>乙找到则乙赢，否则甲赢；</li>
+<li>给出 $N$ 和 $S$，判断甲必败或给出甲必胜的一种构造方法。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/题解-CF1355D-Game-With-Array/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-构造</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大胆猜想不用证明</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/题解-CF1355D-Game-With-Array/">展开全文 >></a>
         </p>
       
 
@@ -612,7 +580,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1014,6 +982,46 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-快速gcd变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-min-max容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
               </li>
             
             <div class="clearfix"></div>

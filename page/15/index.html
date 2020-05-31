@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="post-某NOIP模拟赛 T1 snow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-CF1060H-Sophisticated Device" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/某NOIP模拟赛 T1 snow/">某NOIP模拟赛 T1 snow</a>
+      <a class="article-title" href="/2018/题解-CF1060H-Sophisticated Device/">题解 CF1060H Sophisticated Device</a>
     </h1>
   
 
 
         
-        <a href="/2018/某NOIP模拟赛 T1 snow/" class="archive-article-date">
-  	<time datetime="2018-08-20T07:20:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+        <a href="/2018/题解-CF1060H-Sophisticated Device/" class="archive-article-date">
+  	<time datetime="2018-11-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-06</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -292,239 +292,26 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="【问题描述】"><a href="#【问题描述】" class="headerlink" title="【问题描述】"></a>【问题描述】</h2><p>有一天，TT 要去 ABC 家。ABC 的大门外有 $n$ 个站台，用 $1$ 到 $n$ 的正整数编号，TT 需要对每个站台访问恰好一定次数以后才能到 ABC 家。站台之间有 $m$ 个单向的传送门，通过传送门到达另一个站台不需要花费任何代价。而如果不通过传送门，TT 需要乘坐公共汽车，并花费 $1$ 单位的钱。值得庆幸的是，任意两个站台之间都有公共汽车直达。 </p>
-<p>现在给定每个站台必须访问的次数，对于站台 $i$， TT 必须恰好访问 $F_i$ 次（不能超过）。  </p>
-<p>我们用 $u,v,w$ 三个参数描述一个传送门，表示从站台 $u$ 到站台 $v$ 有一个最多可以使用 $w$ 次的传送门（不一定要使用 $w$ 次）。对于任意一对传送门 $(u_1,v_1)$ 和 $(u_2,v_2)$，如果有 $u_1&lt;u_2$，则有 $v_1≤v_2$；如果有 $v_1&lt;v_2$，则有 $u_1≤u_2$；且 $u_1=u_2$ 和 $v_1=v_2$ 不同时成立。 </p>
-<p>TT 可以从任意的站台开始，从任意的站台结束。出发去开始的站台需要花费 $1$ 单位的钱。现在请帮助 TT 求出打开大门最少需要花费多少单位的钱。 </p>
-<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行包含两个正整数 $n,m$，意义见题目描述。 </p>
-<p>第二行包含 $n$ 个正整数，第 $i$ 个数表示 $F_i$。 </p>
-<p>接下来有 $m$ 行，每行有三个正整数 $u,v,w$，表示从 $u$ 到 $v$ 有一个可以使用 $w$ 次的传送门。 </p>
-<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>仅一行包含一个整数表示答案。 </p>
-<h2 id="【输入样例】"><a href="#【输入样例】" class="headerlink" title="【输入样例】"></a>【输入样例】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 3 </span><br><span class="line">5 5 5 5 </span><br><span class="line">1 2 1 </span><br><span class="line">3 2 1 </span><br><span class="line">3 4 1</span><br></pre></td></tr></table></figure>
+        <p><a href="https://www.luogu.org/problemnew/show/CF1060H" target="_blank" rel="noopener">题目链接</a></p>
+<p>这道题实在是毒瘤。<del>以及洛谷上的翻译其实是我翻的，质量跟机翻差不多。</del></p>
+<p>首先我们确定求出 $xy$ 的整体思路——$xy=\frac{(x+y)^2-x^2-y^2}{2}$。</p>
+<p>这个思路不难想到：我们能够比较容易实现的两个操作数的运算只有加、减，于是我们将运算转换为加、减与只有一个操作数的平方、除以 2。关键在于如何实现这些运算。</p>
+<h3 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h3><ul>
+<li><p>快速幂/乘</p>
+</li>
+<li><p>高斯消元</p>
+</li>
+<li><p>exgcd 求乘法逆元</p>
+</li>
+<li><p>少量数学知识</p>
+</li>
+<li><p>大量耐心</p>
+</li>
+</ul>
+<p>我们先考虑几个简单的运算：</p>
+<h2 id="0"><a href="#0" class="headerlink" title="0"></a>0</h2><p>在求解过程中，有一个数字 0 是很方便的，利用 <code>+ zero zero x</code> 就可以清空一格。</p>
         
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 snow/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">来源-NOIP模拟</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-图论-网络流</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-图论-二分图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-图论-最小路径覆盖</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/某NOIP模拟赛 T1 snow/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-渐进记号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/渐进记号/">O(1/n) 算法存在吗？——几种常见渐进记号略解</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/渐进记号/" class="archive-article-date">
-  	<time datetime="2018-08-17T05:19:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h1><p>在 OI 界，$O(\frac{1}{n})$ 的算法已经成为了一个梗。</p>
-<blockquote>
-<p>你要是发明了 $O(\frac{1}{n})$ 的算法，我就出 $n=0.00000000001$ 来卡你。 <del>——鲁迅</del></p>
-</blockquote>
-<p>那么这种时间复杂度的算法存在吗？我们首先要了解几种渐进记号分别代表什么。</p>
-<p>（下面默认所有函数都<strong>渐进非负</strong>，即当 $n$ 足够大时，函数值始终非负）</p>
-<p>（下面大部分内容以《算法导论》为根据）</p>
-<h2 id="Theta"><a href="#Theta" class="headerlink" title="$\Theta$"></a>$\Theta$</h2><p>$\Theta$ 符号的意义是我们通常用 $O$ 记号表达的，它代表了函数的<strong>渐进紧确界</strong>。</p>
-<p>其定义为：</p>
-<blockquote>
-<p>对一个给定的函数 $g(n)$，用 $\Theta(g(n))$ 来表示以下函数的集合：</p>
-</blockquote>
-<blockquote>
-<p>$\Theta(g(n))={f(n):\text{存在正常量}c_1,c_2,n_0\text{，使得对所有的}n\geq n_0\text{，有}0\leq c_1g(n)\leq f(n)\leq c_2g(n)}$</p>
-</blockquote>
-<p>冒号指<strong>使得</strong>。</p>
-<p>也就是当 $n$ 够大时，$f(n)$ 能“夹进”两个 $g(n)$ 的常数倍之间。</p>
-        
-          <a class="article-more-a" href="/2018/渐进记号/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-时间复杂度</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-渐进记号</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/渐进记号/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-Codeforces Marathon Round 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/Codeforces Marathon Round 2/">Codeforces Marathon Round 2 游记</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/Codeforces Marathon Round 2/" class="archive-article-date">
-  	<time datetime="2018-08-02T15:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这场 CF 马拉松赛是我目前参加的唯一一场马拉松赛（压根就两场……）。</p>
-<p>CF 马拉松赛会给你 7 天时间解决一个目前没有正解的题目，你要针对随机数据得到尽可能高的分数。</p>
-<p>比赛链接：<a href="http://codeforces.com/contest/1014" target="_blank" rel="noopener">http://codeforces.com/contest/1014</a></p>
-<p>题目大意：</p>
-<p>一段被分成了 $N=100000$ 块的长条（？），每块染有 $C=10$ 种颜色之一颜色用前 10 个大写英文字母表示，将其向右无限重复。在上面有 $U=10$ 只变色龙，从 0 开始编号，初始位置分别在第 $1,2,3..10$ 格。Kurt 手中有 $H=10$ 个颜料瓶，背包里有 $S=10000$ 个，Kurt 每次可以拿一个颜料瓶扔向一只变色龙，这只变色龙就会不断向右移动，直到遇到一个颜色与颜料瓶颜色相同且没有另一只变色龙在上面的格子，同时 Kurt 从背包里<strong>按照题目给定的顺序</strong>取出一个颜料瓶拿在手中，直到背包空为止。最后得分为最靠后的变色龙的位置，如果你给的不符要求，得 0 分。最后会生成约 1000 个<strong>随机</strong>数据取平均分。</p>
-<p>不得不说马拉松赛很考脑洞。这里先说一下我的几个思路：</p>
-<h1 id="随机"><a href="#随机" class="headerlink" title="随机"></a>随机</h1><p>每次随机从背包里面选择一个瓶子，扔到随机的变色龙上。实现不难，<code>multiset</code>即可（我没有写）。</p>
-<p>得分在 9900 分左右。</p>
-<h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><p>贪心的方式应该有很多很多……我最先想到的方式是每次选择最落后的变色龙，然后扔一个让它跑得尽可能远的瓶子。</p>
-        
-          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/#more">more >></a>
+          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/#more">more >></a>
         
       
 
@@ -542,11 +329,35 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-玄学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-高斯消元</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速幂</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速乘</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-数论-exgcd</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">特殊题目-造计算机题</a>
         		</li>
       		
 		</ul>
@@ -556,7 +367,226 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/Codeforces Marathon Round 2/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-NOIP2018游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/NOIP2018游记/">NOIP2018游记</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/NOIP2018游记/" class="archive-article-date">
+  	<time datetime="2018-10-13T09:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-13</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Day-27（初赛）"><a href="#Day-27（初赛）" class="headerlink" title="Day -27（初赛）"></a>Day -27（初赛）</h1><p>特别冷，还飘雨，暗示了退役的结局。</p>
+<p>我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。</p>
+<p>两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。</p>
+<p>NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。</p>
+<p>阅读程序时因为算错成 $6!=120$，结果……</p>
+<p>……</p>
+<p>怕是要退役。</p>
+<p>大概口胡一下：</p>
+<p>阅读程序 T1：模拟。</p>
+<p>阅读程序 T2：$n$ 个点，每个点出度为 1，入度为 1，给出每个点通向哪个点，求有多少个环。</p>
+<p>阅读程序 T3：求没有重复的非空子串数目。<del>mogic</del> magic 函数就是<del>蛤</del>哈希。</p>
+<p>阅读程序 T4：next_permutation。</p>
+<p>完成程序 T1：至今看不懂。</p>
+<p>完成程序 T2：f[i] 记录用 i 元买第一个商店的商品时，买第二个商店的商品的总花费的最小值。</p>
+        
+          <a class="article-more-a" href="/2018/NOIP2018游记/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记-NOIP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/NOIP2018游记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-树状数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/树状数组/">树状数组略解</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/树状数组/" class="archive-article-date">
+  	<time datetime="2018-10-06T11:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-06</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>树状数组是一种<del>只有名字与树有关的</del>数据结构，可以用来维护区间。一般来说树状数组能做的线段树都能做，但是线段树常数较大，并且比树状数组麻烦很多，故树状数组很有用。树状数组通常用来维护这两种操作：</p>
+<ul>
+<li><p>单点修改 区间查询</p>
+</li>
+<li><p>区间修改 单点查询</p>
+</li>
+</ul>
+<p>它还可以进行区间修改区间查询。</p>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>首先介绍 $\operatorname{lowbit}$ 函数：$\operatorname{lowbit}$ 会返回一个数在二进制下仅保留最低的非零位的结果，如：</p>
+<p>$\operatorname{lowbit}((1100)_2)=(100)_2$</p>
+<p>$\operatorname{lowbit}((11001)_2)=(1)_2$</p>
+<p>它的实现方式通常是：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在树状数组中，我们通常用 $t_x$ 来维护原数组从第 $x$ 个数开始往左 $\operatorname{lowbit}(x)$ 个数的总和。</p>
+<p><img src="https://cdn.luogu.org/upload/pic/36291.png" alt=""></p>
+        
+          <a class="article-more-a" href="/2018/树状数组/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-数据结构-树状数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/树状数组/">展开全文 >></a>
         </p>
       
 
@@ -588,7 +618,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
     </nav>
   
 
@@ -990,6 +1020,46 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-快速gcd变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-min-max容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
               </li>
             
             <div class="clearfix"></div>
