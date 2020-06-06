@@ -10,7 +10,7 @@
   <title>题解 洛谷 P3271 JLOI2016 方 | 破壁人五号的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="题目链接 题意 一个 $N\times M$ 的网格，由小正方形铺成； 显然它有 $(N+1)\times (M+1)$ 个格点；   其中 $K$ 个格点不允许成为正方形顶点（之后将这 $K$ 个格点称为“坏点”）； 问有多少个格点正方形。   既然点变少了，问题也就变简单了。">
-<meta name="keywords" content="OI,题解,来源-各省省选,算法-数学-计数,算法-数学-计数-容斥原理">
+<meta name="keywords" content="OI,题解,来源-各省省选,算法-数学-组合数学,算法-数学-组合数学-容斥原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题解 洛谷 P3271 JLOI2016 方">
 <meta property="og:url" content="https://wallbreaker5th.github.io/2019/题解-P3271-JLOI2016-方/index.html">
@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0032.PNG">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0033.PNG">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0034.PNG">
-<meta property="og:updated_time" content="2019-12-19T11:29:57.038Z">
+<meta property="og:updated_time" content="2020-06-06T15:03:50.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="题解 洛谷 P3271 JLOI2016 方">
 <meta name="twitter:description" content="题目链接 题意 一个 $N\times M$ 的网格，由小正方形铺成； 显然它有 $(N+1)\times (M+1)$ 个格点；   其中 $K$ 个格点不允许成为正方形顶点（之后将这 $K$ 个格点称为“坏点”）； 问有多少个格点正方形。   既然点变少了，问题也就变简单了。">
@@ -200,7 +200,7 @@ function init(){
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> 共克时艰</p>
+        <p><strong>Notice:</strong> SCOI & 中考 RP++</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -325,7 +325,7 @@ function init(){
 <p><strong>$f(1)$</strong>：枚举坏点，同样考虑横平竖直的正方形，而且它必须经过这个坏点。显然每个这样的正方形都会贡献 $1$。分别计算正方形在点上方、下方、左侧、右侧的贡献，它可以看做是点在网格底，往左有 $l$ 格，往右有 $r$ 格，往上有 $h$ 格，设其贡献为 $g(l,r,h)$。</p>
 <p><img src="/img/0033.PNG" alt=""></p>
 <p>正方形的边长最大显然为 $a=\min(h,l+r)$。假装 $l,r$ 足够大，那 $g(l,r,h)$ 为：</p>
-<p>$$\begin{aligned}g(l,r,h)&amp;=\sum\limits_{i=1}^{a}i+1\ &amp;=\dfrac{i(i+3)}{2}\end{aligned}$$</p>
+<p>$$\begin{aligned}g(l,r,h)&amp;=\sum\limits_{i=1}^{a}i+1\\ &amp;=\dfrac{i(i+3)}{2}\end{aligned}$$</p>
 <p>接着计算正方形超出左、右边界的方案数，减去即可得到 $g(l,r,h)$。（不再推导，具体公式见代码）</p>
 <p>求出四个方向的 $g$，最后减去坏点作为角的方案数（重复计数），得到 $f(1)$。</p>
 <p><strong>$f(2),f(3),f(4)$</strong>：枚举两个坏点，并验证第三、第四个顶点是否在网格内（是否是坏点）。</p>
@@ -358,11 +358,11 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-计数</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-计数-容斥原理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学-容斥原理</a>
         		</li>
       		
 		</ul>
@@ -624,6 +624,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
               </li>
              
@@ -652,14 +664,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-NOIP</a>
               </li>
              
@@ -668,23 +672,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-SCOI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题解</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">来源-模拟赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-逆元</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-数论-powerful-number筛</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,11 +696,43 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-模拟赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-快速gcd变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">题解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-逆元</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-DP-计数DP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">来源-NOIP模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-二分图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-最小路径覆盖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,15 +748,59 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-二分图</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-图论-最小路径覆盖</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学-min-max容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-图论-树论-虚树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP-树形DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治-最值分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-辛普森积分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治-根号分治</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -776,11 +848,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
+                <a href="javascript:void(0)" class="js-tag color4">大胆猜想不用证明</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,19 +864,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-多项式-多项式开方</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -812,7 +884,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-NOI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">来源-各省省选</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -824,7 +924,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">来源-NOI</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-数论-莫比乌斯反演</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP-DP优化-斜率优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,15 +940,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数-容斥原理</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-回文自动机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,15 +948,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-图论-差分约束</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-DP-树形DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-数学-拉格朗日插值</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-多项式-拉格朗日插值</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -868,71 +964,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-分治-根号分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大胆猜想不用证明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-快速gcd变换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-min-max容斥</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
               </li>
             
             <div class="clearfix"></div>

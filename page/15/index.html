@@ -195,7 +195,7 @@ function init(){
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> 共克时艰</p>
+        <p><strong>Notice:</strong> SCOI & 中考 RP++</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="题解-题解-CF1060H-Sophisticated Device" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-loj3161-NOI2019-I 君的探险- 部分分" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/题解-CF1060H-Sophisticated Device/">题解 CF1060H Sophisticated Device</a>
+      <a class="article-title" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">部分分题解 [NOI2019]I 君的探险（LOJ3161 洛谷P5473）</a>
     </h1>
   
 
 
         
-        <a href="/2018/题解-CF1060H-Sophisticated Device/" class="archive-article-date">
-  	<time datetime="2018-11-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-06</time>
+        <a href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/" class="archive-article-date">
+  	<time datetime="2019-07-21T02:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -292,26 +292,25 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.luogu.org/problemnew/show/CF1060H" target="_blank" rel="noopener">题目链接</a></p>
-<p>这道题实在是毒瘤。<del>以及洛谷上的翻译其实是我翻的，质量跟机翻差不多。</del></p>
-<p>首先我们确定求出 $xy$ 的整体思路——$xy=\frac{(x+y)^2-x^2-y^2}{2}$。</p>
-<p>这个思路不难想到：我们能够比较容易实现的两个操作数的运算只有加、减，于是我们将运算转换为加、减与只有一个操作数的平方、除以 2。关键在于如何实现这些运算。</p>
-<h3 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h3><ul>
-<li><p>快速幂/乘</p>
-</li>
-<li><p>高斯消元</p>
-</li>
-<li><p>exgcd 求乘法逆元</p>
-</li>
-<li><p>少量数学知识</p>
-</li>
-<li><p>大量耐心</p>
-</li>
+        <p><a href="https://loj.ac/problem/3161" target="_blank" rel="noopener">题目链接</a></p>
+<p>（代码在最后）</p>
+<h1 id="测试点-1"><a href="#测试点-1" class="headerlink" title="测试点 1"></a>测试点 1</h1><p>这个点只需要读懂题目就能乱搞过去。</p>
+<p>无数种方法中的一个：</p>
+<ul>
+<li>修改 0 号点</li>
+<li>分别查询 1、2 号点，只要被修改了就代表它与 0 有边</li>
+<li>若1、2 点不同时与 0 有边连接，代表 1、2 点之间有边</li>
 </ul>
-<p>我们先考虑几个简单的运算：</p>
-<h2 id="0"><a href="#0" class="headerlink" title="0"></a>0</h2><p>在求解过程中，有一个数字 0 是很方便的，利用 <code>+ zero zero x</code> 就可以清空一格。</p>
+<ul>
+<li><p>时间复杂度：$O(1)$</p>
+</li>
+<li><p>修改次数：1</p>
+</li>
+<li><p>查询次数：2</p>
+</li>
+<li><p>检查次数：0</p>
         
-          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/#more">more >></a>
+          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/#more">more >></a>
         
       
 
@@ -324,14 +323,6 @@ function init(){
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
@@ -341,23 +332,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-高斯消元</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-NOI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速幂</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">特殊题目-交互题</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-快速乘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-数论-exgcd</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">特殊题目-造计算机题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-二进制</a>
         		</li>
       		
 		</ul>
@@ -367,7 +350,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/题解-CF1060H-Sophisticated Device/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">展开全文 >></a>
         </p>
       
 
@@ -398,21 +381,21 @@ function init(){
 
   
     
-<article id="post-NOIP2018游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="游记-THUSC2019游记" class="article article-type-游记  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/NOIP2018游记/">NOIP2018游记</a>
+      <a class="article-title" href="/2019/THUSC2019游记/">THUSC2019游记</a>
     </h1>
   
 
 
         
-        <a href="/2018/NOIP2018游记/" class="archive-article-date">
-  	<time datetime="2018-10-13T09:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-13</time>
+        <a href="/2019/THUSC2019游记/" class="archive-article-date">
+  	<time datetime="2019-05-25T14:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-25</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -423,27 +406,22 @@ function init(){
     
     <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
       
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
-      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Day-27（初赛）"><a href="#Day-27（初赛）" class="headerlink" title="Day -27（初赛）"></a>Day -27（初赛）</h1><p>特别冷，还飘雨，暗示了退役的结局。</p>
-<p>我一个初二 PJ 蒟蒻去参加 TG 干嘛啊(╯‵□′)╯︵┻━┻。</p>
-<p>两道补全程序题根本不知道在讲什么(╯‵□′)╯︵┻━┻。</p>
-<p>NOI 的举办年份也忘了(╯‵□′)╯︵┻━┻，亏我还专门去看了 NOI 官网。</p>
-<p>阅读程序时因为算错成 $6!=120$，结果……</p>
-<p>……</p>
-<p>怕是要退役。</p>
-<p>大概口胡一下：</p>
-<p>阅读程序 T1：模拟。</p>
-<p>阅读程序 T2：$n$ 个点，每个点出度为 1，入度为 1，给出每个点通向哪个点，求有多少个环。</p>
-<p>阅读程序 T3：求没有重复的非空子串数目。<del>mogic</del> magic 函数就是<del>蛤</del>哈希。</p>
-<p>阅读程序 T4：next_permutation。</p>
-<p>完成程序 T1：至今看不懂。</p>
-<p>完成程序 T2：f[i] 记录用 i 元买第一个商店的商品时，买第二个商店的商品的总花费的最小值。</p>
+        <p><del>↑上面的时间是发布时间，不是最后修改时间，请大家不要恐慌↑</del></p>
+<p>日期编号以考场电脑的用户名为准。（即：05/25 第一场考试为 Day0）</p>
+<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>早上准备坐高铁去北京，这是我第一次出省</p>
+<p>因为办的是临时身份证，只能在人工窗口排队/kk</p>
+<p>9:55 左右上高铁</p>
+<p>高铁上看了一会书就开始用流量水群/看风景了（<del>道理我都懂，但高铁上怎么能没有 WIFI 呢？</del>）</p>
+<p>在四川盯了半天窗外也没有看到有紫色土壤</p>
+<p>穿过秦岭，一看农田就知道到了北方地区</p>
+<p>黄土高原上似乎种了不少植被了</p>
+<p>午饭吃的是啥扣肉</p>
+<p>下午坐了很久然后到华北平原了。这才感受到真正的”平原“是啥样。</p>
         
-          <a class="article-more-a" href="/2018/NOIP2018游记/#more">more >></a>
+          <a class="article-more-a" href="/2019/THUSC2019游记/#more">more >></a>
         
       
 
@@ -457,15 +435,15 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记-NOIP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">游记-THUSC</a>
         		</li>
       		
 		</ul>
@@ -475,7 +453,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/NOIP2018游记/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/THUSC2019游记/">展开全文 >></a>
         </p>
       
 
@@ -506,21 +484,21 @@ function init(){
 
   
     
-<article id="post-树状数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-Lucas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/树状数组/">树状数组略解</a>
+      <a class="article-title" href="/2019/Lucas/">Lucas/exLucas 略解</a>
     </h1>
   
 
 
         
-        <a href="/2018/树状数组/" class="archive-article-date">
-  	<time datetime="2018-10-06T11:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-06</time>
+        <a href="/2019/Lucas/" class="archive-article-date">
+  	<time datetime="2019-05-11T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -534,23 +512,24 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>树状数组是一种<del>只有名字与树有关的</del>数据结构，可以用来维护区间。一般来说树状数组能做的线段树都能做，但是线段树常数较大，并且比树状数组麻烦很多，故树状数组很有用。树状数组通常用来维护这两种操作：</p>
+        <p>Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。</p>
+<p>利用 exLucas 可以求解 $p$ 不为质数的情况。</p>
+<h1 id="Lucas"><a href="#Lucas" class="headerlink" title="Lucas"></a>Lucas</h1><p><strong>前置知识：</strong></p>
 <ul>
-<li><p>单点修改 区间查询</p>
+<li><p>求乘法逆元</p>
 </li>
-<li><p>区间修改 单点查询</p>
+<li><p>暴力求组合数</p>
 </li>
 </ul>
-<p>它还可以进行区间修改区间查询。</p>
-<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>首先介绍 $\operatorname{lowbit}$ 函数：$\operatorname{lowbit}$ 会返回一个数在二进制下仅保留最低的非零位的结果，如：</p>
-<p>$\operatorname{lowbit}((1100)_2)=(100)_2$</p>
-<p>$\operatorname{lowbit}((11001)_2)=(1)_2$</p>
-<p>它的实现方式通常是：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在树状数组中，我们通常用 $t_x$ 来维护原数组从第 $x$ 个数开始往左 $\operatorname{lowbit}(x)$ 个数的总和。</p>
-<p><img src="https://cdn.luogu.org/upload/pic/36291.png" alt=""></p>
+<p>这种算法是基于 Lucas 定理的：</p>
+<p>设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下：</p>
+<p>$n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{m_0m_1\dots m_k})_p$</p>
+<p>其中允许首位为零，且规定当 $m&gt;n$ 时 $C_n^m=0$，则：</p>
+<p>$C_n^m\equiv C_{n_0}^{m_0}\cdot C_{n_1}^{m_1}\cdot \dots \cdot C_{n_k}^{m_k} (\mod p\ )$</p>
+<p>也可以换个递归的表达方式：</p>
+<p>$C_n^m\equiv C_{n/p}^{m/p}\cdot C_{n\%p}^{m\%p}(\mod p\ )$</p>
         
-          <a class="article-more-a" href="/2018/树状数组/#more">more >></a>
+          <a class="article-more-a" href="/2019/Lucas/#more">more >></a>
         
       
 
@@ -568,15 +547,23 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-数据结构-树状数组</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-数论-Lucas</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -586,7 +573,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/树状数组/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/Lucas/">展开全文 >></a>
         </p>
       
 
@@ -618,7 +605,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
     </nav>
   
 
@@ -751,6 +738,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
               </li>
              
@@ -779,14 +778,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-NOIP</a>
               </li>
              
@@ -795,23 +786,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-SCOI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题解</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">来源-模拟赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-逆元</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-数论-powerful-number筛</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -827,11 +810,43 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-模拟赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-快速gcd变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">题解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-逆元</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-DP-计数DP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">来源-NOIP模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-二分图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-最小路径覆盖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -847,15 +862,59 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-二分图</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-图论-最小路径覆盖</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学-min-max容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-图论-树论-虚树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP-树形DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治-最值分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-辛普森积分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治-根号分治</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -903,11 +962,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
+                <a href="javascript:void(0)" class="js-tag color4">大胆猜想不用证明</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -915,19 +978,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-多项式-多项式开方</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -939,7 +998,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-NOI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">来源-各省省选</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -951,7 +1038,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">来源-NOI</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-数论-莫比乌斯反演</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP-DP优化-斜率优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -963,15 +1054,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数-容斥原理</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-回文自动机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -979,15 +1062,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-图论-差分约束</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-DP-树形DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-数学-拉格朗日插值</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-多项式-拉格朗日插值</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -995,71 +1078,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-分治-根号分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大胆猜想不用证明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-快速gcd变换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-min-max容斥</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
               </li>
             
             <div class="clearfix"></div>

@@ -195,7 +195,7 @@ function init(){
     </script>
       <div style="background-color: #0080ff;color: #ffffff;
       position:fixed;width:100%;z-index: 999;left:300px" id="myheader" onclick="header_click();">
-        <p><strong>Notice:</strong> 共克时艰</p>
+        <p><strong>Notice:</strong> SCOI & 中考 RP++</p>
       </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -264,21 +264,21 @@ function init(){
 
   
     
-<article id="题解-题解-P2286-HNOI2004-宠物收养所" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-CF1200D-White-Lines" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-P2286-HNOI2004-宠物收养所/">题解 [HNOI2008]神奇的国度（BZOJ1006 洛谷P2286）</a>
+      <a class="article-title" href="/2019/题解-CF1200D-White-Lines/">题解-CF1200D-White Lines</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-P2286-HNOI2004-宠物收养所/" class="archive-article-date">
-  	<time datetime="2019-03-22T12:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
+        <a href="/2019/题解-CF1200D-White-Lines/" class="archive-article-date">
+  	<time datetime="2019-08-22T03:59:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -292,16 +292,19 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>洛谷题号：P4035</p>
-<p>bzoj 题号：1013</p>
-<hr>
-<p><a href="https://www.luogu.org/problemnew/show/P2286" target="_blank" rel="noopener">题目链接</a></p>
-<p>用平衡树按照题意模拟即可。</p>
-<p>但是写一个平衡树很麻烦，我们可以用 <code>set</code> 代替。</p>
-<p><code>set</code> 的 <code>upper_bound</code> 函数可以返回一个不比 <code>x</code> 小的最小数的迭代器，将其减一就是比它小的最大数。插入删除也很方便。</p>
-        
-          <a class="article-more-a" href="/2019/题解-P2286-HNOI2004-宠物收养所/#more">more >></a>
-        
+        <p><a href="http://codeforces.com/problemset/problem/1200/D" target="_blank" rel="noopener">题目链接</a></p>
+<p>这里介绍一种 $O(\text{玄学})$（应该是 $O(n(n-k)\log k)$？）的做法</p>
+<blockquote>
+<p>当时想到此做法时：计算器算一下 $n^2\log n$ 好像过不了？写一下试一下<br>写完之后：试一下极端数据，跑了 2s+怕是过不了，交一发试一下（一不小心忘取消 <code>freopen</code>，还好挂在样例不扣分，再交一次）<br>过了 Pretest 之后：这都能 PP？坐等 FST。<br>第二天一看：Accepted</p>
+</blockquote>
+<p>考虑枚举橡皮擦的位置，并分别求出橡皮擦在每个位置时，行和列分别会增加多少个 WL(White Line(s)，下同)</p>
+<p>这里以计算行上增加的 WL 为例：</p>
+<p>先预处理出每一（有黑色的）行的黑色段的左端与右端</p>
+<p>枚举橡皮擦在哪几行，将这几行的黑色段的左端与右端排序。然后从左往右枚举橡皮擦的位置，并维护指针 $pl,pr$，集合 $s$。</p>
+<p>当橡皮擦移动到一个新位置时，右移 $pl$ 扫过所有已经退出橡皮擦范围的（行的黑色段的）左端，并从集合 $s$ 中删除这一行（如果 $s$ 中没有这一行就打上标记，代表这一行不可能变成 WL）；然后右移 $pr$ 扫过所有已经进入橡皮擦范围的（行的黑色段的）右端，假如这一行没有标记，便将这一行插入集合 $s$。</p>
+<p>最后枚举每一格取 $\max$ 即可</p>
+<p>下面代码有些乱，<code>set&lt;pair&lt;int,pair&lt;int,bool&gt; &gt; &gt;e</code> 可以直接排序维护，<code>set&lt;int&gt; s</code> 可以直接用一个数组记录 tag：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">bool</span> a[<span class="number">2010</span>][<span class="number">2010</span>];</span><br><span class="line"><span class="keyword">int</span> rl[<span class="number">2010</span>],rr[<span class="number">2010</span>],cl[<span class="number">2010</span>],cr[<span class="number">2010</span>];<span class="comment">//行（列）的黑色段的左（优、上、下端）</span></span><br><span class="line"><span class="keyword">int</span> rcnt[<span class="number">2010</span>][<span class="number">2010</span>],ccnt[<span class="number">2010</span>][<span class="number">2010</span>];<span class="comment">//橡皮擦在此处时，行、列增加的 WL 数量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint(),k=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="keyword">char</span> c=getchar();</span><br><span class="line">			<span class="keyword">while</span>(c&gt;<span class="string">'Z'</span>||c&lt;<span class="string">'A'</span>)c=getchar();</span><br><span class="line">			a[i][j]=(c==<span class="string">'B'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">memset</span>(rl,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(rl));</span><br><span class="line">	<span class="built_in">memset</span>(cl,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(cl)); </span><br><span class="line">	<span class="keyword">int</span> qaq=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i][j])&#123;</span><br><span class="line">				cl[j]=min(cl[j],i);</span><br><span class="line">				cr[j]=max(cr[j],i);</span><br><span class="line">				rl[i]=min(rl[i],j);</span><br><span class="line">				rr[i]=max(rr[i],j);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		qaq+=(cl[i]&gt;cr[i]);<span class="comment">//本身就是 WL</span></span><br><span class="line">		qaq+=(rl[i]&gt;rr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-k+<span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">set</span>&lt;pair&lt;<span class="keyword">int</span>,pair&lt;<span class="keyword">int</span>,<span class="keyword">bool</span>&gt; &gt; &gt;e;<span class="comment">//所有行的黑色段的左（右）端点</span></span><br><span class="line">		<span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt;s,gg;<span class="comment">//gg:被标记的集合</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;i+k;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(rl[j]&gt;rr[j])<span class="keyword">continue</span>;<span class="comment">//本身就是 WL 的行已经单独计算</span></span><br><span class="line">			e.insert(make_pair(rl[j],make_pair(j,<span class="number">0</span>)));</span><br><span class="line">			e.insert(make_pair(rr[j],make_pair(j,<span class="number">1</span>)));</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"r "&lt;&lt;rl[j]&lt;&lt;" "&lt;&lt;rr[j]&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">auto</span> itl=e.begin(),itr=e.begin();<span class="comment">//即题解中的 pl,pr</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-k+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"?? "&lt;&lt;itr-&gt;first&lt;&lt;" "&lt;&lt;itl-&gt;first&lt;&lt;endl;</span></span><br><span class="line">			<span class="keyword">while</span>(itr!=e.end()&amp;&amp;(itr-&gt;second.second==<span class="number">0</span>||itr-&gt;first&lt;=j+k<span class="number">-1</span>))&#123;</span><br><span class="line">				<span class="comment">//if(itr-&gt;second.second)cout&lt;&lt;"&gt;. "&lt;&lt;itr-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">if</span>(itr-&gt;second.second&amp;&amp;!gg.count(itr-&gt;second.first))</span><br><span class="line">					s.insert(itr-&gt;second.first);</span><br><span class="line">				++itr;<span class="comment">//右移 pr</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">while</span>(itl!=e.end()&amp;&amp;(itl-&gt;second.second==<span class="number">1</span>||itl-&gt;first&lt;j))&#123;</span><br><span class="line">				<span class="comment">//if(!itl-&gt;second.second)cout&lt;&lt;"&lt;. "&lt;&lt;itl-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">auto</span> it=s.find(itl-&gt;second.first);</span><br><span class="line">				<span class="keyword">if</span>(itl-&gt;second.second==<span class="number">0</span>&amp;&amp;it!=s.end())</span><br><span class="line">					s.erase(it);</span><br><span class="line">				<span class="keyword">else</span> gg.insert(itl-&gt;second.first);</span><br><span class="line">				++itl;<span class="comment">//右移 pl</span></span><br><span class="line">			&#125; </span><br><span class="line">        <span class="comment">//上面两个指针的处理顺序可以交换</span></span><br><span class="line">			rcnt[i][j]=s.size();</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"rcnt "&lt;&lt;i&lt;&lt;" "&lt;&lt;j&lt;&lt;" "&lt;&lt;rcnt[i][j]&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-k+<span class="number">1</span>;i++)&#123;<span class="comment">//列同理</span></span><br><span class="line">		<span class="built_in">set</span>&lt;pair&lt;<span class="keyword">int</span>,pair&lt;<span class="keyword">int</span>,<span class="keyword">bool</span>&gt; &gt; &gt;e;</span><br><span class="line">		<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;s,gg;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;i+k;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(cl[j]&gt;cr[j])<span class="keyword">continue</span>; </span><br><span class="line">			e.insert(make_pair(cl[j],make_pair(j,<span class="number">0</span>)));</span><br><span class="line">			e.insert(make_pair(cr[j],make_pair(j,<span class="number">1</span>)));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">auto</span> itl=e.begin(),itr=e.begin();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-k+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"?? "&lt;&lt;itr-&gt;first&lt;&lt;" "&lt;&lt;itl-&gt;first&lt;&lt;endl;</span></span><br><span class="line">			<span class="keyword">while</span>(itr!=e.end()&amp;&amp;(itr-&gt;second.second==<span class="number">0</span>||itr-&gt;first&lt;=j+k<span class="number">-1</span>))&#123;</span><br><span class="line">				<span class="comment">//if(itr-&gt;second.second)cout&lt;&lt;"&gt;. "&lt;&lt;itr-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">if</span>(itr-&gt;second.second&amp;&amp;!gg.count(itr-&gt;second.first))</span><br><span class="line">					s.insert(itr-&gt;second.first);</span><br><span class="line">				++itr;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">while</span>(itl!=e.end()&amp;&amp;(itl-&gt;second.second==<span class="number">1</span>||itl-&gt;first&lt;j))&#123;</span><br><span class="line">				<span class="comment">//if(!itl-&gt;second.second)cout&lt;&lt;"&lt;. "&lt;&lt;itl-&gt;second.first&lt;&lt;endl;</span></span><br><span class="line">				<span class="keyword">auto</span> it=s.find(itl-&gt;second.first);</span><br><span class="line">				<span class="keyword">if</span>(itl-&gt;second.second==<span class="number">0</span>&amp;&amp;it!=s.end())</span><br><span class="line">					s.erase(it);</span><br><span class="line">				<span class="keyword">else</span> gg.insert(itl-&gt;second.first);</span><br><span class="line">				++itl;</span><br><span class="line">			&#125; </span><br><span class="line">			ccnt[j][i]=s.size();</span><br><span class="line">			<span class="comment">//cout&lt;&lt;"ccnt "&lt;&lt;j&lt;&lt;" "&lt;&lt;i&lt;&lt;" "&lt;&lt;ccnt[j][i]&lt;&lt;endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-k+<span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-k+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;i&lt;&lt;" "&lt;&lt;j&lt;&lt;" "&lt;&lt;ccnt[i][j]&lt;&lt;" "&lt;&lt;rcnt[i][j]&lt;&lt;endl;</span></span><br><span class="line">			ans=max(ans,ccnt[i][j]+rcnt[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans+qaq;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -314,7 +317,7 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -322,15 +325,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-平衡树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-STL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-枚举</a>
         		</li>
       		
 		</ul>
@@ -340,7 +335,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-P2286-HNOI2004-宠物收养所/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-CF1200D-White-Lines/">展开全文 >></a>
         </p>
       
 
@@ -371,21 +366,21 @@ function init(){
 
   
     
-<article id="post-舞蹈链算法（DLX）略解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-CF1200C-Round-Corridor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/舞蹈链算法（DLX）略解/">舞蹈链算法（DLX）略解</a>
+      <a class="article-title" href="/2019/题解-CF1200C-Round-Corridor/">题解 CF1200C Round Corridor</a>
     </h1>
   
 
 
         
-        <a href="/2019/舞蹈链算法（DLX）略解/" class="archive-article-date">
-  	<time datetime="2019-01-27T12:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-27</time>
+        <a href="/2019/题解-CF1200C-Round-Corridor/" class="archive-article-date">
+  	<time datetime="2019-08-21T09:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -399,23 +394,16 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>（未完成，待完善）</p>
-<p><del>DLX=Dancing Line X</del></p>
-<p>之前学 DLX 时在网上看了好几篇博客，结合着几篇讲代码的、有图片的、说原理的，总算弄懂了。这里</p>
-<p>DLX 是用来解决精确覆盖问题的算法，算是 X 算法的优化。</p>
-<p>时间复杂度 $O(\text{玄学})$（最坏是指数级）</p>
-<p><a href="https://www.luogu.org/problemnew/show/P4929" target="_blank" rel="noopener">精确覆盖问题</a>：</p>
-<p>给定一个 $N$ 行 $M$ 列的矩阵，矩阵中每个元素要么是 1，要么是 0。</p>
-<p>你需要在矩阵中挑选出若干行，使得对于矩阵的每一列 $j$，在你挑选的这些行中，有且仅有一行的第 $j$ 个元素为 1。</p>
-<p><img src="/img/0008.PNG" alt=""></p>
-<p>如上表，选择第 1、4、5 行即符合要求。</p>
-<h1 id="X-算法"><a href="#X-算法" class="headerlink" title="X 算法"></a>X 算法</h1><p>这个算法的过程如下：</p>
-<p>矩阵为空代表得到了解。</p>
-<p>否则首先我们找到 1 的个数最少的一列（个数最少可以使搜索次数变少），考虑为了使这一列有 1 选择哪一行。</p>
-<p>不管我们选哪一行，这一行都不能再选；对于这一列是 1 的其它行，这一行也不能再选（否则这一列将有不止一个 1），所以我们先把这些行从原矩阵中删掉（但是数据要保留好）。同时这一列将要成功解决，为了避免重复考虑，删掉这一列。</p>
-        
-          <a class="article-more-a" href="/2019/舞蹈链算法（DLX）略解/#more">more >></a>
-        
+        <p><a href="http://codeforces.com/problemset/problem/1200/C" target="_blank" rel="noopener">题目链接</a></p>
+<p><del>从样例可以猜到</del>所有房间被分成了 $\gcd(m,n)$ 个互不连通的块。</p>
+<p>胡乱证明：</p>
+<p>假如两部分被完全隔开，一定是因为内外两面墙在同一处，即：</p>
+<p>$\frac{a}{m}=\frac{b}{n}(0\leq a&lt;m,0\leq b&lt;n)$</p>
+<p>假设其约分后是 $\frac{x}{y}(gcd(x,y)=1,0\leq x&lt;y)$，显然 $y|m,y|n$，即 $y|\gcd(m,n)$，这样的分数个数为：$\sum \limits_{d|\gcd(m,n)}\phi(d)=\gcd(m,n)$</p>
+<p>所以内圈每 $n/\gcd(m,n)$ 一个块，外圈每 $m/\gcd(m,n)$ 一个块。</p>
+<p>每次询问简单计算出两个询问的房间在哪个块，相同即可以连通。</p>
+<p>记得开 <code>long long</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function">ll <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a,ll b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b?gcd(b,a%b):a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll n=getint(),m=getint(),q=getint();</span><br><span class="line">	ll g=gcd(m,n),gn=n/g,gm=m/g;</span><br><span class="line">	<span class="keyword">while</span>(q--)&#123;</span><br><span class="line">		ll sx=getint(),sy=getint()<span class="number">-1</span>,ex=getint(),ey=getint()<span class="number">-1</span>;</span><br><span class="line">		sy=(sx==<span class="number">1</span>?sy/gn:sy/gm);</span><br><span class="line">		ey=(ex==<span class="number">1</span>?ey/gn:ey/gm);</span><br><span class="line">		<span class="built_in">puts</span>(sy==ey?<span class="string">"YES"</span>:<span class="string">"NO"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -428,19 +416,15 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-搜索-DLX</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-搜索</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		
 		</ul>
@@ -450,7 +434,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/舞蹈链算法（DLX）略解/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-CF1200C-Round-Corridor/">展开全文 >></a>
         </p>
       
 
@@ -481,21 +465,21 @@ function init(){
 
   
     
-<article id="post-Catalan-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-CF337D-Developing-Game" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/Catalan-01/">几种计数问题方案与 01 序列问题的转化</a>
+      <a class="article-title" href="/2019/题解-CF337D-Developing-Game/">题解 CF337D Developing Game</a>
     </h1>
   
 
 
         
-        <a href="/2018/Catalan-01/" class="archive-article-date">
-  	<time datetime="2018-12-01T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
+        <a href="/2019/题解-CF337D-Developing-Game/" class="archive-article-date">
+  	<time datetime="2019-08-21T09:35:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
@@ -509,29 +493,16 @@ function init(){
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以下大部分性质总结自 wiki<a href="https://en.wikipedia.org/wiki/Catalan_number" target="_blank" rel="noopener">（英文）</a><a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E5%A1%94%E5%85%B0%E6%95%B0" target="_blank" rel="noopener">（中文）</a></p>
-<hr>
-<p>卡特兰数是计数问题当中常见的一个数列。卡特兰数解决的一个经典的问题就是 01 序列：</p>
-<blockquote>
-<p>有一个只有 $n$ 个 0，$n$ 个 1 的数列，求保证该数列任意前缀的 1 的个数大于等于 0 的个数的方案数。如 $n=2$ 时，方案有 $1100,1010$ 共 2 种。</p>
-</blockquote>
-<p>这个问题的答案就是 $C_{n-1}$。</p>
-<p>卡特兰数还能解决其它许多问题，下面将各种问题的方案转换为 01 序列：</p>
-<h1 id="括号序列"><a href="#括号序列" class="headerlink" title="括号序列"></a>括号序列</h1><blockquote>
-<p>给定n对括号，求括号正确配对的字符串数。</p>
-</blockquote>
-<p>将 <code>(</code> 编号为 1，将 <code>)</code> 编号为 0，即可建立对应关系。</p>
-<h1 id="出栈序列"><a href="#出栈序列" class="headerlink" title="出栈序列"></a>出栈序列</h1><blockquote>
-<p>一个栈（无穷大）的进栈序列为 $1,2,3,\dots ,n$，有多少个不同的出栈序列？</p>
-</blockquote>
-<p>将 入栈 编号为 1，将 出栈 编号为 0，即可建立对应关系。</p>
-<h1 id="不穿过对角线的路径条数"><a href="#不穿过对角线的路径条数" class="headerlink" title="不穿过对角线的路径条数"></a>不穿过对角线的路径条数</h1><blockquote>
-<p>一位大城市的律师在她住所以北 $n$ 个街区和以东 $n$ 个街区处工作。每天她走 $2n$ 个街区去上班。如果她从不穿越（但可以碰到）从家到办公室的对角线（即始终保证 $x\geq y$），那么有多少条可能的道路？</p>
-</blockquote>
-<p>将 向东走 编号为 1，将 向北走 编号为 0，即可建立对应关系。</p>
-        
-          <a class="article-more-a" href="/2018/Catalan-01/#more">more >></a>
-        
+        <p><a href="http://codeforces.com/problemset/problem/377/D" target="_blank" rel="noopener">题目链接</a></p>
+<h1 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h1><p>有 $n$ 个人，每人有属性 $l_i,v_i,r_i(l_i\leq v_i\leq r_i)$，要求选出最大的人的集合 $S$ 使得 $\forall x,y\in S$ 有 $l_y\leq v_x\leq r_y$</p>
+<h1 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h1><p>简单分析一下这些不等式可以发现题目的要求可以转化为：$\max\limits_{i\in S} l_i\leq \min\limits_{i\in S} v_i\leq \max\limits_{i\in S} v_i\leq\min\limits_{i\in S} r_i$</p>
+<p>进一步地，我们将要求转化为找到 $L,R$，使得 $\max\limits_{i\in S} l_i\leq L\leq \min\limits_{i\in S} v_i,\max\limits_{i\in S} v_i\leq R\leq\min\limits_{i\in S} r_i$</p>
+<p>我们将 $(L,R)$ 看作二维平面上的一个点，一个人就对应着一个矩形。集合中选出多个人，对 $(L,R)$ 的限制就是这些矩形的交。选出最多的人，就是要找到一个点被尽可能多的矩形覆盖。</p>
+<p>以样例为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">2 8 9</span><br><span class="line">1 4 7</span><br><span class="line">3 6 8</span><br><span class="line">5 8 10</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20190813211642944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5ODU0NzM0,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>找到这个点可以用扫描线+线段树。记录最优的点的位置，输出方案时挨个判断矩形是否包含该点。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c=getchar();</span><br><span class="line">    <span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">        c=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">200100</span>,M=<span class="number">600300</span>;</span><br><span class="line"><span class="keyword">int</span> a[M&lt;&lt;<span class="number">2</span>],tag[M&lt;&lt;<span class="number">2</span>],pos[M&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a[x&lt;&lt;<span class="number">1</span>]&gt;a[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>])&#123;</span><br><span class="line">		pos[x]=pos[x&lt;&lt;<span class="number">1</span>];</span><br><span class="line">		a[x]=a[x&lt;&lt;<span class="number">1</span>];</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		pos[x]=pos[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">		a[x]=a[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	tag[x&lt;&lt;<span class="number">1</span>]+=tag[x];</span><br><span class="line">	a[x&lt;&lt;<span class="number">1</span>]+=tag[x];</span><br><span class="line">	tag[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]+=tag[x];</span><br><span class="line">	a[x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]+=tag[x];</span><br><span class="line">	tag[x]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> val,<span class="keyword">int</span> x,<span class="keyword">int</span> nl,<span class="keyword">int</span> nr)</span></span>&#123;</span><br><span class="line">	pushdown(x);</span><br><span class="line">	<span class="keyword">if</span>(l&lt;=nl&amp;&amp;nr&lt;=r)&#123;</span><br><span class="line">		a[x]+=val;</span><br><span class="line">		tag[x]+=val;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid=nl+nr&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(nl&lt;=r&amp;&amp;mid&gt;=l)modify(l,r,val,x&lt;&lt;<span class="number">1</span>,nl,mid);</span><br><span class="line">	<span class="keyword">if</span>(mid+<span class="number">1</span>&lt;=r&amp;&amp;nr&gt;=l)modify(l,r,val,x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,mid+<span class="number">1</span>,nr);</span><br><span class="line">	pushup(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">		pos[x]=l;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	build(x&lt;&lt;<span class="number">1</span>,l,mid);</span><br><span class="line">	build(x&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,mid+<span class="number">1</span>,r);</span><br><span class="line">	pos[x]=pos[x&lt;&lt;<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> l[N],r[N],v[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">seg</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,u,d;</span><br><span class="line">	<span class="keyword">bool</span> b;</span><br><span class="line">&#125;;</span><br><span class="line">seg s[N];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(seg a,seg b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.x!=b.x)<span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> a.b&lt;b.b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		l[i]=getint();</span><br><span class="line">		v[i]=getint();</span><br><span class="line">		r[i]=getint();</span><br><span class="line">		s[i*<span class="number">2</span>].x=l[i];   s[i*<span class="number">2</span>].u=r[i];   s[i*<span class="number">2</span>].d=v[i];   s[i*<span class="number">2</span>].b=<span class="number">0</span>;</span><br><span class="line">		s[i*<span class="number">2</span>+<span class="number">1</span>].x=v[i]; s[i*<span class="number">2</span>+<span class="number">1</span>].u=r[i]; s[i*<span class="number">2</span>+<span class="number">1</span>].d=v[i]; s[i*<span class="number">2</span>+<span class="number">1</span>].b=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	build(<span class="number">1</span>,<span class="number">1</span>,<span class="number">3e5</span>+<span class="number">1</span>);</span><br><span class="line">	sort(s,s+n*<span class="number">2</span>,cmp);</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,ansp=<span class="number">0</span>,ansx=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n*<span class="number">2</span>;i++)&#123;</span><br><span class="line">		modify(s[i].d,s[i].u,s[i].b?<span class="number">-1</span>:<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">3e5</span>+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(query()&gt;ans)&#123;</span><br><span class="line">			ans=query();</span><br><span class="line">			ansp=pos[<span class="number">1</span>];</span><br><span class="line">			ansx=s[i].x;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(l[i]&lt;=ansx&amp;&amp;ansx&lt;=v[i]&amp;&amp;v[i]&lt;=ansp&amp;&amp;ansp&lt;=r[i])<span class="built_in">cout</span>&lt;&lt;i+<span class="number">1</span>&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -544,15 +515,15 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学-卡特兰数</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-计算几何-扫描线</a>
         		</li>
       		
 		</ul>
@@ -562,7 +533,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/Catalan-01/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/题解-CF337D-Developing-Game/">展开全文 >></a>
         </p>
       
 
@@ -594,7 +565,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
     </nav>
   
 
@@ -727,6 +698,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">来源-codeforces</a>
               </li>
              
@@ -755,14 +738,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-NOIP</a>
               </li>
              
@@ -771,23 +746,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">游记-CSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游记-SCOI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题解</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">来源-模拟赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-逆元</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-数论-powerful-number筛</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -803,11 +770,43 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-模拟赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-快速gcd变换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">题解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-逆元</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-DP-计数DP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">来源-NOIP模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-二分图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-最小路径覆盖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -823,15 +822,59 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-网络流</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-图论-二分图</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-图论-最小路径覆盖</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学-min-max容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-图论-树论-虚树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP-树形DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治-最值分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-辛普森积分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治-根号分治</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -879,11 +922,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-枚举</a>
+                <a href="javascript:void(0)" class="js-tag color4">大胆猜想不用证明</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-构造</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -891,19 +938,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-其它-LIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">来源-洛谷月赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-多项式-多项式开方</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -915,7 +958,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-NOI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">来源-各省省选</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -927,7 +998,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">来源-NOI</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法-数学-数论-莫比乌斯反演</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP-DP优化-斜率优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -939,15 +1014,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-分治-CDQ分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-计数-容斥原理</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-回文自动机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -955,15 +1022,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法-图论-差分约束</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-DP-树形DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法-数学-拉格朗日插值</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-多项式-拉格朗日插值</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -971,71 +1038,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-字符串-字典序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-主席树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-组合数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-分治-根号分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大胆猜想不用证明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-min_25筛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法-数学-快速gcd变换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-线性基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-min-max容斥</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法-数学-群论-Burnside引理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-数学-卡特兰数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">特殊题目-构造题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">数学-群论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法-倍增</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-字符串-后缀数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-St表</a>
               </li>
             
             <div class="clearfix"></div>
