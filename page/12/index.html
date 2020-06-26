@@ -264,46 +264,43 @@ function init(){
 
   
     
-<article id="post-某CSPS模拟赛-20191112" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T2 树（tree）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/某CSPS模拟赛-20191112/">某 CSPS 模拟赛 - 20191112</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T2 树（tree）/">某 SCOI 模拟赛 T2 树（tree）</a>
     </h1>
   
 
 
         
-        <a href="/2019/某CSPS模拟赛-20191112/" class="archive-article-date">
-  	<time datetime="2019-11-14T08:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
+        <a href="/2020/某SCOI模拟赛 T2 树（tree）/" class="archive-article-date">
+  	<time datetime="2020-06-06T00:54:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="T1-命令方块（block）"><a href="#T1-命令方块（block）" class="headerlink" title="T1 命令方块（block）"></a>T1 命令方块（block）</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有 $N$ 个字符串 $s_i$，按给定顺序排开，你每次可以交换一对字符串，最后使得：</p>
-<ul>
-<li>对于任意任意 $i&lt;j&lt;k$，有：$\operatorname{lcp}(s_i,s_j)\geq \operatorname{lcp}(s_i,s_k)$ 且 $\operatorname{lcp}(s_j,s_k)\geq \operatorname{lcp}(s_i,s_k)$</li>
-</ul>
-<p>输出任意一种交换方案，要求交换次数 $\leq 10^6$。$N\leq 10^6, \sum |s_i|\leq 10^7$。</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>（刚看到题目名称还有 SPJ 还以为第一道题就是造计算机题……）</p>
-<p>首先把要求翻译成人话——对于任意一个字符串，向同一个方向看，离得越近的最长公共前缀越长。</p>
-<p>最长公共前缀越长就相当于字典序更接近，所以按字典序 <code>sort</code> 一遍就行。</p>
-<p>（实际上按字典树的任意 DFS 序排序都是可行的）</p>
-<p>得到了排序后的序列，只需要对于每个没有归位的字符串 <code>swap</code> 一遍，就能得到方案。</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>一棵有正边权的树上，$m$ 次询问从 $x$ 号点走到节点编号在 $l$ 和 $r$ 之间的节点的最小距离。$n,m\leq 10^5$。时限 2s。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>（似乎有很多写法）</p>
+<p>先把所有询问离线下来，并把它拆成 $O(\log)$ 段 $(x,l’,r’)$ 挂在线段树的各个节点。</p>
+<p>遍历线段树的每个节点，把 这个节点对应编号的点 和 挂在这个节点上的询问的 $x$ 放在虚树里，树形 DP 一下虚树中每个点到 这个线段树节点对应编号的点 的最小距离，然后用这些距离更新每个询问的答案。</p>
+<p>（DP 本来不用 DFS 的 QAQ，因为 DFS 序都求好了）</p>
+<p>实现得不够好的话时间复杂度为 $O((n+m)\log^2n)$。假如实现了 $O(1)$ 查询 LCA，并且构建虚树前把询问按 $x$ 的 DFS 序排序，构建虚树时把线段树上左儿子的对应编号的点、右儿子的对应编号的点、这个挂在这个节点上的询问的 $x$ 三个序列归并起来，可以达到 $O((n+m)\log n)$。</p>
+<p>代码（$O((n+m)\log^2n)$）：</p>
         
-          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 树（tree）/#more">more >></a>
         
       
 
@@ -329,19 +326,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-线段树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-图论-树论-虚树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-主席树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-字符串-字典序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-树形DP</a>
         		</li>
       		
 		</ul>
@@ -351,7 +344,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 树（tree）/">展开全文 >></a>
         </p>
       
 
@@ -382,46 +375,44 @@ function init(){
 
   
     
-<article id="post-某CSPS模拟赛 T3 子树问题（subtree）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-SDOI2014-数表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">某CSPS模拟赛 T3 子树问题（tree）</a>
+      <a class="article-title" href="/2020/题解-SDOI2014-数表/">题解 [SDOI2014]数表（LOJ 2193 / 洛谷 P3312）</a>
     </h1>
   
 
 
         
-        <a href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/" class="archive-article-date">
-  	<time datetime="2019-11-03T12:20:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
+        <a href="/2020/题解-SDOI2014-数表/" class="archive-article-date">
+  	<time datetime="2020-06-04T14:09:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定 $L,R,n,a_1,\dots,a_x$，对于每个整数 $L\leq i\leq R$，询问有多少符合以下条件的有根树树（有标号，儿子无序）;</p>
-<ul>
-<li>高度为 $i$；</li>
-<li>节点数为 $n$；</li>
-<li>没有任何一个子树的大小为 $a_j$；</li>
-<li>节点编号构成一个小根堆（父亲编号小于儿子）。</li>
-</ul>
-<p>$1\leq L\leq R\leq n\leq 500,0\leq x&lt;n,2\leq a_i\leq n$，$a_i$ 互不相同。答案模 998244353。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>令 $f[i][j]$ 为有 $i$ 个节点，深度不超过 $j$ 的树的数量，则答案为 $f[n][i]-f[n][i-1]$。<br>假设这每树内部节点编号相对大小顺序已经确定。<br>每次转移考虑将一棵树的一个子树拆下来，强制这个子树的根的编号是第二小的（显然这棵树的根编号是最小的）以避免重复计数。<br>则不考虑 $size\not\in a$ 的话，转移方程为 $f[i][j]=\sum\limits_{k=1}^{i-1}f[i-k][j]\cdot f[k][j-1]\cdot {i-2\choose k-1}$<br>考虑 $size\not\in a$时，只需要在转移时把 $f[k][j-1]$ 这项在 $k\in a$ 时看作 0。<strong>但是不应将 $f[i-k][j]$ 看作 0，也不应在 DP 时跳过 $f[i][j]$。</strong></p>
-        
-          <a class="article-more-a" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/#more">more >></a>
-        
+        <p>题目链接：<a href="https://www.luogu.com.cn/problem/P3312" target="_blank" rel="noopener">洛谷 P2120</a> / <a href="https://loj.ac/problem/2193" target="_blank" rel="noopener">LOJ #10189</a></p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$q$ 次询问，给定 $n,m,a$，求 $\sum\limits_{i=1}^n\sum\limits_{j=1}^m[\sigma_1(\gcd(i,j)\leq a)]\sigma_1(\gcd(i,j)$。$n,m,a\leq 10^5$，$q\leq 2\times 10^4$。</p>
+<p>其中 $\sigma_1(x)$ 指 $x$ 的约数和。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先忽略 $\sigma_0(\gcd(i,j)\leq a)$ 的限制，推式子（$a/b=\lfloor\frac ab\rfloor$）：</p>
+<p>$$\begin{aligned}<br>&amp;\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{m}\sigma_1(\gcd(i,j))\\<br>=&amp;\sum\limits_{g=1}^{\min(n,m)}\sigma_1(g)\sum\limits_{i=1}^{n/g}\sum\limits_{j=1}^{m/g}[\gcd(i,j)=1]\\<br>=&amp;\sum\limits_{g=1}^{\min(n,m)}\sigma_1(g)\sum\limits_{d}^{\min(n/g,m/g)}\mu(d)(m/d/g)(n/d/g)\\<br>=&amp;\sum\limits_{T=1}^{\min(n,m)}(m/T)(n/T)\sum\limits_{g\mid T}\sigma_1(g)\mu({T\over g})<br>\end{aligned}$$</p>
+<p>假如没有限制，可以乱搞出 $\sum\limits_{g\mid T}\sigma_1(g)\mu({T\over g})$ 的前缀和，然后整除分块。</p>
+<p>有限制时，考虑把询问按 $a$ 排序，所有数按 $\sigma_1(i)$ 排序。每次询问时，把 $\sigma_1(i)\leq a$ 的 $i$ 能够贡献到的 $\sum\limits_{g\mid T}\sigma_1(g)\mu({T\over g})$ 在树状数组上单点修改，整除分块时区间查询。</p>
+<p>时间复杂度 $O(q\sqrt n \log n)$。</p>
+<p>代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********</span></span><br><span class="line"><span class="comment">Author: WLBKR5</span></span><br><span class="line"><span class="comment">Problem: loj 2193, luogu 3312</span></span><br><span class="line"><span class="comment">Name: 数表 </span></span><br><span class="line"><span class="comment">Source: SDOI2014 </span></span><br><span class="line"><span class="comment">Algorithm: 莫比乌斯反演, 树状数组 </span></span><br><span class="line"><span class="comment">Date: 2020/06/04</span></span><br><span class="line"><span class="comment">Statue: accepted</span></span><br><span class="line"><span class="comment">Submission: loj.ac/submission/825281, www.luogu.com.cn/record/34142662</span></span><br><span class="line"><span class="comment">//The second submission seems to be faster</span></span><br><span class="line"><span class="comment">**********/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> uint unsigned int</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span>&amp; <span class="title">U</span><span class="params">(<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> y)</span></span>&#123;x+=y;&#125;</span><br><span class="line">uint bit[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">return</span> x&amp;-x;&#125;</span><br><span class="line"><span class="function">uint <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">int</span> ans=<span class="number">0</span>;<span class="keyword">for</span>(;x;x-=lowbit(x))ans+=bit[x];<span class="keyword">return</span> ans;&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> x,uint val)</span></span>&#123;<span class="keyword">if</span>(val)<span class="keyword">for</span>(;x&lt;N;x+=lowbit(x))bit[x]+=val;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Query</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> n,m,a;</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	uint ans;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Query &amp;a,<span class="keyword">const</span> Query &amp;b)</span></span>&#123; <span class="keyword">return</span> a.a&lt;b.a; &#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">pmc</span><span class="params">(<span class="keyword">const</span> Query &amp;a,<span class="keyword">const</span> Query &amp;b)</span></span>&#123; <span class="keyword">return</span> a.num&lt;b.num; &#125;</span><br><span class="line">Query q[N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> sig[N],mu[N],pri[N],boo[N],cnt=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpi</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> sig[a]&lt;sig[b];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!boo[i])pri[cnt++]=i,mu[i]=<span class="number">-1</span>;</span><br><span class="line">		<span class="comment">//cerr&lt;&lt;"i "&lt;&lt;i&lt;&lt;" "&lt;&lt;mu[i]&lt;&lt;endl;</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;cnt&amp;&amp;pri[j]*i&lt;N;j++)&#123;</span><br><span class="line">			boo[pri[j]*i]=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(i%pri[j])&#123;</span><br><span class="line">				mu[i*pri[j]]=mu[i]*mu[pri[j]];</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				mu[i*pri[j]]=<span class="number">0</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++)<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;N;j+=i)sig[j]+=i;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++)a[i]=i;</span><br><span class="line">	sort(a+<span class="number">1</span>,a+N,cmpi);</span><br><span class="line">	<span class="keyword">int</span> t=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t;i++)&#123;</span><br><span class="line">		q[i].n=getint();</span><br><span class="line">		q[i].m=getint();</span><br><span class="line">		q[i].a=getint();</span><br><span class="line">		q[i].num=i;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(q,q+t,cmp);</span><br><span class="line">	<span class="keyword">int</span> p=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t;i++)&#123;</span><br><span class="line">		<span class="keyword">while</span>(sig[a[p]]&lt;=q[i].a&amp;&amp;p&lt;N)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=a[p];j&lt;N;j+=a[p])modify(j,sig[a[p]]*mu[j/a[p]]);</span><br><span class="line">			++p;</span><br><span class="line">		&#125;</span><br><span class="line">		uint m=q[i].m,n=q[i].n;</span><br><span class="line">		uint &amp;ans=q[i].ans;</span><br><span class="line">		uint lastq=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(uint l=<span class="number">1</span>,r=<span class="number">0</span>;l&lt;=min(m,n);l=r+<span class="number">1</span>)&#123;</span><br><span class="line">			r=min(n/(n/l),m/(m/l));</span><br><span class="line">			uint _=query(r);</span><br><span class="line">			ans+=(m/l)*(n/l)*(_-lastq);</span><br><span class="line">			lastq=_;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(q,q+t,pmc);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t;i++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">int</span>(q[i].ans&amp;((<span class="number">1u</span>&lt;&lt;<span class="number">31</span>)<span class="number">-1</span>)));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -442,7 +433,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-计数DP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-数据结构-树状数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-数论-莫比乌斯反演</a>
         		</li>
       		
 		</ul>
@@ -452,7 +451,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/题解-SDOI2014-数表/">展开全文 >></a>
         </p>
       
 
@@ -483,39 +482,44 @@ function init(){
 
   
     
-<article id="post-某CSPS模拟赛 T2 背包问题（bag）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-CF438E-小朋友和二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/某CSPS模拟赛 T2 背包问题（bag）/">某 CSPS 模拟赛 T2 背包问题（bag）</a>
+      <a class="article-title" href="/2020/题解-CF438E-小朋友和二叉树/">题解 [CF#250 Div1 E] The Child and Binary Tree | 小朋友和二叉树（CF438E / bzoj 3625）</a>
     </h1>
   
 
 
         
-        <a href="/2019/某CSPS模拟赛 T2 背包问题（bag）/" class="archive-article-date">
-  	<time datetime="2019-11-03T12:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
+        <a href="/2020/题解-CF438E-小朋友和二叉树/" class="archive-article-date">
+  	<time datetime="2020-06-04T09:25:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$T$ 组数据。每组数据给定 $n$ 个二维点与 $m$ 个数 $t_i$。要求从找到最长的二维偏序不下降序列，能给序列中的每个点分配一个 $t_i$ 不小于其横坐标。$n,m\leq 10^5$</p>
-<h2 id="0-题解（误）"><a href="#0-题解（误）" class="headerlink" title="0% 题解（误）"></a>0% 题解（误）</h2><p>把标程的二分写挂就是 0 分了。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先有个很显然的性质——选出的 $t_i$ 都是最大的几个 $t_i$ 的话，答案一定不会劣。<br>所以对于每个点，我们可以知道以它结尾的不下降序列不可能超过其横坐标在 $t$ 中的排名，否则我们无法找到足够多的 $t_i$ 使它们都大于之前那些点的横坐标。<br>知道这个性质就可以乱搞了。<br>仿效传统的 LIS 做法，只需要在利用这个点更新时判断以它结尾的长度是不是超出了这个限制，假如超出就强行把它与那个限制取 $\min$。</p>
-<p>代码咕了。</p>
-
+        <p>题目链接：<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3625" target="_blank" rel="noopener">bzoj 3625</a>（<a href="https://darkbzoj.tk/problem/3625" target="_blank" rel="noopener">dark</a>）/ <a href="http://codeforces.com/contest/438/problem/E" target="_blank" rel="noopener">CF438E</a></p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对于 1 到 $m$ 的整数 $i$，统计有多少个带权二叉树，点权权值属于给定集合 $C$，点权和为 $i$。答案模 $998244353$。$|C|,m\leq 10^5$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>单个节点的生成函数 $F(x)=\sum\limits_{i=1}[i\in C]x^i$。</p>
+<p>一个二叉树是由左子树、右子树、根拼起来的，即：$G=F\cdot G^2$。</p>
+<p>解方程可得 $G=\dfrac{1\pm\sqrt{1-4F} }{2F}$。</p>
+<p>$F$ 的常数项为 $0$，$\sqrt{1-4F}$ 的常数项为 1，$G$ 的常数项为 1，所以取 $G=\dfrac{1-\sqrt{1-4F} }{2F}=\dfrac{2}{1+\sqrt{1-4F} }$。</p>
+<p>多项式求逆+开方即可。</p>
+        
+          <a class="article-more-a" href="/2020/题解-CF438E-小朋友和二叉树/#more">more >></a>
+        
       
 
       
@@ -532,11 +536,19 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-其它-LIS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学-生成函数</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-多项式-多项式开方</a>
         		</li>
       		
 		</ul>
@@ -546,7 +558,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/某CSPS模拟赛 T2 背包问题（bag）/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/题解-CF438E-小朋友和二叉树/">展开全文 >></a>
         </p>
       
 
@@ -578,7 +590,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
     </nav>
   
 
@@ -1052,6 +1064,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

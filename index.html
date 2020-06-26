@@ -264,39 +264,40 @@ function init(){
 
   
     
-<article id="post-某SCOI模拟赛 T3 无限回转（tusk）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T2 排列（permutation）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/某SCOI模拟赛 T3 无限回转（tusk）/">某 SCOI 模拟赛 T3 无限回转（tusk）</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T2 排列（permutation）/">某 SCOI 模拟赛 T2 排列（permutation）</a>
     </h1>
   
 
 
         
-        <a href="/2020/某SCOI模拟赛 T3 无限回转（tusk）/" class="archive-article-date">
-  	<time datetime="2020-06-06T13:19:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
+        <a href="/2020/某SCOI模拟赛 T2 排列（permutation）/" class="archive-article-date">
+  	<time datetime="2020-06-22T13:42:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给出一个凸 $N$ 边形，在其内部随机选一个点，再随机选择一个方向，求从该点出发沿这个方向一直走最后碰到各条边的概率。要求绝对误差不超过 $10^{-6}$。$N\leq 1500$，坐标范围 $10^4$。时限 1s。</p>
-<p>（题目改编自 <a href="http://pe-cn.github.io/613/" target="_blank" rel="noopener">PE 613</a>）</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>枚举每条边。假如确定了方向，考虑有多大的面积朝这个方向走会走到这条边：</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有 $n$ 个数 $x_i$，找到它们的一个排列，有 $m$ 个要求 $x_a$ 要放在 $x_b$ 前面，最大化所得排列的最大连续子段和。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>负数不好处理。先把答案设成所有正数的和，假如最大连续子段和不包括某个正数，答案 $-x_i$，如果包括某个负数，答案 $-|x_i|$。</p>
+<p>整个排列可以分为三段：最前面的不在和最大的连续子段中的、中间一段的在其中的、最后面的不在其中的。</p>
+<p>考虑建图：$st\to p_i\to q_i\to ed$，割掉三条边中的某一条就对应着这个数在排列中的某一段。要求 $x_a$ 要放在 $x_b$ 前面，也就是 $x_a$ 所在的段不在 $x_b$ 所在的段的后面，所以连接 $p_a\to p_b$、$q_a\to q_b$，容量为 $\inf$。</p>
         
-          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 无限回转（tusk）/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 排列（permutation）/#more">more >></a>
         
       
 
@@ -322,7 +323,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数学-辛普森积分</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-图论-最小割</a>
         		</li>
       		
 		</ul>
@@ -332,7 +333,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 无限回转（tusk）/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 排列（permutation）/">展开全文 >></a>
         </p>
       
 
@@ -363,45 +364,49 @@ function init(){
 
   
     
-<article id="post-PAM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛-T1-连通性（Floyd）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/PAM/">PAM / 回文自动机（回文树）略解</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛-T1-连通性（Floyd）/">某 SCOI 模拟赛 T1 连通性（floyd）</a>
     </h1>
   
 
 
         
-        <a href="/2020/PAM/" class="archive-article-date">
-  	<time datetime="2020-06-06T01:28:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
+        <a href="/2020/某SCOI模拟赛-T1-连通性（Floyd）/" class="archive-article-date">
+  	<time datetime="2020-06-22T12:54:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>回文自动机可以处理一个字符串的回文子串的信息，复杂度为 $O(n)$。</p>
-<p>参考资料：翁文涛 《回文树及其应用》</p>
-<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>回文自动机的每个节点代表一个回文子串，本质相同的回文子串在一个节点上。记节点 $i$ 代表的回文串为 $s_i$（实现时不用记录），长度为 $len_i$。</p>
-<p>回文自动机的结构可以看成两棵树，它们的根分别为 $even$ 和 $odd$，$even$ 对应空回文串，$odd$ 对应长度为 $-1$ 的，实际上并不存在的回文串。</p>
-<p>树上的一条边，也就是自动机的转移边对应一个字符。若 $i$ 到 $j$ 有一条对应字符 $c$ 的转移边，则 $s_j=cs_ic$，即在字符串前后各加一个 $c$。特别的，$odd$ 经过一条边后得到单个字符。</p>
-<p>与其它自动机类似，回文自动机的节点也有 $fail$ 指针（失配指针 / 后缀链接），它指向这个节点最长的、不是自身的后缀回文串。特别的，$fail_{even}=odd$。通常记 $fail_{odd}=odd$，虽然 $odd$ 节点不可能失配（添加一个字符后成为单个字符，它一定是回文的）。</p>
-<p>$fail$ 指针显然构成一棵 $fail$ 树。</p>
-<p>下图来自于翁文涛的论文《回文树及其应用》。</p>
-<p><img src="/img/0043.PNG" alt=""></p>
+        <p>${3\choose 2}$</p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$T$ 次询问：在用 Floyd 算法处理任意两点间连通性时，若第一层循环（枚举中间点）不枚举到编号最大的 $m$ 个点，得到的结果与正常 Floyd 算法得到结果相同的 $n$ 个点的无向图有多少个。答案模 $10^9+7$。$m\leq n\leq 100$，$T\leq 10^5$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>把 1 号到 $n-m$ 号点称为黑色点，$n-m+1$ 号到 $n$ 号点称为白色点，若每个连通块内的任意点对都能找到一条除起点、终点外只包含黑色点的路径，则符合要求。</p>
+<p>进一步来说，全是白色点的连通块必须是一个团；有黑色点的连通块内，黑色点的导出子图必须连通、每个白色点必须直接连到至少一个黑色点。</p>
+<p>于是 DP：记 $f(n,m)$ 为询问的答案，记 $g(n)$ 为有 $n$ 个节点的无向连通图个数。</p>
+<p>$$g(n)=2^{\frac{n(n-1)}{2} }-\sum_{i=1}^{n-1} g(i)\times2^{\frac{(n-i)(n-i-1)}{2} }\times \tbinom{n-1}{i-1}$$</p>
+<p>（枚举 1 号点所在的连通块大小，总数减去不合法的数量。）</p>
+<p>$$f(n,m)+=\sum_{i-1}^m f(n-i,m-i)\tbinom{m-1}{i-1}$$</p>
+<p>（只有白色点的连通块：枚举白色点数目；给前 $m-1$ 个白色点分配编号，第 $m$ 个白色点编号必须是 $n$。）</p>
+<p>$$f(n,m)+=\sum_{i-1}^m\sum_{j=1}^{n-m}f(n-i-j,m-i)\tbinom{m-1}{i-1}\tbinom{n-m}jh(i,j)$$</p>
+<p>其中 $h(i,j)$ 为有 $i$ 个白点，$j$ 个黑点的连通图方案数，$h(i,j)=g(j)\times(2^j-1)^i\times2^{\frac{i(i-1)}{2} }$。（黑点连通；每个白点任意选择是否与黑点连接、但不能全部不连；白点之间随意连边。）</p>
+<p>（有黑色点的连通块：枚举白色、黑色点数目；给前 $m-1$ 个白色点分配编号，第 $m$ 个白色点编号必须是 $n$；给 $n-m$ 个黑色点分配编号；最后乘上连通块内的方案数。）</p>
+<p>时间复杂度：$O(n^4)$</p>
         
-          <a class="article-more-a" href="/2020/PAM/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛-T1-连通性（Floyd）/#more">more >></a>
         
       
 
@@ -415,15 +420,19 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-字符串-回文自动机</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-计数DP</a>
         		</li>
       		
 		</ul>
@@ -433,7 +442,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/PAM/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛-T1-连通性（Floyd）/">展开全文 >></a>
         </p>
       
 
@@ -464,43 +473,46 @@ function init(){
 
   
     
-<article id="post-某SCOI模拟赛 T2 树（tree）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T1-T3（20200619）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/某SCOI模拟赛 T2 树（tree）/">某 SCOI 模拟赛 T2 树（tree）</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T1-T3（20200619）/">某 SCOI 模拟赛 T1~T3</a>
     </h1>
   
 
 
         
-        <a href="/2020/某SCOI模拟赛 T2 树（tree）/" class="archive-article-date">
-  	<time datetime="2020-06-06T00:54:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
+        <a href="/2020/某SCOI模拟赛 T1-T3（20200619）/" class="archive-article-date">
+  	<time datetime="2020-06-20T07:06:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-20</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>一棵有正边权的树上，$m$ 次询问从 $x$ 号点走到节点编号在 $l$ 和 $r$ 之间的节点的最小距离。$n,m\leq 10^5$。时限 2s。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>（似乎有很多写法）</p>
-<p>先把所有询问离线下来，并把它拆成 $O(\log)$ 段 $(x,l’,r’)$ 挂在线段树的各个节点。</p>
-<p>遍历线段树的每个节点，把 这个节点对应编号的点 和 挂在这个节点上的询问的 $x$ 放在虚树里，树形 DP 一下虚树中每个点到 这个线段树节点对应编号的点 的最小距离，然后用这些距离更新每个询问的答案。</p>
-<p>（DP 本来不用 DFS 的 QAQ，因为 DFS 序都求好了）</p>
-<p>实现得不够好的话时间复杂度为 $O((n+m)\log^2n)$。假如实现了 $O(1)$ 查询 LCA，并且构建虚树前把询问按 $x$ 的 DFS 序排序，构建虚树时把线段树上左儿子的对应编号的点、右儿子的对应编号的点、这个挂在这个节点上的询问的 $x$ 三个序列归并起来，可以达到 $O((n+m)\log n)$。</p>
-<p>代码（$O((n+m)\log^2n)$）：</p>
+        <p>因为题目相比其他几次水一点所以就写一起了。</p>
+<h1 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>问有 1 到 $n$ 这 $n$ 个元素的二叉堆个数，模 $10^9+7$。$n\leq 10^9$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>记 $sz_i$ 为编号为 $i$ 的结点的子树的大小，知道 $sz_i$ 后我们很容易能够算出一个节点左右子树的大小。</p>
+<p>以下有两种推导方式：</p>
+<ul>
+<li>记 $f_i$ 为大小为 $i$ 的二叉堆的个数，于是 $f_1=f_2=1$，$f_{sz_x}=f_{sz_{lson} }\cdot f_{sz_{rson} }\cdot{sz_x-1\choose sz_{lson} }$。再往下推亿点点可以得到答案为 $\dfrac{n!}{\prod\limits_{i=1}^n sz_i}$；</li>
+<li>先考虑给每个节点随便分配值，方案数为 $n!$；对于每个子树，我们要求只能是这个子树里面 $sz_i$ 个元素中最大的 1 个元素放到根，因此要除以 $sz_i$；最终方案数为 $\dfrac{n!}{\prod\limits_{i=1}^n sz_i}$。</li>
+</ul>
+<p>分子部分的阶乘显然不能现场算，于是分段打表。分母部分可以考虑 $g_{sz_x}=g_{sz_{lson} }\cdot g_{sz_{rson} }\cdot sz_x$，记忆化一下就是 $O(\log n)$。</p>
+<p>总复杂度为 $O(\log n+{n\over k})$。其中 $k$ 是分段打表的段数。</p>
         
-          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 树（tree）/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1-T3（20200619）/#more">more >></a>
         
       
 
@@ -526,15 +538,27 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-线段树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-状压DP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-图论-树论-虚树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-树形DP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数据结构-01Trie</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-图论-Boruvka</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-分段打表</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-图论-树论-树哈希</a>
         		</li>
       		
 		</ul>
@@ -544,7 +568,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 树（tree）/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1-T3（20200619）/">展开全文 >></a>
         </p>
       
 
@@ -576,7 +600,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1050,6 +1074,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

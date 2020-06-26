@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="破壁人五号的博客">
 <meta property="og:description" content="题目链接：bzoj 3625（dark）/ CF438E 题意对于 1 到 $m$ 的整数 $i$，统计有多少个带权二叉树，点权权值属于给定集合 $C$，点权和为 $i$。答案模 $998244353$。$|C|,m\leq 10^5$。 题解单个节点的生成函数 $F(x)=\sum\limits_{i=1}[i\in C]x^i$。 一个二叉树是由左子树、右子树、根拼起来的，即：$G=F\cdo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-06T14:32:58.624Z">
+<meta property="og:updated_time" content="2020-06-23T02:52:28.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="题解 [CF#250 Div1 E] The Child and Binary Tree | 小朋友和二叉树（CF438E &#x2F; bzoj 3625）">
 <meta name="twitter:description" content="题目链接：bzoj 3625（dark）/ CF438E 题意对于 1 到 $m$ 的整数 $i$，统计有多少个带权二叉树，点权权值属于给定集合 $C$，点权和为 $i$。答案模 $998244353$。$|C|,m\leq 10^5$。 题解单个节点的生成函数 $F(x)=\sum\limits_{i=1}[i\in C]x^i$。 一个二叉树是由左子树、右子树、根拼起来的，即：$G=F\cdo">
@@ -287,11 +287,11 @@ function init(){
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -300,8 +300,8 @@ function init(){
 <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对于 1 到 $m$ 的整数 $i$，统计有多少个带权二叉树，点权权值属于给定集合 $C$，点权和为 $i$。答案模 $998244353$。$|C|,m\leq 10^5$。</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>单个节点的生成函数 $F(x)=\sum\limits_{i=1}[i\in C]x^i$。</p>
 <p>一个二叉树是由左子树、右子树、根拼起来的，即：$G=F\cdot G^2$。</p>
-<p>解方程可得 $G=\dfrac{1\pm\sqrt{1-4F}}{2F}$。</p>
-<p>$F$ 的常数项为 $0$，$\sqrt{1-4F}$ 的常数项为 1，$G$ 的常数项为 1，所以取 $G=\dfrac{1-\sqrt{1-4F}}{2F}=\dfrac{2}{1+\sqrt{1-4F}}$。</p>
+<p>解方程可得 $G=\dfrac{1\pm\sqrt{1-4F} }{2F}$。</p>
+<p>$F$ 的常数项为 $0$，$\sqrt{1-4F}$ 的常数项为 1，$G$ 的常数项为 1，所以取 $G=\dfrac{1-\sqrt{1-4F} }{2F}=\dfrac{2}{1+\sqrt{1-4F} }$。</p>
 <p>多项式求逆+开方即可。</p>
 <a id="more"></a>
 <p>代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********</span></span><br><span class="line"><span class="comment">Author: WLBKR5</span></span><br><span class="line"><span class="comment">Problem: codeforces 438E, bzoj 3625</span></span><br><span class="line"><span class="comment">Name: The Child and Binary Tree, 小朋友和二叉树 </span></span><br><span class="line"><span class="comment">Source: Codeforces Round #250 (438)</span></span><br><span class="line"><span class="comment">Algorithm: 生成函数</span></span><br><span class="line"><span class="comment">Date: 2020/06/04</span></span><br><span class="line"><span class="comment">Statue: accepted</span></span><br><span class="line"><span class="comment">Submission: codeforces.com/contest/438/submission/82466147, darkbzoj.tk/submission/68524,</span></span><br><span class="line"><span class="comment">**********/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">4e5</span>+<span class="number">10</span>,mod=<span class="number">998244353</span>,G=<span class="number">3</span>,inv2=(mod+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(y)&#123;</span><br><span class="line">		<span class="keyword">if</span>(y&amp;<span class="number">1</span>)ans=ans*<span class="number">1l</span>l*x%mod;</span><br><span class="line">		x=x*<span class="number">1l</span>l*x%mod;</span><br><span class="line">		y&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> w[N],iw[N],maxn;</span><br><span class="line"><span class="keyword">int</span> rev[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_w</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	maxn=n;</span><br><span class="line">	w[<span class="number">0</span>]=iw[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	w[<span class="number">1</span>]=qpow(G,(mod<span class="number">-1</span>)/n);</span><br><span class="line">	iw[<span class="number">1</span>]=qpow(w[<span class="number">1</span>],mod<span class="number">-2</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;n;i++)</span><br><span class="line">		w[i]=w[i<span class="number">-1</span>]*<span class="number">1l</span>l*w[<span class="number">1</span>]%mod,</span><br><span class="line">		iw[i]=iw[i<span class="number">-1</span>]*<span class="number">1l</span>l*iw[<span class="number">1</span>]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_rev</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> l)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">		rev[i]=(rev[i&gt;&gt;<span class="number">1</span>]&gt;&gt;<span class="number">1</span>)|((i&amp;<span class="number">1</span>)&lt;&lt;(l<span class="number">-1</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ntt</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> n,<span class="keyword">int</span> r=<span class="number">1</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="keyword">if</span>(rev[i]&gt;i)swap(a[rev[i]],a[i]);</span><br><span class="line">	<span class="keyword">int</span> *W=(~r?w:iw);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i&lt;&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">int</span> d=maxn/i/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j+=i*<span class="number">2</span>)&#123;</span><br><span class="line">			<span class="keyword">int</span> t=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;i;k++,t+=d)&#123;</span><br><span class="line">				<span class="keyword">int</span> x=a[j+k],y=a[j+k+i]*<span class="number">1l</span>l*W[t]%mod;</span><br><span class="line">				a[j+k]=(x+y)%mod;</span><br><span class="line">				a[j+k+i]=(x-y+mod)%mod;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(!~r)&#123;</span><br><span class="line">		<span class="keyword">int</span> invn=qpow(n,mod<span class="number">-2</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)a[i]=a[i]*<span class="number">1l</span>l*invn%mod;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> f_[N],g[N],h[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_inv</span><span class="params">(<span class="keyword">int</span> *f,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</span><br><span class="line">		g[<span class="number">0</span>]=qpow(f[<span class="number">0</span>],mod<span class="number">-2</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	get_inv(f,(n+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">memcpy</span>(h,g,<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*n);</span><br><span class="line">	<span class="keyword">int</span> nn=<span class="number">1</span>,l=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(nn&lt;=n*<span class="number">2</span>)nn&lt;&lt;=<span class="number">1</span>,++l;</span><br><span class="line">	init_rev(nn,l);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)f_[i]=f[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)g[i]=h[i]*<span class="number">2</span>%mod;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&lt;nn;i++)f_[i]=g[i]=h[i]=<span class="number">0</span>;</span><br><span class="line">	ntt(f_,nn);</span><br><span class="line">	ntt(h,nn);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nn;i++)h[i]=h[i]*<span class="number">1l</span>l*h[i]%mod*f_[i]%mod;</span><br><span class="line">	ntt(h,nn,<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)g[i]=(g[i]-h[i]+mod)%mod;</span><br><span class="line">	<span class="comment">//for(int i=0;i&lt;n;i++)cerr&lt;&lt;"."&lt;&lt;g[i];cerr&lt;&lt;endl;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> sf_[N],sg[N],sh[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_sqrt</span><span class="params">(<span class="keyword">int</span> *sf,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</span><br><span class="line">		sg[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	get_sqrt(sf,(n+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">memcpy</span>(sh,sg,<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		sg[i]=sh[i]*<span class="number">1l</span>l*inv2%mod;</span><br><span class="line">		sh[i]=sh[i]*<span class="number">2</span>%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	get_inv(sh,n);</span><br><span class="line">	<span class="keyword">int</span> nn=<span class="number">1</span>,l=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(nn&lt;=n*<span class="number">2</span>)nn&lt;&lt;=<span class="number">1</span>,++l;</span><br><span class="line">	init_rev(nn,l);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)sf_[i]=sf[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&lt;nn;i++)sf_[i]=<span class="number">0</span>;</span><br><span class="line">	ntt(g,nn);</span><br><span class="line">	ntt(sf_,nn);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nn;i++)sh[i]=g[i]*<span class="number">1l</span>l*sf_[i]%mod;</span><br><span class="line">	ntt(sh,nn,<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)sg[i]=(sg[i]+sh[i])%mod;</span><br><span class="line">	<span class="comment">//for(int i=0;i&lt;n;i++)cerr&lt;&lt;" "&lt;&lt;sg[i];cerr&lt;&lt;endl;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint(),m=getint()+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> mm=<span class="number">1</span>;<span class="keyword">while</span>(mm&lt;=m*<span class="number">2</span>)mm&lt;&lt;=<span class="number">1</span>;init_w(mm);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)f[getint()]=mod<span class="number">-4</span>;</span><br><span class="line">	f[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="comment">//for(int i=0;i&lt;m;i++)cerr&lt;&lt;"&gt; "&lt;&lt;f[i];cerr&lt;&lt;endl;</span></span><br><span class="line">	get_sqrt(f,m);</span><br><span class="line">	<span class="comment">//for(int i=0;i&lt;m;i++)cerr&lt;&lt;"&gt; "&lt;&lt;sg[i];cerr&lt;&lt;endl;</span></span><br><span class="line">	sg[<span class="number">0</span>]++;</span><br><span class="line">	get_inv(sg,m);</span><br><span class="line">	<span class="comment">//for(int i=0;i&lt;m;i++)cerr&lt;&lt;"&gt; "&lt;&lt;g[i];cerr&lt;&lt;endl;</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">		g[i]=g[i]*<span class="number">2</span>%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,g[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -937,6 +937,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

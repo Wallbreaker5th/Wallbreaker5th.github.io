@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="破壁人五号的博客">
 <meta property="og:description" content="【问题描述】如果一个数能够表示成两两不同的 3 的幂次的和，就说这个数是好的。比如 13 是好的，因为 13 = 9 + 3 + 1 。又比如 90 是好的，因为 90 = 81 + 9 。现在我们用 a[i] 表示第 i 小的好数。比如$a[1] = 1, a[2] = 3, a[5] = 10$ 。给定$L,R$，请求出 $a[L]$ 到 $a[R]$ 的和 $\mod 2^{32}$。  【">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-28T02:42:31.440Z">
+<meta property="og:updated_time" content="2020-06-23T02:52:28.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="某NOIP模拟赛 T1 number">
 <meta name="twitter:description" content="【问题描述】如果一个数能够表示成两两不同的 3 的幂次的和，就说这个数是好的。比如 13 是好的，因为 13 = 9 + 3 + 1 。又比如 90 是好的，因为 90 = 81 + 9 。现在我们用 a[i] 表示第 i 小的好数。比如$a[1] = 1, a[2] = 3, a[5] = 10$ 。给定$L,R$，请求出 $a[L]$ 到 $a[R]$ 的和 $\mod 2^{32}$。  【">
@@ -287,11 +287,11 @@ function init(){
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -313,7 +313,7 @@ function init(){
 <p>显然，所有好数的三进制表示应该依次为：$1,10,11,100,101,110,111…$。</p>
 <p>而它们从小到大的排名的表示也应该依次为：$1,10,11,100,101,110,111…$。</p>
 <p>第 $i$ 个好数就是 $i$ 的二进制表示直接当做三进制计算的结果。</p>
-<p>第 $[1,N]$ 个好数之和就是 $[1,N]$ 的二进制表示中每一位出现 1 的次数乘以每一位在三进制下的贡献（即 $3^{\text{所在位}}$）。</p>
+<p>第 $[1,N]$ 个好数之和就是 $[1,N]$ 的二进制表示中每一位出现 1 的次数乘以每一位在三进制下的贡献（即 $3^{\text{所在位} }$）。</p>
 <p>如第 $[1,3]$ 的和就为：$2\times 3^1+2\times 3^0=8$</p>
 <p>$[1,N]$ 的二进制表示中每一位出现1的次数可以数学方法解决（方法有很多）。</p>
 <p>我的方式是统计第 $i$ 位时分两种情况：</p>
@@ -954,6 +954,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

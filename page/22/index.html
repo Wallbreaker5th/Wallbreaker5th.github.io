@@ -264,153 +264,41 @@ function init(){
 
   
     
-<article id="post-题解-LGR-047-T1-偷上网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-CSP2019游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/题解-LGR-047-T1-偷上网/">题解 LGR-047 T1 偷上网</a>
+      <a class="article-title" href="/2019/CSP2019游记/">CSP2019 游记</a>
     </h1>
   
 
 
         
-        <a href="/2018/题解-LGR-047-T1-偷上网/" class="archive-article-date">
-  	<time datetime="2018-06-02T11:02:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
+        <a href="/2019/CSP2019游记/" class="archive-article-date">
+  	<time datetime="2019-11-14T12:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
+      
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这道题当时居然因为某些细节没有 AC，之后看到错因才发现问题 orz。</p>
-<p>听说标算是先判断 $n=1$，只有 $n=1$ 并且四个顶点都被覆盖才可能 GG。 否则不断在边界上随机取点，因为边界不可能全被覆盖。</p>
-<p>下面进入正文：</p>
-<p>题目链接： <a href="https://www.luogu.org/problemnew/show/T29693" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/T29693</a></p>
-<p>题目大意：在一个 $l\times l$ 的正方形里有 n 个半径为$l/n$的圆， 求一个不在任何一个圆里面的点。</p>
-<p>看到这道题，第一反应：毒瘤计算几何，这辈子都别想写出标算。</p>
-<p>然而我灵光一现，想出了一种奇葩解法：</p>
-<p>首先把很多个 Bob 随机扔进房间，然后想象这些 Bob 被屏蔽器“挤开”。</p>
-<p>多“挤”几次之后就很可能出现成功躲开的 Bob，如果没有就认为 GG。</p>
-<p>然后我把这个思路抽象出来：</p>
-<p>首先在正方形里面随机生成 N 个点，然后做 T 次以下操作：</p>
-<p>遍历每一个点，判断它是不是在某一个圆内部。 如果是，求出该圆圆心到这个点的向量， 乘以一个倍数使得这个点沿着这个向量移动之后刚好脱离屏蔽器的距离。</p>
-<p>把一个点所有向量加起来，让这个点移动。 如果出了房间或者出现 NaN，让它重新在正方形里面随机选一个点。</p>
+        <p>似乎完结……</p>
+<p>（这一行是为了右边的 BGM 留的）</p>
+<p>下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）</p>
         
-          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-玄学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-洛谷月赛</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/题解-LGR-047-T1-偷上网/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-NOIP2017游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/NOIP2017游记/">NOIP2017游记</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/NOIP2017游记/" class="archive-article-date">
-  	<time datetime="2018-06-02T08:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这都大半年了才想起来写游记。</p>
-<h1 id="Day-27（初赛）"><a href="#Day-27（初赛）" class="headerlink" title="Day -27（初赛）"></a>Day -27（初赛）</h1><p>提前到考场。</p>
-<p>做题倒是很顺畅，只想吐槽 Pascal 多久停用管我什么事？！</p>
-<h1 id="Day-（初赛出成绩）"><a href="#Day-（初赛出成绩）" class="headerlink" title="Day ? （初赛出成绩）"></a>Day ? （初赛出成绩）</h1><p>86 分（没记错吧……）。反正进决赛就好。</p>
-<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day -2"></a>Day -2</h1><p>AC 人生第一道蓝题。（Hankson 的趣味题）</p>
-<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>下午公开课时班上几个 OIer 到机房，在洛谷上面颓题。我 WA 红一片。</p>
-<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>好像没干什么。在学校颓了一天，晚上在补习班。</p>
-<h1 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h1>
-        
-          <a class="article-more-a" href="/2018/NOIP2017游记/#more">more >></a>
+          <a class="article-more-a" href="/2019/CSP2019游记/#more">more >></a>
         
       
 
@@ -428,11 +316,11 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">游记-CSP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记-NOIP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		
 		</ul>
@@ -442,7 +330,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/NOIP2017游记/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/CSP2019游记/">展开全文 >></a>
         </p>
       
 
@@ -473,38 +361,47 @@ function init(){
 
   
     
-<article id="post-测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某CSPS模拟赛-20191112" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/测试/">测试</a>
+      <a class="article-title" href="/2019/某CSPS模拟赛-20191112/">某 CSPS 模拟赛 - 20191112</a>
     </h1>
   
 
 
         
-        <a href="/2018/测试/" class="archive-article-date">
-  	<time datetime="2018-06-02T05:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
+        <a href="/2019/某CSPS模拟赛-20191112/" class="archive-article-date">
+  	<time datetime="2019-11-14T08:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p><strong>??</strong></p>
-<p>$a^{a^{\frac{233}{233}}}$</p>
-
+        <h2 id="T1-命令方块（block）"><a href="#T1-命令方块（block）" class="headerlink" title="T1 命令方块（block）"></a>T1 命令方块（block）</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有 $N$ 个字符串 $s_i$，按给定顺序排开，你每次可以交换一对字符串，最后使得：</p>
+<ul>
+<li>对于任意任意 $i&lt;j&lt;k$，有：$\operatorname{lcp}(s_i,s_j)\geq \operatorname{lcp}(s_i,s_k)$ 且 $\operatorname{lcp}(s_j,s_k)\geq \operatorname{lcp}(s_i,s_k)$</li>
+</ul>
+<p>输出任意一种交换方案，要求交换次数 $\leq 10^6$。$N\leq 10^6, \sum |s_i|\leq 10^7$。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>（刚看到题目名称还有 SPJ 还以为第一道题就是造计算机题……）</p>
+<p>首先把要求翻译成人话——对于任意一个字符串，向同一个方向看，离得越近的最长公共前缀越长。</p>
+<p>最长公共前缀越长就相当于字典序更接近，所以按字典序 <code>sort</code> 一遍就行。</p>
+<p>（实际上按字典树的任意 DFS 序排序都是可行的）</p>
+<p>得到了排序后的序列，只需要对于每个没有归位的字符串 <code>swap</code> 一遍，就能得到方案。</p>
+        
+          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/#more">more >></a>
+        
       
 
       
@@ -512,11 +409,147 @@ function init(){
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-主席树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-字符串-字典序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/测试/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/某CSPS模拟赛-20191112/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-某CSPS模拟赛 T3 子树问题（subtree）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">某CSPS模拟赛 T3 子树问题（tree）</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/" class="archive-article-date">
+  	<time datetime="2019-11-03T12:20:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定 $L,R,n,a_1,\dots,a_x$，对于每个整数 $L\leq i\leq R$，询问有多少符合以下条件的有根树树（有标号，儿子无序）;</p>
+<ul>
+<li>高度为 $i$；</li>
+<li>节点数为 $n$；</li>
+<li>没有任何一个子树的大小为 $a_j$；</li>
+<li>节点编号构成一个小根堆（父亲编号小于儿子）。</li>
+</ul>
+<p>$1\leq L\leq R\leq n\leq 500,0\leq x&lt;n,2\leq a_i\leq n$，$a_i$ 互不相同。答案模 998244353。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>令 $f[i][j]$ 为有 $i$ 个节点，深度不超过 $j$ 的树的数量，则答案为 $f[n][i]-f[n][i-1]$。<br>假设这每树内部节点编号相对大小顺序已经确定。<br>每次转移考虑将一棵树的一个子树拆下来，强制这个子树的根的编号是第二小的（显然这棵树的根编号是最小的）以避免重复计数。<br>则不考虑 $size\not\in a$ 的话，转移方程为 $f[i][j]=\sum\limits_{k=1}^{i-1}f[i-k][j]\cdot f[k][j-1]\cdot {i-2\choose k-1}$<br>考虑 $size\not\in a$时，只需要在转移时把 $f[k][j-1]$ 这项在 $k\in a$ 时看作 0。<strong>但是不应将 $f[i-k][j]$ 看作 0，也不应在 DP 时跳过 $f[i][j]$。</strong></p>
+        
+          <a class="article-more-a" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-计数DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/某CSPS模拟赛 T3 子树问题（subtree）/">展开全文 >></a>
         </p>
       
 
@@ -548,7 +581,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/21/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/23/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/21/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/23/">Next &raquo;</a>
     </nav>
   
 
@@ -1022,6 +1055,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

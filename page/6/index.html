@@ -264,37 +264,39 @@ function init(){
 
   
     
-<article id="post-快速 gcd 变换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T3 c" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/快速 gcd 变换/">快速 gcd 变换（FGT）</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T3 c/">某 SCOI 模拟赛 T3 c</a>
     </h1>
   
 
 
         
-        <a href="/2020/快速 gcd 变换/" class="archive-article-date">
-  	<time datetime="2020-05-27T07:49:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
+        <a href="/2020/某SCOI模拟赛 T3 c/" class="archive-article-date">
+  	<time datetime="2020-06-12T11:58:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目：定义 $\gcd$ 卷积如下：$A*B$ 的结果为 $C_i=\sum[\gcd(j,k)=i]A_jB_k$。求 $\prod\limits_{i=1}^{55}A_i^{b_i}$。数列长度 $10^6$。答案 $\bmod 23333$。时限 0.6s。</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>用 $n$ 个积木拼一个塔，第 $i$ 个积木长 $a_i$。给定 $d$，要求积木 $i$ 能放在 $j$ 上面当且仅当 $a_i-a_j\leq d$。求合法的搭积木方案数。答案模 $998244353$。$n\leq 7\times10^5$</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>先排序。</p>
+<p>考虑搭好前 $i-1$ 小的积木后，第 $i$ 个积木能插入进什么地方：它上面是哪个积木不重要，只需要它下面的积木够宽或者它下面没有积木。于是拿个指针维护一下大小不小于 $a_i$ 的最小积木，枚举时乘一下即可。</p>
         
-          <a class="article-more-a" href="/2020/快速 gcd 变换/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 c/#more">more >></a>
         
       
 
@@ -307,10 +309,6 @@ function init(){
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
@@ -320,7 +318,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数学-数论-快速gcd变换</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		
 		</ul>
@@ -330,7 +328,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/快速 gcd 变换/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 c/">展开全文 >></a>
         </p>
       
 
@@ -361,151 +359,42 @@ function init(){
 
   
     
-<article id="post-min_25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T2 走（walk）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/min_25/">min_25 筛略解</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T2 走（walk）/">某 SCOI 模拟赛 T2 走（walk）</a>
     </h1>
   
 
 
         
-        <a href="/2020/min_25/" class="archive-article-date">
-  	<time datetime="2020-05-23T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+        <a href="/2020/某SCOI模拟赛 T2 走（walk）/" class="archive-article-date">
+  	<time datetime="2020-06-12T03:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>min_25 筛因其发明者为 <a href="http://min-25.hatenablog.com/" target="_blank" rel="noopener">min_25</a> 而得名。该算法的思想来源于埃氏筛。</p>
-<p>其可以在低于线性的时间复杂度下对于一类积性函数 $f$ 解决：</p>
-<ul>
-<li>$\sum\limits_{i=1}^n[i\text{ 为质数}]f(i)$；</li>
-<li>$\sum\limits_{i=1}^nf(i)$（即 $f$ 的前缀和）。</li>
-</ul>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$n$ 个点排成一个环，你从某个点开始，每步操作从等概率选择四个操作之一：移到左边第二个点、 移到左边第一个点、移到右边第二个点、移到右边第一个点。当你走到任何一个点两次时你会立刻停止行走。 求操作的期望步数。答案模 $p$。$n\leq 80$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先有 $2^n$ 的状压 DP，记 <code>1</code> 为到过的点。</p>
+<p>接着假如环上有至少两个连续的 <code>11</code>，与当前位置被 <code>11</code> 隔开的地方肯定无法到达。于是把这些 <code>11</code> 之间的位置设成 <code>1</code>，这样状态数变少了，就跑过去了。</p>
+<p>$$\text{（小问号你是否有许多朋友？）}$$</p>
+<p><del>std 的 DP 方式与 DP 顺序似乎更高一些，可以在 DP 途中在 <code>map</code> 里删元素使得 <code>map</code> 变小速度变快；我的解法得用 <code>unordered map</code> 才跑得过去。</del></p>
+<p>实际上不用记录当前位置，走的时候循环位移一下，始终把目前位置作为 0 即可。</p>
         
-          <a class="article-more-a" href="/2020/min_25/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数学-数论-min_25筛</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/min_25/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="题解-题解-CF1355C-Count-Triangles" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-CF1355C-Count-Triangles/">题解 CF1335C Count Triangles</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/题解-CF1355C-Count-Triangles/" class="archive-article-date">
-  	<time datetime="2020-05-17T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>已知 $1\leq A\leq B\leq C\leq D\leq 5\times10^5$，统计有多少 $(x,y,z)$ 满足：</p>
-<ul>
-<li>$A\leq x\leq B\leq y\leq C\leq z\leq D$；</li>
-<li>以 $x,y,z$ 为边，可以构造出一个（非退化的）三角形。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/题解-CF1355C-Count-Triangles/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 走（walk）/#more">more >></a>
         
       
 
@@ -523,7 +412,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -531,7 +420,11 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-枚举</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-状压DP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-剪枝</a>
         		</li>
       		
 		</ul>
@@ -541,7 +434,129 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-CF1355C-Count-Triangles/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 走（walk）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-某SCOI模拟赛 T3 c-文件名既然重了那就随便再添一段" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/某SCOI模拟赛 T3 c-文件名既然重了那就随便再添一段/">某 SCOI 模拟赛 T3 c</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/某SCOI模拟赛 T3 c-文件名既然重了那就随便再添一段/" class="archive-article-date">
+  	<time datetime="2020-06-12T01:35:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有一个字符串 $s$（$\Sigma=26$），记 $f(t)$ 为 $t$ 在 $s$ 中出现的次数，有 $m$ 次以下操作：</p>
+<ul>
+<li>$\operatorname{addl}\ c$：在 $s$ <strong>左侧</strong>添加字符 $c$；</li>
+<li>$\operatorname{addr}\ c$：在 $s$ <strong>右侧</strong>添加字符 $c$；</li>
+<li>$\operatorname{transl}\ l_1\ r_1\ l_2\ r_2$：询问：假如通过在 $s[l_1\dots r_1]$ <strong>左侧</strong>添加或删除字符，在最小步数内使其变成 $s[l_2\dots r_2]$，在这过程中出现的所有回文串 $t$ 的 $|t|f(t)$ 之和；</li>
+<li>$\operatorname{transr}\ l_1\ r_1\ l_2\ r_2$：询问：假如通过在 $s[l_1\dots r_1]$ <strong>右侧</strong>添加或删除字符，在最小步数内使其变成 $s[l_2\dots r_2]$，在这过程中出现的所有回文串 $t$ 的 $|t|f(t)$ 之和。</li>
+</ul>
+<blockquote>
+<p>例：把 <code>abb</code> 给 $\operatorname{transl}$ 成 <code>dbbcbb</code>，中途出现的字符串有：<code>abb -&gt; bb -&gt; cbb -&gt; bcbb -&gt; bbcbb -&gt; dbbcbb</code>，其中 <code>bb</code> 与 <code>bbcbb</code> 是回文的，答案为 $|\texttt{bb}|f(\texttt{bb})+|\texttt{bbcbb}|f(\texttt{bbcbb})$。</p>
+</blockquote>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先明确一点：正、反串的 PAM  形态是一样的：</p>
+<blockquote>
+<p>考虑到回文串正着看、反着看都一样，实际上回文串的最长回文前缀，也就是其最长回文后缀。所以 $fail’=fail$，只维护 $fail$ 即可。<br>（<a href="https://blog.csdn.net/qq_39854734/article/details/106565523" target="_blank" rel="noopener">从自己博客抄的</a>）</p>
+</blockquote>
+<p>我们先只考虑 $\operatorname{transl}$，另一个方向同理。显然在 $\operatorname{transl}$ 中出现过的字符串为 $s[l_1\dots r_1]$ 的所有长度在 $r_1-l_1+1$ 与 $|\operatorname{lcs}\text{\footnotesize(最长公共后缀)}(s[l_1\dots r_1]),s[l_2\dots r_2])|$ 之间的后缀、以及 $s[l_2\dots r_2]$ 的所有长度在 $r_2-l_2+1$ 与 $|\operatorname{lcs}(s[l_1\dots r_1]),s[l_2\dots r_2])|$ 之间的后缀。假如不考虑回文，那这就是在 SAM 的 fail 树上的一条路径；考虑回文，那这就是在 PAM 的 fail 树上的一条路径，我们要统计其 $len\times f$ 之和。</p>
+<p>找到这条路径，首先要找到路径的两个端点。我们先把询问离线下来，把询问的所有位置改为以最终串为标准的位置，建出最终串的 PAM，再倒着“建”一遍，处理出以 $pos$ 为开头以及结尾的最长回文串。$\operatorname{transl}$ 时，找到 $r_1$ 结尾的最长回文子串，倍增沿 fail 往上跳（也可以树剖维护）到第一个长度不大于 $r_1-l_1+1$ 的回文串，作为一个端点（$r_2$ 同理）。注意 LCA 可能不统计入内，此时 LCA 对应的回文串不是两询问串的 lcs，判断时只需要看 $s[r_1-LCA.len]$ 与 $s[r_2-LCA.len]$ 是否相等即可。</p>
+<p>考虑如何维护 $len\times f$。首先将最终串的 fail 树建出来，新加入一个字符（假设在左边）时，找到以该字符为开头的最长回文串，倍增沿 fail 往上跳（也可以树剖维护）到首个长度不超过当前串长的节点，则这个节点到根路径上所有节点的出现次数都会加一。于是我们要维护的有：到根路径上节点的 $f$ 加一、询问一条路径的 $f\times len$ 之和。可以用树剖或 LCT 维护。</p>
+<p>综上：离线 + PAM + 倒着跑一遍 PAM + 树剖 + 倍增 预处理；修改操作先倍增向上跳，再修改到根路径；查询操作先倍增向上跳，再查询两点间路径，并特判 LCA。</p>
+        
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 c-文件名既然重了那就随便再添一段/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-倍增</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-字符串-回文自动机</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-图论-树论-树链剖分</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 c-文件名既然重了那就随便再添一段/">展开全文 >></a>
         </p>
       
 
@@ -573,7 +588,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -1047,6 +1062,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

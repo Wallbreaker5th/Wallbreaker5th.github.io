@@ -264,38 +264,51 @@ function init(){
 
   
     
-<article id="题解-题解-P4094-TJOI2016-HEOI2016-字符串" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T1 那个夏天的mcfx（anonatsuhe）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-P4094-TJOI2016-HEOI2016-字符串/">题解 [TJOI / HEOI2016] 字符串（LOJ 2059 / 洛谷 P4094）</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T1 那个夏天的mcfx（anonatsuhe）/">某 SCOI 模拟赛 T1 那个夏天的 mcfx（anonatsuhe）</a>
     </h1>
   
 
 
         
-        <a href="/2020/题解-P4094-TJOI2016-HEOI2016-字符串/" class="archive-article-date">
-  	<time datetime="2020-05-28T12:26:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+        <a href="/2020/某SCOI模拟赛 T1 那个夏天的mcfx（anonatsuhe）/" class="archive-article-date">
+  	<time datetime="2020-06-15T00:01:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目链接：<a href="https://www.luogu.com.cn/problem/P4094" target="_blank" rel="noopener">洛谷 P4094</a> / <a href="https://loj.ac/problem/2059" target="_blank" rel="noopener">LOJ #2059</a></p>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定长为 $n$ 的字符串，$m$ 次询问子串 $[a\dots b]$ <strong>的子串</strong> 与 $[c\dots d]$ <strong>这个子串</strong>的最长公共前缀的长度的最大值。$n,m\leq 10^5$。时限 2s。</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定 $n\times n$ 的表格，其中填入了 1 到 $n^2$ 的数字。你一次操作可以轮换三个格子里面的数，代价为这三个格子组成的三角形的最大内角度数。你要通过不超过 2333333 次操作，将表格变得有序（$a[i,j]=(n-1)i+j$），并让最大的一次操作的代价尽可能小。给出方案，保证有解。$n=30$。代价不高于 $(60\dfrac{3}{19})^\circ$ 即可获得满分。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><ul>
+<li>显然两次 $a\to b\to c$ 就等价于 $c\to b\to a$，所以方向其实不重要；</li>
+<li>下文可能用一个数代表表格中这个数归位后的位置。</li>
+</ul>
+<p>首先找到所有内角度数足够小的三角形，约有 1800 个，把表打出来。</p>
+<p>我们找到第一个这样的三角形，把三个点记为 $A,B,C$。</p>
+<p>假如我们能做到 $a\to b\to c$ 和 $c\to d\to e$ 的操作，则我们可以通过组合这两个操作做到 $a\to b\to e$（$c\to d\to e,a\to b\to c,e\to d\to c$）。因此我们可以通过一次 BFS 对于每个 $x$ 找到 $A\to B\to x$ 的方案。</p>
+<p>枚举每个数 $i$，并找到这个数所在的位置，把它移到该在的位置。</p>
+<ul>
+<li>如果 $i$ 本该在 $A$ 或 $B$，先跳过；</li>
+<li>如果它现在在 $A$ 或 $B$ 中的一个位置，做一两次 $A\to B\to i$ 可以将其归位；</li>
+<li>如果它现在不在 $A$ 或 $B$ 处而在 $x$ 处，，通过 $A\to B\to x,A\to B\to i,A\to B\to i,A\to B\to x$ 可以将 $i$，$x$ 上的数交换。</li>
+</ul>
+<p>因此除了 $A$ 和 $B$ 以外，我们有主动将所有数归位，此时 $A$ 和 $B$ 肯定也归位了。</p>
         
-          <a class="article-more-a" href="/2020/题解-P4094-TJOI2016-HEOI2016-字符串/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1 那个夏天的mcfx（anonatsuhe）/#more">more >></a>
         
       
 
@@ -308,223 +321,6 @@ function init(){
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-字符串-后缀数组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-主席树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-St表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-P4094-TJOI2016-HEOI2016-字符串/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="题解-题解-P3292-SCOI2016-幸运数字" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-P3292-SCOI2016-幸运数字/">题解 [SCOI2016] 幸运数字（洛谷 P3292 / LOJ 2013）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/题解-P3292-SCOI2016-幸运数字/" class="archive-article-date">
-  	<time datetime="2020-05-28T01:00:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>题目链接：<a href="https://www.luogu.com.cn/problem/P3292" target="_blank" rel="noopener">洛谷 P3292</a> / <a href="https://loj.ac/problem/2013" target="_blank" rel="noopener">LOJ #2013</a></p>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>一棵树，每个点有点权 $G_i$，$q$ 次询问 $x$ 到 $y$ 的路径上的所有点中任选一些点可以得到的异或和的最大值。$n\leq 2\times 10^4,q\leq 2\times 10^5,G_i\leq 2^{60}$</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>倍增+线性基，可能 $\log$ 有些多、常数也有些大。</p>
-        
-          <a class="article-more-a" href="/2020/题解-P3292-SCOI2016-幸运数字/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-线性基</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-倍增</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-P3292-SCOI2016-幸运数字/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-某SCOI模拟赛 T4 构造题（construct）（构造 n 元有限域）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/某SCOI模拟赛 T4 构造题（construct）（构造 n 元有限域）/">某 SCOI 模拟赛 T4 构造题（construct）（构造 n 元有限域）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/某SCOI模拟赛 T4 构造题（construct）（构造 n 元有限域）/" class="archive-article-date">
-  	<time datetime="2020-05-27T23:43:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>（20200527）</p>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>构造一个 $n$ 元有限域。（$1&lt;n\leq 1000$）</p>
-        
-          <a class="article-more-a" href="/2020/某SCOI模拟赛 T4 构造题（construct）（构造 n 元有限域）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
@@ -542,7 +338,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">数学-群论</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-构造</a>
         		</li>
       		
 		</ul>
@@ -552,7 +348,217 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/某SCOI模拟赛 T4 构造题（construct）（构造 n 元有限域）/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1 那个夏天的mcfx（anonatsuhe）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-李超线段树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/李超线段树/">李超线段树略解</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/李超线段树/" class="archive-article-date">
+  	<time datetime="2020-06-13T00:34:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>李超树是具有线段树结构的一种数据结构，通常用来维护区间插入一次函数与单点查询最值。</p>
+<p>（下文将问题看作：在平面内维护：插入一条线段、询问现有线段中与 $x=a$ 交点纵坐标最大的线段编号）</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>李超树的结构与线段树相同，只是每个节点存储的是平面上的一条线段。该线段是 下放到过该节点的线段当中，<strong>在 $x=mid$ 处纵坐标最大</strong> 的一条。我们称它为“优势线段”。</p>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><p>首先将一条线段分成 $O(\log)$ 个区间。</p>
+<p>对于每段线段，分情况讨论：</p>
+<ul>
+<li>当前节点没有优势线段，则它直接成为优势线段；</li>
+<li>它完全覆盖了当前节点的优势线段，则它直接成为优势线段；</li>
+<li>它被当前节点的优势线段完全覆盖，退出；</li>
+<li>它与当前节点的优势线段在该区间内相交：<ul>
+<li>若它在 $x=mid$ 处高于当前节点的优势线段，则它成为当前节点的优势线段；</li>
+<li>用两条线段中没有成为优势线段的一条来尝试更新交点一侧的子节点。</li>
+</ul>
+</li>
+</ul>
+<p>由于一条线段 会被分成 $O(\log)$ 个区间，每个区间可能会往下递归 $O(\log)$ 层，最坏复杂度是 $O(\log^2)$ 的。</p>
+<h2 id="询问"><a href="#询问" class="headerlink" title="询问"></a>询问</h2><p>从根到 $[pos,pos]$ 的一条路径上所有线段都有可能成为在 $pos$ 处的最大值，于是查询一遍即可。时间复杂度 $O(\log)$</p>
+        
+          <a class="article-more-a" href="/2020/李超线段树/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数据结构-李超线段树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/李超线段树/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-某SCOI模拟赛 T1 黑箱（blackbox）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/某SCOI模拟赛 T1 黑箱（blackbox）/">某 SCOI 模拟赛 T1 黑箱（blackbox）</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/某SCOI模拟赛 T1 黑箱（blackbox）/" class="archive-article-date">
+  	<time datetime="2020-06-12T14:10:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>若有 $n$ 个字符串 $S_i$，将它们两两拼接起来可以得到 $n(n-1)$ 个字符串 $L_i$。已知 $L$，构造一个合法的 $S$，或判断无解。SPJ。$n\leq 50$，$\sum |L_i|\leq 5\times 10^4$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>现将 $S$ 和 $L$ 都按长度排序，长度相同按字典序排序。</p>
+<p>显然此时的 $L_1$ 就是 $S_1+S_2$ 或 $S_2+S_2$。我们枚举在何处断开 $L_1$，得到 $S_1$ 与 $S_2$，并从 $L$ 中删除 $S_1+S_2$ 和 $S_2+S_1$。</p>
+<p>$S_3$ 到 $S_n$ 的求法类似：当前 $L$ 中的最小值肯定是 $S_1+S_i$ 或 $S_i+S_1$。我们判断 $\min L$ 是否有前缀/后缀等于 $S_1$，并将另一段作为 $S_i$，然后删除 $S_j+S_i\text{ 和 }S_i+S_j(j&lt;i)$。假如前、后缀都符合要求，取较大的一个作为 $S_i$。如果这其中某一步找不到 $S_i$，则重新枚举断开 $L_1$ 的位置。</p>
+<p>（记 $\sum |L_i|=l$）字符串之间的比较可以用 hash 或 SA。因为 $|L_1|\leq \dfrac{l}{n(n-1)}$，所以总复杂度分别为 $O(l\log ^2l)$ 或 $l\log l$。</p>
+        
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1 黑箱（blackbox）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-字符串</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1 黑箱（blackbox）/">展开全文 >></a>
         </p>
       
 
@@ -584,7 +590,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -1058,6 +1064,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

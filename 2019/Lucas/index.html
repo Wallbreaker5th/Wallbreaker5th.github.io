@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="破壁人五号的博客">
 <meta property="og:description" content="Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。 利用 exLucas 可以求解 $p$ 不为质数的情况。 Lucas前置知识：  求乘法逆元  暴力求组合数   这种算法是基于 Lucas 定理的： 设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下： $n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-28T02:55:04.925Z">
+<meta property="og:updated_time" content="2020-06-23T02:54:52.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lucas&#x2F;exLucas 略解">
 <meta name="twitter:description" content="Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。 利用 exLucas 可以求解 $p$ 不为质数的情况。 Lucas前置知识：  求乘法逆元  暴力求组合数   这种算法是基于 Lucas 定理的： 设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下： $n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{">
@@ -287,11 +287,11 @@ function init(){
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -330,7 +330,7 @@ function init(){
 <p>当 $p$ 不为质数时，我们采用拓展 Lucas（exLucas）</p>
 <p>首先我们把 $p$ 分解为 $p_1^{a_1}p_2^{a_2}\dots$。我们只需要求出 $C_n^m\mod p_i^{a_i}$，用 CRT 就能求出答案。</p>
 <p>这次我们用 $C_n^m=\frac{n!}{m!(n-m)!}$ 计算组合数。注意到这几个阶乘与 $p$ 可能不互质，于是把所有 $p^k$ 单独提出来。</p>
-<p>$C_n^m=\frac{n!}{m!(n-m)!}=\frac{\frac{n!}{p^{k_1}}}{\frac{m!}{p^{k_2}}\cdot\frac{(n-m)!}{p^{k_3}}}\cdot p^{k_1-k_2-k_3}$</p>
+<p>$C_n^m=\frac{n!}{m!(n-m)!}=\frac{\frac{n!}{p^{k_1} } }{\frac{m!}{p^{k_2} }\cdot\frac{(n-m)!}{p^{k_3} } }\cdot p^{k_1-k_2-k_3}$</p>
 <p>求 $k$ 很容易，考虑 1 到 p 中有多少数被 $p^1,p^2\dots$ 整除即可。</p>
 <p>也就是说我们只需要解决 $\frac{n!}{p^k}\mod p^a$。</p>
 <p>我们将 1 到 $n$ 的数分成两部分：是 $p$ 的倍数的数与不是 $p$ 的倍数的数。</p>
@@ -452,8 +452,8 @@ function init(){
     </a>
   
   
-    <a href="/2019/题解-P2482-SDOI2010-猪国杀/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">题解 P4035 SDOI2010 猪国杀</div>
+    <a href="/2019/SCOI2019游记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SCOI2019游记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -975,6 +975,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

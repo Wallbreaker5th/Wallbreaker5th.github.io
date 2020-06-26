@@ -264,38 +264,40 @@ function init(){
 
   
     
-<article id="题解-题解-CF1355B-Yong-Explorers" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T1 a" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-CF1355B-Yong-Explorers/">题解 CF1335B Young Explorers</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T1 a/">某 SCOI 模拟赛 T1 a</a>
     </h1>
   
 
 
         
-        <a href="/2020/题解-CF1355B-Yong-Explorers/" class="archive-article-date">
-  	<time datetime="2020-05-17T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+        <a href="/2020/某SCOI模拟赛 T1 a/" class="archive-article-date">
+  	<time datetime="2020-06-11T12:16:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>将 $N$ 个数 $e_i$ 分为尽可能多个组（允许某个数不在任何一个组里），要求 $e_i$ 所在的组的数字数量不少于 $e_i$，输出最大组数。多组数据，$\sum N\leq 3\times 10^5$。</p>
-        
-          <a class="article-more-a" href="/2020/题解-CF1355B-Yong-Explorers/#more">more >></a>
-        
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有 $n$ 个单词，每个单词出现 $c_i$ 次，现用 <code>-</code> 与 <code>.</code> 给单词编码，要求任意一个单词的编码不是另一个的前缀。设 <code>-</code> 的权值为 2，<code>.</code> 的权值为 1，最小化所有单词的权值和。$n\leq 750$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>假设我们已经建好了所有单词的字典树，显然出现次数越多的单词应该挂在越浅的叶子（下文深浅均指带权的深浅，<code>-</code> 边长度为 2，<code>.</code> 边长度为 1）。故考虑先将 $c_i$ 排序，并 DP。</p>
+<p>设 $f[i,j,k,l]$ 表示前 $i$ 层的树已经确定，并挂上了前 $j$ 个单词，这一层有 $k$ 个不确定的、下一层有 $l$ 个不确定的点的最优情况，接着枚举这一层有多少个点要挂上单词，而没挂上单词的节点会贡献到下一层和下下层。这个 DP 是 $O(n^5)$ 的。</p>
+<p>考虑优化：首先 $i$ 是没用的，扔了。我们考虑每个 $j$，它要么挂在这一层，由 $f[j,k,l]$ 转移到 $f[j+1,k-1,l]$；要么留给之后，由 $f[j,k,l]$ 转移到 $f[j,l+k,k]$，并且所有没被挂的单词深度会加 1，加上对应的 $c_i$ 之和。这个 DP 是 $O(n^3)$ 的。由于 $j,k$ 的范围到不了满的 $i$，所以有约 $\dfrac16$ 的常数，可以通过。</p>
+<p>代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ans=ans*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">760</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> f[<span class="number">2</span>][N][N];</span><br><span class="line"><span class="keyword">int</span> s[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=getint();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		a[i]=getint();</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a+<span class="number">1</span>,a+n+<span class="number">1</span>,greater&lt;<span class="keyword">int</span>&gt;());</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)s[i]=s[i+<span class="number">1</span>]+a[i];</span><br><span class="line">	<span class="keyword">int</span> t=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">memset</span>(f,<span class="number">0x7f</span>,<span class="keyword">sizeof</span>(f));</span><br><span class="line">	f[<span class="number">0</span>][<span class="number">1</span>][<span class="number">1</span>]=s[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">memset</span>(f[t^<span class="number">1</span>],<span class="number">0x7f</span>,<span class="keyword">sizeof</span>(f[t^<span class="number">1</span>]));</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=n-i+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;j+k&lt;=n-i+<span class="number">1</span>;k++)&#123;</span><br><span class="line">				f[t][j+k][j]=min(f[t][j+k][j],f[t][j][k]+s[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n-i+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;j+k&lt;=n-i+<span class="number">1</span>;k++)&#123;</span><br><span class="line">				f[t^<span class="number">1</span>][j<span class="number">-1</span>][k]=min(f[t^<span class="number">1</span>][j<span class="number">-1</span>][k],f[t][j][k]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		t^=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0x7f7f7f7f7f7f7f7f</span>ll;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=n;j++)ans=min(ans,f[t][i][j]);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -312,11 +314,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -324,7 +322,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大胆猜想不用证明</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP</a>
         		</li>
       		
 		</ul>
@@ -334,7 +332,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-CF1355B-Yong-Explorers/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1 a/">展开全文 >></a>
         </p>
       
 
@@ -365,44 +363,153 @@ function init(){
 
   
     
-<article id="题解-题解-CF1355D-Game-With-Array" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T3 贪吃的史莱姆（slime）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-CF1355D-Game-With-Array/">题解 CF1335D Game With Array</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T3 贪吃的史莱姆（slime）/">某 SCOI 模拟赛 T3 贪吃的史莱姆（slime）</a>
     </h1>
   
 
 
         
-        <a href="/2020/题解-CF1355D-Game-With-Array/" class="archive-article-date">
-  	<time datetime="2020-05-17T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+        <a href="/2020/某SCOI模拟赛 T3 贪吃的史莱姆（slime）/" class="archive-article-date">
+  	<time datetime="2020-06-11T00:44:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><ul>
-<li>甲和乙玩游戏；</li>
-<li>已知数字 $N$ 和 $S$（$1\leq N\leq S\leq 10^6$）；</li>
-<li>甲构造一个长为 $N$，和为 $S$ 的正整数序列，指定数字 $K$（$0\leq K\leq S$）；</li>
-<li>乙尝试找到其一个非空子序列，使其和为 $K$ 或 $S-K$；</li>
-<li>乙找到则乙赢，否则甲赢；</li>
-<li>给出 $N$ 和 $S$，判断甲必败或给出甲必胜的一种构造方法。</li>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一棵树，问多少个排列使得每个长为 $m$ 的子区间内的点的导出子图是连通的，答案对 $10^9+9$ 取模。$2\leq m\leq n\leq 400$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>考虑两种情况：</p>
+<ul>
+<li>$2m\leq n$；</li>
+<li>$2m&gt;n$。</li>
 </ul>
+<h3 id="2m-leq-n"><a href="#2m-leq-n" class="headerlink" title="$2m\leq n$"></a>$2m\leq n$</h3><p>此时排列的最前 $m$ 个元素一定是一棵子树，中间部分在一条链上，最后 $m$ 个元素在另一个子树里。显然以重心为根 DFS 时，如果恰有两棵大小为 $m$ 的子树且中间是一条 链连接则有方案，方案数即为两棵树分别的拓扑序数量之积乘以 2（从 A 到 B 或从 B 到 A）。$2m=n$ 的情况比较特殊：重心有一个大小为 $m$ 的子树、重心与其他子树的大小之和为 $m$。</p>
+<h3 id="2m-gt-n"><a href="#2m-gt-n" class="headerlink" title="$2m&gt;n$"></a>$2m&gt;n$</h3><p>此时点可以分为三部分：一部分是前 $n-m$ 个点，它们会在开始时算到长为 $m$ 的区间中，最后退出这个区间；一部分是最后 $n-m$ 个点，它们会在开始时不在区间中、最后进入这个区间；最后一部分是中间的点，它们自始至终都在区间中。</p>
+<p>显然：</p>
+<ul>
+<li>重心会在第三部分，因为它没有一棵子树能塞下大小为 $m$ 的连通块；</li>
+<li>第一、二部分会是很多子树，且它们之间没有交；第三部分是围着重心的一个连通块。</li>
+</ul>
+<p>以重心为根，开始 DP。记 $f[i][j][k]$ 为以 $i$ 为根的子树中，$i$ 确定为第三部分、有 $j$ 个节点在第一部分、$k$ 个在第二部分；转移时枚举子树的 $j$、$k$，额外考虑整棵子树都属于第一部分或第二部分的情况转移。这样做是 $O(n^4)$ 的。</p>
+<p>于是有一个树上背包的常见 trick：假如我们强制要求某个节点选了某个条件之后，这个点的子树全都必须选这个条件，我们可以在 DFS 序上 DP 转移。对于这道题，记 $f[i][j][k]$ 为已经确定了 DFS 序小于 $i$ 的所有节点、其中第一部分、第二部分分别有 $j,k$ 个的方案数 $f[i][j][k]$ 可以转移到 $f[i+1][j][k]$（将第 $i$ 个归入第三部分）、$f[i+sz[id[i]]]\ [j+sz[id[i]]]\ [k]$（将第 $i$ 个及其子树归入第二部分）、$f[i+sz[id[i]]]\ [j]\ [k+sz[id[i]]]$（将第 $i$ 个及其子树归入第三部分）。</p>
+<p>时间复杂度 $O(n^3)$。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-树形DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 贪吃的史莱姆（slime）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
-          <a class="article-more-a" href="/2020/题解-CF1355D-Game-With-Array/#more">more >></a>
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-某SCOI模拟赛 T2 pm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/某SCOI模拟赛 T2 pm/">某 SCOI 模拟赛 T2 pm</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/某SCOI模拟赛 T2 pm/" class="archive-article-date">
+  	<time datetime="2020-06-10T13:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给你 ${1,2,\dots,n}$ 的一个排列 $p$。你可以进行两个阶段的操作：阶段一你可以多次交换相邻的某两个数；阶段二你可以多次把某个数改为另一个数。最小化总操作数。你只需要给出第一阶段的所有操作。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先阶段一肯定要把交换的数还原到它该在的位置上。</p>
+<p>考虑一段 $a[l\dots r]$，假如把它留给阶段二，最多只用 $r-l+1$ 次操作就可以完成；所以如果阶段一还原它更优的话，阶段一对它的操作次数应当不高于 $r-l$，也就是 $a[l\dots r]$ 的逆序对个数不高于 $r-l$。</p>
+<p>因此我们要找到所有极小的、$a[l\dots r]$ 与 $l\dots r$ 包含相同的数的、逆序对个数不超过 $r-l$ 的区间。</p>
+<p>先忽略极小与逆序对个数的限制，剩下的那个限制意味着确定 $r$ 后，$\max(a[l\dots r])=r$，并且 $\sum a[l\dots r]=\sum l\dots r$。前一个限制可以通过单调栈+二分找到首个 $a_x&gt;r$ 的 $x$，则 $l&gt;x$；后一个限制可以找 $a_i-i$ 的前缀和与它相同的最近的一个点（<code>map</code> 维护即可），看这个点符不符合前一个限制。</p>
+<p>接着判断极小：$l\dots r$ 中没有别的区间的 $r$。</p>
+<p>于是剩下的区间 长度之和小于 $n$，树状数组暴力判断每个区间逆序对个数，最后剩下一些区间需要在阶段一来还原。还原的过程就是冒泡排序。</p>
+        
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 pm/#more">more >></a>
         
       
 
@@ -420,7 +527,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -428,7 +535,7 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大胆猜想不用证明</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">特殊题目-构造题</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -442,111 +549,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-CF1355D-Game-With-Array/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="题解-题解-P2414-NOI2011-阿狸的打字机" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-P2414-NOI2011-阿狸的打字机/">题解 [NOI2011] 阿狸的打字机 （洛谷 P2414 / LOJ \#2444）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/题解-P2414-NOI2011-阿狸的打字机/" class="archive-article-date">
-  	<time datetime="2020-05-15T14:00:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>题目链接：<a href="https://www.luogu.com.cn/problem/P2414" target="_blank" rel="noopener">洛谷 P2414</a> / <a href="https://loj.ac/problem/2444" target="_blank" rel="noopener">LOJ #2444</a></p>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有一个打字机，其中有 26 个小写字母键（按下后使凹槽中添加一个对应字母）和 <code>B</code> 键（删除凹槽中最后一个字母）、<code>P</code> 键（打印出凹槽中的字符串，凹槽中的字母依然保留）。</p>
-<p>给出 $n$ 次按键序列，$m$ 次询问：第 $x$ 个打印出来的字符串在第 $y$ 个打印出来的字符串中出现了多少次？</p>
-<p>$1\leq n,m\leq 10^5$</p>
-        
-          <a class="article-more-a" href="/2020/题解-P2414-NOI2011-阿狸的打字机/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-平衡树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-STL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-NOI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-P2414-NOI2011-阿狸的打字机/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 pm/">展开全文 >></a>
         </p>
       
 
@@ -578,7 +581,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 
@@ -1052,6 +1055,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

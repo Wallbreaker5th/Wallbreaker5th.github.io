@@ -264,47 +264,57 @@ function init(){
 
   
     
-<article id="post-powerful number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T2 二叉树（tree）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/powerful number/">超过 90% 的人都不知道！居然能这样用 O(√N) 次运算求出 N 个数之和！网友：长见识了 | Powerful number 筛</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T2 二叉树（tree）/">某 SCOI 模拟赛 T2 二叉树（tree）</a>
     </h1>
   
 
 
         
-        <a href="/2020/powerful number/" class="archive-article-date">
-  	<time datetime="2020-06-02T13:58:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
+        <a href="/2020/某SCOI模拟赛 T2 二叉树（tree）/" class="archive-article-date">
+  	<time datetime="2020-06-17T12:28:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><del>标题党</del></p>
-<p><del>不过标题好像没有什么不符合事实的地方。</del></p>
-<p>Powerful number 筛可以用来求出一类积性函数的前缀和，最快可以达到根号复杂度。</p>
-<hr>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>称非叶节点都有两个儿子的二叉树为满二叉树。称恰有 $k$ 个叶节点且任意节点的右儿子为均为叶节点的满二叉树为 $k$ 连树。</p>
+<p>记二叉树 $A$ 包含 $B$ 当且仅当 $A$ 能通过若干次以下操作变成 $B$：</p>
 <ul>
-<li>以下字母都代表整数；</li>
-<li>以下 $p$ 代表质数；</li>
-<li>以下 $*$ 代表狄利克雷卷积；</li>
-<li>以下 $a/b=\lfloor{a\over b}\rfloor$；</li>
-<li><del>以下任何不够严谨的地方都请忽略</del>。</li>
+<li>删除某个节点的两个子树；</li>
+<li>若 $x$ 为 $y$ 的儿子，用 $x$ 的两颗子树代替 $y$ 的两棵子树。</li>
 </ul>
+<p>问：有多少满二叉树叶子个数为 $n$，且不包含 $m$ 连树。答案模 $998244353$。$n,m\leq 10^7$，2s。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>一见满二叉树的个数，立刻想到<a href="https://wallbreaker5th.github.io/2018/Catalan-01/">卡特兰数</a>，立刻想到 01 序列（括号序列），立刻想到儿子有序的有根树数量，<del>中国人的想像惟在这一层能够如此跃进</del> 然后发现不包含 $m$ 连树的满二叉树对应出来的有根树深度不超过 $m-1$，然后就推不动了……</p>
+<p>满二叉树怎么对应上括号序列上面有<a href="https://wallbreaker5th.github.io/2018/Catalan-01/">链接</a>。</p>
+<p><strong>下面的 $n$ 代表原题中的 $2n-2$（括号序列的长度），$m$ 代表原题中的 $m-1$。</strong></p>
+<p>对于括号序列的计数，一个十分常见的套路是将它转化为折线：<code>(</code> 向右上方走，<code>)</code> 向右下方走，要求不能越过 $y=0$，最后到达 $(n,0)$。该题中还不允许越过 $y=m$。</p>
+<p>只要求不越过 $y=0$ 的经典做法为：先忽略限制，总方案数是 $n \choose n/2$；考虑所有越过了 $y=0$ 的方案，在折线第一次碰到 $y=-1$ 的时候将后半部分关于 $y=-1$ 翻折，终点会落在 $(n,-2)$，于是减去 $(n,-2)$ 为终点的方案数。</p>
+<p>考虑 $y=m$ 的限制时类似，容斥时考虑四类折线：</p>
+<ul>
+<li>$-1\to m+1\dots -1\to m+1$</li>
+<li>$m+1\to -1\dots m+1\to -1$</li>
+<li>$-1\to m+1\dots -1$</li>
+<li>$-1\to m+1\dots m+1$</li>
+</ul>
+<p>各自考虑反复翻折后终点落到哪里，将方案数各自乘上合适的容斥系数。</p>
+<p>时间复杂度 $O(n)$</p>
         
-          <a class="article-more-a" href="/2020/powerful number/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 二叉树（tree）/#more">more >></a>
         
       
 
@@ -318,15 +328,23 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-数论-powerful-number筛</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-组合数学-括号序列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-组合数学-容斥原理</a>
         		</li>
       		
 		</ul>
@@ -336,7 +354,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/powerful number/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T2 二叉树（tree）/">展开全文 >></a>
         </p>
       
 
@@ -367,42 +385,54 @@ function init(){
 
   
     
-<article id="post-题解-ZJOI2007-仓库建设" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-题解-CF1007E-Mini-Metro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-ZJOI2007-仓库建设/">题解 [ZJOI2007]仓库建设（LOJ 10189 / 洛谷 P2120）</a>
+      <a class="article-title" href="/2020/题解-CF1007E-Mini-Metro/">题解 CF1007E Mini Metro（某 SCOI 模拟赛 T3）</a>
     </h1>
   
 
 
         
-        <a href="/2020/题解-ZJOI2007-仓库建设/" class="archive-article-date">
-  	<time datetime="2020-06-01T13:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+        <a href="/2020/题解-CF1007E-Mini-Metro/" class="archive-article-date">
+  	<time datetime="2020-06-17T03:34:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目链接：<a href="https://www.luogu.com.cn/problem/P2120" target="_blank" rel="noopener">洛谷 P2120</a> / <a href="https://loj.ac/problem/10189" target="_blank" rel="noopener">LOJ #10189</a></p>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>自山顶向下有 $n$ 个工厂，分别距离山顶 $X[i] (X_1=0)$，内有 $P[i]$ 份货物。现在要修建多个仓库，并将所有货物运送到不高于其所在工厂的仓库中；在各个工厂修仓库的费用分别为 $C[i]$，将每 1 份货物每运送 1 单位距离花费 1。问最小总费用。$n\leq 10^6$。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>记 $s[i]=\sum\limits_{j=1}^i P[j]X[j],sp[i]=\sum\limits_{j=1}^iP[j]$。设 $f[i]$ 为解决编号在 $i$ 以内所有工厂的货物存储的最小费用，则：</p>
-<p>$$f[i]=\min{f[j]+c[i]+(sp[i]-sp[j])x[i]-(s[i]-s[j])}$$</p>
-<p>$$\begin{aligned}&amp;f[j]+s[j]&amp;=&amp;x[i] &amp;sp[j]\ +\ &amp;(f[i]+s[i]-c[i]-x[i]*sp[i])\\<br>&amp;y&amp;=&amp;k &amp;x\ +\ &amp;b\end{aligned}$$</p>
-<p>标准的一个斜率优化的式子，维护一个下凸壳。</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有 $n$ 座火车站（原题是地铁，不过不重要）在一条轨道上依次排列，编号为 1 到 $n$。每个车站在 $0:00$ 时（初始状态）有 $a_i$ 个人，每小时增加 $b_i$ 个人，容量为 $c_i$ 人。你还有足够多的火车，每辆车的大小为 $k$。</p>
+<p>每个小时的流程大致如下：</p>
+<ul>
+<li>$i:00$：第 $i$ 小时开始；</li>
+<li>$i:30$：你可以派出任意多辆火车，它们会从 1 到 $n$ 经过每一个站，并在每一个站装尽可能多的人（要么把站台清空、要么把火车装满）；这些火车会在一瞬间经过完这 $n$ 个站台并<del>开往非洲</del>开走；</li>
+<li>$i:59$：每个站台增加 $b_i$ 个人；</li>
+<li>紧接着判定每个站台目前的人数是否超出限制 $c_i$，如果超出你就输了；</li>
+<li>进入下一个小时。</li>
+</ul>
+<p>你希望在 $t:00$ 之前没有站台人数超过限制。求出你至少需要派出多少火车。</p>
+<p>$n\leq 300$。（原题为 200）</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>（大部分译自<a href="https://codeforces.com/blog/entry/60572" target="_blank" rel="noopener">官方题解</a>，部分记号或边界处理会有出入）</p>
+<p>一个<strong>纯粹</strong>的 DP。</p>
+<p>首先在末尾添加一个 $a=\inf,b=0,c=\inf$ 的火车站（顺便把 $n$ 给 $+1$）。它不影响答案，但能保证所有火车都被装满。</p>
+<p>记 $sa[i],sb[i],sc[i]$ 分别为 $a,b,c$ 的前缀和。</p>
+<p>记 $f[i,j,z=0/1]$ 表示在只考虑前 $i$ 个站台（其初始有 $z\cdot a_i$ 个人，即：$z=0$ 表示曾经有火车清空过 1 到 $i$）、火车满载的情况下，坚持 $j$ 小时需要的火车数。这个数可能为 $\inf$，代表不可能做到。</p>
+<p>记 $g[i,j,z=0/1]$ 表示在只考虑前 $i$ 个站台（其初始有 $z\cdot a_i$ 个人，即：$z=0$ 表示曾经有火车清空过 1 到 $i$）、火车满载的情况下，坚持 $j$ 小时、<strong>且在 $s:31$ 时 1 到 $i-1$ 号车站全都没有人</strong>需要的火车数。这个数可能为 $\inf$，代表不可能做到。</p>
+<p>答案为 $f[n,t,1]$。</p>
         
-          <a class="article-more-a" href="/2020/题解-ZJOI2007-仓库建设/#more">more >></a>
+          <a class="article-more-a" href="/2020/题解-CF1007E-Mini-Metro/#more">more >></a>
         
       
 
@@ -420,15 +450,19 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">来源-codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-DP优化-斜率优化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP</a>
         		</li>
       		
 		</ul>
@@ -438,7 +472,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-ZJOI2007-仓库建设/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/题解-CF1007E-Mini-Metro/">展开全文 >></a>
         </p>
       
 
@@ -469,40 +503,39 @@ function init(){
 
   
     
-<article id="题解-题解-SDOI2016-征途" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T1 RNG" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/题解-SDOI2016-征途/">题解 [SDOI2016] 征途（LOJ 2035 / 洛谷 P4072）</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T1 RNG/">某 SCOI 模拟赛 T1 RNG</a>
     </h1>
   
 
 
         
-        <a href="/2020/题解-SDOI2016-征途/" class="archive-article-date">
-  	<time datetime="2020-06-01T12:59:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+        <a href="/2020/某SCOI模拟赛 T1 RNG/" class="archive-article-date">
+  	<time datetime="2020-06-17T00:30:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目链接：<a href="https://www.luogu.com.cn/problem/P4072" target="_blank" rel="noopener">洛谷 P4072</a> / <a href="https://loj.ac/problem/2035" target="_blank" rel="noopener">LOJ #2035</a></p>
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>将 $n$ 个数的序列分为 $m$ 段，求各段内数字之和的方差的最小值 $\times m^2$。$n,m\leq 3000$。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>方差不好看，先推一下式子：<br>$$\begin{aligned}m^2s^2=&amp;m^2\dfrac{\sum\limits_{i=1}^{m}(x_i-\overline x)^2}{m}\\<br>=&amp;m(\sum\limits_{i=1}^m(x_i^2-2x_i\overline x+\overline x^2))\\<br>=&amp;m((\sum\limits_{i=1}^mx_i^2)-2\overline xn+m\cdot{n^2\over m^2})\\<br>=&amp;m(\sum\limits_{i=1}^mx_i^2)-n^2\end{aligned}$$</p>
-<p>所以题目要求 $\sum\limits_{i=1}^mx_i^2$ 最小。</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$n$ 个格子排成一行，每个格子的颜色是 $m$ 种里面均匀随机的，对于 $u\in[i,n]$，求出现次数最多的颜色出现次数为 $u$ 的概率，答案模给定质数 $p$。$n\leq 500,m\leq 10^8$，3s。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>转化为计算求出现次数最多的颜色出现次数不超过 $u$ 的方案数。即：$m$ 种颜色，每种可以选 0 到 $u$ 个，用来覆盖 $m$ 个格子。考虑 EGF，要求的即为：$n<img src="\sum\limits_{i=0}^u{x^i \over i!}" alt="x^n">^m$。</p>
+<p>做 $n$ 次多项式快速幂。其中 $\ln$ 与 $\exp$ 求值都可以使用 $O(n^2)$ 的方式（$A=\ln B$ 两边求导 $A’={B’\over B}$ 之后模拟，$\exp$ 同理）。</p>
         
-          <a class="article-more-a" href="/2020/题解-SDOI2016-征途/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1 RNG/#more">more >></a>
         
       
 
@@ -520,15 +553,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-DP-DP优化-斜率优化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-组合数学-生成函数</a>
         		</li>
       		
 		</ul>
@@ -538,7 +571,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/题解-SDOI2016-征途/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1 RNG/">展开全文 >></a>
         </p>
       
 
@@ -570,7 +603,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1044,6 +1077,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

@@ -264,42 +264,42 @@ function init(){
 
   
     
-<article id="post-题解-P4169-天使玩偶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T3 s3mple" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-P4169-天使玩偶/">题解 洛谷 P4169 [Violet]天使玩偶</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T3 s3mple/">某 SCOI 模拟赛 T3 s3mple</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-P4169-天使玩偶/" class="archive-article-date">
-  	<time datetime="2019-11-30T07:32:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+        <a href="/2020/某SCOI模拟赛 T3 s3mple/" class="archive-article-date">
+  	<time datetime="2020-06-07T14:55:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.luogu.com.cn/problem/P4169" target="_blank" rel="noopener">题目链接</a></p>
-<p>题意：平面上原有一些点，支持动态加点，动态查询与某个点曼哈顿距离最小的点的距离。</p>
-<p>这题据说是有 KD-Tree 和 CDQ 分治两种做法，又据说 KDT 会被卡，于是我采用 CDQ <del>（其实是不会 KDT）</del></p>
-<p>考虑给每个加点/查询操作给一个 $t$ 值，作为它的第三个坐标。每次查询先只考虑 $x&lt;x_i,y&lt;y_j,t&lt;t_i$ 的所有点 $(x,y,t)$。对于 $x$ 或 $y$ 的相对大小关系有变的情况，每次沿 $x$ 轴/$y$ 轴翻转，一共做 4 次 CDQ。</p>
-<p>$|x_1-x_2|+|y_1-y_2|=(x_1+y_1)-(x_2+y_2)\ (x_1\geq x_2,y_1\geq y_2)$，即对于点 $(x_1,y_1,t_1)$，要找到小于这个点的 $x_2+y_2$ 的最大值。</p>
-<p>所有点已经按 $t$ 排好序了。CDQ 合并前后两段区间时按照 $x$ 归并，同时建树状数组以维护 $y&lt;i$ 的点中，$x+y$ 的最大值。</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对于序列 $a$，记 $v_i$ 为位置距离 $a_i$ 最近的、比 $a_i$ 大的数与它的距离（假设 $a_0$ 和 $a_{n+1}$ 都为无穷大）。</p>
+<p>$T$ 次询问，给定 $n,x$，求有多少长度为 $n$ 的排列 $p$ 使得 $\sum\limits_{i=1}^nv_i=x$。答案对给定的质数 $P$ 取模。$n\leq 200$，$T\leq 10$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>记 $F_i$ 为长为 $i$ 的排列的生成函数，系数为 $\sum v_i$。通过枚举最大值的位置容易通过 $F_0\sim F_{i-1}$ 得到 $F_i$。</p>
+<p>冷静<del>打表</del>分析一波可知 $\sum v_i$ 最大是 $O(n\log n)$ 的，记 $\max{\sum v_i}$ 为 $V$。</p>
+<p>用 $F_i$ 的从 1 到 $V+1$ 的点值来计算，转移的总复杂度为 $n^log n$。</p>
+<p>每次询问随便拉格朗日插值一下，单次询问复杂度为 $n^2\log n$</p>
         
-          <a class="article-more-a" href="/2019/题解-P4169-天使玩偶/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 s3mple/#more">more >></a>
         
       
 
@@ -317,11 +317,19 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-分治-CDQ分治</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学-组合数学-生成函数</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数学-多项式-拉格朗日插值</a>
         		</li>
       		
 		</ul>
@@ -331,7 +339,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-P4169-天使玩偶/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 s3mple/">展开全文 >></a>
         </p>
       
 
@@ -362,40 +370,39 @@ function init(){
 
   
     
-<article id="post-题解-bzoj1176-Balkan2007-Mokia" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T3 无限回转（tusk）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-bzoj1176-Balkan2007-Mokia/">题解 bzoj 1176 [Balkan2007]Mokia</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T3 无限回转（tusk）/">某 SCOI 模拟赛 T3 无限回转（tusk）</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-bzoj1176-Balkan2007-Mokia/" class="archive-article-date">
-  	<time datetime="2019-11-30T06:18:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+        <a href="/2020/某SCOI模拟赛 T3 无限回转（tusk）/" class="archive-article-date">
+  	<time datetime="2020-06-06T13:19:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1176" target="_blank" rel="noopener">题目链接</a></p>
-<p>题意：二维平面，单点修改，区间查询，不强制在线。</p>
-<p>CDQ 分治。把每个区间询问拆成四个前缀询问，并给所有修改与统计按顺序添加 $t$ 作为第三个坐标。每个前缀询问就是在查询 $x,y,t$ 坐标都小于它的修改点的权值之和。</p>
-<p>$S$ 其实全等于 0，据说修改数量比题目描述略大。</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给出一个凸 $N$ 边形，在其内部随机选一个点，再随机选择一个方向，求从该点出发沿这个方向一直走最后碰到各条边的概率。要求绝对误差不超过 $10^{-6}$。$N\leq 1500$，坐标范围 $10^4$。时限 1s。</p>
+<p>（题目改编自 <a href="http://pe-cn.github.io/613/" target="_blank" rel="noopener">PE 613</a>）</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>枚举每条边。假如确定了方向，考虑有多大的面积朝这个方向走会走到这条边：</p>
         
-          <a class="article-more-a" href="/2019/题解-bzoj1176-Balkan2007-Mokia/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 无限回转（tusk）/#more">more >></a>
         
       
 
@@ -413,11 +420,15 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-分治-CDQ分治</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数学-辛普森积分</a>
         		</li>
       		
 		</ul>
@@ -427,7 +438,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-bzoj1176-Balkan2007-Mokia/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T3 无限回转（tusk）/">展开全文 >></a>
         </p>
       
 
@@ -458,41 +469,45 @@ function init(){
 
   
     
-<article id="post-CSP2019游记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-PAM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/CSP2019游记/">CSP2019 游记</a>
+      <a class="article-title" href="/2020/PAM/">PAM / 回文自动机（回文树）略解</a>
     </h1>
   
 
 
         
-        <a href="/2019/CSP2019游记/" class="archive-article-date">
-  	<time datetime="2019-11-14T12:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
+        <a href="/2020/PAM/" class="archive-article-date">
+  	<time datetime="2020-06-06T01:28:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=526116050&auto=1&height=66"></iframe>
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>似乎完结……</p>
-<p>（这一行是为了右边的 BGM 留的）</p>
-<p>下面的时间将 2019 年 11 月 16 日（比赛第一天）作为 Day1；将 2019 年 11 月 15 日（比赛前一天）作为 Day -1。（你也没见过公元 0 年对吧）</p>
+        <p>回文自动机可以处理一个字符串的回文子串的信息，复杂度为 $O(n)$。</p>
+<p>参考资料：翁文涛 《回文树及其应用》</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>回文自动机的每个节点代表一个回文子串，本质相同的回文子串在一个节点上。记节点 $i$ 代表的回文串为 $s_i$（实现时不用记录），长度为 $len_i$。</p>
+<p>回文自动机的结构可以看成两棵树，它们的根分别为 $even$ 和 $odd$，$even$ 对应空回文串，$odd$ 对应长度为 $-1$ 的，实际上并不存在的回文串。</p>
+<p>树上的一条边，也就是自动机的转移边对应一个字符。若 $i$ 到 $j$ 有一条对应字符 $c$ 的转移边，则 $s_j=cs_ic$，即在字符串前后各加一个 $c$。特别的，$odd$ 经过一条边后得到单个字符。</p>
+<p>与其它自动机类似，回文自动机的节点也有 $fail$ 指针（失配指针 / 后缀链接），它指向这个节点最长的、不是自身的后缀回文串。特别的，$fail_{even}=odd$。通常记 $fail_{odd}=odd$，虽然 $odd$ 节点不可能失配（添加一个字符后成为单个字符，它一定是回文的）。</p>
+<p>$fail$ 指针显然构成一棵 $fail$ 树。</p>
+<p>下图来自于翁文涛的论文《回文树及其应用》。</p>
+<p><img src="/img/0043.PNG" alt=""></p>
         
-          <a class="article-more-a" href="/2019/CSP2019游记/#more">more >></a>
+          <a class="article-more-a" href="/2020/PAM/#more">more >></a>
         
       
 
@@ -506,15 +521,15 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">游记-CSP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-字符串-回文自动机</a>
         		</li>
       		
 		</ul>
@@ -524,7 +539,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/CSP2019游记/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/PAM/">展开全文 >></a>
         </p>
       
 
@@ -556,7 +571,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
     </nav>
   
 
@@ -1030,6 +1045,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

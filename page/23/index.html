@@ -264,43 +264,38 @@ function init(){
 
   
     
-<article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某CSPS模拟赛 T2 背包问题（bag）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/hello-world/">Hello World</a>
+      <a class="article-title" href="/2019/某CSPS模拟赛 T2 背包问题（bag）/">某 CSPS 模拟赛 T2 背包问题（bag）</a>
     </h1>
   
 
 
         
-        <a href="/2018/hello-world/" class="archive-article-date">
-  	<time datetime="2018-06-02T04:47:14.572Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-02</time>
+        <a href="/2019/某CSPS模拟赛 T2 背包问题（bag）/" class="archive-article-date">
+  	<time datetime="2019-11-03T12:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$T$ 组数据。每组数据给定 $n$ 个二维点与 $m$ 个数 $t_i$。要求从找到最长的二维偏序不下降序列，能给序列中的每个点分配一个 $t_i$ 不小于其横坐标。$n,m\leq 10^5$</p>
+<h2 id="0-题解（误）"><a href="#0-题解（误）" class="headerlink" title="0% 题解（误）"></a>0% 题解（误）</h2><p>把标程的二分写挂就是 0 分了。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先有个很显然的性质——选出的 $t_i$ 都是最大的几个 $t_i$ 的话，答案一定不会劣。<br>所以对于每个点，我们可以知道以它结尾的不下降序列不可能超过其横坐标在 $t$ 中的排名，否则我们无法找到足够多的 $t_i$ 使它们都大于之前那些点的横坐标。<br>知道这个性质就可以乱搞了。<br>仿效传统的 LIS 做法，只需要在利用这个点更新时判断以它结尾的长度是不是超出了这个限制，假如超出就强行把它与那个限制取 $\min$。</p>
+<p>代码咕了。</p>
 
       
 
@@ -309,11 +304,30 @@ function init(){
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-其它-LIS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/某CSPS模拟赛 T2 背包问题（bag）/">展开全文 >></a>
         </p>
       
 
@@ -344,57 +358,38 @@ function init(){
 
   
     
-<article id="post-修改记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-某CSPS模拟赛 T1 极好的问题（awesome）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2000/修改记录/">修改记录</a>
+      <a class="article-title" href="/2019/某CSPS模拟赛 T1 极好的问题（awesome）/">某 CSPS 模拟赛 T1 极好的问题（awesome）</a>
     </h1>
   
 
 
         
-        <a href="/2000/修改记录/" class="archive-article-date">
-  	<time datetime="1999-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2000-01-01</time>
+        <a href="/2019/某CSPS模拟赛 T1 极好的问题（awesome）/" class="archive-article-date">
+  	<time datetime="2019-11-03T12:13:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对博客、样式的修改或大量文章的批量修改的记录</p>
-<h2 id="2018-10-27"><a href="#2018-10-27" class="headerlink" title="2018-10-27"></a>2018-10-27</h2><p>对大量博客的格式进行了修改。主要包括：</p>
-<ul>
-<li><p>添加空格</p>
-</li>
-<li><p>调整、添加 $\LaTeX$</p>
-</li>
-<li><p>修改了一些格式的细节</p>
-</li>
-<li><p>修改了一些词语的细节</p>
-</li>
-<li><p>处理格式出锅的文章</p>
-</li>
-</ul>
-<h2 id="2018-12-23"><a href="#2018-12-23" class="headerlink" title="2018-12-23"></a>2018-12-23</h2><p>给博客添了 BGM（然而并不能自动播放）。</p>
-<h2 id="2019-1-10"><a href="#2019-1-10" class="headerlink" title="2019-1-10"></a>2019-1-10</h2><p>修改了一下顶栏，点击可以隐藏。</p>
-<h2 id="2019-5-18"><a href="#2019-5-18" class="headerlink" title="2019-5-18"></a>2019-5-18</h2><p>左栏的副标题被魔改成了一个类似于一言的东西。<del>不要问我为什么不用一言</del></p>
-<p>主要是一些中文V家歌曲的歌词。</p>
-<p>格式：『_歌词<em>』——</em>最主要的 staff+作词_/_歌姬_ 《_歌名_》</p>
-<h2 id="2019-9-22"><a href="#2019-9-22" class="headerlink" title="2019-9-22"></a>2019-9-22</h2><p>略微修改了左侧推歌栏</p>
-<p>强行加了一个对时间的说明</p>
-<p>（几天前把 CC-BY-SA 扔上了标题）</p>
-<h2 id="2019-9-28"><a href="#2019-9-28" class="headerlink" title="2019-9-28"></a>2019-9-28</h2><p>大幅修改了标签</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给一可重集 $S$ 及质数 $p$，问能从集合中选出多少种本质不同的三元组 $(x,y,z)\ (x\leq y\leq z)$ 使得 $xyz\equiv 1\pmod p$？$|S|\leq 2333,p\leq 2^{30}$</p>
+<h2 id="70-解"><a href="#70-解" class="headerlink" title="70% 解"></a>70% 解</h2><p>保证 $x&lt;p|x\in S$。首先排序所有数并预处理出其逆元。接着枚举 $x,y(x\leq y)$，算出 $z=x^{-1}y^{-1}$，检查是否 $y\leq z$ 以及是否 $z\in S$（二分）。注意处理有数字相等的情况。</p>
+<h2 id="100-解"><a href="#100-解" class="headerlink" title="100% 解"></a>100% 解</h2><p>排序时优先根据 $\mod p$ 结果排序，并将所有数字去重后的结果另外存储一份。仍然枚举 $x,y(x\leq y)$，算出 $z$，统计与 $z$ 在同一剩余系下的数字个数。同样注意处理有数字相等的情况。</p>
+<p>代码咕了。</p>
 
       
 
@@ -403,11 +398,34 @@ function init(){
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数学-数论-逆元</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2000/修改记录/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/某CSPS模拟赛 T1 极好的问题（awesome）/">展开全文 >></a>
         </p>
       
 
@@ -438,179 +456,61 @@ function init(){
 
   
     
-<article id="post-tags" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-带花树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/1000/tags/">标签索引</a>
+      <a class="article-title" href="/2019/带花树/">带花树略解</a>
     </h1>
   
 
 
         
-        <a href="/1000/tags/" class="archive-article-date">
-  	<time datetime="0999-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1000-01-01</time>
+        <a href="/2019/带花树/" class="archive-article-date">
+  	<time datetime="2019-09-07T14:43:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h1 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h1><ul>
-<li><a href="/tags/数学/">数学</a><ul>
-<li><a href="/tags/数学-卡特兰数/">数学-卡特兰数</a></li>
-<li><a href="/tags/数学-群论">数学-群论</a></li>
+        <p>带花树是一种用于解决一般图最大匹配的算法，利用了匈牙利算法的思想。</p>
+<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ul>
+<li>匈牙利算法</li>
+<li>BFS 树</li>
+<li>并查集</li>
+</ul>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
+<li>奇环/偶环：长度为奇数/偶数的环。</li>
+<li>花（blossom）：在 BFS 过程中，遍历到的边与 BFS 树边构成的奇环；</li>
+<li>柄（stem）：从 BFS 树根到奇环中深度最浅的点的路径；</li>
+<li>蒂（tip）：奇环中在柄上的那个点。</li>
+</ul>
+<p><img src="/img/0025.PNG" alt=""></p>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>首先我们考虑匈牙利算法在 BFS 时如何工作：</p>
+<p>当我们搜索到点 $u$，对于边 $(u,v)$：</p>
+<ul>
+<li>如果 $v$ 没有被匹配，证明我们得到了一条增广路径；<ul>
+<li>此时我们将增广路径上的每条边翻转，并结束 BFS；</li>
 </ul>
 </li>
+<li>如果 $v$ 不在树中，继续 BFS；</li>
+<li>如果 $v$ 在树中，并且 $(u,v)$ 使图中出现偶环，忽略它；</li>
+<li>“$v$ 在树中，并且 $(u,v)$ 使图中出现奇环”（即图中出现了花）是不可能的，因为这是二分图。</li>
 </ul>
-<h1 id="OI"><a href="#OI" class="headerlink" title="OI"></a>OI</h1><ul>
-<li><a href="/tags/OI/">OI</a><ul>
-<li><a href="/tags/大胆猜想不用证明/">大胆猜想不用证明</a>（虽然也有可能给出了证明）</li>
-</ul>
-</li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><ul>
-<li><a href="/tags/题解/">题解</a></li>
-</ul>
-<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><ul>
-<li><a href="/tags/笔记/">笔记</a></li>
-</ul>
-<h2 id="游记"><a href="#游记" class="headerlink" title="游记"></a>游记</h2><ul>
-<li><a href="/tags/游记/">游记</a><ul>
-<li><a href="/tags/游记-NOIP/">游记-NOIP</a></li>
-<li><a href="/tags/游记-SCOI/">游记-SCOI</a></li>
-<li><a href="/tags/游记-THUSC/">游记-THUSC</a></li>
-<li><a href="/tags/游记-CSP">游记-CSP</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="按来源分类"><a href="#按来源分类" class="headerlink" title="按来源分类"></a>按来源分类</h2><ul>
-<li><a href="/tags/来源-NOI/">来源-NOI</a></li>
-<li><a href="/tags/来源-NOIP模拟/">来源-NOIP模拟</a></li>
-<li><a href="/tags/来源-codeforces/">来源-codeforces</a></li>
-<li><a href="/tags/来源-各省省选/">来源-各省省选</a></li>
-<li><a href="/tags/来源-模拟赛/">来源-模拟赛</a></li>
-<li><a href="/tags/来源-洛谷月赛/">来源-洛谷月赛</a></li>
-</ul>
-<h2 id="特殊题目"><a href="#特殊题目" class="headerlink" title="特殊题目"></a>特殊题目</h2><ul>
-<li><a href="/tags/特殊题目-交互题/">特殊题目-交互题</a></li>
-<li><a href="/tags/特殊题目-造计算机题/">特殊题目-造计算机题</a></li>
-<li><a href="/tags/特殊题目-构造题/">特殊题目-构造题</a></li>
-</ul>
-<h2 id="按算法分类"><a href="#按算法分类" class="headerlink" title="按算法分类"></a>按算法分类</h2><p><a href="/tags/算法/">算法</a></p>
-<h3 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h3><p><a href="/tags/算法-图论/">算法-图论</a></p>
-<ul>
-<li><a href="/tags/算法-图论-二分图/">算法-图论-二分图</a></li>
-<li><a href="/tags/算法-图论-匹配/">算法-图论-匹配</a></li>
-<li><a href="/tags/算法-图论-带花树/">算法-图论-带花树</a></li>
-<li><a href="/tags/算法-图论-最小路径覆盖/">算法-图论-最小路径覆盖</a></li>
-<li><a href="/tags/算法-图论-最短路/">算法-图论-最短路</a></li>
-<li><a href="/tags/算法-图论-网络流/">算法-图论-网络流</a></li>
-<li><a href="/tags/算法-图论-差分约束/">算法-图论-差分约束</a></li>
-<li><a href="/tags/算法-图论-矩阵树定理/">算法-图论-矩阵树定理</a></li>
-</ul>
-<h4 id="树论"><a href="#树论" class="headerlink" title="树论"></a>树论</h4><ul>
-<li><a href="/tags/算法-图论-树论-虚树/">算法-图论-树论-虚树</a></li>
-</ul>
-<h3 id="数学-1"><a href="#数学-1" class="headerlink" title="数学"></a>数学</h3><p><a href="/tags/算法-数学/">算法-数学</a></p>
-<ul>
-<li><a href="/tags/算法-数学-二进制/">算法-数学-二进制</a></li>
-<li><a href="/tags/算法-数学-位运算/">算法-数学-位运算</a></li>
-<li><a href="/tags/算法-数学-快速乘/">算法-数学-快速乘</a></li>
-<li><a href="/tags/算法-数学-快速幂/">算法-数学-快速幂</a></li>
-<li><a href="/tags/算法-数学-高斯消元/">算法-数学-高斯消元</a></li>
-<li><a href="/tags/算法-数学-卡特兰数/">算法-数学-卡特兰数</a></li>
-<li><a href="/tags/算法-数学-辛普森积分/">算法-数学-辛普森积分</a></li>
-</ul>
-<h4 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h4><p><a href="/tags/算法-数学-数论/">算法-数学-数论</a></p>
-<ul>
-<li><a href="/tags/算法-数学-数论-逆元/">算法-数学-数论-逆元</a></li>
-<li><a href="/tags/算法-数学-数论-Lucas/">算法-数学-数论-Lucas</a></li>
-<li><a href="/tags/算法-数学-数论-exgcd/">算法-数学-数论-exgcd</a></li>
-<li><a href="/tags/算法-数学-数论-min_25筛/">算法-数学-数论-min_25筛</a></li>
-<li><a href="/tags/算法-数学-数论-莫比乌斯反演/">算法-数学-数论-莫比乌斯反演</a></li>
-<li><a href="/tags/算法-数学-数论-powerful-number筛/">算法-数学-数论-powerful-number筛</a></li>
-<li><a href="/tags/算法-数学-数论-快速gcd变换/">算法-数学-数论-快速gcd变换</a></li>
-</ul>
-<h4 id="组合数学"><a href="#组合数学" class="headerlink" title="组合数学"></a>组合数学</h4><p><a href="/tags/算法-数学-组合数学/">算法-数学-组合数学</a></p>
-<ul>
-<li><a href="/tags/算法-数学-组合数学-容斥原理/">算法-数学-组合数学-容斥原理</a></li>
-<li><a href="/tags/算法-数学-组合数学-min-max容斥/">算法-数学-组合数学-min-max容斥</a></li>
-<li><a href="/tags/算法-数学-组合数学-生成函数">算法-数学-组合数学-生成函数</a></li>
-</ul>
-<h4 id="群论"><a href="#群论" class="headerlink" title="群论"></a>群论</h4><ul>
-<li><a href="/tags/算法-数学-群论-Burnside引理/">算法-数学-群论-Burnside引理</a></li>
-</ul>
-<h4 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h4><ul>
-<li><a href="/tags/算法-数学-多项式-多项式开方/">算法-数学-多项式-多项式开方</a></li>
-<li><a href="/tags/算法-数学-多项式-拉格朗日插值/">算法-数学-多项式-拉格朗日插值</a></li>
-</ul>
-<h3 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h3><ul>
-<li><a href="/tags/算法-DP-状压DP/">算法-DP-状压DP</a></li>
-<li><a href="/tags/算法-DP-计数DP/">算法-DP-计数DP</a></li>
-<li><a href="/tags/算法-DP-树形DP/">算法-DP-树形DP</a></li>
-</ul>
-<h4 id="DP优化"><a href="#DP优化" class="headerlink" title="DP优化"></a>DP优化</h4><ul>
-<li><a href="/tags/算法-DP-DP优化-斜率优化/">算法-DP-DP优化-斜率优化</a></li>
-</ul>
-<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><ul>
-<li><a href="/tags/算法-数据结构-平衡树/">算法-数据结构-平衡树</a></li>
-<li><a href="/tags/算法-数据结构-树状数组/">算法-数据结构-树状数组</a></li>
-<li><a href="/tags/算法-数据结构-线段树/">算法-数据结构-线段树</a></li>
-<li><a href="/tags/算法-数据结构-主席树/">算法-数据结构-主席树</a>（注：个人习惯把可持久化 01-Trie 等类似实现也归入该标签）</li>
-<li><a href="/tags/算法-数据结构-01Trie/">算法-数据结构-01Trie</a></li>
-<li><a href="/tags/算法-数据结构-St表/">算法-数据结构-St表</a></li>
-</ul>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p><a href="/tags/算法-字符串/">算法-字符串</a></p>
-<ul>
-<li><a href="/tags/算法-字符串-manacher/">算法-字符串-manacher</a></li>
-<li><a href="/tags/算法-字符串-字典序/">算法-字符串-字典序</a></li>
-<li><a href="/tags/算法-字符串-后缀数组/">算法-字符串-后缀数组</a></li>
-<li><a href="/tags/算法-字符串-回文自动机">算法-字符串-回文自动机</a></li>
-</ul>
-<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p><a href="/tags/算法-搜索/">算法-搜索</a></p>
-<ul>
-<li><a href="/tags/算法-搜索-DLX/">算法-搜索-DLX</a></li>
-</ul>
-<h3 id="计算几何"><a href="#计算几何" class="headerlink" title="计算几何"></a>计算几何</h3><ul>
-<li><a href="/tags/算法-计算几何-扫描线/">算法-计算几何-扫描线</a></li>
-</ul>
-<h3 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h3><p><a href="/tags/算法-模拟/">算法-模拟</a></p>
-<ul>
-<li><a href="/tags/算法-大模拟/">算法-大模拟</a></li>
-</ul>
-<h3 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h3><p><a href="/tags/算法-STL/">算法-STL</a></p>
-<h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><p><a href="/tags/算法-贪心/">算法-贪心</a></p>
-<h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><ul>
-<li><a href="/tags/算法-分治-CDQ分治/">算法-分治-CDQ分治</a></li>
-<li><a href="/tags/算法-分治-根号分治/">算法-分治-根号分治</a>（虽然这么分有些奇怪）</li>
-<li><a href="/tags/算法-分治-最值分治/">算法-分治-最值分治</a></li>
-</ul>
-<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
-<li><a href="/tags/算法-二分答案/">算法-二分答案</a></li>
-<li><a href="/tags/算法-线性基">算法-线性基</a></li>
-<li><a href="/tags/算法-倍增/">算法-倍增</a></li>
-<li><a href="/tags/算法-其它-LIS/">算法-其它-LIS</a></li>
-<li><a href="/tags/算法-枚举/">算法-枚举</a></li>
-<li><a href="/tags/算法-玄学/">算法-玄学</a></li>
-<li><a href="/tags/算法-构造/">算法-构造</a></li>
-</ul>
-<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><ul>
-<li><a href="/tags/算法-渐进记号/">算法-渐进记号</a></li>
-<li><a href="/tags/算法-时间复杂度/">算法-时间复杂度</a></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2019/带花树/#more">more >></a>
+        
       
 
       
@@ -618,11 +518,42 @@ function init(){
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-图论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-图论-带花树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-图论-匹配</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/1000/tags/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/带花树/">展开全文 >></a>
         </p>
       
 
@@ -654,7 +585,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/22/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span>
+      <a class="extend prev" rel="prev" href="/page/22/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/24/">Next &raquo;</a>
     </nav>
   
 
@@ -1128,6 +1059,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

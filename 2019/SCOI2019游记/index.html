@@ -19,7 +19,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/0024.PNG">
 <meta property="og:image" content="https://wallbreaker5th.github.io/img/省选考政治.PNG">
-<meta property="og:updated_time" content="2019-09-28T02:54:49.113Z">
+<meta property="og:updated_time" content="2020-06-23T02:52:28.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SCOI2019游记">
 <meta name="twitter:description" content="↑上面的时间是发布时间，不是最后修改时间，请大家不要恐慌↑ Day0周五 上午前去报到 下午笔试，到了考场才领到准考证。 笔试真是/cy。 B.竞赛一年 sb2 D.无所谓 有时可以 A.Lazarus ... D.Lazarus">
@@ -290,11 +290,11 @@ function init(){
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -392,7 +392,7 @@ function init(){
 <p>于是改了一下思路——对每个可行的集合，处理出其中到各个节点距离小于等于 $m$ 的节点集合，按照集合装进桶。答案即所有有交集的集合对的乘积之和。枚举有交集显然很慢，就枚举无交集。枚举无交集时，先枚举一个集合，接着枚举其补集的子集。由二项式定理可得，时间复杂度是 $O(3^n)$。</p>
 <p>T3 的 $n\leq 15$ 的点很好弄，就是枚举<del>我还懒到了直接用 <code>std::basic_string&lt;int&gt;+std::set&lt;std::basic_string&lt;int&gt; &gt;</code></del>。</p>
 <p>$W=0$ 时就是一个背包，也很好写<del>但是前一种情况写完之后没有换行也没有退出，导致两种情况的答案连起来输出，调了几十分钟没发现问题</del></p>
-<p>接着回去看 T2，感觉只有一个 G 很好写。以 G 为根，把离得太远的点忽略掉，分别处理两个颜色的连通块数量。$f_x=\prod_{y \text{是}x\text{的儿子 距离不超 同色}}^{}\ \ \ \ \ \ \ \ \ \ (f_y+1)$</p>
+<p>接着回去看 T2，感觉只有一个 G 很好写。以 G 为根，把离得太远的点忽略掉，分别处理两个颜色的连通块数量。$f_x=\prod_{y \text{是}x\text{的儿子 距离不超 同色} }^{}\ \ \ \ \ \ \ \ \ \ (f_y+1)$</p>
 <p>之后疯狂推链的情况。一开始枚举 G 并作为交叉部分的最右边一个节点并想当然以为那一个点到每个节点距离不超过 $m$，最后发现错了。</p>
 <p>只剩二三十分钟，Linux 下编译了一下，玩扫雷去了。</p>
 <p>预估分数：</p>
@@ -508,18 +508,18 @@ function init(){
   
 <nav id="article-nav">
   
-    <a href="/2019/题解-P2482-SDOI2010-猪国杀/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/Lucas/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          题解 P4035 SDOI2010 猪国杀
+          Lucas/exLucas 略解
         
       </div>
     </a>
   
   
-    <a href="/2019/题解-P4287-SHOI2011-双倍回文/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">题解 [SHOI2011]双倍回文（洛谷 P4287 BZOJ2342）</div>
+    <a href="/2019/题解-P2482-SDOI2010-猪国杀/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">题解 P4035 SDOI2010 猪国杀</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -1041,6 +1041,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>

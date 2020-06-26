@@ -264,53 +264,144 @@ function init(){
 
   
     
-<article id="题解-题解-loj3161-NOI2019-I 君的探险- 部分分" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+<article id="post-某SCOI模拟赛 T1 松鼠串门（squirrel）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">部分分题解 [NOI2019]I 君的探险（LOJ3161 洛谷P5473）</a>
+      <a class="article-title" href="/2020/某SCOI模拟赛 T1 松鼠串门（squirrel）/">某 SCOI 模拟赛 T1 松鼠串门（squirrel）</a>
     </h1>
   
 
 
         
-        <a href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/" class="archive-article-date">
-  	<time datetime="2019-07-21T02:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+        <a href="/2020/某SCOI模拟赛 T1 松鼠串门（squirrel）/" class="archive-article-date">
+  	<time datetime="2020-05-29T06:11:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://loj.ac/problem/3161" target="_blank" rel="noopener">题目链接</a></p>
-<p>（代码在最后）</p>
-<h1 id="测试点-1"><a href="#测试点-1" class="headerlink" title="测试点 1"></a>测试点 1</h1><p>这个点只需要读懂题目就能乱搞过去。</p>
-<p>无数种方法中的一个：</p>
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一棵 $n$ 个节点的带权有根树，$q$ 次操作：</p>
 <ul>
-<li>修改 0 号点</li>
-<li>分别查询 1、2 号点，只要被修改了就代表它与 0 有边</li>
-<li>若1、2 点不同时与 0 有边连接，代表 1、2 点之间有边</li>
+<li>给某点添加一个儿子；</li>
+<li>对于某个点到其祖先的一段路径上的点构成的集合，求一个子集使得子集中的点的点权异或和最大。</li>
 </ul>
-<ul>
-<li><p>时间复杂度：$O(1)$</p>
-</li>
-<li><p>修改次数：1</p>
-</li>
-<li><p>查询次数：2</p>
-</li>
-<li><p>检查次数：0</p>
+<p>$n,q\leq 5\times10^5$，权值 $&lt;2^{64}$。</p>
         
-          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/#more">more >></a>
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1 松鼠串门（squirrel）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-贪心</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-模拟赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-线性基</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/某SCOI模拟赛 T1 松鼠串门（squirrel）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="题解-题解-P4094-TJOI2016-HEOI2016-字符串" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/题解-P4094-TJOI2016-HEOI2016-字符串/">题解 [TJOI / HEOI2016] 字符串（LOJ 2059 / 洛谷 P4094）</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/题解-P4094-TJOI2016-HEOI2016-字符串/" class="archive-article-date">
+  	<time datetime="2020-05-28T12:26:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+</a>
+        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
+          真实的文章修改记录请查看
+          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
+        
+      </header>
+    
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目链接：<a href="https://www.luogu.com.cn/problem/P4094" target="_blank" rel="noopener">洛谷 P4094</a> / <a href="https://loj.ac/problem/2059" target="_blank" rel="noopener">LOJ #2059</a></p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定长为 $n$ 的字符串，$m$ 次询问子串 $[a\dots b]$ <strong>的子串</strong> 与 $[c\dots d]$ <strong>这个子串</strong>的最长公共前缀的长度的最大值。$n,m\leq 10^5$。时限 2s。</p>
+        
+          <a class="article-more-a" href="/2020/题解-P4094-TJOI2016-HEOI2016-字符串/#more">more >></a>
         
       
 
@@ -332,15 +423,23 @@ function init(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">来源-NOI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法-二分答案</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">特殊题目-交互题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-字符串-后缀数组</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-二进制</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-主席树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-数据结构-St表</a>
         		</li>
       		
 		</ul>
@@ -350,7 +449,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/题解-loj3161-NOI2019-I 君的探险- 部分分/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/题解-P4094-TJOI2016-HEOI2016-字符串/">展开全文 >></a>
         </p>
       
 
@@ -381,47 +480,39 @@ function init(){
 
   
     
-<article id="游记-THUSC2019游记" class="article article-type-游记  article-index" itemscope itemprop="blogPost">
+<article id="题解-题解-P3292-SCOI2016-幸运数字" class="article article-type-题解  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/THUSC2019游记/">THUSC2019游记</a>
+      <a class="article-title" href="/2020/题解-P3292-SCOI2016-幸运数字/">题解 [SCOI2016] 幸运数字（洛谷 P3292 / LOJ 2013）</a>
     </h1>
   
 
 
         
-        <a href="/2019/THUSC2019游记/" class="archive-article-date">
-  	<time datetime="2019-05-25T14:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-25</time>
+        <a href="/2020/题解-P3292-SCOI2016-幸运数字/" class="archive-article-date">
+  	<time datetime="2020-05-28T01:00:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
 </a>
         <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
           真实的文章修改记录请查看
           <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
+            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a> 或我的 CSDN 博客上的对应文章。</p>
         
       </header>
     
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
+    <div style="position: absolute; right: 100px; bottom: 0px;z-index: 233">
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><del>↑上面的时间是发布时间，不是最后修改时间，请大家不要恐慌↑</del></p>
-<p>日期编号以考场电脑的用户名为准。（即：05/25 第一场考试为 Day0）</p>
-<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>早上准备坐高铁去北京，这是我第一次出省</p>
-<p>因为办的是临时身份证，只能在人工窗口排队/kk</p>
-<p>9:55 左右上高铁</p>
-<p>高铁上看了一会书就开始用流量水群/看风景了（<del>道理我都懂，但高铁上怎么能没有 WIFI 呢？</del>）</p>
-<p>在四川盯了半天窗外也没有看到有紫色土壤</p>
-<p>穿过秦岭，一看农田就知道到了北方地区</p>
-<p>黄土高原上似乎种了不少植被了</p>
-<p>午饭吃的是啥扣肉</p>
-<p>下午坐了很久然后到华北平原了。这才感受到真正的”平原“是啥样。</p>
+        <p>题目链接：<a href="https://www.luogu.com.cn/problem/P3292" target="_blank" rel="noopener">洛谷 P3292</a> / <a href="https://loj.ac/problem/2013" target="_blank" rel="noopener">LOJ #2013</a></p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>一棵树，每个点有点权 $G_i$，$q$ 次询问 $x$ 到 $y$ 的路径上的所有点中任选一些点可以得到的异或和的最大值。$n\leq 2\times 10^4,q\leq 2\times 10^5,G_i\leq 2^{60}$</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>倍增+线性基，可能 $\log$ 有些多、常数也有些大。</p>
         
-          <a class="article-more-a" href="/2019/THUSC2019游记/#more">more >></a>
+          <a class="article-more-a" href="/2020/题解-P3292-SCOI2016-幸运数字/#more">more >></a>
         
       
 
@@ -435,15 +526,23 @@ function init(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">游记-THUSC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法-线性基</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">来源-各省省选</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-倍增</a>
         		</li>
       		
 		</ul>
@@ -453,127 +552,7 @@ function init(){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/THUSC2019游记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-Lucas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/Lucas/">Lucas/exLucas 略解</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/Lucas/" class="archive-article-date">
-  	<time datetime="2019-05-11T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
-</a>
-        <p style="font-size: 8px;color: lightslategray">右上角的时间<b>不是</b>文章的发布时间，更不是文章的最后修改时间。
-          真实的文章修改记录请查看
-          <a href="https://github.com/Wallbreaker5th/Wallbreaker5th.github.io">
-            https://github.com/Wallbreaker5th/Wallbreaker5th.github.io</a></p>
-        
-      </header>
-    
-    <div style="position: absolute; right: 100px; buttom: 0px;z-index: 233">
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Lucas 是一种用来求解 $C_n^m \mod p$（$p$ 为质数）的算法。</p>
-<p>利用 exLucas 可以求解 $p$ 不为质数的情况。</p>
-<h1 id="Lucas"><a href="#Lucas" class="headerlink" title="Lucas"></a>Lucas</h1><p><strong>前置知识：</strong></p>
-<ul>
-<li><p>求乘法逆元</p>
-</li>
-<li><p>暴力求组合数</p>
-</li>
-</ul>
-<p>这种算法是基于 Lucas 定理的：</p>
-<p>设 $p$ 为素数，将正整数 $n,m$ 表示为 $p$ 进制如下：</p>
-<p>$n=(\overline{n_0n_1\dots n_k})_p,m=(\overline{m_0m_1\dots m_k})_p$</p>
-<p>其中允许首位为零，且规定当 $m&gt;n$ 时 $C_n^m=0$，则：</p>
-<p>$C_n^m\equiv C_{n_0}^{m_0}\cdot C_{n_1}^{m_1}\cdot \dots \cdot C_{n_k}^{m_k} (\mod p\ )$</p>
-<p>也可以换个递归的表达方式：</p>
-<p>$C_n^m\equiv C_{n/p}^{m/p}\cdot C_{n\%p}^{m\%p}(\mod p\ )$</p>
-        
-          <a class="article-more-a" href="/2019/Lucas/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法-数学-数论-Lucas</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法-数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法-数学-数论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/Lucas/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/题解-P3292-SCOI2016-幸运数字/">展开全文 >></a>
         </p>
       
 
@@ -605,7 +584,7 @@ function init(){
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
     </nav>
   
 
@@ -1079,6 +1058,110 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法-大模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数据结构-李超线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-生成函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-组合数学-集合幂级数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数据结构-单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-数据结构-堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-数学-数论-斐波那契循环节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-数论-二次剩余</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法-杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-字符串-后缀自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-括号序列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-组合数学-容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-最小割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-剪枝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-字符串-哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-树论-树链剖分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-图论-Boruvka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法-数据结构-动态开点线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分数规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法-图论-费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-启发式合并</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">来源-hdu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法-数学-组合数学-第二类斯特林数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-分段打表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法-图论-树论-树哈希</a>
               </li>
             
             <div class="clearfix"></div>
