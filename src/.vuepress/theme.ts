@@ -3,11 +3,11 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://wallbreaker5th.github.io",
+  hostname: "https://www.wallbreaker5th.top",
 
   author: {
     name: "Wallbreaker5th",
-    url: "https://wallbreaker5th.github.io",
+    url: "https://www.wallbreaker5th.top",
   },
 
   iconAssets: "fontawesome-with-brands",
