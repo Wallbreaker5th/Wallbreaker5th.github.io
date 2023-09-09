@@ -24,7 +24,7 @@ export default hopeTheme({
   // sidebar
   sidebar,
 
-  footer: "「漫无目的地向目的地散去」",
+  footer: "友链：<a href=\"https://www.blog-e.top/\">Blog E</a>",
 
   displayFooter: true,
 

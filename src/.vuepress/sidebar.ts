@@ -13,6 +13,12 @@ export default sidebar({
           icon: "lightbulb",
           prefix: "inspiration/",
           children: "structure"
+        },
+        {
+          text: "算法竞赛",
+          icon: "code",
+          prefix: "OI_ICPC/",
+          children: "structure"
         }
       ]
     },

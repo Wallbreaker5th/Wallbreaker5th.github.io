@@ -11,7 +11,17 @@ export default navbar([
         text: "突发奇想",
         icon: "lightbulb",
         link: "category/突发奇想/",
+      },
+      {
+        text: "算法竞赛",
+        icon: "code",
+        link: "category/oi_icpc/",
       }
     ]
   },
+  {
+    text: "关于我",
+    icon: "user",
+    link: "/intro"
+  }
 ]);

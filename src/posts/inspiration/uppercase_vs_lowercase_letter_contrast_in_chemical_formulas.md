@@ -6,6 +6,7 @@ tag:
     - 化学
     - Mathematica
 title: 化学式中的「大小写对立」
+excerpt: 有哪些化学式忽略大小写后会变得相同？
 ---
 
 ## 问题
