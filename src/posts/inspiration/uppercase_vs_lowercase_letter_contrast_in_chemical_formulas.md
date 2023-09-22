@@ -70,4 +70,4 @@ names = Map[Entity["Chemical", #]["Name"] &, subsets, {2}]
 - 氯化钴（$\text{CoCl}_2$） 和 光气（$\text{COCl}_2$）
 - 硫化钴（$\text{CoS}$） 和 羰基硫（$\text{COS}$）
 - 铪（$\text{Hf}$） 和 氟化氢（$\text{HF}$）
-- 锔（$\text{No}$） 和 一氧化氮（$\text{NO}$）
+- 锘（$\text{No}$） 和 一氧化氮（$\text{NO}$）

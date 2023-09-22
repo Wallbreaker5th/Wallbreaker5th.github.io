@@ -14,7 +14,7 @@ cover: /assets/images/cover3.jpg
 该博客预期不会系统备份过去的 OI 题解。
 
 - NOI 2021 银牌 :2nd_place_medal:
-- ICPC 2022 沈阳/西安区域金牌 :1st_place_medal:
+- ICPC 2022 沈阳/西安区域赛金牌 :1st_place_medal:
 - ICPC 2022 EC-final 金牌 :1st_place_medal:
 - 中文 VOCALOID 听众 :headphones:
 - Phigros、Cities: Skylines、Minecraft 玩家 :video_game:
