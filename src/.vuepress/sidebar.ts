@@ -19,6 +19,12 @@ export default sidebar({
           icon: "code",
           prefix: "OI_ICPC/",
           children: "structure"
+        },
+        {
+          text: "Typst",
+          icon: "file-lines",
+          prefix: "typst/",
+          children: "structure"
         }
       ]
     },

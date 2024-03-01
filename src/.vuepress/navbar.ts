@@ -16,6 +16,11 @@ export default navbar([
         text: "算法竞赛",
         icon: "code",
         link: "category/oi_icpc/",
+      },
+      {
+        text: "Typst",
+        icon: "file-lines",
+        link: "category/typst/",
       }
     ]
   },
