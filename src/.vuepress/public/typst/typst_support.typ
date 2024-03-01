@@ -1,7 +1,7 @@
 #import "@preview/cetz:0.2.0"
 
 #set page(width: json("./page_config.json").width * 1pt, height: auto, margin: 5pt)
-#set text(font: ("LXGW Neo XiHei", "FZHei-B01S"), size: 12pt)
+#set text(font: ("LXGW Neo XiHei", "FZHei-B01S"), size: 12pt, lang: "zh", region: "CN")
 #show raw: set text(font: ("DejaVu Sans Mono", "LXGW Neo XiHei", "FZHei-B01S"))
 #show math.equation: set text(font: "New Computer Modern Math")
 
@@ -9,10 +9,12 @@
 
 话说回来，借助 #link("https://github.com/Myriad-Dreamin/typst.ts/", "Typst.ts") 对 #link("https://typst.app", "Typst") 的封装，这个博客现在能够在浏览器中渲染 Typst 代码。你还可以试一试更改浏览器窗口大小，内容排版也会自动适应。不过截至目前，Typst 还不支持 HTML 导出，这个是用 Canvas 渲染的排版结果，效果不够理想。期待 Typst 支持 HTML 导出的一天。
 
+你可以在这个博客的 GitHub Repo 中找到对应的源代码。代码写得很丑（所有与多线程相关的东西我都搞不明白），同时也暂时缺少一些功能（比如加入图片），字体也塞了一大堆，等要用到的时候再加吧。
+
 总之，让我们观赏一下 Typst 的实力吧！!1
 
 #let show-exmaple(raw) = {
-  align(center, rect(rect(stroke: none, inset: 1em, fill: luma(95%), raw) + v(1em) + eval("["+raw.text+"]"), radius: 10pt, width: 80%, inset: 0.5cm))
+  align(center, rect(rect(stroke: none, inset: 1em, fill: luma(95%), raw) + v(1em) + eval("["+raw.text+"]"), radius: 10pt, width: 90%, inset: 0.5cm))
 }
 
 #show-exmaple(```typ
