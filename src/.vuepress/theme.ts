@@ -184,5 +184,13 @@ export default hopeTheme({
     //     ],
     //   },
     // },
+
+    comment: {
+      provider: "Giscus",
+      repo: "Wallbreaker5th/Wallbreaker5th.github.io",
+      repoId: "R_kgDOKQ_8wQ",
+      category: "Announcements",
+      categoryId: "DIC_kwDOKQ_8wc4CdpVC",
+    },
   },
 });
