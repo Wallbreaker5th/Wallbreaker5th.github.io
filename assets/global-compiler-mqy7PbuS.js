@@ -1,0 +1,1 @@
+let l,i,o=!1;function u(){return o?l:void 0}function c(n,t){const e=l||n();return i!==void 0?i:i=(async()=>(o=!0,await e.init(t),l=e))()}function f(n,t,e,a){const r=u();if(r){e(r);return}c(n,t).then(e).catch(a)}export{c as createGlobalCompiler,u as getGlobalCompiler,f as withGlobalCompiler};
