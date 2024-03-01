@@ -66,4 +66,4 @@ NOI 后：
 - L: Information Spread　☆
 
 ## 未来
-- （名称待定）　☆
+- （名称待定）
