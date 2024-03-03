@@ -3,8 +3,8 @@ date: 2023-09-09
 category:
     - OI+ICPC
 tag:
-    - OI
-    - OI-出题
+    - OI+ICPC
+    - OI+ICPC - 出题
 title: 冤有头，债有主
 excerpt: 记录我出/搬的题目列表。
 ---
