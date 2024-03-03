@@ -1,8 +1,8 @@
 #import "@preview/cetz:0.2.0"
 
 #set page(width: json("./page_config.json").width * 1pt, height: auto, margin: 5pt)
-#set text(font: ("LXGW Neo XiHei", "FZHei-B01S"), size: 12pt, lang: "zh", region: "CN")
-#show raw: set text(font: ("DejaVu Sans Mono", "LXGW Neo XiHei", "FZHei-B01S"))
+#set text(font: ("LXGW Neo XiHei",), size: 12pt, lang: "zh", region: "CN")
+#show raw: set text(font: ("DejaVu Sans Mono", "LXGW Neo XiHei",))
 #show math.equation: set text(font: "New Computer Modern Math")
 
 如果你用流量点开了这篇文章，那我首先要向你道个歉——因为你大概加载了无数个字体、一个 Typst 编译器和其他一堆乱七八糟的东西。

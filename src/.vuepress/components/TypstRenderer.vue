@@ -11,12 +11,17 @@ export default {
     path: {
       type: String,
       required: true
+    },
+    minWidth: {
+      type: Number,
+      default: 350
     }
   },
   data() {
     return {
       code: '',
       width: 500,
+      boxWidth: 500,
       compiler: createTypstCompiler(),
       artifactData: new Map<Number, any>()
     }
@@ -35,9 +40,11 @@ export default {
       observer.observe(this.$refs.container)
     },
     handleWidthChange(newWidth: number) {
-      const newFlooredWidth = Math.floor(newWidth / 50) * 50
-      if (newFlooredWidth !== this.width) {
-        this.width = newFlooredWidth;
+      const newBoxWidth = Math.floor(newWidth / 50) * 50;
+      this.boxWidth = newBoxWidth;
+      const newPageWidth = Math.max(this.minWidth, newBoxWidth);
+      if (newPageWidth !== this.width) {
+        this.width = newPageWidth;
         this.recompile();
       }
     },
@@ -48,10 +55,11 @@ export default {
         beforeBuild: [
           preloadRemoteFonts([
             'LXGWNeoXiHei.ttf',
-            'FangZhengHeiTiJianTi-1.ttf',
-            'NewCMMath-Regular.otf',
+          //   'FangZhengHeiTiJianTi-1.ttf',
+          //   'NewCMMath-Regular.otf',
           ].map((fontName) => `/assets/fonts/${fontName}`)),
-          preloadRemoteFonts([], { assets: ['cjk', 'emoji', 'text'], assetUrlPrefix: '/assets/fonts/' }),
+          // preloadRemoteFonts([], { assets: ['cjk', 'emoji', 'text'], assetUrlPrefix: '/assets/fonts/' }),
+          preloadRemoteFonts([], { assets: ['text'], assetUrlPrefix: '/assets/fonts/' }),
           disableDefaultFontAssets(),
           withAccessModel(m),
           withPackageRegistry(new FetchPackageRegistry(m)),
@@ -77,7 +85,10 @@ export default {
         this.artifactData.set(this.width, artifactData);
         this.compiler.unmapShadow('/page_config.json');
       }
-      await $typst.canvas(this.$refs.canvas, { vectorData: this.artifactData.get(this.width) });
+      await $typst.canvas(this.$refs.canvas, {
+        vectorData: this.artifactData.get(this.width),
+        pixelPerPt: 4,
+      });
     }
   },
   mounted() {
@@ -92,7 +103,7 @@ export default {
 <template>
   <div ref="container">
     <div ref="canvas">
-      正在初始化 Typst 编译器……
+      正在初始化 Typst 编译器（加载字体等）……
     </div>
   </div>
 </template>
