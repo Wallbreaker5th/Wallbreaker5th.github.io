@@ -1,13 +1,13 @@
 ---
 date: 2024-03-03
 category:
-    - OI+ICPC
+    - OI×ICPC
 tag:
-    - OI+ICPC
-    - OI+ICPC - 题解
-    - OI+ICPC - 二进制
-    - OI+ICPC - 图论 - 平面图
-    - OI+ICPC - 构造
+    - OI×ICPC
+    - OI×ICPC - 题解
+    - OI×ICPC - 二进制
+    - OI×ICPC - 图论 - 平面图
+    - OI×ICPC - 构造
 title: 2024 ICPC Asia Pacific Championship 部分题解
 excerpt: 2024 ICPC Asia Pacific Championship（Codeforces Contest 1938）部分题目的题解：<br>B. Attraction Score<br>C. Bit Counting Sequence<br>E. Duplicates<br>F. Forming Groups
 ---
@@ -50,7 +50,7 @@ $n\leq 10^5, m\leq 3 \times 10^5$。边权 $w_i\leq 10^6$。6s。
 
 ## C. Bit Counting Sequence
 ### 题意
-给定一个序列 $a_{0..n-1}$，求最小的 $x$，使得 $a_i = \text{popcount}(x+i)$ 对所有 $i$ 成立。$n\leq 3 \times 10^5$，$a_i\leq 60$。
+给定一个序列 $a_{0..n-1}$，求最小的 $x$，使得 $a_i = \text{popcount}(x×i)$ 对所有 $i$ 成立。$n\leq 3 \times 10^5$，$a_i\leq 60$。
 
 ### 题解
 找到其中 $a_i$ 下降最剧烈的一个位置，这一次变化一定是 $111\cdots 101\cdots 111$ 变为 $111\cdots 100\cdots 000$。以此为基础推出 $x$ 并逐个验证即可。
