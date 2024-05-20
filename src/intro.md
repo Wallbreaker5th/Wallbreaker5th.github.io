@@ -19,6 +19,6 @@ cover: /assets/images/cover3.jpg
 - ICPC 2023 西安/杭州区域赛金牌 :1st_place_medal:
 - ICPC 2023 EC-final 金牌 :1st_place_medal:
 - 中文 VOCALOID 听众 :headphones:
-- Phigros、Cities: Skylines、Minecraft 玩家 :video_game:
+- Phigros、Rizline、Cities: Skylines、Minecraft 玩家 :video_game:
 - [Typst](https://typst.app) 教徒 :pray:
 - ~~不能再写了，再写就零成本开盒了~~

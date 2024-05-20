@@ -13,7 +13,7 @@ tag:
     - OI×ICPC - 博弈论
     - OI×ICPC - DFS 序
     - OI×ICPC - DP
-title: CCPC 2023 Final部分题解
+title: CCPC 2023 Final 部分题解
 excerpt: CCPC 2023 Final 部分题目的题解：<br>A. Add One 2<br>C. Colorful Graph 2<br>D. Min or Max<br>G. China Convex Polygon Contest<br>H. The Game<br>J. DFS Order 5<br>K. Sticks
 ---
 
