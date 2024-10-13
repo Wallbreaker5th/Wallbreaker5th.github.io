@@ -15,7 +15,7 @@ export default navbar([
       {
         text: "算法竞赛",
         icon: "code",
-        link: "category/OI×ICPC/",
+        link: "category/oi×icpc/",
       },
       {
         text: "Typst",
