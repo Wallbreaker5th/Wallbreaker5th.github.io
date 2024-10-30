@@ -1,5 +1,5 @@
 ---
-date: 2024-10-28
+date: 2024-10-29
 category:
     - OI×ICPC
 tag:
@@ -20,6 +20,8 @@ tag:
     - OI×ICPC - 二分
     - OI×ICPC - 前缀和
     - OI×ICPC - 树形 DP
+title: CCPC 2024 哈尔滨区域赛（Harbin Regional）部分题解
+excerpt: CCPC 2024 哈尔滨区域赛（Harbin Regional）部分题目的题解：<br>A. Build a Computer<br>B. Concave Hull<br>D. A Simple String Problem<br>E. Marble Race<br>G. Welcome to Join the Online Meeting!<br>I. A Brand New Geometric Problem<br>J. New Energy Vehicle<br>K. Farm Management<br>L. A Game On Tree
 ---
 
 ::: warning
@@ -107,7 +109,7 @@ tag:
 
 ## K. Farm Management
 ### 题意
-有 $n$ 种作物，每种作物一天可以收 $[l_i,r_i]$ 个单位，每单位收益 $w$，总共收恰好 $m$ 个单位。今天你可以选一种作物，令 $l_i\gets 0, r_i\get m$。求最大收益。$n\leq 10^5,m\leq 10^{11}$。
+有 $n$ 种作物，每种作物一天可以收 $[l_i,r_i]$ 个单位，每单位收益 $w$，总共收恰好 $m$ 个单位。今天你可以选一种作物，令 $l_i\gets 0, r_i\gets m$。求最大收益。$n\leq 10^5,m\leq 10^{11}$。
 
 ### 题解
 先按照 $w_i$ 排序。先把每个作物的 $l_i$ 耗完，将 $r_i-l_i$、$(r_i-l_i)w_i$ 求前缀和；然后枚举某个作物，把它的 $l_i$ 加上 $m-\sum_j l_j$，这是现在可以自由分配的单位数；二分求出 $r_i-l_i$ 求前缀和到达这个值的位置，将其与 $i$ 取 $\min$，从而把剩下的单位数分配给 $[1,i]$。
