@@ -5,7 +5,7 @@ category:
 tag:
     - OI×ICPC
     - OI×ICPC - 题解
-    - OI×ICPC - 二位前缀和
+    - OI×ICPC - 二维前缀和
     - OI×ICPC - 前缀和
     - OI×ICPC - 二分
     - OI×ICPC - 图论 - DFS
