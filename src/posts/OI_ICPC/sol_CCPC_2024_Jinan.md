@@ -1,5 +1,5 @@
 ---
-date: 2024-11-10
+date: 2024-12-07
 category:
     - OI×ICPC
 tag:
