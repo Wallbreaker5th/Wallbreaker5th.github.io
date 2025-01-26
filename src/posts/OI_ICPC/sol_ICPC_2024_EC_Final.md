@@ -5,8 +5,17 @@ category:
 tag:
     - OI×ICPC
     - OI×ICPC - 题解
+    - OI×ICPC - 贪心
+    - OI×ICPC - 构造
+    - OI×ICPC - DFS
+    - OI×ICPC - 大模拟
+    - OI×ICPC - 数论
+    - OI×ICPC - exgcd
+    - OI×ICPC - LIS
+    - OI×ICPC - 最短路
+    - OI×ICPC - 图论
 title: ICPC 2024 EC Final 部分题解
-excerpt: ICPC 2024 EC Final 部分题目的题解：
+excerpt: ICPC 2024 EC Final 部分题目的题解：<br>A. Hitoshizuku<br>E. Corrupted Scoreboard Log<br>F. Boolean Function Reconstruction<br>G. Collatz Conjecture<br>H. Staircase Museum<br>I. Color-Balanced Tree<br>K. Exploration Boundary
 ---
 
 ::: warning
