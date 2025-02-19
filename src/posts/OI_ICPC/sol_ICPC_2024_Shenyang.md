@@ -13,7 +13,8 @@ tag:
     - OI×ICPC - 树状数组
     - OI×ICPC - 树形DP
     - OI×ICPC - 枚举
-title: ICPC 2024 沈阳区域赛（Shenyang Regional）部分题解：<br>B. Magical Palette<br>D. Dot Product Game<br>G. Guess the Polygon<br>H. Guide Map<br>I. Growing Tree
+title: ICPC 2024 沈阳区域赛（Shenyang Regional）部分题解
+excerpt: ICPC 2024 沈阳区域赛（Shenyang Regional）部分题解：<br>B. Magical Palette<br>D. Dot Product Game<br>G. Guess the Polygon<br>H. Guide Map<br>I. Growing Tree
 ---
 
 ::: warning
