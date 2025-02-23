@@ -7,3 +7,5 @@ src/.vuepress/dist/
 src/.vuepress/public/typst/*.pdf
 
 page_config.json
+
+.vscode/

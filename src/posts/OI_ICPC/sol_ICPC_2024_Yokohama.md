@@ -23,6 +23,8 @@ excerpt: ICPC 2024 横滨区域赛（Yokohama Regional）部分题目的题解�
 「如果一个题解你看不懂，那是题解垃圾而不是你垃圾。」
 :::
 
+比赛链接：[Codeforces Gym](https://codeforces.com/gym/105633)
+
 ## A. Ribbon on the Christmas Present
 ### 题意
 一个数组，初始为 $0$。一次操作可以选一个区间，选定 $x$，如果区间内的数都不大于 $x$，则把区间内的数都变成 $x$。问最少多少次操作得到给定序列。$n\leq 100$，值域 $100$。

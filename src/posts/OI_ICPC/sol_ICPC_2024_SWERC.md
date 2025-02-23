@@ -25,6 +25,8 @@ excerpt: ICPC 2024 西南欧区域赛（Southwestern European Regional / SWERC 2
 「如果一个题解你看不懂，那是题解垃圾而不是你垃圾。」
 :::
 
+比赛链接：[Codeforces Gym](https://codeforces.com/gym/105677)
+
 ## B. Divine Gifting
 ### 题意
 有 $n$ 个物品，每个物品在第 $a_i$ 天出现，你要在它出现后某一天送走，代价是时间差的平方。送走物品的天数只能有不超过 $k$ 个。问最小代价。$n\leq 5000, k\leq 20$。5s。
