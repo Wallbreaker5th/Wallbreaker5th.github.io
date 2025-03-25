@@ -14,6 +14,7 @@ tag:
     - OI×ICPC - 贪心
     - OI×ICPC - 栈
     - OI×ICPC - 分治
+title: Codeforces Round 1008 (Div. 1) 部分题解
 excerpt: Codeforces Round 1008 (Div. 1) 部分题目的题解：<br>A. Breach of Faith<br>B. Finding OR Sum<br>C. Binary Subsequence Value Sum<br>D. Maximum Polygon<br>E. Another Folding Strip
 ---
 
