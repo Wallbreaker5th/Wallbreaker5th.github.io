@@ -11,7 +11,7 @@ category:
     - OI×ICPC - 贪心
     - OI×ICPC - 高精度
 title: The 2nd Universal Cup Semifinals 部分题解
-excerpt: The 2nd Universal Cup Semifinals（UCup Semifinals）部分题目的题解：<br>A. Records in Chichén Itzá<br>C. Space Station<br>G. CNOI Knowledge<br>K. Game: Battle of Menjis<br>M. Puzzle: Summon
+excerpt: "The 2nd Universal Cup Semifinals（UCup Semifinals）部分题目的题解：<br>A. Records in Chichén Itzá<br>C. Space Station<br>G. CNOI Knowledge<br>K. Game: Battle of Menjis<br>M. Puzzle: Summon"
 ---
 
 ::: warning
