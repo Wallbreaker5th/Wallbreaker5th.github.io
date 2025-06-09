@@ -12,7 +12,11 @@ export default defineUserConfig({
   theme,
 
   bundler: viteBundler({
-    viteOptions: {},
+    viteOptions: {
+      ssr: {
+        noExternal: ['@microsoft/clarity']
+      }
+    },
     vuePluginOptions: {},
   }),
 
