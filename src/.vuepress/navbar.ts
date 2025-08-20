@@ -21,6 +21,11 @@ export default navbar([
         text: "Typst",
         icon: "file-lines",
         link: "category/typst/",
+      },
+      {
+        text: "闲话",
+        icon: "comment-dots",
+        link: "category/闲话/",
       }
     ]
   },

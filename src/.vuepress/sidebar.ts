@@ -25,6 +25,12 @@ export default sidebar({
           icon: "file-lines",
           prefix: "typst/",
           children: "structure"
+        },
+        {
+          text: "闲话",
+          icon: "comment-dots",
+          prefix: "musings/",
+          children: "structure"
         }
       ]
     },
