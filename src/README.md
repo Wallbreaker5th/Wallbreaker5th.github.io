@@ -18,10 +18,10 @@ projects:
     desc: 基于汉字字形的 Wordle
     link: https://zlps.wallbreaker5th.top/
     
-  - icon: scale-balanced
-    name: Fogginess
-    desc: 大物实验不确定度计算器
-    link: https://fogginess.wallbreaker5th.top/
+  - icon: keyboard
+    name: Diffusion Engram IME Demo
+    desc: 基于扩散模型和 Engram 的输入法尝试
+    link: https://huggingface.co/Epsilonoid/Diffusion-Engram-IME-Demo
 
 footer: 友链：<a href="https://www.blog-e.top/">Blog E</a>
 ---
