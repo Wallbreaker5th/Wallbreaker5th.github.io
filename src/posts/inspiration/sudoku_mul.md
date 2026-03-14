@@ -66,7 +66,7 @@ T=\begin{pmatrix}0&1\\ 1&0\end{pmatrix}, \qquad
 M=\begin{pmatrix}2&2\\ 1&2\end{pmatrix},
 $$
 
-这时我们可以固定 $\phi$，只需要枚举 $\psi$，使得 $h(t)$ 是 $\mathbb F_3^2$ 上的一个双射即可。 
+这时我们只需要枚举 $\phi, \psi$，使得 $h(t)$ 是 $\mathbb F_3^2$ 上的一个双射即可。 
 
 GPT 寻找到的三个排列为：
 $$
