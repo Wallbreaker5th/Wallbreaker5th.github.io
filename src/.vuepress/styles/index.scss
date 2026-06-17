@@ -1,1 +1,57 @@
 // place your custom styles here
+
+.typst-html-article {
+  .typst-svg-block {
+    margin: 1rem 0;
+    text-align: center;
+  }
+}
+
+.typst-svg-block {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.typst-svg-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.typst-artifact-block {
+  width: 100%;
+  margin: 1rem 0;
+  overflow-x: hidden;
+}
+
+.typst-artifact-canvas {
+  min-height: 2rem;
+}
+
+.typst-artifact-canvas .typst-doc {
+  margin-inline: auto;
+}
+
+.typst-artifact-canvas .typst-page {
+  overflow: hidden;
+}
+
+.typst-artifact-canvas .typst-html-semantics {
+  position: absolute;
+  inset: 0 auto auto 0;
+  z-index: 1;
+  overflow: hidden;
+  color: transparent;
+  white-space: pre;
+  pointer-events: none;
+}
+
+.typst-artifact-canvas .typst-html-semantics * {
+  color: transparent;
+  background: transparent;
+}
+
+.typst-artifact-canvas .typst-html-semantics span {
+  position: absolute;
+  display: inline-block;
+  transform-origin: left top;
+}

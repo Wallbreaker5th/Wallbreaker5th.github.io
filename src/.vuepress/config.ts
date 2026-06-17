@@ -1,6 +1,7 @@
 import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";
 import theme from "./theme.js";
+import { typstPlugin } from "./plugins/typst/index.js";
 
 export default defineUserConfig({
   base: "/",
@@ -10,6 +11,10 @@ export default defineUserConfig({
   description: "Wallbreaker5th 的博客",
 
   theme,
+
+  pagePatterns: ["**/*.md", "**/*.typ", "!.vuepress", "!node_modules"],
+
+  plugins: [typstPlugin()],
 
   bundler: viteBundler({
     viteOptions: {

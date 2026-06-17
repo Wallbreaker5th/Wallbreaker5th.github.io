@@ -1,6 +1,6 @@
 #import "@preview/cetz:0.5.2"
 
-#set page(width: 220mm, height: auto, margin: 5pt)
+#set page(height: auto, margin: 5pt)
 #set text(font: ("LXGW Neo XiHei",), size: 12pt, lang: "zh", region: "CN")
 #show raw: set text(font: ("DejaVu Sans Mono", "LXGW Neo XiHei",))
 #show math.equation: set text(font: "New Computer Modern Math")

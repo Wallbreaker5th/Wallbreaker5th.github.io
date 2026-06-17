@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.0",
-    "@myriaddreamin/typst-ts-renderer": "^0.4.2-rc6",
-    "@myriaddreamin/typst-ts-web-compiler": "^0.4.2-rc6",
-    "@myriaddreamin/typst.ts": "^0.4.2-rc6",
+    "@myriaddreamin/typst-ts-node-compiler": "^0.7.0",
+    "@myriaddreamin/typst-ts-renderer": "^0.7.0",
+    "@myriaddreamin/typst.ts": "^0.7.0",
     "katex": "^0.16.9"
   }
 }

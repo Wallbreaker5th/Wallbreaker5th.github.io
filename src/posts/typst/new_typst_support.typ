@@ -46,7 +46,7 @@ $ integral_0^oo e^(-x^2) dif x = sqrt(pi)/2 $
 = 测试 4
 
 #let show-exmaple(it) = {
-  align(center, it + raw(it.text, block: true, lang: "typst-render-as-svg"))
+  it + raw(it.text, block: true, lang: "typst-render-as-svg")
 }
 
 #show-exmaple(```typ
