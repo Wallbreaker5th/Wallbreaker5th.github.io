@@ -1,6 +1,6 @@
-#import "@preview/cetz:0.2.0"
+#import "@preview/cetz:0.5.2"
 
-#set page(width: json("./page_config.json").width * 1pt, height: auto, margin: 5pt)
+#set page(width: 220mm, height: auto, margin: 5pt)
 #set text(font: ("LXGW Neo XiHei",), size: 12pt, lang: "zh", region: "CN")
 #show raw: set text(font: ("DejaVu Sans Mono", "LXGW Neo XiHei",))
 #show math.equation: set text(font: "New Computer Modern Math")
@@ -32,28 +32,24 @@
 ```)
 
 #show-exmaple(```typ
-
-
 #set heading(numbering: "一、")
 
 = 兰亭集序
 #align(left)[
 #let zhi = counter("zhi")
-#show "之": it => {
+#show "之": it =>  {
   zhi.step()
-  locate(loc => {
+  context{
     text(
       fill: gradient.linear(..color.map.turbo).sample(
-        zhi.at(loc).at(0) / zhi.final(loc).at(0) * 100%),
+        zhi.at(here()).at(0) / zhi.final().at(0) * 100%),
       it
     )
-    super(str(zhi.at(loc).at(0)))
-  })
+    super(str(zhi.at(here()).at(0)))
+  }
 }
 
-#set par(first-line-indent: 2em)
-
-#par(h(0em))
+#set par(first-line-indent: (amount: 2em, all: true))
 
 永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。群贤毕至，少长咸集。此地有崇山峻岭，茂林修竹；又有清流激湍，映带左右，引以为流觞曲水，列坐其次。虽无丝竹管弦之盛，一觞一咏，亦足以畅叙幽情。
 
@@ -64,10 +60,11 @@
 每览昔人兴感之由，若合一契，未尝不临文嗟悼，不能喻之于怀。固知一死生为虚诞，齐彭殇为妄作。后之视今，亦犹今之视昔。悲夫！故列叙时人，录其所述，虽世殊事异，所以兴怀，其致一也。后之览者，亦将有感于斯文。
 ]
 
+
 ```)
 
 #show-exmaple(```typ
-#import "@preview/cetz:0.2.0"
+#import "@preview/cetz:0.5.2"
 #align(center, cetz.canvas({
   import cetz.draw: *
   for i in range(0, 360, step: 5) {
@@ -80,7 +77,7 @@
   content("circle.south", anchor: "north", padding: 1em)[
     $ x^2+y^2=r^2 $
     $ integral_theta dif l = 2 pi r $
-    $ (diff y)/(diff x) dot x/y = -1 $
+    $ (partial y)/(partial x) dot x/y = -1 $
   ]
 }, length: 2cm))
 ```)
