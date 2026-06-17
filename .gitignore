@@ -6,6 +6,7 @@ src/.vuepress/dist/
 
 src/.vuepress/public/typst/*.pdf
 src/posts/**/*.pdf
+src/.vuepress/typst/**/*.pdf
 
 page_config.json
 

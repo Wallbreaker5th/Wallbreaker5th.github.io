@@ -4,7 +4,12 @@ import { dirname, extname, join, relative, sep } from "node:path";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import type MarkdownIt from "markdown-it";
 import type { App, Page, Plugin } from "vuepress/core";
-import { DynLayoutCompiler, NodeCompiler } from "@myriaddreamin/typst-ts-node-compiler";
+import {
+  DynLayoutCompiler,
+  NodeCompiler,
+  type CompileDocArgs,
+  type NodeTypstDocument,
+} from "@myriaddreamin/typst-ts-node-compiler";
 
 type TypstArtifact = {
   filename: string;
@@ -17,10 +22,24 @@ const emittedArtifacts = new Map<string, TypstArtifact>();
 const SVG_LANG = "typst-render-as-svg";
 const ARTIFACT_LANG = "typst-render-as-artifact";
 const ARTIFACT_DIR = "typst-artifacts";
+const BLOG_METADATA_LABEL = "<blog-metadata>";
+const BLOG_TYPST_PACKAGE_IMPORT = ".vuepress/typst/packages/local/wdoc-post-to-blog/0.1.0/lib.typ";
 const CSS_PX_PER_PT = 96 / 72;
 const RESPONSIVE_LAYOUT_WIDTHS = [320, 480, 640, 800, 960, 1120, 1280, 1440].map(
   (width) => width / CSS_PX_PER_PT,
 );
+
+type TypstBlogMetadata = {
+  title?: unknown;
+  description?: unknown;
+  keywords?: unknown;
+  date?: unknown;
+};
+
+type TypstHtmlCompilation = {
+  compiler: NodeCompiler;
+  document: NodeTypstDocument;
+};
 
 const decodeHtml = (value: string): string =>
   value
@@ -107,13 +126,30 @@ const createDynamicLayoutCompiler = (app: App, workspace = app.dir.source()): Dy
   return compiler;
 };
 
-const svgSnippetSource = (source: string): string => `#import "@local/wdoc-post-to-blog:0.1.0": *
-#show: init.with(width: auto)
-#set page(margin: 4pt)
+const compileTypstHtmlDocument = (
+  app: App,
+  args: CompileDocArgs,
+  diagnosticName: string,
+): TypstHtmlCompilation => {
+  configureTypstEnvironment(app);
+  const compiler = createCompiler(app);
+  const result = compiler.compileHtml(args);
+  const document = result.result;
+
+  if (result.hasError() || !document) {
+    result.printErrors();
+    throw new Error(`Typst HTML compilation failed for ${diagnosticName}`);
+  }
+
+  return { compiler, document };
+};
+
+const svgSnippetSource = (source: string): string => `#import "${BLOG_TYPST_PACKAGE_IMPORT}": *
+#show: init.with(width: auto, page_margin: 4pt)
 ${source}
 `;
 
-const artifactSnippetSource = (source: string): string => `#import "@local/wdoc-post-to-blog:0.1.0": *
+const artifactSnippetSource = (source: string): string => `#import "${BLOG_TYPST_PACKAGE_IMPORT}": *
 #show: init
 ${source}
 `;
@@ -207,33 +243,46 @@ const extractMeta = (html: string, name: string): string => {
   return match ? decodeHtml(match[1]) : "";
 };
 
-const extractTypstDate = (source: string): Date | undefined => {
-  const match = source.match(/date:\s*datetime\(\s*year:\s*(\d{4}),\s*month:\s*(\d{1,2}),\s*day:\s*(\d{1,2})/s);
-  if (!match) {
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null;
+
+const stringFromMetadata = (value: unknown): string | undefined =>
+  typeof value === "string" && value.trim() ? value : undefined;
+
+const keywordValuesFromMetadata = (keywords: unknown): string[] => {
+  if (Array.isArray(keywords)) {
+    return keywords.filter((item): item is string => typeof item === "string");
+  }
+
+  if (typeof keywords === "string") {
+    return keywords.split(",");
+  }
+
+  return [];
+};
+
+const dateFromMetadata = (value: unknown): Date | undefined => {
+  if (typeof value !== "string") {
     return undefined;
   }
 
-  const [, year, month, day] = match;
-  return new Date(`${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}T00:00:00.000Z`);
-};
-
-const extractTypstStringField = (source: string, field: string): string | undefined => {
-  const match = source.match(new RegExp(`${field}:\\s*"((?:[^"\\\\]|\\\\.)*)"`, "s"));
-  return match ? match[1].replace(/\\"/g, "\"") : undefined;
-};
-
-const extractTypstKeywords = (source: string): string | undefined => {
-  const match = source.match(/keywords:\s*\(([\s\S]*?)\)/);
-  if (!match) {
+  const [year, month, day] = value.split("-").map(Number);
+  if (!year || !month || !day) {
     return undefined;
   }
 
-  const values = [...match[1].matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((item) => item[1].replace(/\\"/g, "\""));
-  return values.join(", ");
+  return new Date(Date.UTC(year, month - 1, day));
 };
 
-const keywordsToFrontmatter = (keywords: string): { category?: string[]; tag?: string[] } => {
-  const values = keywords.split(",").map((item) => item.trim()).filter(Boolean);
+const queryTypstBlogMetadata = (compiler: NodeCompiler, document: NodeTypstDocument): TypstBlogMetadata => {
+  const values = compiler.query(document, { selector: BLOG_METADATA_LABEL, field: "value" });
+  const value = Array.isArray(values) ? values[0] : undefined;
+
+  return isRecord(value) ? value : {};
+};
+
+const keywordsToFrontmatter = (keywords: unknown): { category?: string[]; tag?: string[] } => {
+  const values = keywordValuesFromMetadata(keywords).map((item) => item.trim()).filter(Boolean);
   const category: string[] = [];
   const tag: string[] = [];
 
@@ -249,6 +298,19 @@ const keywordsToFrontmatter = (keywords: string): { category?: string[]; tag?: s
   return {
     ...(category.length ? { category } : {}),
     ...(tag.length ? { tag } : {}),
+  };
+};
+
+const metadataToFrontmatter = (metadata: TypstBlogMetadata): Record<string, unknown> => {
+  const title = stringFromMetadata(metadata.title);
+  const description = stringFromMetadata(metadata.description);
+  const date = dateFromMetadata(metadata.date);
+
+  return {
+    ...keywordsToFrontmatter(metadata.keywords),
+    ...(title ? { title } : {}),
+    ...(description ? { description, excerpt: description } : {}),
+    ...(date ? { date } : {}),
   };
 };
 
@@ -289,21 +351,20 @@ const renderTypstArticle = (app: App, page: Page): void => {
 
   configureTypstEnvironment(app);
 
-  const source = readFileSync(page.filePath, "utf8");
-  const compiler = createCompiler(app);
-  const fullHtml = compiler.html({
+  const { compiler, document } = compileTypstHtmlDocument(app, {
     mainFilePath: page.filePath,
     inputs: { "wdoc-export-target": "html" },
     resetRead: true,
-  });
+  }, page.filePathRelative);
+  const metadata = queryTypstBlogMetadata(compiler, document);
+  const fullHtml = compiler.html(document);
 
   if (!fullHtml) {
     throw new Error(`Typst HTML export returned empty output for ${page.filePathRelative}`);
   }
 
-  const title = extractTagContent(fullHtml, "title") || page.title;
-  const description = extractMeta(fullHtml, "description");
-  const keywords = extractMeta(fullHtml, "keywords");
+  const title = stringFromMetadata(metadata.title) || extractTagContent(fullHtml, "title") || page.title;
+  const description = stringFromMetadata(metadata.description) || extractMeta(fullHtml, "description");
   const body = extractTagContent(fullHtml, "body");
   const processedBody = renderTypstCodeBlocks(app, body);
   const { html, headers } = applyHeadingIds(processedBody, page.path);
@@ -321,10 +382,9 @@ const renderTypstArticle = (app: App, page: Page): void => {
   page.headers = headers;
   page.frontmatter = {
     ...page.frontmatter,
-    ...keywordsToFrontmatter(keywords),
+    ...metadataToFrontmatter(metadata),
     title,
     ...(description ? { description, excerpt: description } : {}),
-    ...(extractTypstDate(source) ? { date: extractTypstDate(source) } : {}),
   };
   page.data.title = page.title;
   page.data.headers = page.headers;
@@ -361,18 +421,17 @@ export const typstPlugin = (): Plugin => ({
 
   extendsPageOptions: (options, app) => {
     if (options.filePath && extname(options.filePath) === ".typ") {
-      const source = readFileSync(options.filePath, "utf8");
-      const title = extractTypstStringField(source, "title");
-      const description = extractTypstStringField(source, "description");
-      const keywords = extractTypstKeywords(source);
+      const { compiler, document } = compileTypstHtmlDocument(app, {
+        mainFilePath: options.filePath,
+        inputs: { "wdoc-export-target": "html" },
+        resetRead: true,
+      }, options.filePath);
+      const metadata = queryTypstBlogMetadata(compiler, document);
 
       options.path = resolveTypstPagePath(app, options.filePath);
       options.frontmatter = {
         ...options.frontmatter,
-        ...keywordsToFrontmatter(keywords ?? ""),
-        ...(title ? { title } : {}),
-        ...(description ? { description, excerpt: description } : {}),
-        ...(extractTypstDate(source) ? { date: extractTypstDate(source) } : {}),
+        ...metadataToFrontmatter(metadata),
       };
     }
   },

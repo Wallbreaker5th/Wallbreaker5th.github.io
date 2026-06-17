@@ -5,7 +5,7 @@
 #let cjk-mono = "LXGW WenKai GB"
 #let cjk-italic = "LXGW WenKai GB"
 
-#let export-target = sys.inputs.at("wdoc-export-target", default: if target() == html { "html" } else { "paged" })
+#let export-target = sys.inputs.at("wdoc-export-target", default: "paged")
 #let is-html-export = export-target == "html"
 #let page-width = sys.inputs.at("x-page-width", default: 210mm)
 
@@ -13,6 +13,7 @@
   if is-html-export {
     doc
   } else {
+    set page(fill: white)
     set text(font: ((
       name: serif,
       covers: "latin-in-cjk",
@@ -29,7 +30,7 @@
 
     show heading: set text(font: cjk, weight: 400)
 
-    block(width: 220mm, doc, fill: red)
+    doc
   }
 }
 
@@ -37,7 +38,6 @@
   if is-html-export {
     raw-block
   } else {
-    show: style-settings
     let body = eval("[" + raw-block.text + "]")
     if inline {
       body
@@ -47,12 +47,47 @@
   }
 }
 
-#let init(doc, width: page-width) = {
-  show: style-settings
-
-  if not is-html-export {
-    set page(width: width, height: auto, margin: 5mm)
+#let blog-date(date) = {
+  if date == none {
+    none
+  } else {
+    date.display("[year]-[month]-[day]")
   }
+}
+
+#let blog-metadata-config(blog_metadata) = {
+  let title = blog_metadata.at("title", default: none)
+  let description = blog_metadata.at("description", default: none)
+  let keywords = blog_metadata.at("keywords", default: ())
+  let date = blog_metadata.at("date", default: none)
+
+  (
+    title: title,
+    description: description,
+    keywords: keywords,
+    date: date,
+    query: (
+      title: title,
+      description: description,
+      keywords: keywords,
+      date: blog-date(date),
+    ),
+  )
+}
+
+#let init(doc, width: page-width, page_margin: 5mm, blog_metadata: (:)) = {
+  let metadata-config = blog-metadata-config(blog_metadata)
+
+  set document(
+    title: metadata-config.title,
+    description: metadata-config.description,
+    keywords: metadata-config.keywords,
+    date: metadata-config.date,
+  )
+
+  set page(width: width, height: auto, margin: page_margin)
+
+  show: style-settings
 
   show title: it => {
     if is-html-export {
@@ -64,6 +99,10 @@
 
   show raw.where(block: true, lang: "typst-render-as-svg"): it => render-preview(it)
   show raw.where(block: true, lang: "typst-render-as-artifact"): it => render-preview(it, inline: true)
+
+  if metadata-config != none {
+    [#metadata(metadata-config.query) <blog-metadata>]
+  }
 
   doc
 }

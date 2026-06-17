@@ -1,11 +1,10 @@
 #import "@local/wdoc-post-to-blog:0.1.0": *
-#show: init
-#set document(
+#show: init.with(blog_metadata: (
   title: "这个博客（又）能写 Typst 了！",
   description: "经过又一番神秘的折腾，在 Codex 的大手下，现在这个博客调整了 Typst 的支持方式，终于是一个比较正常的流程了。这篇文章即为基于 Typst 的 HTML 导出的示例。",
   keywords: ("Category: Typst", "Typst", "Meta"),
-  date: datetime(year: 2026, month: 6, day: 17)
-)
+  date: datetime(year: 2026, month: 6, day: 17),
+))
 
 #title()
 
@@ -50,6 +49,8 @@ $ integral_0^oo e^(-x^2) dif x = sqrt(pi)/2 $
 }
 
 #show-exmaple(```typ
+#show: block.with(width: 210mm)
+
 #set heading(numbering: "一、")
 
 = 兰亭集序
