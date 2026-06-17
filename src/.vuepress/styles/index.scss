@@ -43,15 +43,22 @@
   color: transparent;
   white-space: pre;
   pointer-events: none;
+  user-select: text;
 }
 
 .typst-artifact-canvas .typst-html-semantics * {
   color: transparent;
   background: transparent;
+  user-select: text;
 }
 
 .typst-artifact-canvas .typst-html-semantics span {
   position: absolute;
   display: inline-block;
   transform-origin: left top;
+  pointer-events: auto;
+}
+
+.typst-artifact-canvas .typst-html-semantics ::selection {
+  background: rgb(0 128 255 / 35%);
 }

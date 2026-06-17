@@ -66,6 +66,10 @@ const renderArtifact = async (): Promise<void> => {
     format: "vector",
     artifactContent: artifactData.value,
     pixelPerPt: props.pixelPerPt ?? 4,
+    dataSelection: {
+      body: true,
+      semantics: true,
+    },
   });
 };
 
