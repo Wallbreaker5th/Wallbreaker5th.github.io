@@ -24,23 +24,52 @@
 }
 
 .typst-artifact-canvas {
+  width: 100%;
   min-height: 2rem;
+  --typst-dom-scale: 1.3333333333;
 }
 
-.typst-artifact-canvas .typst-doc {
+.typst-artifact-canvas .typst-doc,
+.typst-artifact-canvas .typst-dom-doc {
   margin-inline: auto;
 }
 
-.typst-artifact-canvas .typst-page {
+.typst-artifact-canvas .typst-page,
+.typst-artifact-canvas .typst-dom-page {
   overflow: hidden;
 }
 
+.typst-artifact-canvas .typst-dom-page {
+  position: relative;
+  width: calc(var(--data-page-width, 100%) * var(--typst-dom-scale));
+  height: calc(var(--data-page-height) * var(--typst-dom-scale));
+  --data-text-width: calc(1px * var(--typst-dom-scale));
+  --data-text-height: calc(1px * var(--typst-dom-scale));
+}
+
+.typst-artifact-canvas .typst-back-canvas,
+.typst-artifact-canvas .typst-svg-page,
 .typst-artifact-canvas .typst-html-semantics {
   position: absolute;
   inset: 0 auto auto 0;
-  z-index: 1;
+  width: calc(var(--data-page-width, 100%) * var(--typst-dom-scale));
+  height: calc(var(--data-page-height) * var(--typst-dom-scale));
+}
+
+.typst-artifact-canvas .typst-back-canvas {
+  z-index: -1;
+  pointer-events: none;
+}
+
+.typst-artifact-canvas .typst-svg-page {
+  z-index: 0;
+}
+
+.typst-artifact-canvas .typst-html-semantics {
+  z-index: 2;
   overflow: hidden;
   color: transparent;
+  font-family: monospace;
   white-space: pre;
   pointer-events: none;
   user-select: text;
@@ -55,8 +84,38 @@
 .typst-artifact-canvas .typst-html-semantics span {
   position: absolute;
   display: inline-block;
+  left: 0;
+  top: 0;
   transform-origin: left top;
   pointer-events: auto;
+}
+
+.typst-artifact-canvas .typst-html-semantics a,
+.typst-artifact-canvas .typst-content-hint {
+  position: absolute;
+  display: inline-block;
+}
+
+.typst-artifact-canvas .typst-content-hint {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.typst-artifact-canvas .typst-content-group {
+  pointer-events: visible;
+}
+
+.typst-artifact-canvas .typst-content-fallback,
+.typst-artifact-canvas .pseudo-link,
+.typst-artifact-canvas .typst-text {
+  color: transparent;
+  background: transparent;
+}
+
+.typst-artifact-canvas .pseudo-link,
+.typst-artifact-canvas .typst-text {
+  pointer-events: none;
 }
 
 .typst-artifact-canvas .typst-html-semantics ::selection {

@@ -23,11 +23,23 @@ const SVG_LANG = "typst-render-as-svg";
 const ARTIFACT_LANG = "typst-render-as-artifact";
 const ARTIFACT_DIR = "typst-artifacts";
 const BLOG_METADATA_LABEL = "<blog-metadata>";
-const BLOG_TYPST_PACKAGE_IMPORT = ".vuepress/typst/packages/local/wdoc-post-to-blog/0.1.0/lib.typ";
+const BLOG_TYPST_PACKAGE_IMPORT = "@local/wdoc-post-to-blog:0.1.0";
 const CSS_PX_PER_PT = 96 / 72;
-const RESPONSIVE_LAYOUT_WIDTHS = [320, 480, 640, 800, 960, 1120, 1280, 1440].map(
-  (width) => width / CSS_PX_PER_PT,
-);
+const RESPONSIVE_LAYOUT_WIDTHS = [
+  1440,
+  1280,
+  1120,
+  960,
+  800,
+  720,
+  640,
+  560,
+  480,
+  440,
+  400,
+  360,
+  320,
+].map((width) => width / CSS_PX_PER_PT);
 
 type TypstBlogMetadata = {
   title?: unknown;
@@ -204,7 +216,7 @@ const compilePublicTypstRendererSource = (app: App, sourcePath: string): void =>
   if (!emittedArtifacts.has(filename)) {
     const dynamicCompiler = createDynamicLayoutCompiler(app, app.dir.public());
     const artifact = dynamicCompiler.vector({
-      mainFilePath: absolutePath,
+      mainFileContent: artifactSnippetSource(source),
       inputs: { "wdoc-export-target": "paged" },
       resetRead: true,
     });
