@@ -18,12 +18,14 @@ type TypstArtifact = {
 
 const rendererManifest: Record<string, string> = {};
 const emittedArtifacts = new Map<string, TypstArtifact>();
+let restartDevServer: (() => Promise<void>) | undefined;
+let restartingDevServer = false;
 
 const SVG_LANG = "typst-render-as-svg";
 const ARTIFACT_LANG = "typst-render-as-artifact";
 const ARTIFACT_DIR = "typst-artifacts";
 const BLOG_METADATA_LABEL = "<blog-metadata>";
-const BLOG_TYPST_PACKAGE_IMPORT = "@local/wdoc-post-to-blog:0.1.0";
+const BLOG_TYPST_LIBRARY_PATH = "/.vuepress/typst/packages/local/wdoc-post-to-blog/0.1.0/lib.typ";
 const CSS_PX_PER_PT = 96 / 72;
 const RESPONSIVE_LAYOUT_WIDTHS = [
   1440,
@@ -117,11 +119,6 @@ const serveTypstArtifact = (
   res.end(artifact.content);
 };
 
-const configureTypstEnvironment = (app: App): void => {
-  process.env.TYPST_PACKAGE_PATH = app.dir.source(".vuepress", "typst", "packages");
-  process.env.TYPST_PACKAGE_CACHE_PATH = app.dir.cache("typst", "packages");
-};
-
 const createCompiler = (app: App, workspace = app.dir.source()): NodeCompiler =>
   NodeCompiler.create({
     workspace,
@@ -143,7 +140,6 @@ const compileTypstHtmlDocument = (
   args: CompileDocArgs,
   diagnosticName: string,
 ): TypstHtmlCompilation => {
-  configureTypstEnvironment(app);
   const compiler = createCompiler(app);
   const result = compiler.compileHtml(args);
   const document = result.result;
@@ -156,18 +152,17 @@ const compileTypstHtmlDocument = (
   return { compiler, document };
 };
 
-const svgSnippetSource = (source: string): string => `#import "${BLOG_TYPST_PACKAGE_IMPORT}": *
+const svgSnippetSource = (source: string): string => `#import "${BLOG_TYPST_LIBRARY_PATH}": *
 #show: init.with(width: auto, page_margin: 4pt)
 ${source}
 `;
 
-const artifactSnippetSource = (source: string): string => `#import "${BLOG_TYPST_PACKAGE_IMPORT}": *
+const artifactSnippetSource = (source: string): string => `#import "${BLOG_TYPST_LIBRARY_PATH}": *
 #show: init
 ${source}
 `;
 
 const compileSvgSnippet = (app: App, source: string): string => {
-  configureTypstEnvironment(app);
   const filename = `${hashFor("svg", source)}.svg`;
   if (!emittedArtifacts.has(filename)) {
     const svg = createCompiler(app).svg({
@@ -181,7 +176,6 @@ const compileSvgSnippet = (app: App, source: string): string => {
 };
 
 const compileArtifactSnippet = (app: App, source: string): string => {
-  configureTypstEnvironment(app);
   const filename = `${hashFor(`artifact:${RESPONSIVE_LAYOUT_WIDTHS.join(",")}`, source)}.sir`;
   if (!emittedArtifacts.has(filename)) {
     const dynamicCompiler = createDynamicLayoutCompiler(app);
@@ -208,13 +202,12 @@ const compilePublicTypstRendererSource = (app: App, sourcePath: string): void =>
     return;
   }
 
-  configureTypstEnvironment(app);
   const absolutePath = resolvePublicSourcePath(app, publicPath);
   const source = readFileSync(absolutePath, "utf8");
   const filename = `${hashFor(`renderer:${RESPONSIVE_LAYOUT_WIDTHS.join(",")}`, `${publicPath}\0${source}`)}.sir`;
 
   if (!emittedArtifacts.has(filename)) {
-    const dynamicCompiler = createDynamicLayoutCompiler(app, app.dir.public());
+    const dynamicCompiler = createDynamicLayoutCompiler(app);
     const artifact = dynamicCompiler.vector({
       mainFileContent: artifactSnippetSource(source),
       inputs: { "wdoc-export-target": "paged" },
@@ -361,8 +354,6 @@ const renderTypstArticle = (app: App, page: Page): void => {
     return;
   }
 
-  configureTypstEnvironment(app);
-
   const { compiler, document } = compileTypstHtmlDocument(app, {
     mainFilePath: page.filePath,
     inputs: { "wdoc-export-target": "html" },
@@ -457,7 +448,7 @@ export const typstPlugin = (): Plugin => ({
     scanTypstRendererTags(app, page.contentRendered);
   },
 
-  extendsBundlerOptions: (bundlerOptions) => {
+  extendsBundlerOptions: (bundlerOptions, app) => {
     bundlerOptions.viteOptions ??= {};
     bundlerOptions.viteOptions.optimizeDeps ??= {};
     bundlerOptions.viteOptions.optimizeDeps.exclude = [
@@ -472,9 +463,40 @@ export const typstPlugin = (): Plugin => ({
         name: "vuepress-plugin-local-typst-artifacts",
         configureServer: (server) => {
           server.middlewares.use(serveTypstArtifact);
+
+          const packagesDir = app.dir.source(".vuepress", "typst", "packages");
+          const restartForPackageChange = (file: string): void => {
+            const packageFile = relative(packagesDir, file);
+            if (packageFile === ".." || packageFile.startsWith(`..${sep}`)) {
+              return;
+            }
+
+            emittedArtifacts.clear();
+            for (const key of Object.keys(rendererManifest)) {
+              delete rendererManifest[key];
+            }
+
+            if (!restartDevServer || restartingDevServer) {
+              return;
+            }
+
+            restartingDevServer = true;
+            void restartDevServer().catch(console.error).finally(() => {
+              restartingDevServer = false;
+            });
+          };
+
+          server.watcher.add(packagesDir);
+          server.watcher.on("add", restartForPackageChange);
+          server.watcher.on("change", restartForPackageChange);
+          server.watcher.on("unlink", restartForPackageChange);
         },
       },
     ];
+  },
+
+  onWatched: (_app, _watchers, restart) => {
+    restartDevServer = restart;
   },
 
   onGenerated: (app) => {

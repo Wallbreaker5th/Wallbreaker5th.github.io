@@ -1,3 +1,5 @@
+#import "@preview/cuti:0.4.0": show-cn-fakebold
+
 #let mono = "DejaVu Sans Mono"
 #let serif = "LXGW Neo XiHei"
 #let math-font = "New Computer Modern Math"
@@ -14,6 +16,7 @@
     doc
   } else {
     set page(fill: white)
+    show: show-cn-fakebold
     set text(font: ((
       name: serif,
       covers: "latin-in-cjk",
